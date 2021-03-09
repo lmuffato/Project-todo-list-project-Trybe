@@ -8,5 +8,7 @@ function click() {
     let listValue = document.createElement('li');
     listValue.innerText = valueInput;
     valueToList.appendChild(listValue);
-    valueInput.innerText = '';
+    valueEmpty = valueInput.innerText = '';
+    valueEmpty;
+    console.log(valueEmpty)
 }
