@@ -1,14 +1,12 @@
+let input = document.querySelector('#texto-tarefa');
 let clickButton = document.querySelector('#criar-tarefa');
 let valueToList = document.querySelector('#lista-tarefas');
 
 clickButton.addEventListener('click', click);
 
 function click() {
-    let valueInput = document.querySelector('#texto-tarefa').value;
     let listValue = document.createElement('li');
-    listValue.innerText = valueInput;
+    listValue.innerText = input.value;
     valueToList.appendChild(listValue);
-    valueEmpty = valueInput.innerText = '';
-    valueEmpty;
-    console.log(valueEmpty)
+    input.value = '';
 }
