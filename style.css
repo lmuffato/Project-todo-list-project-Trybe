@@ -8,6 +8,14 @@ button {
   color: teal;
 }
 
+#apaga-tudo {
+  color: red;
+}
+
+#remover-finalizados {
+  color: orange;
+}
+
 .selected {
   background-color: rgb(128 , 128 , 128);
 }

@@ -27,7 +27,6 @@ function clickEvent(event) {
 
 function clickDel(event) {
   const getCompleted = event.target;
-  console.log(getCompleted.classList.value)
   if (getCompleted.classList.value.includes('completed') == true) {
       getCompleted.classList.remove('completed');
   } else {
@@ -44,6 +43,16 @@ function swapSelected() {
 function swapCompleted() {
   const getSelected = document.getElementById('lista-tarefas');
   getSelected.addEventListener('dblclick', clickDel);
+}
+
+const getCleanButton = document.getElementById('apaga-tudo')  
+getCleanButton.addEventListener('click', CleanAll)
+
+function CleanAll() {
+  const getAllList = document.getElementById('lista-tarefas');
+  while (getAllList.firstChild) {
+    getAllList.firstChild.remove()
+  }
 }
 
 add();
