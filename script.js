@@ -57,7 +57,8 @@ clearList();
 function removeCompleted() {
   const removeBtn = document.querySelector('#remover-finalizados');
   removeBtn.addEventListener('click', () => {
-    const list = document.querySelector('#lista-tarefas').childNodes;
+    const list = document.querySelectorAll('#lista-tarefas li');
+    //document.querySelector('#lista-tarefas').childNodes;
     for (let index = 0; index < list.length; index += 1) {
       if (list[index].className === 'completed') {
         document.querySelector('#lista-tarefas').removeChild(list[index]);
