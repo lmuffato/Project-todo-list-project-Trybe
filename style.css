@@ -4,6 +4,10 @@ button {
   border-radius: 45%;
 }
 
+header {
+  font-size: 30px;
+}
+
 #funcionamento {
   margin-bottom: 20px;
 }
@@ -19,4 +23,8 @@ button {
 
 #box-list {
   margin-top: 20px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
