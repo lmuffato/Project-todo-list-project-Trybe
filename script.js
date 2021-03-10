@@ -56,3 +56,11 @@ function clearFinishTask() {
 
 const clearFinish = document.getElementById('remover-finalizados');
 clearFinish.addEventListener('click', clearFinishTask);
+
+function clearSelects() {
+  const removeSelect = document.querySelector('.selected');
+  removeSelect.remove();
+}
+
+const clearSelect = document.getElementById('remover-selecionado');
+clearSelect.addEventListener('click', clearSelects);
