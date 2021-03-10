@@ -1,6 +1,3 @@
-const task = document.querySelector('#lista-tarefas');
-const tasks = document.querySelectorAll('.task');
-
 function createTask() {
   const inputTask = document.getElementById('texto-tarefa');
   const olList = document.getElementById('lista-tarefas');
@@ -23,6 +20,23 @@ function addTask() {
   addTaskBtn.addEventListener('click', createTask);
 }
 
+function cleanSelected() {
+  const tasks = document.querySelectorAll('.task');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].classList.remove('selected');
+  }
+}
+
+function selectTask() {
+  const task = document.querySelector('#lista-tarefas');
+
+  task.addEventListener('click', (event) => {
+    cleanSelected();
+    event.target.classList.add('selected');
+  });
+}
+
 window.onload = () => {
   addTask();
+  selectTask();
 };
