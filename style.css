@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, sans-serif;
+}
+
+body {
+  background-color: rgba(76 , 175 , 80 , 1);
+}
+
+#container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 50px;
+  border-radius: 15px;
+}
+
+#container header {
+  padding-left: 50px;
+  padding-top: 25px;
+}
+
+#container header p {
+  font-weight: 200;
+  font-style: italic;
+  font-size: 19px;
+  padding-top: 9px;
+}
+
+#adicionar-todo {
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+#adicionar-todo #texto-tarefa {
+  padding: 2px;
+}
