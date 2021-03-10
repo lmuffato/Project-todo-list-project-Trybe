@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h1, p {
+  font-family: Inter, sans-serif;
+}
+
 body {
   background: rgb(255, 250, 232);
   display: flex;
