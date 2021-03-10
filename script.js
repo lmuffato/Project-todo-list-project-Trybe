@@ -14,6 +14,12 @@ function addTask() {
 }
 
 function selectTask(element) {
+  const tasks = tasksList.children;
+  for (let index = 0; index < tasks.length; index += 1) {
+    const task = tasks[index];
+    task.style.backgroundColor = 'transparent';
+  }
+
   const task = element.target;
   task.style.backgroundColor = colors.selected;
 }
@@ -26,5 +32,11 @@ function getTasks() {
   }
 }
 
-buttonAddTask.addEventListener('click', addTask);
-buttonAddTask.addEventListener('click', getTasks);
+function buttonActions(button, arrayOfActions) {
+  for (let index = 0; index < arrayOfActions.length; index += 1) {
+    const action = arrayOfActions[index];
+    button.addEventListener('click', action);
+  }
+}
+
+buttonActions(buttonAddTask, [addTask, getTasks]);
