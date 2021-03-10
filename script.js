@@ -78,6 +78,32 @@ function removeSelected() {
   });
 }
 
+function saveTasks() {
+  const saveBtn = document.getElementById('salvar-tarefas');
+  saveBtn.addEventListener('click', () => {
+    const tasks = document.getElementsByClassName('task');
+    for (let index = 0; index < tasks.length; index += 1) {
+      const tasksSaved = {
+        text: tasks[index].innerText,
+        class: tasks[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(tasksSaved));
+    }
+  });
+}
+
+function getTasks() {
+  const task = document.getElementById('lista-tarefas');
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const createTasks = document.createElement('li');
+    const getTasksSaved = JSON.parse(localStorage.getItem(index));
+    createTasks.innerText = getTasksSaved.text;
+    createTasks.className = getTasksSaved.class;
+    createTasks.classList.remove('selected');
+    task.appendChild(createTasks);
+  }
+}
+
 window.onload = () => {
   addTask();
   selectTask();
@@ -85,4 +111,6 @@ window.onload = () => {
   clearAllTasks();
   clearCompletedTasks();
   removeSelected();
+  saveTasks();
+  getTasks();
 };
