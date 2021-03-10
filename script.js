@@ -42,3 +42,14 @@ function clearList() {
 }
 
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
+
+function clearDoneItems() {
+  const allItems = document.getElementById('lista-tarefas').childNodes;
+  for (let index = 0; index < allItems.length; index += 1) {
+    if (allItems[index].className === 'list-item completed') {
+      document.getElementById('lista-tarefas').removeChild(allItems[index]);
+    }
+  }
+}
+
+document.getElementById('remover-finalizados').addEventListener('click', clearDoneItems);
