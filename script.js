@@ -51,17 +51,19 @@ function addNewTask() {
 function deleteList() {
   const list = document.getElementById('lista-tarefas');
 
-  for (task of list.childNodes) {
-    list.removeChild(task);
-  }
+  list.innerHTML = '';
+
+  // for (task of list.children) {
+  //   list.remove(task);
+  // }
 }
 
 function removeCompletedTasks() {
   const completedTasks = document.getElementsByClassName('completed');
   const list = document.getElementById('lista-tarefas');
 
-  for (task of completedTasks) {
-    list.removeChild(task);
+  for (task in completedTasks) {
+    list.removeChild(completedTasks[task]);
   }
 }
 
