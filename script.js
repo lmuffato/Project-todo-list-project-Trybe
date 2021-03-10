@@ -1,6 +1,6 @@
 const items = [];
 
-function changeSelectItem() {
+function clearSelection() {
   const listLis = document.getElementsByClassName('item');
   for (let index = 0; index < listLis.length; index += 1) {
     listLis[index].style.backgroundColor = 'rgb(255,255,255)';
@@ -8,7 +8,7 @@ function changeSelectItem() {
 }
 
 function selectItemList(e) {
-  changeSelectItem();
+  clearSelection();
   e.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
