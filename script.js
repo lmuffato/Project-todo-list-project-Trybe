@@ -40,6 +40,13 @@ function addCompletedClass(e) {
   }
 }
 
+function clearListTask() {
+  for (let index = 0; index < listItens.length; index += 1) {
+    console.log(toDoList);
+    toDoList.removeChildren();
+  }
+}
+
 function addTaskToList() {
   const task = textBox.value;
   const taskElement = document.createElement('li');
@@ -51,3 +58,7 @@ function addTaskToList() {
 }
 
 createTaskBtn.addEventListener('click', addTaskToList);
+
+const clearList = document.getElementById('apaga-tudo');
+clearList.innerText = 'clear all tasks';
+clearList.addEventListener('click', clearListTask);
