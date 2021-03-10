@@ -19,3 +19,13 @@ btn.addEventListener('click', checkEachTask);
 // }
 
 // alterColorWhenClicked();
+
+function checkCompleteMyListOfTasks(event) {
+  if (event.target.className !== 'completed') {
+    event.target.classList.add('completed');
+  } else {
+    event.target.classList.remove('completed');
+  }
+}
+const myListOfTasks = document.getElementById('lista-tarefas');
+myListOfTasks.addEventListener('dblclick', checkCompleteMyListOfTasks);
