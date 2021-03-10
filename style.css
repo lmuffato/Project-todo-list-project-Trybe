@@ -1,0 +1,33 @@
+body {
+    background-color: tomato;
+    color: white;
+    font-family: ubuntu, sans-serif;
+  }
+  
+  li {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .completed {
+    text-decoration: line-through solid black;
+  }
+  
+  .btn {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-family: ubuntu, sans-serif;
+    font-size: 15px;
+    margin: 10px;
+    padding: 5px;
+  }
+  
+  input {
+    border: 1px solid white;
+    color: tomato;
+    font-family: monospace, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+  }
