@@ -9,7 +9,23 @@ function buttonCreateTaks() {
     itemList.innerHTML = document.getElementById('texto-tarefa').value;
     listHeader.appendChild(itemList);
     document.getElementById('texto-tarefa').value = '';
+    changeColorItems();
   }
+
 }
 
 buttonCreateTaks();
+
+function changeColorItems() {
+  let itemLi = document.getElementsByTagName('li');
+  console.log(itemLi);
+
+  for (let index = 0; index < itemLi.length; index += 1) {
+    itemLi[index].addEventListener('click', paintBrush);
+    function paintBrush() {
+      itemLi[index].style.backgroundColor = 'rgb(128,128,128)';
+    }
+  }
+
+}
+
