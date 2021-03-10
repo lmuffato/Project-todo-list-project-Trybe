@@ -2,6 +2,7 @@ const listaDeTarefas = document.getElementById('lista-tarefas');
 const buttonCriar = document.getElementById('criar-tarefa');
 const textoTarefa = document.getElementById('texto-tarefa');
 const tarefa = document.getElementsByTagName('li');
+const clearButton = document.getElementById('apaga-tudo');
 
 function criarTarefa() {
   const tarefas = document.createElement('li');
@@ -30,12 +31,16 @@ function finishedOption(listItem) {
   if (taskChosen.textDecoration === 'solid') {
     taskChosen.textDecoration = 'line-through';
   } else {
-    for (let index = 0; index < tarefa.length; index += 1) {
-      tarefa[index].style.textDecoration = 'solid';
-    }
+    taskChosen.textDecoration = 'solid';
   }
 }
 
+function clearAll() {
+  for (let index = -tarefa.length; index <= tarefa.length; index += 1) {
+    listaDeTarefas.lastChild.remove()
+  }
+}
+clearButton.addEventListener('click', clearAll);
 listaDeTarefas.addEventListener('dblclick', finishedOption);
 listaDeTarefas.addEventListener('click', unselectOptions);
 listaDeTarefas.addEventListener('click', selectOption);
