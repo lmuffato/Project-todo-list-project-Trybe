@@ -5,3 +5,7 @@ header {
   font-size: 35px;
   font-weight: bold;
 }
+
+li{
+  background-color: white;
+}
