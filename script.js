@@ -18,5 +18,13 @@ function addTask() {
 }
 buttonTask.addEventListener('click', addTask);
 list.addEventListener('click', function(event) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    let listItens = document.querySelectorAll('li');
+    for (let item of listItens) {
+        if (item.style.backgroundColor = 'rgb(128, 128, 128)') {
+            item.style.backgroundColor = 'white';
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+        }
+        else {event.target.style.backgroundColor = 'rgb(128, 128, 128)'}
+    }
 });
+
