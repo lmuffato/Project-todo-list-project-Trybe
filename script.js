@@ -11,3 +11,8 @@ function addTaskToList() {
 
 // Adicionar event listener no botão
 addTaskBtn.addEventListener('click', addTaskToList);
+
+taskList.addEventListener('click', (event) => {
+  const clickedItem = event.target;
+  clickedItem.style.backgroundColor = 'rgb(128,128,128)';
+});
