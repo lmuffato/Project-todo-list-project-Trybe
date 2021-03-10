@@ -9,3 +9,9 @@ btnAdicionar.addEventListener('click', () => {
   toDoList.appendChild(tarefa);
   inputTarefa.value = '';
 });
+
+toDoList.addEventListener('click', (event) => {
+  const item = event.target;
+  console.log(item);
+  item.style.backgroundColor = 'rgb(128, 128, 128)';
+});
