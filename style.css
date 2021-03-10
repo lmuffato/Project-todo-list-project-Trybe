@@ -8,11 +8,14 @@ header {
 }
 
 /* -------------- main ------------- */
-
 #funcionamento {
     text-align: center;
 }
 
 #input-container {
     text-align: center;
+}
+
+#texto-tarefa {
+    border: solid 1px black;
 }
