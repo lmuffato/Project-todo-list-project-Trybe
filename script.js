@@ -10,7 +10,7 @@ function selecionarTarefa(tarefaElementoHtml) {
 
 function completarTarefa(tarefaElementoHtml) {
   const tarefaClicada = tarefaElementoHtml;
-  tarefaClicada.classList.add('completed');
+  tarefaClicada.classList.toggle('completed');
 }
 
 function criarElementoHtmlTarefa(nomeDaTarefa) {
