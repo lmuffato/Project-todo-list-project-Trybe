@@ -1,3 +1,32 @@
+function displayStoraged() {
+  const taskListContainer = document.querySelector('#lista-tarefas');
+  if (localStorage.length > 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const saved = `list${[index]}`;
+      const listItem = document.createElement('li');
+      taskListContainer.appendChild(listItem);
+      listItem.outerHTML = localStorage[saved];
+    }
+  }
+}
+
+function saveStorage() {
+  const taskList = document.querySelectorAll('.task');
+  localStorage.clear();
+
+  for (let index = 0; index < taskList.length; index += 1) {
+    const list = taskList[index].outerHTML;
+    const item = `list${[index]}`;
+    localStorage.setItem(item, list);
+  }
+}
+
+function setStoraged() {
+  const buttonSaveTasks = document.querySelector('#salvar-tarefas');
+
+  buttonSaveTasks.addEventListener('click', saveStorage);
+}
+
 function removeCompleted() {
   const completedList = document.querySelectorAll('.completed');
 
@@ -85,4 +114,6 @@ window.onload = () => {
   setComplete();
   clearButtonClick();
   removeCompletedButton();
+  setStoraged();
+  displayStoraged();
 };
