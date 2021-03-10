@@ -18,17 +18,6 @@ const addEvListenerNElements = (elementsNodes, event, fn) => {
   }
 };
 
-const createTodoItem = (text) => {
-  const li = document.createElement('li');
-  li.innerText = text;
-  return li;
-};
-
-const addTodoToList = (item) => {
-  const ol = document.querySelector('#lista-tarefas');
-  ol.appendChild(item);
-};
-
 const getAllTodoList = () => document.querySelectorAll('li');
 
 const resetColor = (item) => {
@@ -37,22 +26,38 @@ const resetColor = (item) => {
 };
 
 const changeColor = (ev, color) => { // 'rgb(128, 128, 128)'
+  console.log(ev);
+  console.log('color: ' + color);
   getAllTodoList().forEach((x) => resetColor(x));
   const todoItem = ev.target;
   todoItem.style.backgroundColor = color;
 };
 
 const changeLineThrough = (ev, className) => {
+  console.log(ev);
+  console.log('class: ' + className);
   const todoItem = ev.target;
   todoItem.classList.toggle(className);
+};
+
+const createTodoItem = (text) => {
+  const li = document.createElement('li');
+  li.innerText = text;
+  li.addEventListener('dblclick', (e) => { changeLineThrough(e, 'completed'); });
+  li.addEventListener('click', (e) => { changeColor(e, 'rgb(128, 128, 128)'); });
+  return li;
+};
+
+const addTodoToList = (item) => {
+  const ol = document.querySelector('#lista-tarefas');
+  ol.appendChild(item);
 };
 
 const insertTodo = () => {
   const inputTodo = document.querySelector('#texto-tarefa');
   const todo = createTodoItem(inputTodo.value);
   addTodoToList(todo);
-  addEvListenerNElements('li', 'click', (e) => { changeColor(e, 'rgb(128, 128, 128)'); });
-  addEvListenerNElements('li', 'dblclick', (e) => { changeLineThrough(e, 'completed'); });
+
   inputTodo.value = '';
 };
 
