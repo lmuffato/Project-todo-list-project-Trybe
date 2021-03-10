@@ -1,0 +1,19 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+  color: white;
+  font-family: Helvetica, sans-serif;
+  background-color: rgb(57, 111, 80);
+  border-bottom: 10px solid rgb(105, 195, 141);
+}
+
+h1 {
+  padding-top: 20px;
+}
+
+#funcionamento {
+  font-size: small;
+}
