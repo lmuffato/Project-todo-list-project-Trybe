@@ -19,10 +19,9 @@ window.onload = () => {
             document.querySelector('.active').classList.remove('active');
             e.target.classList.add('active');
         } else {
-        e.target.classList.add('active');
+            e.target.classList.add('active');
         }
     }
 
     list.addEventListener('click', paintBackground);
-}
-
+};
