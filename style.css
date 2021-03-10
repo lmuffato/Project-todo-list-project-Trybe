@@ -1,0 +1,14 @@
+body { 
+  background-color: darkmagenta;
+}
+
+header {
+  color: white;
+  text-align: center;
+  font-size: 40px;
+}
+
+#funcionamento {
+  color: white;
+  font-size: 15px;
+}
