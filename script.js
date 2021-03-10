@@ -1,36 +1,32 @@
-let captureOl = document.getElementById('lista-tarefas');
-
+let captureOl = null;
 
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
 
-function doubleClickThrough(){
-  let captureListItems = document.querySelectorAll('.item-task');
-  for(let i = 0; i < captureListItems.length; i += 1) {
-    captureListItems[i].addEventListener('dblclick', function(event) {
-  
-
-      if(event.target.className === 'item-task') {
-        console.log('teste');
-        event.target.className = 'item-task completed';
-      } else if(event.target.className === 'item-task completed') {
-        event.target.className = 'item-task';
-      }
-    });
-  }
+function doubleClickThrough() {
+  let captureLastitem = captureOl.lastChild;
+  captureLastitem.addEventListener('dblclick', function (event) {
+    console.log('stanrley');
+    if (event.target.className === '') {
+      event.target.className = 'completed';
+    } else if (event.target.className === 'completed') {
+      event.target.className = '';
+      console.log('class vazia');
+    }
+  });
 };
 
 function clearSelectedItems() {
-  let captureListItems = document.querySelectorAll('.item-task');
-  for(let i = 0; i < captureListItems.length; i += 1) {
+  let captureListItems = captureOl.childNodes;
+  for (let i = 0; i < captureListItems.length; i += 1) {
     captureListItems[i].style.backgroundColor = 'white';
   }
 };
 
 function altColorClick() {
-  let captureListItems = document.querySelectorAll('.item-task');
-  for(let i = 0; i < captureListItems.length; i += 1){
-    captureListItems[i].addEventListener('click', function(event) {
+  let captureListItems = captureOl.childNodes;
+  for (let i = 0; i < captureListItems.length; i += 1) {
+    captureListItems[i].addEventListener('click', function (event) {
       clearSelectedItems();
       event.target.style.backgroundColor = 'rgb(128,128,128)';
     })
@@ -47,20 +43,25 @@ function clearInput() {
   captureInputText.value = '';
 }
 
+
+
 function insertItemTask() {
   let captureButton = document.getElementById('criar-tarefa');
   captureButton.addEventListener('click', function () {
+    captureOl = document.getElementById('lista-tarefas');
     let task = captureText();
     if (task == '') {
       alert('Insira uma tarefa para conseguir adicionar.');
     } else {
       let newItem = document.createElement('li');
       newItem.innerHTML = task;
-      newItem.className = 'item-task';
       captureOl.appendChild(newItem);
       clearInput();
       altColorClick(); //ao clicar em um item faz o background ficar cinza;
+      //altListItems();
       doubleClickThrough(); //ao clicar 2x no item o grifa.
     }
+
   })
+
 };
