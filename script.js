@@ -1,10 +1,24 @@
+// Requirement 9;
+
+function taskCompleted(Event) {
+  const task = Event.target;
+  const selectLis = document.querySelectorAll('li');
+  for (let index = 0; index < selectLis.length; index += 1) {
+    if (selectLis[index].className === 'selected') {
+      selectLis[index].classList.add('completed');
+    } else if (selectLis[index].className === 'completed selected') {
+      selectLis[index].classList.remove('completed');
+    }
+  }
+}
+
 // Requirement 7, 8;
 
 function changeBackgroundColor(Event) {
   const task = Event.target;
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
-    if (selectLis[index].className === 'selected') {
+    if (selectLis[index].className === 'selected' || selectLis[index].className === 'selected completed' || selectLis[index].className === 'completed selected') {
       selectLis[index].classList.remove('selected');
     }
   }
@@ -19,6 +33,7 @@ function addTask() {
   const createLI = document.createElement('li');
   createLI.innerHTML = selectInputText.value;
   createLI.addEventListener('click', changeBackgroundColor);
+  createLI.addEventListener('dblclick', taskCompleted);
   selectOL.appendChild(createLI);
   selectInputText.value = '';
 }
