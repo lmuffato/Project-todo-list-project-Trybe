@@ -5,6 +5,6 @@
   font-family: Ubuntu, sans-serif;
 }
 
-header {
+header , main {
   margin: 20px;
 }
