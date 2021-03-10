@@ -6,7 +6,6 @@ function createTask() {
     alert('Escreva algo');
   } else {
     const createTaskElement = document.createElement('li');
-
     createTaskElement.innerText = inputTask.value;
     createTaskElement.classList.add('task');
     olList.appendChild(createTaskElement);
@@ -16,7 +15,6 @@ function createTask() {
 
 function addTask() {
   const addTaskBtn = document.getElementById('criar-tarefa');
-
   addTaskBtn.addEventListener('click', createTask);
 }
 
@@ -29,7 +27,6 @@ function cleanSelected() {
 
 function selectTask() {
   const task = document.querySelector('#lista-tarefas');
-
   task.addEventListener('click', (event) => {
     cleanSelected();
     event.target.classList.add('selected');
@@ -43,8 +40,22 @@ function dblClick() {
   });
 }
 
+function clearAllTasks() {
+  const clearBtn = document.getElementById('apaga-tudo');
+
+  clearBtn.addEventListener('click', (_event) => {
+    const task = document.querySelector('#lista-tarefas');
+    const tasks = document.querySelectorAll('.task');
+
+    for (let index = 0; index < tasks.length; index += 1) {
+      task.removeChild(task.lastChild);
+    }
+  });
+}
+
 window.onload = () => {
   addTask();
   selectTask();
   dblClick();
+  clearAllTasks();
 };
