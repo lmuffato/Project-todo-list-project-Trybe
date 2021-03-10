@@ -1,3 +1,16 @@
+function removeCompleted() {
+  const completedList = document.querySelectorAll('.completed');
+
+  for (let index = completedList.length - 1; index >= 0; index -= 1) {
+    completedList[index].parentNode.removeChild(completedList[index]);
+  }
+}
+
+function removeCompletedButton() {
+  const completedButton = document.querySelector('#remover-finalizados');
+  completedButton.addEventListener('click', removeCompleted);
+}
+
 function clearList() {
   const taskList = document.querySelectorAll('.task');
 
@@ -71,4 +84,5 @@ window.onload = () => {
   selectTask();
   setComplete();
   clearButtonClick();
+  removeCompletedButton();
 };
