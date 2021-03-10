@@ -17,11 +17,25 @@ function clearInput() {
 buttonAddTask.addEventListener('click', createTask);
 buttonAddTask.addEventListener('click', clearInput);
 
+/*function clearSelectedTasks() {
+  
+}*/
+
 function changeBgList(event) {
   const listSelect = event.target;
-  const colorBackground = 'rgb(128, 128, 128)';
-
-  listSelect.style.backgroundColor = colorBackground;
+  // listSelect.setAttribute('style', 'background-color: rgb(128, 128, 128);');
+  listSelect.classList.add('li-color');
 }
 
 document.getElementById('lista-tarefas').addEventListener('click', changeBgList);
+
+function completeTasks(event) {
+  const taskCompleted = event.target;
+  if (taskCompleted.classList.contains('completed') === true) {
+    taskCompleted.classList.remove('completed');
+  } else {
+    taskCompleted.classList.add('completed');
+  }
+}
+
+document.getElementById('lista-tarefas').addEventListener('dblclick', completeTasks);
