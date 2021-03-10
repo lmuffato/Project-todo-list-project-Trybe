@@ -44,8 +44,10 @@ const createTodoItem = (text) => {
   return li;
 };
 
+const getListContainer = () => document.querySelector('#lista-tarefas');
+
 const addTodoToList = (item) => {
-  const ol = document.querySelector('#lista-tarefas');
+  const ol = getListContainer();
   ol.appendChild(item);
 };
 
@@ -58,7 +60,7 @@ const insertTodo = () => {
 };
 
 const clearTodoList = () => {
-  const listContainer = document.querySelector('#lista-tarefas');
+  const listContainer = getListContainer();
   listContainer.innerHTML = '';
 };
 
@@ -89,42 +91,42 @@ const moveTodoItem = (count) => {
 
 const moveDown = () => {
   const { selected, indexItem, listLength, insertLocal } = moveTodoItem(2);
-
+  if (!selected) return;
   if (indexItem === listLength) {
     return;
   }
 
-  const listContainer = document.querySelector('#lista-tarefas');
+  const listContainer = getListContainer();
   listContainer.insertBefore(selected, insertLocal);
 };
 
 const moveUp = () => {
   const { selected, indexItem, insertLocal } = moveTodoItem(-1);
-
+  if (!selected) return;
   if (indexItem === 0) {
     return;
   }
 
-  const listContainer = document.querySelector('#lista-tarefas');
+  const listContainer = getListContainer();
   listContainer.insertBefore(selected, insertLocal);
 };
 
 const removeSelectItem = () => {
   const selected = document.querySelector('.selected');
   console.log(selected);
-  const listContainer = document.querySelector('#lista-tarefas');
+  const listContainer = getListContainer();
   listContainer.removeChild(selected);
 };
 
 const saveListLocalStorage = () => {
-  const listContainer = document.querySelector('#lista-tarefas');
+  const listContainer = getListContainer();
   localStorage.setItem('listTodo', JSON.stringify(listContainer.innerHTML));
 };
 
 const getListLocalStorage = () => {
   if (localStorage.getItem('listTodo') !== undefined) {
     const listTodoItens = localStorage.getItem('listTodo');
-    const listContainer = document.querySelector('#lista-tarefas');
+    const listContainer = getListContainer();
     listContainer.innerHTML = JSON.parse(listTodoItens);
   }
 };
