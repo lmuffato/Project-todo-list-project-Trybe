@@ -44,3 +44,15 @@ function clear() {
 
 const clearTasks = document.getElementById('apaga-tudo');
 clearTasks.addEventListener('click', clear);
+
+function clearFinishTask() {
+  const list = document.querySelectorAll('li');
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('completed')) {
+      list[index].remove();
+    }
+  }
+}
+
+const clearFinish = document.getElementById('remover-finalizados');
+clearFinish.addEventListener('click', clearFinishTask);
