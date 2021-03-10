@@ -6,3 +6,9 @@ function setTask() {
 }
 
 document.getElementById('criar-tarefa').addEventListener('click', setTask);
+
+function clickColor(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+document.getElementById('lista-tarefas').addEventListener('click', clickColor);
