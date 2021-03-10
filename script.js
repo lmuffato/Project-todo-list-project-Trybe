@@ -2,6 +2,7 @@ const btnCreateTask = document.getElementById('criar-tarefa');
 const oListTask = document.getElementById('lista-tarefas');
 const btnRemoveAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
+const btnSaveList = document.getElementById('salvar-tarefas');
 
 btnCreateTask.addEventListener('click', () => {
   const listTaskElement = document.createElement('li');
@@ -35,6 +36,27 @@ btnRemoveAll.addEventListener('click', () => {
 btnRemoveCompleted.addEventListener('click', () => {
   document.querySelectorAll('.completed').forEach((e) => e.remove());
 });
+
+btnSaveList.addEventListener('click', () => {
+  const arrayToConvert = [];
+  const listToSave = document.querySelectorAll('li');
+
+  for (let index = 0; index < listToSave.length; index += 1) {
+    arrayToConvert.push(listToSave[index].innerText);
+  }
+
+  console.log(arrayToConvert);
+  localStorage.setItem('lists', JSON.stringify(arrayToConvert));
+});
+
+window.onload = () => {
+  const storageList = JSON.parse(localStorage.getItem('lists'));
+  for (let index = 0; index < storageList.length; index += 1) {
+    let savedList = document.createElement('li');
+    savedList.innerText = storageList[index];
+    oListTask.appendChild(savedList);
+  }
+};
 
 /*
 REFERÊNCIAS:
