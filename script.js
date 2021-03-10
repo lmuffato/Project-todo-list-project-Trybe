@@ -5,6 +5,7 @@
 const btnAdicionarTarefa = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
+const colorList = 'rgb(128,128,128)';
 
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
@@ -23,9 +24,9 @@ addListInput();
 
 // Função para adicionar um dblclik na lista rgb(128,128,128);
 function selectColor(list) {
-  list.addEventListener('click', () => {
-    list.style.backgroundColor = 'rgb(128,128,128)'
-    console.log('Fui clicado');
+  const arrayList = document.querySelectorAll('.list');
+  list.addEventListener('dblclick', () => {
+    list.style.backgroundColor = colorList;
   });
 }
 
