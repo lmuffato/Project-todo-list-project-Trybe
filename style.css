@@ -1,15 +1,15 @@
 
 header {
-  color:black;
+  color: yellow;
   text-align: center;
-  font-size: 40px;
-  font-style: oblique;
-  font-weight: bolder;
-  margin-top: 20px;
+  font-size: 30px;
+  font-weight: bolder; 
+  margin-bottom: 40px;
+  margin-top: 25px;
 }
 
 #texto-tarefa {
-  width: 355px;
+  width: 300px;
   text-align: center;
 }
 
@@ -18,14 +18,9 @@ header {
   width: 500px;
   height: 500px;
   justify-content: center;
-  padding-left: 30px;
   border: black solid 1px;
   display: flex;
-  margin-left: 250px;
-}
-
-.conteiner1 {
-  margin-top: 50px;
+  margin-left: 280px;
 }
 
 .conteiner2 {
@@ -33,7 +28,7 @@ header {
 }
 
 ul li {
- list-style: none;
+  list-style: none;
 }
 
 ul {
@@ -43,7 +38,7 @@ ul {
 #funcionamento {
   color: black;
   font-size: 12px;
-  margin-top: 50px;
+  text-align: center;
 }
 
 button:hover {
@@ -51,10 +46,10 @@ button:hover {
 }
 
 button {
-  border-radius: 100%;
-  margin-right: 50px;
-  width: 50px;
+  width: 70px;
   height: 50px;
   margin-bottom: 5px;
+  font-size: 10px;
+  font-weight: bolder;
 }
 
