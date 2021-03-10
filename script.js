@@ -22,3 +22,10 @@ function trocaCor(event) {
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
+listaDeTarefas.addEventListener('dblclick', clickDuplo);
+
+function clickDuplo(event) {
+  event.target.classList.toggle('completed');
+  console.log(event);
+}
