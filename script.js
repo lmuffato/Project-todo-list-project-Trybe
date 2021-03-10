@@ -11,6 +11,7 @@ function buttonCreateTaks() {
     document.getElementById('texto-tarefa').value = '';
     changeColorItems();
     completeTasks();
+    clean();
   }
 
 }
@@ -38,7 +39,6 @@ function completeTasks() {
     itemL[index].addEventListener('dblclick', risc);
 
     function risc(event) {
-      console.log(itemL);
       if (event.target.className === 'completed') {
         event.target.className = '';
       } else {
@@ -46,7 +46,24 @@ function completeTasks() {
       }
     }
   }
+}
 
+function clean() {
+  let buttonClean = document.getElementById('apaga-tudo');
+  let list = document.getElementsByTagName('li');
+  console.log(list.length);
+
+  buttonClean.addEventListener('click', limpar);
+
+  function limpar() {
+    for (let index = 0; index < list.length; index += 1) {
+      list[index].remove();
+    }
+
+  }
+  
+
+ 
 }
 
 
