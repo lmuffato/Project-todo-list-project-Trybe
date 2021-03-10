@@ -13,10 +13,10 @@ function checkEachTask() {
 const btn = document.getElementById('criar-tarefa');
 btn.addEventListener('click', checkEachTask);
 
-function alterColorWhenClicked() {
-  const listItem = document.getElementsByTagName('li');
-  listItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
-  listItem.addEventListener('click', alterColorWhenClicked);
-}
+// function alterColorWhenClicked() {
+//  const listItem = document.getElementsByTagName('li');
+//  listItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+//  listItem.addEventListener('click', alterColorWhenClicked);
+// }
 
-alterColorWhenClicked();
+// alterColorWhenClicked();
