@@ -7,3 +7,8 @@ maker.addEventListener('click', function newTask() {
   theList.appendChild(theTask);
   task.value = '';
 });
+
+const theList = document.querySelector('#lista-tarefas');
+theList.addEventListener('click', function mark(element) {
+  element.target.classList.add('bkGray');
+});
