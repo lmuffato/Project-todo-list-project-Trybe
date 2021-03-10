@@ -19,20 +19,36 @@ function changeItemColors(change) {
 function selectItem(changeItem) {
   const allTasks = document.querySelectorAll('.task');
   for (let i = 0; i < allTasks.length; i += 1) {
-    allTasks[i].classList.remove('selected');
+    allTasks[i].className = 'task';
   }
   changeItem.target.classList.add('selected');
 }
 
-function markCompleted(mark) {
-  if (!mark.target.classList.contains('completed')) {
-    mark.target.classList.add('completed');
+function markCompleted(e) {
+  if (!e.target.classList.contains('completed')) {
+    e.target.classList.add('completed');
   } else {
-    mark.target.classList.remove('completed');
+    e.target.classList.remove('completed');
   }
 }
 
-createTask.addEventListener('click', addTask);
-taskList.addEventListener('click', changeItemColors, selectItem)
-taskList.addEventListener('dblclick', markCompleted);
+function markCompleted(e) {
+  if (!e.target.classList.contains('completed')) {
+    e.target.classList.add('completed');
+  } else {
+    e.target.classList.remove('completed');
+  }
+}
 
+function markCompleted(e) {
+  if (!e.target.classList.contains('completed')) {
+    e.target.classList.add('completed');
+  } else {
+    e.target.classList.remove('completed');
+  }
+}
+
+
+createTask.addEventListener('click', addTask);
+taskList.addEventListener('click', changeItemColors)
+taskList.addEventListener('click', selectItem);

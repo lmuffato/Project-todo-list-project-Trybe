@@ -19,7 +19,7 @@ function changeItemColors(change) {
 function selectItem(changeItem) {
   const allTasks = document.querySelectorAll('.task');
   for (let i = 0; i < allTasks.length; i += 1) {
-    allTasks[i].classList.remove('selected');
+    allTasks[index].classList.remove('selected');
   }
   changeItem.target.classList.add('selected');
 }
@@ -34,5 +34,4 @@ function markCompleted(mark) {
 
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
-taskList.addEventListener('dblclick', markCompleted);
 
