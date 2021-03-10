@@ -2,18 +2,25 @@ const listaTarefas = document.querySelector('#lista-tarefas');
 const adicionarTarefaButton = document.querySelector('#criar-tarefa');
 const adicionarTarefaInput = document.querySelector('#texto-tarefa');
 
+function selecionarTarefa(tarefaElementoHtml) {
+  const tarefaClicada = tarefaElementoHtml;
+  document.querySelectorAll('ol li').forEach((el) => el.classList.remove('selected'));
+  tarefaClicada.classList.add('selected')
+}
+
 function criarElementoHtmlTarefa(nomeDaTarefa) {
-  let tarefaEl = document.createElement('li');
+  const tarefaEl = document.createElement('li');
   tarefaEl.className = 'tarefa';
   tarefaEl.innerHTML = nomeDaTarefa;
+  tarefaEl.addEventListener('click', (e) => selecionarTarefa(e.target));
   return tarefaEl;
 }
 
 function adicionaTarefa() {
-  let tarefaParaAdicionar = adicionarTarefaInput.value;
+  const tarefaParaAdicionar = adicionarTarefaInput.value;
   const tarefa = criarElementoHtmlTarefa(tarefaParaAdicionar);
   listaTarefas.appendChild(tarefa);
-  adicionarTarefaInput.value = "";
+  adicionarTarefaInput.value = '';
 }
 
 adicionarTarefaButton.addEventListener('click', adicionaTarefa);
