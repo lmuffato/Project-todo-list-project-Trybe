@@ -1,1 +1,18 @@
+* {
+    box-sizing: border-box;
+}
 
+/* --------------- header ----------- */
+header {
+    text-align: center;
+}
+
+/* -------------- main ------------- */
+
+#funcionamento {
+    text-align: center;
+}
+
+#input-container {
+    text-align: center;
+}
