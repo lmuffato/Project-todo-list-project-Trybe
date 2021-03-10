@@ -9,6 +9,12 @@ function selectTask(item) {
   taskItem.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function toggleDoneTask(item) {
+  const taskItem = item;
+
+  taskItem.classList.toggle('completed');
+}
+
 function createTask() {
   const createTaskButton = document.getElementById('criar-tarefa');
   createTaskButton.onclick = () => {
@@ -19,6 +25,7 @@ function createTask() {
     taskItem.innerHTML = taskInputName.value;
     taskItem.className = 'task';
     taskItem.onclick = () => selectTask(taskItem);
+    taskItem.ondblclick = () => toggleDoneTask(taskItem);
 
     taskInputName.value = '';
     taskList.appendChild(taskItem);
