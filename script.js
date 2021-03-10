@@ -53,3 +53,30 @@ function clearDoneItems() {
 }
 
 document.getElementById('remover-finalizados').addEventListener('click', clearDoneItems);
+
+function saveItems() {
+  localStorage.setItem('listLength', document.getElementsByClassName('list-item').length)
+  for (let index = 0; index < document.getElementsByClassName('list-item').length; index += 1) {
+    localStorage.setItem(`item${index}`, document.getElementsByClassName('list-item')[index].innerText);
+  }
+}
+
+document.getElementById('salvar-tarefas').addEventListener('click', saveItems);
+
+function saveCompletedItems() {
+  for (let index = 0; index < document.getElementsByClassName('list-item').length; index += 1) {
+    localStorage.setItem(`item${index} className`, document.getElementsByClassName('list-item')[index].className);
+  }
+}
+
+document.getElementById('salvar-tarefas').addEventListener('click', saveCompletedItems);
+
+function resetList() {
+  const listLength = parseInt(localStorage.getItem('listLength'));
+  for (let index = 0; index < listLength; index += 1) {
+    const tagLi = document.createElement('li');
+    tagLi.className = localStorage.getItem(`item${index} className`);
+    tagLi.innerText = localStorage.getItem(`item${index}`);
+    document.getElementById('lista-tarefas').appendChild(tagLi);
+  }
+}
