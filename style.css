@@ -1,12 +1,12 @@
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 #lista-tarefas {
   height: 150px;
   background-color: white;
   width: 40%;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
 body {
