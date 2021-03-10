@@ -25,11 +25,20 @@ document.getElementById('lista-tarefas').addEventListener('click', unsetColor);
 document.getElementById('lista-tarefas').addEventListener('click', clickColor);
 
 function completeTask(event) {
-  if (event.target.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
-    event.target.style.textDecoration = 'none';
+  if (event.target.className === 'list-item') {
+    event.target.className = 'list-item completed';
   } else {
-    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    event.target.className = 'list-item';
   }
 }
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', completeTask);
+
+function clearList() {
+  const taskList = document.getElementById('lista-tarefas');
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
+document.getElementById('apaga-tudo').addEventListener('click', clearList);
