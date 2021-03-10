@@ -10,6 +10,11 @@ btnAdicionar.addEventListener('click', () => {
   inputTarefa.value = '';
 });
 
+toDoList.addEventListener('dblclick', (event) => {
+  const item = event.target;
+  item.classList.toggle('completed');
+});
+
 toDoList.addEventListener('click', (event) => {
   const item = event.target;
   const listItems = document.querySelectorAll('#lista-tarefas li');
@@ -18,3 +23,5 @@ toDoList.addEventListener('click', (event) => {
   }
   item.classList.add('grayBackground');
 });
+
+
