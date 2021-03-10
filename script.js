@@ -10,17 +10,28 @@ function clearInput(input) {
   text.value = '';
 }
 
-function selectListItem(Event) {
+function selectTask(Event) {
   const currentItemSelected = document.querySelector('li.selected');
-  const item = Event.target;
+  const task = Event.target;
 
   const hasSelectedItem = currentItemSelected !== null;
 
-  if (item.classList !== 'selected') {
+  if (task.classList !== 'selected') {
     if (hasSelectedItem) {
       currentItemSelected.classList.remove('selected');
     }
-    item.classList.add('selected');
+    task.classList.add('selected');
+  }
+}
+
+function completeTask(Event) {
+  const task = Event.target;
+  const isCompleted = task.className.includes('completed');
+
+  if (isCompleted) {
+    task.classList.remove('completed');
+  } else {
+    task.classList.add('completed');
   }
 }
 
@@ -30,7 +41,8 @@ function addNewTask() {
 
   listItem.innerText = task.value;
   listItem.className = 'list-item';
-  listItem.addEventListener('click', selectListItem);
+  listItem.addEventListener('click', selectTask);
+  listItem.addEventListener('dblclick', completeTask);
   toDoList.push(task.value);
   renderNewTask(listItem);
   clearInput(task);
