@@ -15,6 +15,15 @@ const eventClickList = () => {
   });
 };
 
+const eventDoubleClickList = () => {
+  document.querySelectorAll('li').forEach((element) => {
+    element.addEventListener('dblclick', (elementTarget) => {
+      const listElement = elementTarget.target;
+      listElement.className = 'completed';
+    });
+  });
+};
+
 // BOTÃO DE CRIAR
 const btnCreateTask = document.getElementById('criar-tarefa');
 const oListTask = document.getElementById('lista-tarefas');
@@ -24,5 +33,6 @@ btnCreateTask.addEventListener('click', () => {
   listTaskElement.innerText = inputTextTask.value;
   oListTask.appendChild(listTaskElement);
   eventClickList();
+  eventDoubleClickList();
   inputTextTask.value = '';
 });
