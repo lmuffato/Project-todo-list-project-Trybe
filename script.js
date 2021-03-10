@@ -13,22 +13,30 @@ function addTask() {
   inputAddTask.value = '';
 }
 
-function selectTask(element) {
-  const tasks = tasksList.children;
-  for (let index = 0; index < tasks.length; index += 1) {
-    const task = tasks[index];
-    task.style.backgroundColor = 'transparent';
-  }
+const tasksFunctions = {
+  selectTask(element) {
+    const tasks = tasksList.children;
+    for (let index = 0; index < tasks.length; index += 1) {
+      const task = tasks[index];
+      task.style.backgroundColor = 'transparent';
+    }
 
-  const task = element.target;
-  task.style.backgroundColor = colors.selected;
-}
+    const task = element.target;
+    task.style.backgroundColor = colors.selected;
+  },
+
+  completeTask(element) {
+    const task = element.target;
+    task.classList.toggle('completed');
+  },
+};
 
 function getTasks() {
   const tasks = tasksList.children;
   for (let index = 0; index < tasks.length; index += 1) {
     const task = tasks[index];
-    task.addEventListener('click', selectTask);
+    task.addEventListener('click', tasksFunctions.selectTask);
+    task.addEventListener('dblclick', tasksFunctions.completeTask);
   }
 }
 
