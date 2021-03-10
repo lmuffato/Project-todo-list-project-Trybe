@@ -1,6 +1,7 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const adicionarTarefaButton = document.querySelector('#criar-tarefa');
 const adicionarTarefaInput = document.querySelector('#texto-tarefa');
+const apagaTudoButton = document.querySelector('#apaga-tudo');
 
 function selecionarTarefa(tarefaElementoHtml) {
   const tarefaClicada = tarefaElementoHtml;
@@ -29,4 +30,9 @@ function adicionaTarefa() {
   adicionarTarefaInput.value = '';
 }
 
+function removerTodasTarefas() {
+  document.querySelectorAll('ol li').forEach(el => el.remove())
+}
+
 adicionarTarefaButton.addEventListener('click', adicionaTarefa);
+apagaTudoButton.addEventListener('click', removerTodasTarefas);
