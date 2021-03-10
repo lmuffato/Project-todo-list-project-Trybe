@@ -36,7 +36,15 @@ function selectTask() {
   });
 }
 
+function dblClick() {
+  const task = document.querySelector('#lista-tarefas');
+  task.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
 window.onload = () => {
   addTask();
   selectTask();
+  dblClick();
 };
