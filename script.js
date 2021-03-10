@@ -1,5 +1,7 @@
 const taskList = document.getElementById('lista-tarefas');
 const addTaskBtn = document.getElementById('criar-tarefa');
+const eraseAllBtn = document.getElementById('apaga-tudo');
+const eraseCompletedBtn = document.getElementById('remover-finalizados');
 
 function addTaskToList() {
   const newTask = document.createElement('li');
@@ -33,3 +35,16 @@ function doubleClickItem(event) {
 
 taskList.addEventListener('click', singleClickItem);
 taskList.addEventListener('dblclick', doubleClickItem);
+
+function eraseFullList() {
+  taskList.innerHTML = '';
+}
+eraseAllBtn.addEventListener('click', eraseFullList);
+
+function eraseCompletedItems() {
+  const completedItems = document.querySelectorAll('.completed');
+  for (let item = 0; item < completedItems.length; item += 1) {
+    completedItems[item].remove();
+  }
+}
+eraseCompletedBtn.addEventListener('click', eraseCompletedItems);
