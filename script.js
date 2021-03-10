@@ -22,8 +22,11 @@ function changeColorItems() {
 
   for (let index = 0; index < itemLi.length; index += 1) {
     itemLi[index].addEventListener('click', paintBrush);
-    function paintBrush() {
-      itemLi[index].style.backgroundColor = 'rgb(128,128,128)';
+    function paintBrush(event) {
+      for (index = 0; index < itemLi.length; index += 1) {
+        itemLi[index].style.backgroundColor = 'white';
+      }
+      event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
   }
 
