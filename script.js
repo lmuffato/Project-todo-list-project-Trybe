@@ -52,7 +52,7 @@ btnSaveList.addEventListener('click', () => {
 window.onload = () => {
   const storageList = JSON.parse(localStorage.getItem('lists'));
   for (let index = 0; index < storageList.length; index += 1) {
-    let savedList = document.createElement('li');
+    const savedList = document.createElement('li');
     savedList.innerText = storageList[index];
     oListTask.appendChild(savedList);
   }
