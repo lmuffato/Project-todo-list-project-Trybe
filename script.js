@@ -1,7 +1,7 @@
-const taskList = document.getElementById('lista-tarefas');
+const taskList = document.querySelector('#lista-tarefas');
 
-document.getElementById('criar-tarefa').addEventListener('click', () => {
-  const inputText = document.getElementById('texto-tarefa');
+document.querySelector('#criar-tarefa').addEventListener('click', () => {
+  const inputText = document.querySelector('#texto-tarefa');
   const listItem = document.createElement('li');
   listItem.innerText = inputText.value;
   taskList.appendChild(listItem);
@@ -27,11 +27,11 @@ taskList.addEventListener('dblclick', (completed) => {
   }
 });
 
-document.getElementById('apaga-tudo').addEventListener('click', () => {
+document.querySelector('#apaga-tudo').addEventListener('click', () => {
   taskList.innerText = '';
 });
 
-document.getElementById('remover-finalizados').addEventListener('click', () => {
+document.querySelector('#remover-finalizados').addEventListener('click', () => {
   const completedTasks = document.querySelectorAll('.completed');
   for (let i = 0; i < completedTasks.length; i += 1) {
     completedTasks[i].remove();
