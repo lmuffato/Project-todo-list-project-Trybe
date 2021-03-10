@@ -25,7 +25,7 @@ li {
   
 input {
   border: 1px solid white;
-  color: tomato;
+  color: rgb(0, 0, 0);
   font-family: monospace, sans-serif;
   font-size: 15px;
   padding: 5px;
