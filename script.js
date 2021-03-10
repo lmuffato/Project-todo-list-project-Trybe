@@ -5,12 +5,13 @@
 const btnAdicionarTarefa = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
+
 const colorList = 'rgb(128,128,128)';
 
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
-  btnAdicionarTarefa.addEventListener('click' , () => {
-    const list = document.createElement('li');  
+  btnAdicionarTarefa.addEventListener('click' , () => {  
+    const list = document.createElement('li');
     if (inputText.value !== '') {
       list.innerHTML = inputText.value;
       list.className = 'list';
@@ -28,8 +29,14 @@ addListInput();
 
 // Função para adicionar um dblclik na lista rgb(128,128,128);
 function selectColor(list) {
-  list.addEventListener('dblclick', () => {
-    list.style.backgroundColor = colorList;
+  const arrayList = document.getElementById('lista-tarefas').childNodes
+  list.addEventListener('dblclick', (event) => {
+    for (let indexTwo = 0; indexTwo < arrayList.length; indexTwo += 1) {
+      list.classList.remove('colorList');
+      arrayList[indexTwo].classList.remove('colorList');
+    }
+    event.target.classList.add('colorList');
+    event.target.classList.add('completed');
   });
 }
 
