@@ -24,13 +24,11 @@ addBackground.addEventListener('click', addSelect);
 
 // REQUISITO RESOLVIDO BASEADO EM EXERCICIO COURSE
 
-function addLineThrough(evt) {
-  const completed = document.querySelector('.completed');
-  if (completed) {
-    completed.classList.remove('completed');
-    evt.target.classList.add('completed');
+function addLineThrough(completed) {
+  if (completed.target.classList.contains('completed')) {
+    completed.target.classList.remove('completed');
   } else {
-    evt.target.classList.add('completed');
+    completed.target.classList.add('completed');
   }
 }
 
