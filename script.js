@@ -33,7 +33,6 @@ function changeColorItems() {
 
 function completeTasks() {
   let itemL = document.getElementsByTagName('li');
-  
 
   for (let index = 0; index < itemL.length; index += 1) {
     itemL[index].addEventListener('dblclick', risc);
