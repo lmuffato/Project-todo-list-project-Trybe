@@ -12,8 +12,15 @@ function createLi() {
    }
 }
 
+function colorChange(e){
+    let listItens = document.querySelectorAll('li');
+    for(let index = 0; index < listItens.length; index += 1){
+      listItens[index].style.backgroundColor = 'white';
+    }
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
 window.onload = function init() {
-
     buttonNewLi.addEventListener('click', createLi);
-
+    totalList.addEventListener('click', colorChange);
 }
