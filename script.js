@@ -22,4 +22,17 @@ function addSelect(evt) {
 const addBackground = document.getElementById('lista-tarefas');
 addBackground.addEventListener('click', addSelect);
 
-// EXERCICIO RESOLVIDO BASEADO EM EXERCICIO COURSE
+// REQUISITO RESOLVIDO BASEADO EM EXERCICIO COURSE
+
+function addLineThrough(evt) {
+  const completed = document.querySelector('.completed');
+  if (completed) {
+    completed.classList.remove('completed');
+    evt.target.classList.add('completed');
+  } else {
+    evt.target.classList.add('completed');
+  }
+}
+
+const addLine = document.getElementById('lista-tarefas');
+addLine.addEventListener('dblclick', addLineThrough);
