@@ -25,4 +25,3 @@ function selectItem(changeItem) {
 
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors)
-taskList.addEventListener('click', selectItem);

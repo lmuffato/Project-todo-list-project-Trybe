@@ -15,14 +15,14 @@ function changeItemColors(change) {
   change.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function selectItem(changeItem) {
+function selectItem(changeIten) {
   const allTasks = document.querySelectorAll('.task');
-  for (let i = 0; i < allTasks.length; i += 1) {
-    allTasks[i].className = 'task';
+  for (let i = 0; i < allTasks.length; index += 1) {
+    allTasks[index].className = 'task';
   }
-  changeItem.target.classList.add('selected');
+  e.target.classList.add('selected');
+  // selectedItem = tasks.findIndex((item) => item === e.target.innerText);
 }
 
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors)
-taskList.addEventListener('click', selectItem);
