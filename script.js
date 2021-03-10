@@ -1,6 +1,7 @@
 const btnAdicionar = document.getElementById('criar-tarefa');
 const inputTarefa = document.getElementById('texto-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
+const btnLimparLista = document.getElementById('apaga-tudo');
 
 btnAdicionar.addEventListener('click', () => {
   const text = inputTarefa.value;
@@ -24,4 +25,6 @@ toDoList.addEventListener('click', (event) => {
   item.classList.add('grayBackground');
 });
 
-
+btnLimparLista.addEventListener('click', () => {
+  toDoList.innerHTML = '';
+});
