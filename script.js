@@ -81,7 +81,7 @@ function resetList() {
   }
 }
 
- function moveUp() {
+function moveUp() {
   const items = document.getElementsByClassName('list-item');
   for (let index = 1; index < items.length; index += 1) {
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
@@ -98,7 +98,24 @@ function resetList() {
 
 document.getElementById('mover-cima').addEventListener('click', moveUp);
 
-function removeSelectedItem () {
+function moveDown() {
+  const items = document.getElementsByClassName('list-item');
+  for (let index = items.length - 2; index >= 0; index -= 1) {
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index + 1].innerText = items[index].innerText;
+    }
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index + 1].className = items[index].className;
+    }
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
+
+function removeSelectedItem() {
   const items = document.getElementsByClassName('list-item');
   for (let index = 0; index < items.length; index += 1) {
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
