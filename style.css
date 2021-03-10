@@ -1,33 +1,32 @@
 body {
-    background-color: tomato;
+    background-color: rgb(49, 49, 112);
     color: white;
-    font-family: ubuntu, sans-serif;
-  }
+    font-family: Montserrat, sans-serif;
+}
   
-  li {
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-  }
+li {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
   
-  .completed {
-    text-decoration: line-through solid black;
-  }
+.completed {
+  text-decoration: line-through solid black;
+}
   
-  .btn {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    font-family: ubuntu, sans-serif;
-    font-size: 15px;
-    margin: 10px;
-    padding: 5px;
-  }
+.btn {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-size: 15px;
+  margin: 10px;
+  padding: 5px;
+}
   
-  input {
-    border: 1px solid white;
-    color: tomato;
-    font-family: monospace, sans-serif;
-    font-size: 15px;
-    padding: 5px;
-  }
+input {
+  border: 1px solid white;
+  color: tomato;
+  font-family: monospace, sans-serif;
+  font-size: 15px;
+  padding: 5px;
+}
