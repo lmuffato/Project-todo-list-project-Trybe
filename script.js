@@ -1,7 +1,6 @@
 // Requirement 9;
 
-function taskCompleted(Event) {
-  const task = Event.target;
+function taskCompleted() {
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
     if (selectLis[index].className === 'selected') {
@@ -18,7 +17,9 @@ function changeBackgroundColor(Event) {
   const task = Event.target;
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
-    if (selectLis[index].className === 'selected' || selectLis[index].className === 'selected completed' || selectLis[index].className === 'completed selected') {
+    if (selectLis[index].className === 'selected'
+    || selectLis[index].className === 'selected completed'
+    || selectLis[index].className === 'completed selected') {
       selectLis[index].classList.remove('selected');
     }
   }
