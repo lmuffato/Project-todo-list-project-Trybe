@@ -1,6 +1,7 @@
 * {
   font-size: 10px;
 }
+
 button {
   border-radius: 10%;
   border: solid 1px white;
@@ -8,5 +9,9 @@ button {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: rgb(128 , 128 , 128);
+}
+
+.completed {
+  text-decoration: line-through;
 }
