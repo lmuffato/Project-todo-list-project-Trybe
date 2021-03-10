@@ -3,6 +3,7 @@ const oListTask = document.getElementById('lista-tarefas');
 const btnRemoveAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnSaveList = document.getElementById('salvar-tarefas');
+const btnRemoveSelected = document.getElementById('remover-selecionado');
 
 btnCreateTask.addEventListener('click', () => {
   const listTaskElement = document.createElement('li');
@@ -49,14 +50,9 @@ btnSaveList.addEventListener('click', () => {
   localStorage.setItem('lists', JSON.stringify(arrayToConvert));
 });
 
-window.onload = () => {
-  const storageList = JSON.parse(localStorage.getItem('lists'));
-  for (let index = 0; index < storageList.length; index += 1) {
-    const savedList = document.createElement('li');
-    savedList.innerText = storageList[index];
-    oListTask.appendChild(savedList);
-  }
-};
+btnRemoveSelected.addEventListener('click', () => {
+  oListTask.removeChild(document.getElementById('selected-task'));
+});
 
 /*
 REFERÊNCIAS:
