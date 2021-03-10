@@ -1,3 +1,17 @@
+function clearList() {
+  const taskList = document.querySelectorAll('.task');
+
+  for (let index = taskList.length - 1; index >= 0; index -= 1) {
+    taskList[index].parentNode.removeChild(taskList[index]);
+  }
+}
+
+function clearButtonClick() {
+  const clearButton = document.querySelector('#apaga-tudo');
+
+  clearButton.addEventListener('click', clearList);
+}
+
 function lineThrough(event) {
   const selectedTask = event.target;
   if (selectedTask.className.includes('completed')) {
@@ -56,4 +70,5 @@ window.onload = () => {
   createTask();
   selectTask();
   setComplete();
+  clearButtonClick();
 };
