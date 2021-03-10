@@ -29,6 +29,10 @@ li {
   padding: 5px;
 }
 
-li.selected{
+li.selected {
   background-color: rgb(128, 128, 128);
+}
+
+li.completed {
+  text-decoration: line-through solid rgb(0,0,0);
 }
