@@ -8,3 +8,8 @@ submitItem.addEventListener('click', () => {
   outputOl.appendChild(createLi);
   inputItem.value = '';
 });
+
+outputOl.addEventListener('click', (event) => {
+  const drawLi = event.target;
+  drawLi.target.style.backgroundColor = 'rgb(128, 128, 128)';
+})
