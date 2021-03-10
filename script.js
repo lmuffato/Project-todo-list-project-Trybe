@@ -6,6 +6,7 @@ const buttonClearCompleted = document.getElementById('remover-finalizados');
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
 const buttonMoveTaskUp = document.getElementById('mover-cima');
 const buttonMoveTaskDown = document.getElementById('mover-baixo');
+const buttonRemoveTask = document.getElementById('remover-selecionado');
 
 const colors = {
   selected: 'rgb(128, 128, 128)',
@@ -115,8 +116,12 @@ function loadTasks() {
   getTasks();
 }
 
+function getSelectedTask() {
+  return document.querySelector('li.selected');
+}
+
 function moveTaskUp() {
-  const taskSelected = document.querySelector('li.selected');
+  const taskSelected = getSelectedTask();
   const copyTask = document.createElement('li');
   copyTask.textContent = taskSelected.textContent;
   copyTask.classList.add('selected');
@@ -135,7 +140,7 @@ function moveTaskUp() {
 }
 
 function moveTaskDown() {
-  const taskSelected = document.querySelector('li.selected');
+  const taskSelected = getSelectedTask();
   const copyTask = document.createElement('li');
   copyTask.classList.add('selected');
   copyTask.style.backgroundColor = colors.selected;
@@ -155,6 +160,11 @@ function moveTaskDown() {
   }
 }
 
+function removeTask() {
+  const task = getSelectedTask();
+  task.remove();
+}
+
 if (localStorage.getItem('tasks') && localStorage.getItem('tasks').length !== 0) loadTasks();
 buttonActions(buttonAddTask, [addTask, getTasks]);
 buttonActions(buttonClearTasks, [clearTasks]);
@@ -162,3 +172,4 @@ buttonActions(buttonClearCompleted, [clearCompleted]);
 buttonActions(buttonSaveTasks, [saveTasks]);
 buttonActions(buttonMoveTaskUp, [moveTaskUp]);
 buttonActions(buttonMoveTaskDown, [moveTaskDown]);
+buttonActions(buttonRemoveTask, [removeTask]);
