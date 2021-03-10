@@ -9,7 +9,6 @@ function createTask() {
 
   taskItems.innerText = textList;
   taskList.appendChild(taskItems);
-
 }
 
 function clearInput() {
@@ -19,11 +18,16 @@ function clearInput() {
 buttonAddTask.addEventListener('click', createTask);
 buttonAddTask.addEventListener('click', clearInput);
 
-/* function clearSelectedTasks() {
-} */
+function clearSelectedTasks() {
+  const clearIems = document.querySelectorAll('li');
+  for (let index = 0; index < clearIems.length; index += 1) {
+    clearIems[index].classList.remove('li-color');
+  }
+}
 
 function changeBgList(event) {
   const listSelect = event.target;
+  clearSelectedTasks();
   // listSelect.setAttribute('style', 'background-color: rgb(128, 128, 128);');
   listSelect.classList.add('li-color');
 }
