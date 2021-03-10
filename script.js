@@ -1,4 +1,12 @@
+function resetBackColor(){
+const liWhite = document.getElementsByClassName('item');
+  for(let i = 0; i < liWhite.length; i +=1){
+    liWhite[i].style.backgroundColor = 'cornflowerblue';
+ }
+}
+
 function backgroundLiColor(e) {
+   resetBackColor() 
     e.target.style.backgroundColor= 'rgb(128,128,128)';
 }
 function addLi() {
