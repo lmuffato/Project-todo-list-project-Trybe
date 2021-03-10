@@ -39,19 +39,8 @@ function removeAllButtons(rall) {
   taskList.innerHTML = '';
 }
 
-function removeCompleted(rmCompleted) {
-  rmCompleted.preventDefault();
-  const allTasks = document.querySelectorAll('.task');
-  for (let i = allTasks.length - 1; i >= 0; i -= 1) {
-    if (allTasks[i].classList.contains('completed')) {
-      allTasks[i].remove();
-    }
-  }
-}
-
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
 removeAll.addEventListener('click', removeAllButtons);
-removeAllFinalized .addEventListener('click', removeCompleted);
 

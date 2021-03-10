@@ -53,5 +53,4 @@ createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
 removeAll.addEventListener('click', removeAllButtons);
-removeAllFinalized .addEventListener('click', removeCompleted);
 

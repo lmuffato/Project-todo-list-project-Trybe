@@ -2,7 +2,7 @@ const createTask = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 const removeAll = document.getElementById('apaga-tudo');
-const removeAllFinalized = document.getElementById('remover-finalizados');
+const removeCompletedBtn = document.getElementById('remover-finalizados');
 
 function addTask(add) {
   add.preventDefault();
@@ -39,19 +39,8 @@ function removeAllButtons(rall) {
   taskList.innerHTML = '';
 }
 
-function removeCompleted(rmCompleted) {
-  rmCompleted.preventDefault();
-  const allTasks = document.querySelectorAll('.task');
-  for (let i = allTasks.length - 1; i >= 0; i -= 1) {
-    if (allTasks[i].classList.contains('completed')) {
-      allTasks[i].remove();
-    }
-  }
-}
-
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
 removeAll.addEventListener('click', removeAllButtons);
-removeAllFinalized .addEventListener('click', removeCompleted);
 
