@@ -27,4 +27,14 @@ list.addEventListener('click', function(event) {
         else {event.target.style.backgroundColor = 'rgb(128, 128, 128)'}
     }
 });
+list.addEventListener('dblclick', function(event) {
+   if (event.target.classList.contains('completed')) {
+       event.target.classList.remove('completed');
+       event.target.style.textDecoration = '';
+   }
+   else {
+    event.target.classList.add('completed');
+    event.target.style.textDecoration = 'line-through'
+    }
+});
 
