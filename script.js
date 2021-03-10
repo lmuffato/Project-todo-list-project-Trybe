@@ -27,3 +27,9 @@ outputOl.addEventListener('dblclick', (event) => {
   const troughLi = event.target;
   troughLi.classList.toggle('completed');
 });
+
+// Requisito 10
+const clearBttn = document.querySelector('#apaga-tudo');
+clearBttn.addEventListener('click', () => {
+  outputOl.innerHTML = '';
+});
