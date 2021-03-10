@@ -80,3 +80,31 @@ function resetList() {
     document.getElementById('lista-tarefas').appendChild(tagLi);
   }
 }
+
+ function moveUp() {
+  const items = document.getElementsByClassName('list-item');
+  for (let index = 1; index < items.length; index += 1) {
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index - 1].innerText = items[index].innerText;
+    }
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index - 1].className = items[index].className;
+    }
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      items[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+
+function removeSelectedItem () {
+  const items = document.getElementsByClassName('list-item');
+  for (let index = 0; index < items.length; index += 1) {
+    if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      document.getElementById('lista-tarefas').removeChild(items[index]);
+    }
+  }
+}
+
+document.getElementById('remover-selecionado').addEventListener('click', removeSelectedItem);
