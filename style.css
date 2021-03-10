@@ -17,8 +17,9 @@ body {
 }
 
 .button {
-  background-color: transparent;
-  border: 1px solid white;
+  background: transparent;
+  border: transparent;
+  border-radius: 20px;
   color: white;
   font-size: 15px;
   margin: 10px;
@@ -33,22 +34,13 @@ input {
   padding: 5px;
 }
 
-#move-cima {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-
-#mover-baixo {
-  
-}
-
 footer {
   text-align: left;
   width: 100%;
   position: absolute;
   bottom: -30px;
+}
+
+#funcionamento {
+  color: rgba(0, 0, 0, 0.521);
 }

@@ -40,21 +40,21 @@ listOfTasks.addEventListener('dblclick', function (event) { // Ao dar doubleclic
   }
 });
 
-deleteItems.addEventListener('click', function () {
+deleteItems.addEventListener('click', function () { // Essa função deleta os item selecionados.
   const lines = document.getElementsByTagName('li');
   for (let index = 0; index < lines.length; index += 0) {
     lines[index].remove();
   }
 });
 
-removeCompleteItems.addEventListener('click', function () {
+removeCompleteItems.addEventListener('click', function () { // Essa função deleta as tarefas finalizadas.
   const completed = document.querySelectorAll('.completed');
   for (let index = 0; index < completed.length; index += 1) {
     completed[index].remove();
   }
 });
   
-saveItemsList.addEventListener('click', function () {
+saveItemsList.addEventListener('click', function () { // Salva os items da lista
   localStorage.clear();
   const list = document.getElementsByTagName('li');
   for (let item = 0; item < list.length; item += 1) {
@@ -63,7 +63,7 @@ saveItemsList.addEventListener('click', function () {
   }
 });
   
-moveUp.addEventListener('click', function () {
+moveUp.addEventListener('click', function () { // Move uma tarefa selecionada da lista para uma casa a cima.
   const tasks = document.getElementsByTagName('li');
   for (let index = 1; index < tasks.length; index += 1) {
     if (tasks[index].id === 'isSelected') {
@@ -81,7 +81,7 @@ moveUp.addEventListener('click', function () {
   }
 });
   
-moveDown.addEventListener('click', function () {
+moveDown.addEventListener('click', function () { // Move uma tarefa selecionada da lista para uma casa a baixo.
   const tasks = document.getElementsByTagName('li');
   for (let index = tasks.length - 2; index >= 0; index -= 1) {
     if (tasks[index].id === 'isSelected') {
@@ -99,7 +99,7 @@ moveDown.addEventListener('click', function () {
   }
 });
   
-removeSelectedItems.addEventListener('click', function () {
+removeSelectedItems.addEventListener('click', function () { // Remove os itens selecionados
   document.getElementById('isSelected').remove();
 });
   
