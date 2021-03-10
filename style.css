@@ -8,6 +8,8 @@
 
   --bg-main: white;
 
+  --line-throug: black;
+
   --color-title: rgb(37 , 37 , 37);
 
   --width-total: 1180px;
@@ -77,6 +79,6 @@ main {
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid var(--line-throug);
   font-weight: 600;
 }
