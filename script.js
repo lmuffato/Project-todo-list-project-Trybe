@@ -4,6 +4,10 @@ const btnRemoveAll = document.getElementById('apaga-tudo');
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
 const btnSaveList = document.getElementById('salvar-tarefas');
 const btnRemoveSelected = document.getElementById('remover-selecionado');
+const idName = 'selected-task';
+const loadList = () => {
+  oListTask.innerHTML = localStorage.getItem('lists');
+};
 
 btnCreateTask.addEventListener('click', () => {
   const listTaskElement = document.createElement('li');
@@ -19,10 +23,10 @@ oListTask.addEventListener('click', (e) => {
   const listElements = document.getElementsByTagName('li');
 
   for (let index = 0; index < listElements.length; index += 1) {
-    if (listElements[index].id === 'selected-task') listElements[index].id = '';
+    if (listElements[index].id === idName) listElements[index].id = '';
   }
 
-  listElement.id = 'selected-task';
+  listElement.id = idName;
 });
 
 oListTask.addEventListener('dblclick', (e) => {
@@ -39,20 +43,14 @@ btnRemoveCompleted.addEventListener('click', () => {
 });
 
 btnSaveList.addEventListener('click', () => {
-  const arrayToConvert = [];
-  const listToSave = document.querySelectorAll('li');
-
-  for (let index = 0; index < listToSave.length; index += 1) {
-    arrayToConvert.push(listToSave[index].innerText);
-  }
-
-  console.log(arrayToConvert);
-  localStorage.setItem('lists', JSON.stringify(arrayToConvert));
+  localStorage.setItem('lists', oListTask.innerHTML);
 });
 
 btnRemoveSelected.addEventListener('click', () => {
-  oListTask.removeChild(document.getElementById('selected-task'));
+  oListTask.removeChild(document.getElementById(idName));
 });
+
+loadList();
 
 /*
 REFERÊNCIAS:
