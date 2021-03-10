@@ -1,4 +1,5 @@
 const createTaskBtn = document.getElementById('criar-tarefa');
+const eraseAllBtn = document.getElementById('apaga-tudo');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 // const tasks = [];
@@ -32,6 +33,13 @@ function markCompleted(e) {
   }
 }
 
+function eraseAll(e) {
+  e.preventDefault();
+  taskList.innerHTML = '';
+  // tasks = [];
+}
+
 createTaskBtn.addEventListener('click', addTask);
 taskList.addEventListener('click', selectItem);
 taskList.addEventListener('dblclick', markCompleted);
+eraseAllBtn.addEventListener('click', eraseAll);
