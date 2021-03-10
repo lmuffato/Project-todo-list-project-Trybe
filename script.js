@@ -7,17 +7,6 @@ const addEvListener = (elementNode, event, fn) => {
   node.addEventListener(event, fn);
 };
 
-const addEvListenerNElements = (elementsNodes, event, fn) => {
-  if (typeof fn !== 'function') {
-    console.log('O parâmetro fn deve ser uma função.');
-    return;
-  }
-  const nodes = document.querySelectorAll(elementsNodes);
-  for (let index = 0; index < nodes.length; index += 1) {
-    nodes[index].addEventListener(event, fn);
-  }
-};
-
 const getAllTodoList = () => document.querySelectorAll('li');
 
 const resetColor = (item) => {
@@ -26,16 +15,12 @@ const resetColor = (item) => {
 };
 
 const changeColor = (ev, color) => { // 'rgb(128, 128, 128)'
-  console.log(ev);
-  console.log('color: ' + color);
   getAllTodoList().forEach((x) => resetColor(x));
   const todoItem = ev.target;
   todoItem.style.backgroundColor = color;
 };
 
 const changeLineThrough = (ev, className) => {
-  console.log(ev);
-  console.log('class: ' + className);
   const todoItem = ev.target;
   todoItem.classList.toggle(className);
 };
