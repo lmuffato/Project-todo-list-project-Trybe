@@ -15,10 +15,8 @@ function changeColor(item) {
 function lineTrhough(item) {
   if (item.target.classList.contains('completed')) {
     item.target.classList.toggle('completed');
-    console.log('if');
   } else {
     item.target.classList.toggle('completed');
-    console.log('else');
   }
 }
 
@@ -36,8 +34,18 @@ function resetInput() {
 }
 
 function cleanList() {
-  const ol = document.querySelector('#lista-tarefas');
+  const ol = document.getElementById('lista-tarefas');
   ol.innerHTML = '';
+}
+
+function removeFinished() {
+  const li = document.querySelectorAll('.itens');
+  const ol = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('completed')) {
+      ol.removeChild(li[index]);
+    }
+  }
 }
 
 const button = document.querySelector('#criar-tarefa');
@@ -45,3 +53,6 @@ button.addEventListener('click', resetInput);
 
 const cleanButton = document.querySelector('#apaga-tudo');
 cleanButton.addEventListener('click', cleanList);
+
+const removeFinishedBtn = document.querySelector('#remover-finalizados');
+removeFinishedBtn.addEventListener('click', removeFinished);
