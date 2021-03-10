@@ -84,14 +84,19 @@ function resetList() {
 function moveUp() {
   const items = document.getElementsByClassName('list-item');
   for (let index = 1; index < items.length; index += 1) {
+    const textSelected = items[index].innerText;
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      items[index - 1].innerText = items[index].innerText;
+      items[index].innerText = items[index - 1].innerText;
+      items[index - 1].innerText = textSelected;
     }
+    const classSelected = items[index].className;
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      items[index - 1].className = items[index].className;
+      items[index].className = items[index - 1].className;
+      items[index - 1].className = classSelected;
     }
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       items[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      items[index].style.backgroundColor = 'white';
     }
   }
 }
@@ -101,14 +106,19 @@ document.getElementById('mover-cima').addEventListener('click', moveUp);
 function moveDown() {
   const items = document.getElementsByClassName('list-item');
   for (let index = items.length - 2; index >= 0; index -= 1) {
+    const textSelect = items[index].innerText;
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      items[index + 1].innerText = items[index].innerText;
+      items[index].innerText = items[index + 1].innerText;
+      items[index + 1].innerText = textSelect;
     }
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-      items[index + 1].className = items[index].className;
+      const classSelect = items[index].className;
+      items[index].className = items[index + 1].className;
+      items[index + 1].className = classSelect;
     }
     if (items[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       items[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      items[index].style.backgroundColor = 'white';
     }
   }
 }
