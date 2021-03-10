@@ -58,7 +58,49 @@ const clearCompletedTodoList = () => {
   }
 };
 
+const moveTodoItem = (count) => {
+  let selected;
+  let insertLocal;
+  let indexItem;
+  let listLength;
+  const listTodoItem = getAllTodoList();
+  for (let index = 0; index < listTodoItem.length; index += 1) {
+    const element = listTodoItem[index];
+    if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+      selected = listTodoItem[index];
+      indexItem = index;
+      listLength = listTodoItem.length;
+      insertLocal = listTodoItem[index + count];
+    }
+  }
+  return { selected, indexItem, listLength, insertLocal };
+};
+
+const moveDown = () => {
+  const { selected, indexItem, listLength, insertLocal } = moveTodoItem(2);
+
+  if (indexItem === listLength) {
+    return;
+  }
+
+  const listContainer = document.querySelector('#lista-tarefas');
+  listContainer.insertBefore(selected, insertLocal);
+};
+
+const moveUp = () => {
+  const { selected, indexItem, insertLocal } = moveTodoItem(-1);
+
+  if (indexItem === 0) {
+    return;
+  }
+
+  const listContainer = document.querySelector('#lista-tarefas');
+  listContainer.insertBefore(selected, insertLocal);
+};
+
 window.onload = () => {
+  addEvListener('#mover-cima', 'click', moveUp);
+  addEvListener('#mover-baixo', 'click', moveDown);
   addEvListener('#criar-tarefa', 'click', insertTodo);
   addEvListener('#apaga-tudo', 'click', clearTodoList);
   addEvListener('#remover-finalizados', 'click', clearCompletedTodoList);
