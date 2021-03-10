@@ -2,7 +2,13 @@
 
   --bg-background: rgb(190 , 183 , 164);
 
+  --bg-title: rgb(255 , 127 , 17);
+
   --border-bottom-title: rgb(63 , 63 , 61);
+
+  --bg-main: white;
+
+  --color-title: rgb(37 , 37 , 37);
 
   --width-total: 1180px;
 }
@@ -18,9 +24,24 @@ body {
   background-color: var(--bg-background);
 }
 
+#content {
+  max-width: var(--width-total);
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  background-color: var(--bg-main);
+  border-radius: 250px;
+}
+
 #titulo {
   font-weight: 600;
-  background-color: white;
+  background-color: var(--bg-title);
   border-bottom: 1px solid var(--border-bottom-title);
 }
 
@@ -29,4 +50,15 @@ body {
   height: auto;
   margin: 0 auto;
   padding: 20px;
+  text-align: center;
+  color: var(--color-title);
+}
+
+#info {
+  color: var(--color-title);
+  padding-bottom: 5px;
+}
+
+#funcionamento {
+  color: var(--border-bottom-title);
 }
