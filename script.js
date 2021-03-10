@@ -2,6 +2,7 @@ const btnAdicionar = document.getElementById('criar-tarefa');
 const inputTarefa = document.getElementById('texto-tarefa');
 const toDoList = document.getElementById('lista-tarefas');
 const btnLimparLista = document.getElementById('apaga-tudo');
+const btnLimparCompletos = document.getElementById('remover-finalizados');
 
 btnAdicionar.addEventListener('click', () => {
   const text = inputTarefa.value;
@@ -27,4 +28,14 @@ toDoList.addEventListener('click', (event) => {
 
 btnLimparLista.addEventListener('click', () => {
   toDoList.innerHTML = '';
+});
+
+btnLimparCompletos.addEventListener('click', () => {
+  const listItems = document.querySelectorAll('#lista-tarefas li');
+  const numberOfItems = listItems.length;
+  for (let index = numberOfItems - 1; index >= 0; index -= 1) {
+    if (listItems[index].classList.contains('completed')) {
+      toDoList.removeChild(listItems[index]);
+    }
+  }
 });
