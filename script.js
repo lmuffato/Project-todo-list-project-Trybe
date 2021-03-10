@@ -1,10 +1,15 @@
 const items = [];
 
-function selectItemList() {
+function changeSelectItem() {
   const listLis = document.getElementsByClassName('item');
   for (let index = 0; index < listLis.length; index += 1) {
-    listLis[index].style.backgroundColor = 'rgb(128, 128, 128)';
+    listLis[index].style.backgroundColor = 'rgb(255,255,255)';
   }
+}
+
+function selectItemList(e) {
+  changeSelectItem();
+  e.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 function addItemList() {
