@@ -23,3 +23,13 @@ function unsetColor() {
 
 document.getElementById('lista-tarefas').addEventListener('click', unsetColor);
 document.getElementById('lista-tarefas').addEventListener('click', clickColor);
+
+function completeTask(event) {
+  if (event.target.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
+    event.target.style.textDecoration = 'none';
+  } else {
+    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  }
+}
+
+document.getElementById('lista-tarefas').addEventListener('dblclick', completeTask);
