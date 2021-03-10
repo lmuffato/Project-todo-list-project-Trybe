@@ -11,27 +11,27 @@ body , h1 , h2 , h3 , p , ul , table , td , tr {
 }
 
 body {
-  background-color: rgba(246, 189, 96, 1);
+  background-color: rgba(246 , 189 , 96 , 1);
 }
 
 #main-container {
-  background-color: rgba(247, 237, 226, 1);
+  background-color: rgba(247 , 237 , 226 , 1);
   max-width: 960px;
   margin: 100px auto;
   border-radius: 15px;
 }
 
 #header-container {
-  padding: 30px 30px 15px 30px;
+  padding: 30px 30px 15px;
 }
 
 #title {
   font-family: Roboto, sans-serif;
-  color: rgba(20, 33, 61, 1);
+  color: rgba(20 , 33 , 61 , 1);
 }
 
 #paragraph-container {
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 30px;
 }
 
 #funcionamento {
@@ -39,5 +39,5 @@ body {
   font-style: italic;
   font-size: 1em;
   line-height: 14px;
-  color: rgba(173, 181, 189, 1);
+  color: rgba(173 , 181 , 189 , 1);
 }
