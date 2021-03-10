@@ -1,15 +1,29 @@
-let getBtn = document.getElementById('criar-tarefa');
-let getInputText = document.getElementById('texto-tarefa');
-let getList = document.getElementById('lista-tarefas');
+function add() {
+  const getBtn = document.getElementById('criar-tarefa');
+  const getInputText = document.getElementById('texto-tarefa');
+  const getList = document.getElementById('lista-tarefas');
 
-getBtn.addEventListener('click', function() {
-  let item = document.createElement('li');
-  getList.appendChild(item).innerText = getInputText.value
-  getInputText.value = ''
-});
+  getBtn.addEventListener('click', () => {
+    const item = document.createElement('li');
+    item.addEventListener('click', () => {
+      item.className = 'selected';
+    });
+    getList.appendChild(item).innerText = getInputText.value;
+    getInputText.value = '';
+  });
+}
 
+function clickEvent(event) {
+  const currentSelected = document.getElementsByClassName('selected')[0];
+  currentSelected.classList.remove('selected');
+  const classSelected = event.target;
+  classSelected.className = 'selected';
+}
 
+function swapSelected() {
+  const getSelected = document.getElementById('lista-tarefas');
+  getSelected.addEventListener('click', clickEvent);
+}
 
-
-
-
+add();
+swapSelected();
