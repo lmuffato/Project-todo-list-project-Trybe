@@ -4,6 +4,21 @@ let captureOl = document.getElementById('lista-tarefas');
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
 
+function doubleClickThrough(){
+  let captureListItems = document.querySelectorAll('.item-task');
+  for(let i = 0; i < captureListItems.length; i += 1) {
+    captureListItems[i].addEventListener('dblclick', function(event) {
+  
+
+      if(event.target.className === 'item-task') {
+        console.log('teste');
+        event.target.className = 'item-task completed';
+      } else if(event.target.className === 'item-task completed') {
+        event.target.className = 'item-task';
+      }
+    });
+  }
+};
 
 function clearSelectedItems() {
   let captureListItems = document.querySelectorAll('.item-task');
@@ -45,6 +60,7 @@ function insertItemTask() {
       captureOl.appendChild(newItem);
       clearInput();
       altColorClick(); //ao clicar em um item faz o background ficar cinza;
+      doubleClickThrough(); //ao clicar 2x no item o grifa.
     }
   })
 };
