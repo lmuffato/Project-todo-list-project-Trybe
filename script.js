@@ -15,7 +15,7 @@ window.onload = () => {
 
     /* ------- actived Li -------- */
     function paintBackground(e) {
-        if (document.querySelector('.active') != undefined) {
+        if (document.querySelector('.active') !== null) {
             document.querySelector('.active').classList.remove('active');
             e.target.classList.add('active');
         } else {
