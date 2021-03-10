@@ -4,6 +4,8 @@ const tasksList = document.getElementById('lista-tarefas');
 const buttonClearTasks = document.getElementById('apaga-tudo');
 const buttonClearCompleted = document.getElementById('remover-finalizados');
 const buttonSaveTasks = document.getElementById('salvar-tarefas');
+const buttonMoveTaskUp = document.getElementById('mover-cima');
+const buttonMoveTaskDown = document.getElementById('mover-baixo');
 
 const colors = {
   selected: 'rgb(128, 128, 128)',
@@ -15,10 +17,12 @@ const tasksFunctions = {
     for (let index = 0; index < tasks.length; index += 1) {
       const task = tasks[index];
       task.style.backgroundColor = 'transparent';
+      task.classList.remove('selected');
     }
 
     const task = element.target;
     task.style.backgroundColor = colors.selected;
+    task.classList.add('selected');
   },
 
   completeTask(element) {
@@ -102,7 +106,6 @@ function loadTasks() {
   for (let index = 0; index < tasks.length; index += 1) {
     if (storageTasks !== '') {
       const task = taskToObject(tasks[index]);
-      console.log(task);
       const taskElement = document.createElement('li');
       taskElement.textContent = task.content;
       markIfTaskIsCompleted(task, taskElement);
@@ -112,8 +115,50 @@ function loadTasks() {
   getTasks();
 }
 
-loadTasks();
+function moveTaskUp() {
+  const taskSelected = document.querySelector('li.selected');
+  const copyTask = document.createElement('li');
+  copyTask.textContent = taskSelected.textContent;
+  copyTask.classList.add('selected');
+  copyTask.style.backgroundColor = colors.selected;
+  copyTask.addEventListener('click', tasksFunctions.selectTask);
+  if (taskSelected.classList.contains('completed')) {
+    copyTask.classList.add('completed');
+  }
+
+  if (taskSelected.previousSibling == null) {
+    taskSelected.click();
+  } else {
+    tasksList.insertBefore(copyTask, taskSelected.previousSibling);
+    taskSelected.remove();
+  }
+}
+
+function moveTaskDown() {
+  const taskSelected = document.querySelector('li.selected');
+  const copyTask = document.createElement('li');
+  copyTask.classList.add('selected');
+  copyTask.style.backgroundColor = colors.selected;
+  copyTask.textContent = taskSelected.textContent;
+  copyTask.addEventListener('click', tasksFunctions.selectTask);
+  if (taskSelected.classList.contains('completed')) {
+    copyTask.classList.add('completed');
+  }
+  if (taskSelected.nextSibling != null) {
+    taskSelected.nextSibling.insertAdjacentElement('afterend', copyTask);
+    taskSelected.remove();
+  } else if (taskSelected.nextSibling == null) {
+    taskSelected.click();
+  } else {
+    tasksList.insertBefore(copyTask, taskSelected.nextSibling.nextSibling);
+    taskSelected.remove();
+  }
+}
+
+if (localStorage.getItem('tasks') && localStorage.getItem('tasks').length !== 0) loadTasks();
 buttonActions(buttonAddTask, [addTask, getTasks]);
 buttonActions(buttonClearTasks, [clearTasks]);
 buttonActions(buttonClearCompleted, [clearCompleted]);
 buttonActions(buttonSaveTasks, [saveTasks]);
+buttonActions(buttonMoveTaskUp, [moveTaskUp]);
+buttonActions(buttonMoveTaskDown, [moveTaskDown]);
