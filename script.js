@@ -17,10 +17,25 @@ function selectOption(listItem) {
   const taskChosen = listItem.target;
   taskChosen.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
 function unselectOptions() {
   for (let index = 0; index < tarefa.length; index += 1) {
     tarefa[index].style.backgroundColor = 'white';
   }
 }
+
+function finishedOption(listItem) {
+  const taskChosen = listItem.target.style;
+
+  if (taskChosen.textDecoration === 'solid') {
+    taskChosen.textDecoration = 'line-through';
+  } else {
+    for (let index = 0; index < tarefa.length; index += 1) {
+      tarefa[index].style.textDecoration = 'solid';
+    }
+  }
+}
+
+listaDeTarefas.addEventListener('dblclick', finishedOption);
 listaDeTarefas.addEventListener('click', unselectOptions);
 listaDeTarefas.addEventListener('click', selectOption);
