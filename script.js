@@ -11,9 +11,12 @@ buttonTask.id = 'criar-tarefa';
 taskContainer.appendChild(buttonTask);
 buttonTask.innerText = 'Adicionar';
 function addTask() {
-  let listItem = document.createElement('li');
+  const listItem = document.createElement('li');
   listItem.innerText = textTask.value;
   list.appendChild(listItem);
   textTask.value = '';
 }
 buttonTask.addEventListener('click', addTask);
+list.addEventListener('click', function(event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+});
