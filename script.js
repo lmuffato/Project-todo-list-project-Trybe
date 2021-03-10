@@ -26,12 +26,14 @@ function selectItem(e) {
   // selectedItem = tasks.findIndex((item) => item === e.target.innerText);
 }
 
+// .toggle retirado da documentação do MDN inspirado pela dica do Johnatas no Plantão
 function markCompleted(e) {
-  if (!e.target.classList.contains('completed')) {
-    e.target.classList.add('completed');
-  } else {
-    e.target.classList.remove('completed');
-  }
+  // if (!e.target.classList.contains('completed')) {
+  //   e.target.classList.add('completed');
+  // } else {
+  //   e.target.classList.remove('completed');
+  // }
+  e.target.classList.toggle('completed');
 }
 
 function eraseAll(e) {
