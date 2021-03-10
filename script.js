@@ -14,5 +14,12 @@ addTaskBtn.addEventListener('click', addTaskToList);
 
 taskList.addEventListener('click', (event) => {
   const clickedItem = event.target;
+  const currentlySelectedItem = document.querySelector('.selected');
+  if (currentlySelectedItem !== null) {
+    // Remove a classe selected do item previamente selecionado e retira a cor de fundo
+    currentlySelectedItem.classList.remove('selected');
+    currentlySelectedItem.style.backgroundColor = '';
+  }
+  clickedItem.classList.add('selected');
   clickedItem.style.backgroundColor = 'rgb(128,128,128)';
 });
