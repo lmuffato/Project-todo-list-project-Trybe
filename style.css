@@ -1,14 +1,60 @@
-body { 
-  background-color: darkmagenta;
-}
 
 header {
-  color: white;
+  color:black;
   text-align: center;
   font-size: 40px;
+  font-style: oblique;
+  font-weight: bolder;
+  margin-top: 20px;
+}
+
+#texto-tarefa {
+  width: 355px;
+  text-align: center;
+}
+
+.conteiner-pai {
+  background-color: rgb(255, 115, 122);
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+  padding-left: 30px;
+  border: black solid 1px;
+  display: flex;
+  margin-left: 250px;
+}
+
+.conteiner1 {
+  margin-top: 50px;
+}
+
+.conteiner2 {
+  margin-top: auto;
+}
+
+ul li {
+ list-style: none;
+}
+
+ul {
+  float: right;
 }
 
 #funcionamento {
-  color: white;
-  font-size: 15px;
+  color: black;
+  font-size: 12px;
+  margin-top: 50px;
 }
+
+button:hover {
+  background-color: yellow;
+}
+
+button {
+  border-radius: 100%;
+  margin-right: 50px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+

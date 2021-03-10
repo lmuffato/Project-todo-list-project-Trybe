@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header> 
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p> 
-  <input id="texto-tarefa" type="text">
-  <ol id="lista-tarefas"> </ol>
-  <button id="criar-tarefa"> Criar tarefa</button>
-  <button id="apaga-tudo">Apagar tudo</button>
-  <button id="remover-finalizados">Remover finalizados</button>
-  <button id="salvar-tarefas">Salvar tarefas</button>
-  <button id="mover-cima">Mover acima</button>
-  <button id="mover-baixo">Mover abaixo</button>
-  <button id="remover selecionado">Remover selecionado</button>
+    <header>Minha Lista de Tarefas</header> 
+    <div class="conteiner-pai">
+        <div class="conteiner1">
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p> 
+            <ol id="lista-tarefas"> </ol>
+            <input id="texto-tarefa" type="text">
+        </div>
+        <div class="conteiner2">
+            <ul>
+                <li><button id="criar-tarefa"> </button></li>
+                <li><button id="salvar-tarefas"></button></li>
+                <li><button id="mover-cima"></button></li>
+                <li><button id="mover-baixo"></button></li>
+                <li><button id="apaga-tudo"></button></li>
+                <li><button id="remover selecionado"></button></li>
+                <li><button id="remover-finalizados"></button></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
