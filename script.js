@@ -7,7 +7,7 @@ function addTaskToList() {
     if (inputText.value.length > 0) {
       const li = document.createElement('li');
       li.innerHTML = inputText.value;
-      li.className = taskListItemClass ;
+      li.className = taskListItemClass;
       ol.appendChild(li);
       inputText.value = '';
     } else {
