@@ -1,6 +1,12 @@
 function changeTaskBgColor(event) {
   const selectedTask = event.target;
-  selectedTask.style.backgroundColor = 'rgb(128, 128, 128)';
+  const clearPreviousTask = document.querySelector('.selected');
+  if (clearPreviousTask !== null) {
+    clearPreviousTask.classList.remove('selected');
+  }
+  if (selectedTask.className.includes('task')) {
+    selectedTask.classList.add('selected');
+  }
 }
 
 function selectTask() {
