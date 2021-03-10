@@ -1,3 +1,17 @@
+function lineThrough(event) {
+  const selectedTask = event.target;
+  if (selectedTask.className.includes('completed')) {
+    selectedTask.classList.remove('completed');
+  } else {
+    selectedTask.classList.add('completed');
+  }
+}
+
+function setComplete() {
+  const taskListContainer = document.querySelector('#lista-tarefas');
+  taskListContainer.addEventListener('dblclick', lineThrough);
+}
+
 function changeTaskBgColor(event) {
   const selectedTask = event.target;
   const clearPreviousTask = document.querySelector('.selected');
@@ -41,4 +55,5 @@ function createTask() {
 window.onload = () => {
   createTask();
   selectTask();
+  setComplete();
 };
