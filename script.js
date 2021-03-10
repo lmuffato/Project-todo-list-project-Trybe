@@ -5,7 +5,9 @@ const CLEAR_ALL_BTN = 'apaga-tudo';
 const CLEAR_COMPLETED_BTN = 'remover-finalizados';
 
 function clearCompletedTasks() {
-  //  const completedTasks = document.querySelectorAll(`#${TASK_LIST} > .completed`);
+  const completedTasks = document.querySelectorAll('#lista-tarefas > .completed');
+  // I'm sorry about this monstrosity https://stackoverflow.com/questions/4777077/removing-elements-by-class-name helped me to create this, go blame them I guess xD
+  Array.from(completedTasks).forEach((task) => task.parentNode.removeChild(task));
 }
 function createClearCompletedTasksEventListener() {
   const clearCompletedBtn = document.getElementById(CLEAR_COMPLETED_BTN);
