@@ -82,3 +82,12 @@ main {
   text-decoration: line-through solid var(--line-throug);
   font-weight: 600;
 }
+
+#controlPanel {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}

@@ -32,12 +32,27 @@ function addItemList() {
     newLi.addEventListener('click', selectItemList);
     newLi.addEventListener('dblclick', checkItem);
     listTodo.appendChild(newLi);
-    items.push = inputSearch.value;
+    items.push(inputSearch.value);
     inputSearch.value = '';
-    console.log(items);
   });
+}
+
+function clearListItens() {
+  console.log(items);
+  const allItens = document.getElementById('lista-tarefas');
+  for (let index = allItens.children.length - 1; index >= 0; index -= 1) {
+    allItens.children[index].remove();
+    items.pop();
+  }
+  console.log(items);
+}
+
+function activeButtonClearAll() {
+  const buttonClearAll = document.getElementById('apaga-tudo');
+  buttonClearAll.addEventListener('click', clearListItens);
 }
 
 window.onload = () => {
   addItemList();
+  activeButtonClearAll();
 };
