@@ -3,6 +3,15 @@ let captureOl = null;
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
 
+function deleteAll() {
+  let buttonDeleteAll = document.getElementById('apaga-tudo');
+  buttonDeleteAll.addEventListener('click', function() {
+    while(captureOl.lastElementChild) {
+      captureOl.removeChild(captureOl.lastElementChild);
+    }
+  });
+};
+
 function doubleClickThrough() {
   let captureLastitem = captureOl.lastChild;
   captureLastitem.addEventListener('dblclick', function (event) {
@@ -36,14 +45,12 @@ function altColorClick() {
 function captureText() {
   let captureInputText = document.getElementById('texto-tarefa');
   return captureInputText.value;
-}
+};
 
 function clearInput() {
   let captureInputText = document.getElementById('texto-tarefa');
   captureInputText.value = '';
-}
-
-
+};
 
 function insertItemTask() {
   let captureButton = document.getElementById('criar-tarefa');
@@ -60,6 +67,7 @@ function insertItemTask() {
       altColorClick(); //ao clicar em um item faz o background ficar cinza;
       //altListItems();
       doubleClickThrough(); //ao clicar 2x no item o grifa.
+      deleteAll();
     }
 
   })
