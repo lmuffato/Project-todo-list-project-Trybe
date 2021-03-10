@@ -75,3 +75,8 @@ main {
   padding: 10px;
   margin: 20px auto 10px;
 }
+
+.completed {
+  text-decoration: line-through;
+  font-weight: 600;
+}

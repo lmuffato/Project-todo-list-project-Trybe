@@ -12,6 +12,14 @@ function selectItemList(e) {
   e.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function checkItem(e) {
+  if (e.target.className === 'item') {
+    e.target.className = 'item completed';
+  } else {
+    e.target.className = 'item';
+  }
+}
+
 function addItemList() {
   const inputSearch = document.getElementById('texto-tarefa');
   const buttonSearch = document.getElementById('criar-tarefa');
@@ -22,6 +30,7 @@ function addItemList() {
     newLi.innerText = inputSearch.value;
     newLi.className = 'item';
     newLi.addEventListener('click', selectItemList);
+    newLi.addEventListener('dblclick', checkItem);
     listTodo.appendChild(newLi);
     items.push = inputSearch.value;
     inputSearch.value = '';
