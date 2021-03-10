@@ -15,6 +15,15 @@ function toggleDoneTask(item) {
   taskItem.classList.toggle('completed');
 }
 
+function clearTaskButton() {
+  const clearButtonElement = document.getElementById('apaga-tudo');
+
+  clearButtonElement.onclick = () => {
+    const taskList = document.getElementById('lista-tarefas');
+    taskList.innerHTML = '';
+  };
+}
+
 function createTask() {
   const createTaskButton = document.getElementById('criar-tarefa');
   createTaskButton.onclick = () => {
@@ -33,3 +42,4 @@ function createTask() {
 }
 
 createTask();
+clearTaskButton();
