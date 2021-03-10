@@ -12,7 +12,11 @@ button.addEventListener('click', () => {
 });
 
 function passGrayColor(e) {
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const listItem = document.querySelectorAll('#lista-tarefas li');
+  for (let item of listItem) {
+    item.classList.remove('gray-color');
+  }
+  e.target.classList.add('gray-color'); 
 }
 
 function passGrayColorToTheList() {
