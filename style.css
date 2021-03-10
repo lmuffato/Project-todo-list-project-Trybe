@@ -69,3 +69,7 @@ body {
 #lista-tarefas-container {
   padding: 0 30px 30px;
 }
+
+.selected {
+  background-color: gray;
+}
