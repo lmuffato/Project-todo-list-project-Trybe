@@ -1,5 +1,6 @@
 const createTaskBtn = document.getElementById('criar-tarefa');
 const eraseAllBtn = document.getElementById('apaga-tudo');
+const removeCompletedBtn = document.getElementById('remover-finalizados');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 // const tasks = [];
@@ -39,7 +40,19 @@ function eraseAll(e) {
   // tasks = [];
 }
 
+// .contains() retirado da doc do MDN - https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains
+function removeCompleted(e) {
+  e.preventDefault();
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = allTasks.length - 1; index >= 0; index -= 1) {
+    if (allTasks[index].classList.contains('completed')) {
+      allTasks[index].remove();
+    }
+  }
+}
+
 createTaskBtn.addEventListener('click', addTask);
 taskList.addEventListener('click', selectItem);
 taskList.addEventListener('dblclick', markCompleted);
 eraseAllBtn.addEventListener('click', eraseAll);
+removeCompletedBtn.addEventListener('click', removeCompleted);
