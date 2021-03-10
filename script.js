@@ -12,6 +12,7 @@ function buttonCreateTaks() {
     changeColorItems();
     completeTasks();
     clean();
+    killerChecked()
   }
 
 }
@@ -59,11 +60,25 @@ function clean() {
     for (let index = 0; index < list.length; index += 1) {
       list[index].remove();
     }
-
   }
-  
+}
 
+function killerChecked() {
+  let myButton = document.getElementById('remover-finalizados');
+  let list = document.getElementsByTagName('li');
+
+  myButton.addEventListener('click', funcao);
+
+  function funcao() {
+    for (let index = 0; index < list.length; index += 1) {
+      if (list[index].className === 'completed') {
+        list[index].remove();
+      }
+    }
+  }
  
+
+
 }
 
 
