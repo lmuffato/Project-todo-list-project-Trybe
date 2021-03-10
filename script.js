@@ -18,11 +18,20 @@ function addTask(e) {
 function selectItem(e) {
   const allTasks = document.querySelectorAll('.task');
   for (let index = 0; index < allTasks.length; index += 1) {
-    allTasks[index].className = 'task';
+    allTasks[index].classList.remove('selected');
   }
   e.target.classList.add('selected');
   // selectedItem = tasks.findIndex((item) => item === e.target.innerText);
 }
 
+function markCompleted(e) {
+  if (!e.target.classList.contains('completed')) {
+    e.target.classList.add('completed');
+  } else {
+    e.target.classList.remove('completed');
+  }
+}
+
 createTaskBtn.addEventListener('click', addTask);
 taskList.addEventListener('click', selectItem);
+taskList.addEventListener('dblclick', markCompleted);

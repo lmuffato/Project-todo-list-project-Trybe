@@ -12,3 +12,7 @@ header , main , ol {
 .selected {
   background-color: gray;
 }
+
+.completed {
+  text-decoration: line-through;
+}
