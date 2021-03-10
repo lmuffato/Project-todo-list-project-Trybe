@@ -2,6 +2,7 @@ const inputAddTask = document.getElementById('texto-tarefa');
 const buttonAddTask = document.getElementById('criar-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
 const buttonClearTasks = document.getElementById('apaga-tudo');
+const buttonClearCompleted = document.getElementById('remover-finalizados');
 
 const colors = {
   selected: 'rgb(128, 128, 128)',
@@ -56,5 +57,15 @@ function clearTasks() {
   });
 }
 
+function clearCompleted() {
+  const tasks = document.querySelectorAll('li');
+  tasks.forEach((task) => {
+    if (task.classList.contains('completed')) {
+      task.remove();
+    }
+  });
+}
+
 buttonActions(buttonAddTask, [addTask, getTasks]);
 buttonActions(buttonClearTasks, [clearTasks]);
+buttonActions(buttonClearCompleted, [clearCompleted]);
