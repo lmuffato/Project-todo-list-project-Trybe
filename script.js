@@ -24,13 +24,23 @@ addBackground.addEventListener('click', addSelect);
 
 // REQUISITO RESOLVIDO BASEADO EM EXERCICIO COURSE
 
-function addLineThrough(completed) {
-  if (completed.target.classList.contains('completed')) {
-    completed.target.classList.remove('completed');
+function addLineThrough(evt) {
+  if (evt.target.classList.contains('completed')) {
+    evt.target.classList.remove('completed');
   } else {
-    completed.target.classList.add('completed');
+    evt.target.classList.add('completed');
   }
 }
 
 const addLine = document.getElementById('lista-tarefas');
 addLine.addEventListener('dblclick', addLineThrough);
+
+function clear() {
+  const list = document.querySelectorAll('li');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].remove();
+  }
+}
+
+const clearTasks = document.getElementById('apaga-tudo');
+clearTasks.addEventListener('click', clear);

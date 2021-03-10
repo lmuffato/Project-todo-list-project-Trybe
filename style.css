@@ -77,3 +77,36 @@ body {
 .completed {
   text-decoration: line-through solid black;
 }
+
+#buttons-container {
+  padding: 0 30px 30px;
+}
+
+.btn-clean {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#apaga-tudo {
+  width: 130px;
+  height: 22px;
+  border-radius: 15px;
+  border: 1px solid rgba(0 , 0 , 0 , 0.3);
+  background: rgba(242 , 132 , 130 , 1);
+  font-family: Roboto, sans-serif;
+  color: white;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+#remover-finalizados {
+  width: 130px;
+  height: 22px;
+  border-radius: 15px;
+  border: 1px solid rgba(0 , 0 , 0 , 0.3);
+  background: rgba(132 , 165 , 157 , 1);
+  font-family: Roboto, sans-serif;
+  color: white;
+  font-weight: 600;
+  margin-left: 10px;
+}
