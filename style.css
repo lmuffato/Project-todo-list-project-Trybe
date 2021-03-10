@@ -39,3 +39,7 @@ header {
     border: solid 1px black;
     margin: 30px;
 }
+
+.active {
+    background-color: rgb(128, 128, 128);
+}

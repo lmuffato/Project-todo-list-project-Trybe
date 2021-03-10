@@ -1,4 +1,5 @@
 window.onload = () => {
+    /* -------- button add --------- */
     const addButton = document.querySelector('#criar-tarefa');
     const list = document.querySelector('#lista-tarefas');
 
@@ -12,4 +13,10 @@ window.onload = () => {
 
     addButton.addEventListener('click', addTextToList);
 
+    /* ------- actived Li -------- */
+    function paintBackground(e) {
+        e.target.classList.add('active');
+    }
+
+    list.addEventListener('click', paintBackground);
 };
