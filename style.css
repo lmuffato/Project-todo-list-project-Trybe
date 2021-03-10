@@ -8,6 +8,17 @@ h1, p {
   font-family: Inter, sans-serif;
 }
 
+
+button {
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+
 body {
   background: rgb(255, 250, 232);
   display: flex;
@@ -35,4 +46,12 @@ li.selected {
 
 li.completed {
   text-decoration: line-through solid rgb(0,0,0);
+}
+
+button#criar-tarefa {
+  background: green;
+}
+
+button#remover-finalizados, button#apaga-tudo {
+  background: red;
 }
