@@ -12,6 +12,9 @@ btnAdicionar.addEventListener('click', () => {
 
 toDoList.addEventListener('click', (event) => {
   const item = event.target;
-  console.log(item);
-  item.style.backgroundColor = 'rgb(128, 128, 128)';
+  const listItems = document.querySelectorAll('#lista-tarefas li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].classList.remove('grayBackground');
+  }
+  item.classList.add('grayBackground');
 });

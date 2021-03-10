@@ -1,3 +1,7 @@
 #criar-tarefa {
   background-color: blue;
 }
+
+.grayBackground {
+  background-color: rgb(128, 128, 128);
+}
