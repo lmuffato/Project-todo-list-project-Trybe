@@ -4,11 +4,9 @@ const assignmentList = document.querySelector('#lista-tarefas');
 
 button.addEventListener('click', () => {
   const creatAssignmentListItem = document.createElement('li');
-  creatAssignmentListItem.classList = 'list-item';
   const assignmentListItem = assignmentList.appendChild(creatAssignmentListItem);
   assignmentListItem.innerText = assignmentText.value;
   assignmentText.value = '';
-  console.log(document.querySelectorAll('.list-item'));
 });
 
 function passGrayColor(e) {
@@ -16,10 +14,20 @@ function passGrayColor(e) {
   for (let item of listItem) {
     item.classList.remove('gray-color');
   }
-  e.target.classList.add('gray-color'); 
+  e.target.classList.add('gray-color');
 }
 
 function passGrayColorToTheList() {
   assignmentList.addEventListener('click', passGrayColor);
 }
 passGrayColorToTheList();
+
+function crossOutLine(e) {
+    const crossOutText = document.querySelectorAll('#lista-tarefas li');
+    e.target.classList.add('line-through');
+}
+
+function crossOutTheAssignmentLine() {
+    assignmentList.addEventListener('dblclick', crossOutLine);
+}
+crossOutTheAssignmentLine();
