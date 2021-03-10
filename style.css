@@ -1,0 +1,32 @@
+:root {
+
+  --bg-background: rgb(190 , 183 , 164);
+
+  --border-bottom-title: rgb(63 , 63 , 61);
+
+  --width-total: 1180px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: var(--bg-background);
+}
+
+#titulo {
+  font-weight: 600;
+  background-color: white;
+  border-bottom: 1px solid var(--border-bottom-title);
+}
+
+#contentHeader {
+  max-width: var(--width-total);
+  height: auto;
+  margin: 0 auto;
+  padding: 20px;
+}
