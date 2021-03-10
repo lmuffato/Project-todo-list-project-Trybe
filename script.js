@@ -8,6 +8,25 @@ createAssignment.addEventListener('click', () => {
   todoList.appendChild(li)
 
   input.value = ''
-})
+});
+
+//resolvido com a ajuda da amiga Clarice Oliveira.
+todoList.addEventListener('click', (e) => {
+  const selectedItem = e.target;
+  const liColor = document.querySelectorAll('#lista-tarefas li');
+  for (const liC of liColor) {
+    liC.classList.remove('gray')
+  }
+      selectedItem.classList.add('gray');
+}); 
+
+todoList.addEventListener('dblclick', (e) => {
+  const selectedItem = e.target;
+  const liColor = document.querySelectorAll('#lista-tarefas li');
+  if (selectedItem.className = 'completed') {
+    selectedItem.classList.remove('completed');
+  }
+  selectedItem.classList.add('completed');
+}); 
 
 

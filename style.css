@@ -1,14 +1,46 @@
-#criar-tarefa{
+* {
+  font-family: sans-serif;
+
+}
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.6em;
+  font-style: italic;
+  font-weight: 100;
+  color: rgb(110, 110, 110);
+}
+body {
+  background-color:  rgb(62, 180, 62);
+}
+
+.gray {
+  background-color: rgb(128,128,128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#todo-list {
+  background-color: white;
+  border-radius: 20px;
+  padding: 2.5em;
+}
+
+#criar-tarefa {
   border-radius: 12px;
   width: 100px;
   height: 30px;
-  background-color: rgb(27, 103, 226);
+  background-color: rgb(77, 134, 228);
   color: white;
   font-weight: 900;
   border: none;
   cursor: pointer;
 }
 
-#criar-tarefa:hover{
+#criar-tarefa:hover {
   background-color: rgb(134, 175, 241);
 }
