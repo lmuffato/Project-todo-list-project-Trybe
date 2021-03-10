@@ -7,15 +7,15 @@ button.addEventListener('click', () => {
   creatAssignmentListItem.classList = 'list-item';
   const assignmentListItem = assignmentList.appendChild(creatAssignmentListItem);
   assignmentListItem.innerText = assignmentText.value;
-  assignmentText.value = "";
+  assignmentText.value = '';
   console.log(document.querySelectorAll('.list-item'));
 });
 
-function passGrayColor (e) {
-    e.target.style.color = 'rgb(128, 128, 128)';
+function passGrayColor(e) {
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function passGrayColorToTheList() {
-    assignmentList.addEventListener('click', passGrayColor);
+  assignmentList.addEventListener('click', passGrayColor);
 }
 passGrayColorToTheList();
