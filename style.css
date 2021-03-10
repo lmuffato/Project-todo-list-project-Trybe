@@ -1,20 +1,20 @@
 body {
-    background-color: rgb(49, 49, 112);
-    color: white;
-    font-family: Montserrat, sans-serif;
+  background-color: rgb(49, 49, 112);
+  color: white;
+  font-family: Montserrat, sans-serif;
 }
-  
+
 li {
   color: white;
   font-size: 20px;
   text-decoration: none;
 }
-  
+
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
-  
-.btn {
+
+.button {
   background-color: transparent;
   border: 1px solid white;
   color: white;
@@ -22,7 +22,7 @@ li {
   margin: 10px;
   padding: 5px;
 }
-  
+
 input {
   border: 1px solid white;
   color: rgb(0, 0, 0);
