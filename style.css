@@ -8,6 +8,10 @@ header {
   font-size: 30px;
 }
 
+.list {
+  background-color: white;
+}
+
 #funcionamento {
   margin-bottom: 20px;
 }

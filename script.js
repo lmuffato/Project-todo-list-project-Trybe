@@ -17,6 +17,7 @@ function addListInput() {
       list.className = 'list';
       listOrdenada.appendChild(list);
       selectColor(list);
+      listCompleted(list);
     }      
     clearInput();
   });
@@ -32,11 +33,17 @@ function selectColor(list) {
   const arrayList = document.getElementById('lista-tarefas').childNodes
   list.addEventListener('dblclick', (event) => {
     for (let indexTwo = 0; indexTwo < arrayList.length; indexTwo += 1) {
-      list.classList.remove('colorList');
       arrayList[indexTwo].classList.remove('colorList');
     }
     event.target.classList.add('colorList');
-    event.target.classList.add('completed');
+  });
+}
+
+function listCompleted(list) {
+  list.addEventListener('dblclick', (event) => {
+    if(event.target) {
+      event.target.classList.add('completed');
+    }
   });
 }
 
