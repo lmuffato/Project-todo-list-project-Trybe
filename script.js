@@ -13,6 +13,7 @@ function adicionaTarefa() {
   let tarefaParaAdicionar = adicionarTarefaInput.value;
   const tarefa = criarElementoHtmlTarefa(tarefaParaAdicionar);
   listaTarefas.appendChild(tarefa);
+  adicionarTarefaInput.value = "";
 }
 
 adicionarTarefaButton.addEventListener('click', adicionaTarefa);
