@@ -8,11 +8,17 @@ function selecionarTarefa(tarefaElementoHtml) {
   tarefaClicada.classList.add('selected')
 }
 
+function completarTarefa(tarefaElementoHtml) {
+  const tarefaClicada = tarefaElementoHtml;
+  tarefaClicada.classList.add('completed');
+}
+
 function criarElementoHtmlTarefa(nomeDaTarefa) {
   const tarefaEl = document.createElement('li');
   tarefaEl.className = 'tarefa';
   tarefaEl.innerHTML = nomeDaTarefa;
   tarefaEl.addEventListener('click', (e) => selecionarTarefa(e.target));
+  tarefaEl.addEventListener('dblclick', (e) => completarTarefa(e.target));
   return tarefaEl;
 }
 
