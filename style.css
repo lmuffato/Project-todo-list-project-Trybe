@@ -9,10 +9,15 @@ header {
   background-color: rgb(57 , 111 , 80);
   border-bottom: 10px solid rgb(105 , 195 , 141);
   font-size: x-large;
-  font-weight: bolder;
+  font-weight: 600;
   padding: 20px 0;
 }
 
 #funcionamento {
   font-size: small;
+}
+
+input {
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
