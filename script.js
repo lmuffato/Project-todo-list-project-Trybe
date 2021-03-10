@@ -22,9 +22,12 @@ function addListInput() {
 }
 addListInput();
 
+// const teste = document.getElementById('lista-tarefas').childNodes
+// console.log(teste);
+// const arrayList = document.querySelectorAll('.list');
+
 // Função para adicionar um dblclik na lista rgb(128,128,128);
 function selectColor(list) {
-  const arrayList = document.querySelectorAll('.list');
   list.addEventListener('dblclick', () => {
     list.style.backgroundColor = colorList;
   });
