@@ -12,14 +12,24 @@ function addTaskToList() {
 // Adicionar event listener no botão
 addTaskBtn.addEventListener('click', addTaskToList);
 
-taskList.addEventListener('click', (event) => {
+function singleClickItem(event) {
   const clickedItem = event.target;
   const currentlySelectedItem = document.querySelector('.selected');
   if (currentlySelectedItem !== null) {
-    // Remove a classe selected do item previamente selecionado e retira a cor de fundo
+    // Remove a classe selected do item previamente selecionado
     currentlySelectedItem.classList.remove('selected');
-    currentlySelectedItem.style.backgroundColor = '';
   }
   clickedItem.classList.add('selected');
-  clickedItem.style.backgroundColor = 'rgb(128,128,128)';
-});
+}
+
+function doubleClickItem(event) {
+  const doubleClickedItem = event.target;
+  if (doubleClickedItem.classList.contains('completed')) {
+    doubleClickedItem.classList.remove('completed');
+  } else {
+    doubleClickedItem.classList.add('completed');
+  }
+}
+
+taskList.addEventListener('click', singleClickItem);
+taskList.addEventListener('dblclick', doubleClickItem);
