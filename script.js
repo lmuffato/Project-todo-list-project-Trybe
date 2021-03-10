@@ -23,10 +23,8 @@ todoList.addEventListener('click', (e) => {
 todoList.addEventListener('dblclick', (e) => {
   const selectedItem = e.target;
   const liColor = document.querySelectorAll('#lista-tarefas li');
-  if (selectedItem.className = 'completed') {
-    selectedItem.classList.remove('completed');
-  }
-  selectedItem.classList.add('completed');
+  
+  selectedItem.classList.toggle('completed');
 }); 
 
 
