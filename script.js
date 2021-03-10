@@ -20,7 +20,7 @@ const addEvListenerNElements = (elementsNodes, event, fn) => {
 
 const createTodoItem = (text) => {
   const li = document.createElement('li');
-  li.innerHTML = text;
+  li.innerText = text;
   return li;
 };
 
@@ -29,9 +29,7 @@ const addTodoToList = (item) => {
   ol.appendChild(item);
 };
 
-const getAllTodoList = () => {
-  return document.querySelectorAll('li');
-};
+const getAllTodoList = () => document.querySelectorAll('li');
 
 const resetColor = (item) => {
   const todoItem = item;
@@ -55,6 +53,7 @@ const insertTodo = () => {
   addTodoToList(todo);
   addEvListenerNElements('li', 'click', (e) => { changeColor(e, 'rgb(128, 128, 128)'); });
   addEvListenerNElements('li', 'dblclick', (e) => { changeLineThrough(e, 'completed'); });
+  inputTodo.value = '';
 };
 
 const clearTodoList = () => {
