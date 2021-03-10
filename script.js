@@ -45,3 +45,18 @@ function createTask() {
 }
 
 createTask();
+
+// Requirement 10;
+
+function removeTask() {
+  const selectLis = document.querySelectorAll('li');
+  for (let index = 0; index < selectLis.length; index += 1) {
+    selectLis[index].remove('li');
+  }
+}
+
+function clickButtonClearTasks() {
+  const selectButton = document.querySelector('#apaga-tudo');
+  selectButton.addEventListener('click', removeTask);
+}
+clickButtonClearTasks();
