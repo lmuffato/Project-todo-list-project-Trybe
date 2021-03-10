@@ -7,7 +7,7 @@ const removeFinalizadosButton = document.querySelector('#remover-finalizados');
 function selecionarTarefa(tarefaElementoHtml) {
   const tarefaClicada = tarefaElementoHtml;
   document.querySelectorAll('ol li').forEach((el) => el.classList.remove('selected'));
-  tarefaClicada.classList.add('selected')
+  tarefaClicada.classList.add('selected');
 }
 
 function completarTarefa(tarefaElementoHtml) {
@@ -32,7 +32,7 @@ function adicionaTarefa() {
 }
 
 function removerTodasTarefas() {
-  document.querySelectorAll('ol li').forEach(el => el.remove())
+  document.querySelectorAll('ol li').forEach((el) => el.remove());
 }
 
 function removerTarefasFinalizadas() {
