@@ -5,19 +5,19 @@ function createLi(text) {
   document.getElementById('lista-tarefas').appendChild(listItem);
 }
 
-function change(element, list) {
+function change(list) {
   const selectedClass = 'task selected';
+  let result = 0;
   for (let index2 = 0; index2 < list.length; index2 += 1) {
     const element2 = list[index2];
     if (element2.className === selectedClass) {
       element2.className = 'task';
-      // eslint-disable-next-line no-param-reassign
-      element.className = selectedClass;
+      result = 1;
     } else {
-      // eslint-disable-next-line no-param-reassign
-      element.className = selectedClass;
+      result = 1;
     }
   }
+  return result;
 }
 
 function setColor() {
@@ -25,7 +25,9 @@ function setColor() {
   for (let index = 0; index < list.length; index += 1) {
     const element = list[index];
     element.addEventListener('click', () => {
-      change(element, list);
+      if (change(list) === 1) {
+        element.className = 'task selected';
+      }
     });
   }
 }
