@@ -6,6 +6,7 @@ const listContainer = document.querySelector('.listContainer');
 const list = document.createElement('ol');
 list.id = 'lista-tarefas';
 listContainer.appendChild(list);
+
 const buttonTask = document.createElement('button');
 buttonTask.id = 'criar-tarefa';
 taskContainer.appendChild(buttonTask);
@@ -60,3 +61,16 @@ function eraseCompleted() {
         }
 }
 eraseComplete.addEventListener('click', eraseCompleted);
+
+const saveButton = document.createElement('button');
+document.querySelector('.buttonsContainer').appendChild(saveButton);
+saveButton.id = 'salvar-tarefas';
+saveButton.innerText = 'Salvar';
+saveButton.addEventListener('click', function() {
+    localStorage.setItem('listItens', list.innerHTML)
+})
+
+let saved = localStorage.getItem('listItens');
+if (saved) {
+    list.innerHTML = localStorage.getItem('listItens');
+}
