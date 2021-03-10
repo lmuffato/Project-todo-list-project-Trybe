@@ -39,6 +39,7 @@ function addNewTask() {
   const task = document.getElementById('texto-tarefa');
   const listItem = document.createElement('li');
 
+  task.focus();
   listItem.innerText = task.value;
   listItem.className = 'list-item';
   listItem.addEventListener('click', selectTask);
@@ -52,18 +53,15 @@ function deleteList() {
   const list = document.getElementById('lista-tarefas');
 
   list.innerHTML = '';
-
-  // for (task of list.children) {
-  //   list.remove(task);
-  // }
 }
 
 function removeCompletedTasks() {
-  const completedTasks = document.getElementsByClassName('completed');
   const list = document.getElementById('lista-tarefas');
 
-  for (task in completedTasks) {
-    list.removeChild(completedTasks[task]);
+  for (let task = 0; task < list.children.length; task += 1) {
+    if (list.children[task].className.includes('completed')) {
+      list.removeChild(list.children[task]);
+    }
   }
 }
 
