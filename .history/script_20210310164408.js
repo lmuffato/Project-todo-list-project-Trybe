@@ -1,9 +1,9 @@
-const createTask = document.getElementById('criar-tarefa');
-const inputTask = document.getElementById('texto-tarefa');
+let createTaskBtn = document.getElementById('criar-tarefa');
+let inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
-function addTask(add) {
-  add.preventDefault();
+function addTask(e) {
+  e.preventDefault();
   const newTaskItem = document.createElement('li');
   const newTask = inputTask.value;
   newTaskItem.innerText = newTask;
@@ -11,4 +11,4 @@ function addTask(add) {
   inputTask.value = '';
 }
 
-createTask.addEventListener('click', addTask);
+createTaskBtn.addEventListener('click', addTask);

@@ -4,8 +4,8 @@ const taskList = document.getElementById('lista-tarefas');
 
 function addTask(add) {
   add.preventDefault();
-  const newTaskItem = document.createElement('li');
-  const newTask = inputTask.value;
+  let newTaskItem = document.createElement('li');
+  let newTask = inputTask.value;
   newTaskItem.innerText = newTask;
   taskList.appendChild(newTaskItem);
   inputTask.value = '';
