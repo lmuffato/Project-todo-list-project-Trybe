@@ -44,7 +44,7 @@ function addNewTask() {
   listItem.className = 'list-item';
   listItem.addEventListener('click', selectTask);
   listItem.addEventListener('dblclick', completeTask);
-  toDoList.push(task.value);
+  toDoList.push(listItem);
   renderNewTask(listItem);
   clearInput(task);
 }
@@ -58,7 +58,7 @@ function deleteList() {
 function removeCompletedTasks() {
   const list = document.getElementById('lista-tarefas');
 
-  for (let task = 0; task < list.children.length; task += 1) {
+  for (let task = 0; task <= list.children.length; task += 1) {
     if (list.children[task].className.includes('completed')) {
       list.removeChild(list.children[task]);
     }
