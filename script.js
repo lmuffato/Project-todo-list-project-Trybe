@@ -23,3 +23,7 @@ outputOl.addEventListener('click', (event) => {
 });
 
 // Requisito 9
+outputOl.addEventListener('dblclick', (event) => {
+  const troughLi = event.target;
+  troughLi.classList.toggle('completed');
+});
