@@ -1,5 +1,6 @@
 const buttonAddTask = document.getElementById('criar-tarefa');
 const buttonClearList = document.getElementById('apaga-tudo');
+const buttonRemoveCompleteTask = document.getElementById('remover-finalizados');
 
 function createTask() {
   const taskList = document.getElementById('lista-tarefas');
@@ -18,9 +19,8 @@ function clearInput() {
 buttonAddTask.addEventListener('click', createTask);
 buttonAddTask.addEventListener('click', clearInput);
 
-/*function clearSelectedTasks() {
-  
-}*/
+/* function clearSelectedTasks() {
+} */
 
 function changeBgList(event) {
   const listSelect = event.target;
@@ -50,3 +50,12 @@ function clearList() {
 }
 
 buttonClearList.addEventListener('click', clearList);
+
+function clearCheckTasks() {
+  const clearTask = document.querySelectorAll('.completed');
+  for (let index = 0; index < clearTask.length; index += 1) {
+    clearTask[index].remove();
+  }
+}
+
+buttonRemoveCompleteTask.addEventListener('click', clearCheckTasks);
