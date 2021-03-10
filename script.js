@@ -18,7 +18,7 @@ function clickDoBotao() {
 function mudaCorDaLista() {
     for (let index = 0; index < document.getElementsByClassName('listasCriadas').length; index += 1) {
         document.getElementsByClassName('listasCriadas')[index].addEventListener('click', () => {
-            document.getElementsByClassName('listasCriadas')[index].style.backgroundColor = 'gray';
+            document.getElementsByClassName('listasCriadas')[index].style.backgroundColor = 'rgb(128,128,128)';
         } );
     }
 }
