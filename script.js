@@ -67,10 +67,22 @@ function clearCompletedTasks() {
   });
 }
 
+function removeSelected() {
+  const removeSelBtn = document.querySelector('#remover-selecionado');
+
+  removeSelBtn.addEventListener('click', (_event) => {
+    const taskSelected = document.querySelector('.selected');
+    const task = document.querySelector('#lista-tarefas');
+
+    task.removeChild(taskSelected);
+  });
+}
+
 window.onload = () => {
   addTask();
   selectTask();
   dblClick();
   clearAllTasks();
   clearCompletedTasks();
+  removeSelected();
 };
