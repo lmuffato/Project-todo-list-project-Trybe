@@ -1,3 +1,4 @@
+const taskListItemClass = 'task-list-item';
 function addTaskToList() {
   const ol = document.getElementById('lista-tarefas');
   const btnAddTask = document.getElementById('criar-tarefa');
@@ -6,7 +7,7 @@ function addTaskToList() {
     if (inputText.value.length > 0) {
       const li = document.createElement('li');
       li.innerHTML = inputText.value;
-      li.className = 'task-list-item'
+      li.className = taskListItemClass ;
       ol.appendChild(li);
       inputText.value = '';
     } else {
@@ -15,18 +16,18 @@ function addTaskToList() {
   });
 }
 
-function selectedTask() { 
+function selectedTask() {
   const tasksList = document.querySelector('ol');
-  tasksList.addEventListener('click', (event) => {
-      if (event.target.className === 'task-list-item') {
-        const selected = document.querySelector('.selected');
-        if (selected !== null) {
-          selected.className = 'task-list-item'
-          event.target.className = 'task-list-item selected';
-        } else {
-          event.target.className = 'task-list-item selected'
-        }
-    } 
+  tasksList.addEventListener('click', (e) => {
+    if (e.target.className === taskListItemClass) {
+      const selected = document.querySelector('.selected');
+      if (selected !== null) {
+        selected.className = taskListItemClass;
+        e.target.className = 'task-list-item selected';
+      } else {
+        e.target.className = 'task-list-item selected';
+      }
+    }
   });
 }
 
