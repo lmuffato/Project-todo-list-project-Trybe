@@ -1,3 +1,35 @@
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  const downTask = selected.nextElementSibling;
+  if (downTask.tagName === 'LI') {
+    const downTaskHold = downTask;
+    downTask.outerHTML = selected.outerHTML;
+    selected.outerHTML = downTaskHold.outerHTML;
+  }
+}
+
+function buttonDown() {
+  const buttonMoveDown = document.querySelector('#mover-baixo');
+
+  buttonMoveDown.addEventListener('click', moveDown);
+}
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  const upTask = selected.previousElementSibling;
+  if (upTask.tagName === 'LI') {
+    const upTaskHold = upTask;
+    upTask.outerHTML = selected.outerHTML;
+    selected.outerHTML = upTaskHold.outerHTML;
+  }
+}
+
+function buttonUp() {
+  const buttonMoveUp = document.querySelector('#mover-cima');
+
+  buttonMoveUp.addEventListener('click', moveUp);
+}
+
 function displayStoraged() {
   const taskListContainer = document.querySelector('#lista-tarefas');
   if (localStorage.length > 0) {
@@ -116,4 +148,6 @@ window.onload = () => {
   removeCompletedButton();
   setStoraged();
   displayStoraged();
+  buttonUp();
+  buttonDown();
 };
