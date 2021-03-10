@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Ubuntu, sans-serif;
+  font-size: 20px;
+}
+
+h1 {
+  font-size: 1.5em;
 }
 
 header , main , ol {
