@@ -1,12 +1,11 @@
 function checkEachTask() {
   const newElement = document.createElement('li');
   const inputValue = document.getElementById('texto-tarefa').value;
-  const newText = document.createTextNode(inputValue);
-  newElement.appendChild(newText);
   if (inputValue === '') {
     alert('Você precisa escrever algo para adicionar à lista!');
   } else {
     document.getElementById('lista-tarefas').appendChild(newElement);
+    newElement.innerText = inputValue;
   }
 }
 
