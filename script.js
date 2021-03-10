@@ -3,10 +3,22 @@ let captureOl = null;
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
 
+function deleteAllSelected() {
+  let buttonDeleteAllSelected = document.getElementById('remover-finalizados');
+  buttonDeleteAllSelected.addEventListener('click', function () {
+    let captureItemsSelected = captureOl.childNodes;
+    for (let i = 0; i < captureItemsSelected.length; i += 1) {
+      if (captureItemsSelected[i].className === 'completed') {
+        captureOl.removeChild(captureItemsSelected[i]);
+      }
+    }
+  })
+};
+
 function deleteAll() {
   let buttonDeleteAll = document.getElementById('apaga-tudo');
-  buttonDeleteAll.addEventListener('click', function() {
-    while(captureOl.lastElementChild) {
+  buttonDeleteAll.addEventListener('click', function () {
+    while (captureOl.lastElementChild) {
       captureOl.removeChild(captureOl.lastElementChild);
     }
   });
@@ -15,13 +27,12 @@ function deleteAll() {
 function doubleClickThrough() {
   let captureLastitem = captureOl.lastChild;
   captureLastitem.addEventListener('dblclick', function (event) {
-    console.log('stanrley');
     if (event.target.className === '') {
       event.target.className = 'completed';
     } else if (event.target.className === 'completed') {
       event.target.className = '';
-      console.log('class vazia');
     }
+    deleteAllSelected();
   });
 };
 
@@ -68,6 +79,7 @@ function insertItemTask() {
       //altListItems();
       doubleClickThrough(); //ao clicar 2x no item o grifa.
       deleteAll();
+
     }
 
   })
