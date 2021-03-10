@@ -1,5 +1,6 @@
 function createListItem() {
   const listItem = document.createElement('li');
+  listItem.className = 'list-item';
   return listItem;
 }
 
@@ -22,3 +23,14 @@ function addTask() {
 }
 
 addTask();
+
+function changeBackgroundColor() {
+  const list = document.querySelectorAll('#lista-tarefas');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].addEventListener('click', (event) => {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  }
+}
+
+changeBackgroundColor();
