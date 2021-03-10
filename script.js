@@ -5,12 +5,27 @@ function createLi(text) {
   document.getElementById('lista-tarefas').appendChild(listItem);
 }
 
-function changeColor() {
+function change(element, list) {
+  const selectedClass = 'task selected';
+  for (let index2 = 0; index2 < list.length; index2 += 1) {
+    const element2 = list[index2];
+    if (element2.className === selectedClass) {
+      element2.className = 'task';
+      // eslint-disable-next-line no-param-reassign
+      element.className = selectedClass;
+    } else {
+      // eslint-disable-next-line no-param-reassign
+      element.className = selectedClass;
+    }
+  }
+}
+
+function setColor() {
   const list = document.getElementsByClassName('task');
   for (let index = 0; index < list.length; index += 1) {
     const element = list[index];
     element.addEventListener('click', () => {
-      element.style.backgroundColor = 'rgb(128, 128, 128)';
+      change(element, list);
     });
   }
 }
@@ -22,7 +37,7 @@ function addItem() {
     const text = textBox.value;
     createLi(text);
     textBox.value = '';
-    changeColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
+    setColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
   });
 }
 
