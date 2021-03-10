@@ -7,4 +7,5 @@ button.addEventListener('click', () => {
   const liItem = document.createElement('li');
   liItem.innerText = addInput.value;
   olItem.appendChild(liItem);
+  addInput.value = '';
 });
