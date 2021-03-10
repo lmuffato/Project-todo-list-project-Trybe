@@ -33,13 +33,11 @@ function markCompleted(mark) {
   }
 }
 
-function removeAllButtons(rall) {
-  rall.preventDefault();
-  taskList.innerHTML = '';
+function removeAll(rall) {
+  for ()
 }
 
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
-removeAll.addEventListener('click', removeAllButtons);
 

@@ -1,7 +1,6 @@
 const createTask = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-const removeAll = document.getElementById('apaga-tudo');
 
 function addTask(add) {
   add.preventDefault();
@@ -33,13 +32,10 @@ function markCompleted(mark) {
   }
 }
 
-function removeAllButtons(rall) {
-  rall.preventDefault();
-  taskList.innerHTML = '';
-}
+function removeAll(rall)
+for 
 
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
-removeAll.addEventListener('click', removeAllButtons);
 

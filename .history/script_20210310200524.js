@@ -41,5 +41,5 @@ function removeAllButtons(rall) {
 createTask.addEventListener('click', addTask);
 taskList.addEventListener('click', changeItemColors, selectItem)
 taskList.addEventListener('dblclick', markCompleted);
-removeAll.addEventListener('click', removeAllButtons);
+removeAll.addEventListener('click', remove);
 
