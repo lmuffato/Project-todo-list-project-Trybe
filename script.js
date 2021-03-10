@@ -6,4 +6,5 @@ submitItem.addEventListener('click', () => {
   const createLi = document.createElement('li');
   createLi.innerText = inputItem.value;
   outputOl.appendChild(createLi);
+  inputItem.value = '';
 });
