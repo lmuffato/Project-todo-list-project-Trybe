@@ -116,6 +116,19 @@ const removeSelectItem = () => {
   listContainer.removeChild(selected);
 };
 
+const saveListLocalStorage = () => {
+  const listContainer = document.querySelector('#lista-tarefas');
+  localStorage.setItem('listTodo', JSON.stringify(listContainer.innerHTML));
+};
+
+const getListLocalStorage = () => {
+  if (localStorage.getItem('listTodo') !== undefined) {
+    const listTodoItens = localStorage.getItem('listTodo');
+    const listContainer = document.querySelector('#lista-tarefas');
+    listContainer.innerHTML = JSON.parse(listTodoItens);
+  }
+};
+
 window.onload = () => {
   addEvListener('#remover-selecionado', 'click', removeSelectItem);
   addEvListener('#mover-cima', 'click', moveUp);
@@ -123,4 +136,6 @@ window.onload = () => {
   addEvListener('#criar-tarefa', 'click', insertTodo);
   addEvListener('#apaga-tudo', 'click', clearTodoList);
   addEvListener('#remover-finalizados', 'click', clearCompletedTodoList);
+  addEvListener('#salvar-tarefas', 'click', saveListLocalStorage);
+  getListLocalStorage();
 };
