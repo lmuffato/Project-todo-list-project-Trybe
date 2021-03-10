@@ -67,3 +67,13 @@ function removeCompleted() {
   });
 }
 removeCompleted();
+
+// requisito 14
+function removeSelected() {
+  const removeBtn = document.querySelector('#remover-selecionado');
+  removeBtn.addEventListener('click', () => {
+    const selected = document.getElementById('selected');
+    document.querySelector('#lista-tarefas').removeChild(selected);
+  });
+}
+removeSelected();
