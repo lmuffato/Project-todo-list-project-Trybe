@@ -41,3 +41,14 @@ function changeBackgroundColor() {
 }
 
 changeBackgroundColor();
+
+function completedTask() {
+  const list = document.querySelectorAll('#lista-tarefas');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].addEventListener('dblclick', (event) => {
+      event.target.classList.toggle('completed');
+    });
+  }
+}
+
+completedTask();
