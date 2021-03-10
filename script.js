@@ -6,7 +6,22 @@ function renderNewTask(task) {
 }
 
 function clearInput(input) {
-  input.value = '';
+  const text = input;
+  text.value = '';
+}
+
+function selectListItem(Event) {
+  const currentItemSelected = document.querySelector('li.selected');
+  const item = Event.target;
+
+  const hasSelectedItem = currentItemSelected !== null;
+
+  if (item.classList !== 'selected') {
+    if (hasSelectedItem) {
+      currentItemSelected.classList.remove('selected');
+    }
+    item.classList.add('selected');
+  }
 }
 
 function addNewTask() {
@@ -14,6 +29,8 @@ function addNewTask() {
   const listItem = document.createElement('li');
 
   listItem.innerText = task.value;
+  listItem.className = 'list-item';
+  listItem.addEventListener('click', selectListItem);
   toDoList.push(task.value);
   renderNewTask(listItem);
   clearInput(task);
