@@ -1,10 +1,12 @@
 const btnCreateTask = document.getElementById('criar-tarefa');
 const oListTask = document.getElementById('lista-tarefas');
 const btnRemoveAll = document.getElementById('apaga-tudo');
+const btnRemoveCompleted = document.getElementById('remover-finalizados');
 
 btnCreateTask.addEventListener('click', () => {
   const listTaskElement = document.createElement('li');
   const inputTextTask = document.getElementById('texto-tarefa');
+
   listTaskElement.innerText = inputTextTask.value;
   oListTask.appendChild(listTaskElement);
   inputTextTask.value = '';
@@ -29,7 +31,13 @@ oListTask.addEventListener('dblclick', (e) => {
 btnRemoveAll.addEventListener('click', () => {
   oListTask.innerHTML = '';
 });
+
+btnRemoveCompleted.addEventListener('click', () => {
+  document.querySelectorAll('.completed').forEach((e) => e.remove());
+});
+
 /*
 REFERÊNCIAS:
 https://www.w3schools.com/jsref/prop_element_classlist.asp
+https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
 */
