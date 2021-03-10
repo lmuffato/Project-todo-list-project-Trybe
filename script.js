@@ -35,5 +35,13 @@ function resetInput() {
   ol.addEventListener('click', changeColor);
 }
 
+function cleanList() {
+  const ol = document.querySelector('#lista-tarefas');
+  ol.innerHTML = '';
+}
+
 const button = document.querySelector('#criar-tarefa');
 button.addEventListener('click', resetInput);
+
+const cleanButton = document.querySelector('#apaga-tudo');
+cleanButton.addEventListener('click', cleanList);
