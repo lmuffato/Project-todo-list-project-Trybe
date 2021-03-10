@@ -48,3 +48,15 @@ function eraseAll() {
     }
 }
 eraseButton.addEventListener('click', eraseAll);
+
+const eraseComplete = document.createElement('button');
+document.querySelector('.buttonsContainer').appendChild(eraseComplete);
+eraseComplete.innerText = 'Apagar tarefas riscadas';
+eraseComplete.id = 'remover-finalizados';
+function eraseCompleted() {
+    let itensList = document.querySelectorAll('.completed');
+    for (let item of itensList) {
+        list.removeChild(item);
+        }
+}
+eraseComplete.addEventListener('click', eraseCompleted);
