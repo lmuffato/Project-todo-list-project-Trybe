@@ -14,9 +14,20 @@ const resetColor = (item) => {
   todoItem.style.backgroundColor = '';
 };
 
+const resetClass = (item, className) => {
+  const todoItem = item;
+  if (todoItem.classList.contains(className)) {
+    todoItem.classList.remove(className);
+  }
+};
+
 const changeColor = (ev, color) => { // 'rgb(128, 128, 128)'
   getAllTodoList().forEach((x) => resetColor(x));
+  getAllTodoList().forEach((x) => resetClass(x, 'selected'));
+
   const todoItem = ev.target;
+
+  todoItem.classList.add('selected');
   todoItem.style.backgroundColor = color;
 };
 
@@ -98,7 +109,15 @@ const moveUp = () => {
   listContainer.insertBefore(selected, insertLocal);
 };
 
+const removeSelectItem = () => {
+  const selected = document.querySelector('.selected');
+  console.log(selected);
+  const listContainer = document.querySelector('#lista-tarefas');
+  listContainer.removeChild(selected);
+};
+
 window.onload = () => {
+  addEvListener('#remover-selecionado', 'click', removeSelectItem);
   addEvListener('#mover-cima', 'click', moveUp);
   addEvListener('#mover-baixo', 'click', moveDown);
   addEvListener('#criar-tarefa', 'click', insertTodo);
