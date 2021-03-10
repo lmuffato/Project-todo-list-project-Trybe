@@ -1,5 +1,12 @@
 const items = [];
 
+function selectItemList() {
+  const listLis = document.getElementsByClassName('item');
+  for (let index = 0; index < listLis.length; index += 1) {
+    listLis[index].style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+}
+
 function addItemList() {
   const inputSearch = document.getElementById('texto-tarefa');
   const buttonSearch = document.getElementById('criar-tarefa');
@@ -8,6 +15,8 @@ function addItemList() {
   buttonSearch.addEventListener('click', () => {
     const newLi = document.createElement('li');
     newLi.innerText = inputSearch.value;
+    newLi.className = 'item';
+    newLi.addEventListener('click', selectItemList);
     listTodo.appendChild(newLi);
     items.push = inputSearch.value;
     inputSearch.value = '';
