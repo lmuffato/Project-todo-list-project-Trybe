@@ -1,4 +1,5 @@
 const buttonAddTask = document.getElementById('criar-tarefa');
+const buttonClearList = document.getElementById('apaga-tudo');
 
 function createTask() {
   const taskList = document.getElementById('lista-tarefas');
@@ -39,3 +40,13 @@ function completeTasks(event) {
 }
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', completeTasks);
+
+function clearList() {
+  // Depois de tentativas usando o For, eu acabei encontrando essa explicação sobre o while, pois enquanto houver First Child da Lista, ele irá ex cluindo o conteúdo (link = https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/) //
+  const clearTasks = document.getElementById('lista-tarefas');
+  while (clearTasks.firstChild) {
+    clearTasks.removeChild(clearTasks.firstChild);
+  }
+}
+
+buttonClearList.addEventListener('click', clearList);

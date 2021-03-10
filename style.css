@@ -11,3 +11,9 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+#apaga-tudo {
+  background-color: #00956F;
+  border-radius: 5px;
+  color: white;
+}
