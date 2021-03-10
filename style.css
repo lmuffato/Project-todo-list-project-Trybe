@@ -1,4 +1,9 @@
 #texto-tarefa {
-    float:left;
-    margin-right: 40px;
+  float:left;
+  margin-right: 40px;
+}
+
+.completed {
+  text-decoration: line-through;
+
 }
