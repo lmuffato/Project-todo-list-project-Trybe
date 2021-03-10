@@ -13,11 +13,18 @@ function createListItem() {
   return listItem;
 }
 
+function removesBackgroundColor() {
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].style.setProperty('background-color', 'rgb(255, 255, 255)');
+  }
+}
+
 function changeBgColor(event) {
+  removesBackgroundColor();
   event.target.style.setProperty('background-color', 'rgb(128, 128, 128)');
 }
 
-function updateListListeners() {
+function updateListItemsListeners() {
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].addEventListener('click', changeBgColor);
   }
@@ -32,7 +39,7 @@ function addsTaskToList() {
   const listItem = createListItem();
   addInputValuesToListItem(listItem);
   listOfTasks.appendChild(listItem);
-  updateListListeners();
+  updateListItemsListeners();
   clearInput();
 }
 
