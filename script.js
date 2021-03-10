@@ -11,6 +11,10 @@ function createLi() {
 
   taskList
     .appendChild(creatingLi)
+    .addEventListener('dblclick', lineThroughItem);
+
+  taskList
+    .appendChild(creatingLi)
     .addEventListener('click', changeBackgroundColor);
   taskText.value = '';
 }
@@ -23,4 +27,9 @@ function changeBackgroundColor(event) {
     taskListLi[j].classList.remove('selected');
   }
   event.currentTarget.classList.add('selected');
+}
+
+// Criando o evento de clique duplo para riscar o item da lista
+function lineThroughItem(event) {
+  event.currentTarget.classList.toggle('completed');
 }
