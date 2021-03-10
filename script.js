@@ -37,4 +37,14 @@ list.addEventListener('dblclick', function(event) {
     event.target.style.textDecoration = 'line-through'
     }
 });
-
+const eraseButton = document.createElement('button');
+document.querySelector('.buttonsContainer').appendChild(eraseButton);
+eraseButton.innerText = 'Apagar tudo';
+eraseButton.id = 'apaga-tudo';
+function eraseAll() {
+    let itensList = document.querySelectorAll('li');
+    for (let item of itensList) {
+        list.removeChild(item)
+    }
+}
+eraseButton.addEventListener('click', eraseAll);
