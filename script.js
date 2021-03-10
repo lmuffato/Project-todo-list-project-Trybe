@@ -44,3 +44,16 @@ function deleteList() {
 }
 
 btnDelete.addEventListener('click', deleteList);
+
+// Botão apagar itens finalizados
+const btnItensFinished = document.querySelector('#remover-finalizados');
+
+function deleteFinishedList() {
+  for (let i = 0; i < taskListLi.length; i += 1) {
+    while (taskListLi[i].classList.contains('completed')) {
+      taskList.removeChild(taskListLi[i]);
+    }
+  }
+}
+
+btnItensFinished.addEventListener('click', deleteFinishedList);
