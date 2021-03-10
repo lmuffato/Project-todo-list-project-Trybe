@@ -1,17 +1,19 @@
 body {
-  background-color: rgb(49, 49, 112);
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5);
+  text-align: center;
+  width: 100%;
+  height: 100vh;
   color: white;
   font-family: Montserrat, sans-serif;
 }
 
-li {
-  color: white;
-  font-size: 20px;
-  text-decoration: none;
+.list {
+  text-align: center;
+  list-style-position: inside;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid Black;
 }
 
 .button {
@@ -25,8 +27,28 @@ li {
 
 input {
   border: 1px solid white;
-  color: rgb(0, 0, 0);
+  color: black;
   font-family: monospace, sans-serif;
   font-size: 15px;
   padding: 5px;
+}
+
+#move-cima {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+#mover-baixo {
+  
+}
+
+footer {
+  text-align: left;
+  width: 100%;
+  position: absolute;
+  bottom: -30px;
 }
