@@ -1,5 +1,6 @@
 const btnCreateTask = document.getElementById('criar-tarefa');
 const oListTask = document.getElementById('lista-tarefas');
+const btnRemoveAll = document.getElementById('apaga-tudo');
 
 btnCreateTask.addEventListener('click', () => {
   const listTaskElement = document.createElement('li');
@@ -25,6 +26,9 @@ oListTask.addEventListener('dblclick', (e) => {
   else e.target.classList.add('completed');
 });
 
+btnRemoveAll.addEventListener('click', () => {
+  oListTask.innerHTML = '';
+});
 /*
 REFERÊNCIAS:
 https://www.w3schools.com/jsref/prop_element_classlist.asp
