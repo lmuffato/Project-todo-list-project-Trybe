@@ -8,7 +8,6 @@ const olList = document.querySelector('#lista-tarefas');
 function createTask() {
   const addBtn = document.querySelector('#criar-tarefa');
   addBtn.addEventListener('click', () => {
-    // const olList = document.querySelector('#lista-tarefas');
     const createLi = document.createElement('li');
     const addText = document.getElementById('texto-tarefa').value;
     createLi.innerHTML = addText;
@@ -61,7 +60,7 @@ function removeCompleted() {
     const list = document.querySelectorAll('#lista-tarefas li');
     for (let index = 0; index < list.length; index += 1) {
       if (list[index].className === 'completed') {
-        document.querySelector('#lista-tarefas').removeChild(list[index]);
+        olList.removeChild(list[index]);
       }
     }
   });
@@ -73,7 +72,7 @@ function removeSelected() {
   const removeBtn = document.querySelector('#remover-selecionado');
   removeBtn.addEventListener('click', () => {
     const selected = document.getElementById('selected');
-    document.querySelector('#lista-tarefas').removeChild(selected);
+    olList.removeChild(selected);
   });
 }
 removeSelected();
