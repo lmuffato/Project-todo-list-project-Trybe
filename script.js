@@ -1,3 +1,5 @@
+const taskListContainer = document.querySelector('#lista-tarefas');
+
 function moveDown() {
   const selected = document.querySelector('.selected');
   const downTask = selected.nextElementSibling;
@@ -31,7 +33,6 @@ function buttonUp() {
 }
 
 function displayStoraged() {
-  const taskListContainer = document.querySelector('#lista-tarefas');
   if (localStorage.length > 0) {
     for (let index = 0; index < localStorage.length; index += 1) {
       const saved = `list${[index]}`;
@@ -96,7 +97,6 @@ function lineThrough(event) {
 }
 
 function setComplete() {
-  const taskListContainer = document.querySelector('#lista-tarefas');
   taskListContainer.addEventListener('dblclick', lineThrough);
 }
 
@@ -112,8 +112,6 @@ function changeTaskBgColor(event) {
 }
 
 function selectTask() {
-  const taskListContainer = document.querySelector('#lista-tarefas');
-
   taskListContainer.addEventListener('click', changeTaskBgColor);
 }
 
@@ -125,7 +123,6 @@ function getNewTask() {
 }
 
 function addTask() {
-  const taskListContainer = document.querySelector('#lista-tarefas');
   const text = getNewTask();
 
   const newTask = document.createElement('li');
@@ -140,14 +137,12 @@ function createTask() {
   createTaskButton.addEventListener('click', addTask);
 }
 
-window.onload = () => {
-  createTask();
-  selectTask();
-  setComplete();
-  clearButtonClick();
-  removeCompletedButton();
-  setStoraged();
-  displayStoraged();
-  buttonUp();
-  buttonDown();
-};
+createTask();
+selectTask();
+setComplete();
+clearButtonClick();
+removeCompletedButton();
+setStoraged();
+displayStoraged();
+buttonUp();
+buttonDown();
