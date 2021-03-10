@@ -33,3 +33,14 @@ function changeBackgroundColor(event) {
 function lineThroughItem(event) {
   event.currentTarget.classList.toggle('completed');
 }
+
+// Botão apagar tudo
+const btnDelete = document.querySelector('#apaga-tudo');
+
+function deleteList() {
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
+  }
+}
+
+btnDelete.addEventListener('click', deleteList);
