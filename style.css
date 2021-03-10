@@ -1,0 +1,14 @@
+#criar-tarefa{
+  border-radius: 12px;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(27, 103, 226);
+  color: white;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+}
+
+#criar-tarefa:hover{
+  background-color: rgb(134, 175, 241);
+}
