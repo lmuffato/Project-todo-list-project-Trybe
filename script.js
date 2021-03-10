@@ -16,6 +16,9 @@ function criaTarefa() {
 listaDeTarefas.addEventListener('click', trocaCor);
 
 function trocaCor(event) {
+  let elementoClicado = document.querySelectorAll('li');
+  for (let index = 0; index < elementoClicado.length; index += 1) {
+    elementoClicado[index].style.backgroundColor = 'white';
+  }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  console.log(event);
 }
