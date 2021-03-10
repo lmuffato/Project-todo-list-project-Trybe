@@ -23,9 +23,14 @@ list.addEventListener('click', function(event) {
     for (let item of listItens) {
         if (item.style.backgroundColor = 'rgb(128, 128, 128)') {
             item.style.backgroundColor = 'white';
-            event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+            item.classList.remove('selected')
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+            event.target.classList.add('selected')
         }
-        else {event.target.style.backgroundColor = 'rgb(128, 128, 128)'}
+        else {
+            event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+            event.target.classList.add('selected')
+    }
     }
 });
 list.addEventListener('dblclick', function(event) {
@@ -70,7 +75,18 @@ saveButton.addEventListener('click', function() {
     localStorage.setItem('listItens', list.innerHTML)
 })
 
+/* o pedaço de codigo referente ao botão saveButton foi referenciado por
+https://medium.com/wesionary-team/creating-favorites-list-using-localstorage-in-react-part-i-22692bc0f153 */ 
+
 let saved = localStorage.getItem('listItens');
 if (saved) {
     list.innerHTML = localStorage.getItem('listItens');
-}
+};
+const eraseSelected = document.createElement('button');
+eraseSelected.id = 'remover-selecionado';
+document.querySelector('.buttonsContainer').appendChild(eraseSelected);
+eraseSelected.innerText = 'Apagar selecionado';
+eraseSelected.addEventListener('click', function() {
+    let selectedItem = document.querySelector('.selected');
+    list.removeChild(selectedItem);
+})
