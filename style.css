@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-h1, p {
+h1 , p {
   font-family: Inter, sans-serif;
 }
 
@@ -20,7 +20,7 @@ button {
 }
 
 body {
-  background: rgb(255, 250, 232);
+  background: rgb(255 , 250 , 232);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,18 +40,18 @@ li {
   padding: 5px;
 }
 
-li.selected {
-  background-color: rgb(128, 128, 128);
+.selected {
+  background-color: gray;
 }
 
-li.completed {
-  text-decoration: line-through solid rgb(0,0,0);
+.completed {
+  text-decoration: line-through solid black;
 }
 
-button#criar-tarefa {
+#criar-tarefa {
   background: green;
 }
 
-button#remover-finalizados, button#apaga-tudo {
+#remover-finalizados , #apaga-tudo {
   background: red;
 }
