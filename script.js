@@ -17,11 +17,9 @@ const addTask = () => {
   };
 };
 
-
-
 /** Source: https://github.com/tryber/sd-010-a-project-todo-list/tree/renzosev-todo-list-project */
 const completedItem = () => {
-  const taskList = document.querySelector('#lista-tarefas');
+  const taskList = document.getElementById('lista-tarefas');
 
   taskList.addEventListener('dblclick', (e) => {
     if (e.target.classList.contains('completed')) {
@@ -42,8 +40,7 @@ const selectItemList = () => {
       e.target.classList.add('selected');
     }
   });
-}
-
+};
 
 /** Source: https://github.com/tryber/sd-010-a-project-todo-list/tree/felipemuller20-todo-list-project */
 const deleteAllItems = () => {
