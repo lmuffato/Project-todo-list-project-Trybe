@@ -3,11 +3,23 @@ function getInput() {
   return inputValue;
 }
 
+function clickListItem() {
+  const listItem = document.getElementsByTagName('li');
+
+  Array.from(listItem).forEach((item) => {
+    item.addEventListener('click', (event) => {
+      const element = event.target;
+      element.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+  });
+}
+
 function addListItem() {
   const ol = document.getElementById('lista-tarefas');
   const listItem = document.createElement('li');
   listItem.innerHTML = getInput();
   ol.appendChild(listItem);
+  clickListItem();
 }
 
 function clickButton() {
