@@ -42,8 +42,15 @@ function removeTaskDone() {
 const doneTasks = document.getElementById('remover-finalizados');
 doneTasks.addEventListener('click', removeTaskDone);
 
+// const listItem = document.getElementsByTagName('li');
+
 function saveMyTasks() {
   localStorage.myListOfTasks = myListOfTasks.innerHTML;
 }
 const btnSaveMyTasks = document.getElementById('salvar-tarefas');
-btnSaveMyTasks.addEventListener('click', saveMyTasks);
+
+if (typeof Storage !== 'undefined') {
+  myListOfTasks.innerHTML = localStorage.myListOfTasks;
+}
+
+window.onload = btnSaveMyTasks.addEventListener('click', saveMyTasks);
