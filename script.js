@@ -2,6 +2,12 @@ const taskList = document.getElementById('lista-tarefas');
 const addTaskBtn = document.getElementById('criar-tarefa');
 const eraseAllBtn = document.getElementById('apaga-tudo');
 const eraseCompletedBtn = document.getElementById('remover-finalizados');
+const saveListBtn = document.getElementById('salvar-tarefas');
+
+// Adicionar itens do localStorage, caso existam
+if (localStorage['latestList'] !== '') {
+  taskList.innerHTML = localStorage['latestList'];
+}
 
 function addTaskToList() {
   const newTask = document.createElement('li');
@@ -48,3 +54,10 @@ function eraseCompletedItems() {
   }
 }
 eraseCompletedBtn.addEventListener('click', eraseCompletedItems);
+
+function saveListToLocalStorage() {
+  // Salva a lista atual no local storage
+  let latestList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('latestList', latestList);
+}
+saveListBtn.addEventListener('click', saveListToLocalStorage);
