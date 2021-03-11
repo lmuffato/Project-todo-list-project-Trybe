@@ -11,10 +11,7 @@ function clearInput() {
 
 function removesBackgroundColor() {
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].style.setProperty(
-      'background-color',
-      'rgb(255, 255, 255)'
-    );
+    listItems[index].style.setProperty('background-color', 'rgb(255, 255, 255)');
   }
 }
 
