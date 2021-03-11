@@ -62,5 +62,5 @@ window.onload = () => {
   document.getElementById('criar-tarefa').addEventListener('click', addNewTask);
   document.getElementById('apaga-tudo').addEventListener('click', deleteList);
   document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks);
-  document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+  // document.getElementById('salvar-tarefas').addEventListener('click', saveList);
 };
