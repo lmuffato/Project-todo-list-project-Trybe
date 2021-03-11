@@ -1,4 +1,5 @@
 const btnAddTask = document.getElementById('tarefa');
+const btnClearTasks = document.getElementById('apaga-tudo');
 const inputTasks = document.getElementById('texto-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
 const listItems = document.getElementsByClassName('item-lista');
@@ -9,7 +10,10 @@ function clearInput() {
 
 function removesBackgroundColor() {
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].style.setProperty('background-color', 'rgb(255, 255, 255)');
+    listItems[index].style.setProperty(
+      'background-color',
+      'rgb(255, 255, 255)'
+    );
   }
 }
 
@@ -48,4 +52,9 @@ function addsTaskToList() {
   clearInput();
 }
 
+function clearTasks() {
+  listOfTasks.innerHTML = '';
+}
+
 btnAddTask.addEventListener('click', addsTaskToList);
+btnClearTasks.addEventListener('click', clearTasks);
