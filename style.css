@@ -1,4 +1,9 @@
 #funcionamento {
-    font-style: italic;
-    opacity: 0.5;
+  font-style: italic;
+  opacity: 0.5;
+}
+
+#texto-tarefa:hover {
+  border: 2px solid #0099ff;
+  border-radius: 2px;
 }
