@@ -20,7 +20,12 @@ ol {
   color: rgb(120, 115, 169);
   font-weight: 600;
 }
-
+.item-selected {
+  background-color: rgb(128, 128, 128);
+}
+.item {
+  background-color: initial;
+}
 
 /* Personalizar buttons e inputs */
 button {
@@ -51,4 +56,5 @@ input {
   border-radius: 12px;
   outline: none;
   border: none;
+  background-color: rgb(235, 213, 173);
 }
