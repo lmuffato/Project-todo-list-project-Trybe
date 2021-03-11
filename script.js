@@ -2,6 +2,8 @@ const createTaskBtn = document.getElementById('criar-tarefa');
 const eraseAllBtn = document.getElementById('apaga-tudo');
 const removeCompletedBtn = document.getElementById('remover-finalizados');
 const saveBtn = document.getElementById('salvar-tarefas');
+const moveUpBtn = document.getElementById('mover-cima');
+const moveDownBtn = document.getElementById('mover-baixo');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 let tasks = [];
@@ -31,14 +33,12 @@ function markCompleted(e) {
   e.target.classList.toggle('completed');
 }
 
-function eraseAll(e) {
-  e.preventDefault();
+function eraseAll() {
   taskList.innerHTML = '';
 }
 
 // .contains() retirado da doc do MDN - https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList/contains
-function removeCompleted(e) {
-  e.preventDefault();
+function removeCompleted() {
   const allTasks = document.querySelectorAll('.task');
   for (let index = allTasks.length - 1; index >= 0; index -= 1) {
     if (allTasks[index].classList.contains('completed')) {
@@ -47,8 +47,7 @@ function removeCompleted(e) {
   }
 }
 
-function setTasks(e) {
-  e.preventDefault();
+function setTasks() {
   const allTasks = document.querySelectorAll('.task');
   tasks = [];
   allTasks.forEach((li) => tasks.push({
@@ -74,10 +73,34 @@ function getTasks() {
   }
 }
 
+// .insertBefore retirado da documentação do MDN
+// https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+function moveItemUp() {
+  const selectedItem = document.querySelector('.selected');
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index] === selectedItem && index !== 0) {
+      taskList.insertBefore(selectedItem, allTasks[index - 1]);
+    }
+  }
+}
+
+function moveItemDown() {
+  const selectedItem = document.querySelector('.selected');
+  const allTasks = document.querySelectorAll('.task');
+  for (let index = 0; index < allTasks.length; index += 1) {
+    if (allTasks[index] === selectedItem && index !== allTasks.length - 1) {
+      taskList.insertBefore(selectedItem, allTasks[index + 2]);
+    }
+  }
+}
+
 createTaskBtn.addEventListener('click', addTask);
 taskList.addEventListener('click', selectItem);
 taskList.addEventListener('dblclick', markCompleted);
 eraseAllBtn.addEventListener('click', eraseAll);
 removeCompletedBtn.addEventListener('click', removeCompleted);
 saveBtn.addEventListener('click', setTasks);
+moveUpBtn.addEventListener('click', moveItemUp);
+moveDownBtn.addEventListener('click', moveItemDown);
 window.addEventListener('load', getTasks);
