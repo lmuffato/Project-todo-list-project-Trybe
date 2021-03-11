@@ -1,4 +1,6 @@
 const items = [];
+const idInput = 'texto-tarefa';
+const idOrderList = 'lista-tarefas';
 
 function clearSelection() {
   const listLis = document.getElementsByClassName('item');
@@ -20,26 +22,57 @@ function checkItem(e) {
   }
 }
 
-function addItemList() {
-  const inputSearch = document.getElementById('texto-tarefa');
-  const buttonSearch = document.getElementById('criar-tarefa');
-  const listTodo = document.getElementById('lista-tarefas');
+function addFromButton() {
+  const inputSearch = document.getElementById(idInput);
+  const listTodo = document.getElementById(idOrderList);
 
-  buttonSearch.addEventListener('click', () => {
-    const newLi = document.createElement('li');
-    newLi.innerText = inputSearch.value;
-    newLi.className = 'item';
-    newLi.addEventListener('click', selectItemList);
-    newLi.addEventListener('dblclick', checkItem);
-    listTodo.appendChild(newLi);
-    items.push(inputSearch.value);
-    inputSearch.value = '';
+  const newLi = document.createElement('li');
+  newLi.innerText = inputSearch.value;
+  newLi.className = 'item';
+  newLi.addEventListener('click', selectItemList);
+  newLi.addEventListener('dblclick', checkItem);
+  listTodo.appendChild(newLi);
+  items.push(inputSearch.value);
+  inputSearch.value = '';
+}
+
+function addFromEnter(e) {
+  const listTodo = document.getElementById(idOrderList);
+
+  const newLi = document.createElement('li');
+  newLi.innerText = e.target.value;
+  newLi.className = 'item';
+  newLi.addEventListener('click', selectItemList);
+  newLi.addEventListener('dblclick', checkItem);
+  listTodo.appendChild(newLi);
+  items.push(e.target.value);
+  e.target.value = '';
+}
+
+function createLis(e) {
+  if (e.target.id === 'criar-tarefa') {
+    addFromButton();
+  }
+
+  if (e.target.id === idInput) {
+    addFromEnter(e);
+  }
+}
+
+function addItemList() {
+  const buttonSearch = document.getElementById('criar-tarefa');
+  buttonSearch.addEventListener('click', createLis);
+  const input = document.getElementById(idInput);
+  input.addEventListener('keyup', (e) => {
+    if (e.key.charCodeAt() === 69) {
+      createLis(e);
+    }
   });
 }
 
 function clearListItens() {
   console.log(items);
-  const allItens = document.getElementById('lista-tarefas');
+  const allItens = document.getElementById(idOrderList);
   for (let index = allItens.children.length - 1; index >= 0; index -= 1) {
     allItens.children[index].remove();
     items.pop();
