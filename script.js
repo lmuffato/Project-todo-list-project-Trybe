@@ -127,6 +127,7 @@ function moveTaskUp() {
   copyTask.classList.add('selected');
   copyTask.style.backgroundColor = colors.selected;
   copyTask.addEventListener('click', tasksFunctions.selectTask);
+  copyTask.addEventListener('dblclick', tasksFunctions.completeTask);
   if (taskSelected.classList.contains('completed')) {
     copyTask.classList.add('completed');
   }
@@ -146,10 +147,10 @@ function moveTaskDown() {
   copyTask.style.backgroundColor = colors.selected;
   copyTask.textContent = taskSelected.textContent;
   copyTask.addEventListener('click', tasksFunctions.selectTask);
+  copyTask.addEventListener('dblclick', tasksFunctions.completeTask);
   if (taskSelected.classList.contains('completed')) {
     copyTask.classList.add('completed');
-  }
-  if (taskSelected.nextSibling != null) {
+  } if (taskSelected.nextSibling != null) {
     taskSelected.nextSibling.insertAdjacentElement('afterend', copyTask);
     taskSelected.remove();
   } else if (taskSelected.nextSibling == null) {
