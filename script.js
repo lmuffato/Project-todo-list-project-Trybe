@@ -3,10 +3,13 @@ const addTaskBtn = document.getElementById('criar-tarefa');
 const eraseAllBtn = document.getElementById('apaga-tudo');
 const eraseCompletedBtn = document.getElementById('remover-finalizados');
 const saveListBtn = document.getElementById('salvar-tarefas');
+const savedList = localStorage['latest-list'];
+const moveUpBtn = document.getElementById('mover-cima');
+const moveDownBtn = document.getElementById('mover-baixo');
 
 // Adicionar itens do localStorage, caso existam
-if (localStorage['latestList'] !== '') {
-  taskList.innerHTML = localStorage['latestList'];
+if (savedList !== undefined) {
+  taskList.innerHTML = savedList;
 }
 
 function addTaskToList() {
@@ -57,7 +60,33 @@ eraseCompletedBtn.addEventListener('click', eraseCompletedItems);
 
 function saveListToLocalStorage() {
   // Salva a lista atual no local storage
-  let latestList = document.getElementById('lista-tarefas').innerHTML;
-  localStorage.setItem('latestList', latestList);
+  const latestList = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('latest-list', latestList);
 }
 saveListBtn.addEventListener('click', saveListToLocalStorage);
+
+function moveItemUp() {
+  const selected = document.querySelector('.selected');
+  const previous = selected.previousElementSibling;
+  if (previous === null) {
+    console.log('da não cumpadi');
+  } else {
+    const temp = selected.outerHTML;
+    selected.outerHTML = previous.outerHTML;
+    previous.outerHTML = temp;
+  }
+}
+moveUpBtn.addEventListener('click', moveItemUp);
+
+function moveItemDown() {
+  const selected = document.querySelector('.selected');
+  const next = selected.nextElementSibling;
+  if (next === null) {
+    console.log('da não cumpadi');
+  } else {
+    const temp = selected.outerHTML;
+    selected.outerHTML = next.outerHTML;
+    next.outerHTML = temp;
+  }
+}
+moveDownBtn.addEventListener('click', moveItemDown);
