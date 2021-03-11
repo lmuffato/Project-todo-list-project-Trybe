@@ -68,12 +68,16 @@ function addItemList() {
   });
 }
 
+function clearAllStorage() {
+  localStorage.clear();
+}
+
 function clearListItens() {
-  const allItens = document.getElementById(idOrderList);
-  for (let index = allItens.children.length - 1; index >= 0; index -= 1) {
-    allItens.children[index].remove();
-    localStorage.removeItem(localStorage.key(index));
-  }
+  const allItens = document.querySelectorAll('.item');
+  allItens.forEach((el) => {
+    el.remove();
+  });
+  clearAllStorage();
 }
 
 function activeButtonClearAll() {
@@ -82,6 +86,7 @@ function activeButtonClearAll() {
 }
 
 function saveTasks() {
+  clearAllStorage();
   const listItens = document.getElementsByClassName('item');
   for (let index = 0; index < listItens.length; index += 1) {
     localStorage.setItem(
@@ -137,8 +142,16 @@ function addItensStorage(array) {
 
 function checkStorage() {
   if (localStorage.length > 0) {
+    let localStorageArray = [];
     for (let index = 0; index < localStorage.length; index += 1) {
-      const key = localStorage.key(index);
+      localStorageArray.push(localStorage.key(index));
+    }
+
+    localStorageArray = localStorageArray.sort();
+
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const key = localStorageArray[index];
+      console.log(key);
       const item = JSON.parse(localStorage.getItem(key));
       addItensStorage(item);
     }
