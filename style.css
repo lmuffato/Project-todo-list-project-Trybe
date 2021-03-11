@@ -1,0 +1,13 @@
+#funcionamento {
+    font-size: small;
+
+}
+
+#criar-tarefa{
+    width: 50px;
+    height: 30px;
+}
+
+#texto-tarefa{
+    border: solid black 1px;
+}
