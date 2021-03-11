@@ -1,4 +1,4 @@
-const taskListItemClass = 'task-list-item';
+
 function addTaskToList() {
   const ol = document.getElementById('lista-tarefas');
   const btnAddTask = document.getElementById('criar-tarefa');
@@ -7,7 +7,7 @@ function addTaskToList() {
     if (inputText.value.length > 0) {
       const li = document.createElement('li');
       li.innerHTML = inputText.value;
-      li.className = taskListItemClass;
+      li.classList.add('task');
       ol.appendChild(li);
       inputText.value = '';
     } else {
@@ -16,22 +16,30 @@ function addTaskToList() {
   });
 }
 
+function removeSelected() {
+  const taskItems = document.querySelectorAll('.task');
+  for (let index = 0; index < taskItems.length; index += 1) {
+    taskItems[index].classList.remove('selected');
+  }
+}
+
 function selectedTask() {
   const tasksList = document.querySelector('ol');
   tasksList.addEventListener('click', (e) => {
-    if (e.target.className === taskListItemClass) {
-      const selected = document.querySelector('.selected');
-      if (selected !== null) {
-        selected.className = taskListItemClass;
-        e.target.className = 'task-list-item selected';
-      } else {
-        e.target.className = 'task-list-item selected';
-      }
-    }
+    removeSelected();
+    e.target.classList.add('selected');
+  });  
+}   
+
+function completedTask() {
+  const tasksList = document.querySelector('ol');
+  tasksList.addEventListener('dblclick', (e) => {
+    e.target.classList.toggle('completed');
   });
 }
 
 window.onload = () => {
   addTaskToList();
   selectedTask();
+  completedTask();
 };
