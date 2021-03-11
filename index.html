@@ -9,16 +9,22 @@
   <title>Todo List Project</title>
 </head>
 <body>
-  <header>Minha Lista de Tarefas</header>
-  <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-  <input type="text" id="texto-tarefa">
-  <button id="criar-tarefa">Adicionar</button>
-  <ol id="lista-tarefas"></ol>
-  <button id="remover-selecionado">X</button>
-  <button id="mover-cima"><i class="arrow up"></i></button>
-  <button id="mover-baixo"><i class="arrow down"></i></button>
-  <button id="remover-finalizados">Limpar Completos</button>
-  <button id="apaga-tudo">Limpar Lista</button>
-  <button id="salvar-tarefas">Salvar Lista</button>
+  <header><h1>Minha Lista de Tarefas</h1></header>
+  <main>
+    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <label for="texto-tarefa">Tarefa: </label>
+    <input type="text" id="texto-tarefa">
+    <button id="criar-tarefa" class="btn">Adicionar</button>
+    <ol id="lista-tarefas"></ol>
+    <button id="remover-selecionado" class="btn">X</button>
+    <button id="mover-cima" class="btn"><i class="arrow up"></i></button>
+    <button id="mover-baixo" class="btn"><i class="arrow down"></i></button>
+    <button id="remover-finalizados" class="btn">Limpar Completos</button>
+    <button id="apaga-tudo" class="btn">Limpar Lista</button>
+    <button id="salvar-tarefas" class="btn">Salvar Lista</button>
+  </main>
+  <footer>
+    <p>Desenvolvido por Lucas Pedroso.</p>
+  </footer>
 </body>
 </html>

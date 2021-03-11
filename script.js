@@ -125,9 +125,8 @@ const moveUp = () => {
 
 const removeSelectItem = () => {
   const selected = document.querySelector('.selected');
-  console.log(selected);
   const listContainer = getListContainer();
-  listContainer.removeChild(selected);
+  if (selected) listContainer.removeChild(selected);
 };
 
 const saveListLocalStorage = () => {
