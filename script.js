@@ -26,13 +26,23 @@ function addListInput() {
 addListInput();
 
 // Função responsavel para apagar todas tarefas da lista
-function apagaTarefas() {
+function clearTarefas() {
   btnApagarTarefas.addEventListener('click' , () => {
     listOrdenada.innerHTML = '';
-    // for (let index = 0; index > arrayList.length; index += 1) {
-    //   listOrdenada.removeChild(arrayList[index]);
-    //   console.log(arrayList);
-    // }
+  });
+}
+clearTarefas();
+
+// Função responsavel para apagar tarefas selecionadas;
+function apagaTarefas() {
+  const btnRemoveTarefa = document.getElementById('remover-finalizados');
+  btnRemoveTarefa.addEventListener('click', (event) => {
+    const arrayList = document.getElementById('lista-tarefas').childNodes;
+    for (let index = 0; index < arrayList.length; index += 1) {
+      if (event.target.classList.contains('completed')) {
+        listOrdenada.appendChild(arrayList[index])
+      }
+    }
   });
 }
 apagaTarefas();

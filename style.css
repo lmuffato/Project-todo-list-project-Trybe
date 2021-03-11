@@ -1,6 +1,7 @@
 button {
   width: 100px;
   height: 35px;
+  cursor: pointer;
   border-radius: 45%;
   border: 2px solid black;
   color: white;
@@ -9,10 +10,10 @@ button {
 header {
   font-size: 30px;
 }
-
-.list {
-  background-color: white;
-}
+/* 
+#lista-tarefas {
+  min-height: 350px;
+} */
 
 #funcionamento {
   margin-bottom: 20px;
@@ -23,13 +24,15 @@ header {
 }
 
 #criar-tarefa {
-  cursor: pointer;
   background-color: teal;
 }
 
 #apaga-tudo {
-  cursor: pointer;
   background-color: #8b0303;
+}
+
+#remover-finalizados {
+  background-color: blueviolet;
 }
 
 #box-list {
