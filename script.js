@@ -74,13 +74,23 @@ function removeAllSelectItemLi() {
 function fillListItem(event) {
   const itemLi = event.currentTarget;
   removeAllSelectItemLi();
-  itemLi.className = 'selected';
+  itemLi.classList.add('selected');
+}
+
+function completeTask(event) {
+  const itemLi = event.currentTarget;
+  if (!itemLi.classList.contains('completed')) {
+    itemLi.classList.add('completed');
+  } else {
+    itemLi.classList.remove('completed');
+  }
 }
 
 function addEventListItem() {
   const listTask = getListTask();
   for (let i = 0; i < listTask.childElementCount; i += 1) {
     listTask.getElementsByTagName('li')[i].addEventListener('click', fillListItem);
+    listTask.getElementsByTagName('li')[i].addEventListener('dblclick', completeTask);
   }
 }
 
