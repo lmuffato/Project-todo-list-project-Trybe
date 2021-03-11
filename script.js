@@ -60,3 +60,22 @@ function clickButtonClearTasks() {
   selectButton.addEventListener('click', removeTask);
 }
 clickButtonClearTasks();
+
+// Requirement 11;
+
+function removeTasksAccomplished() {
+  const selectLis = document.querySelectorAll('li');
+  for (let index = 0; index < selectLis.length; index += 1) {
+    if (selectLis[index].className === 'completed'
+    || selectLis[index].className === 'selected completed'
+    || selectLis[index].className === 'completed selected') {
+      selectLis[index].remove('li');
+    }
+  }
+}
+
+function clickButtonClearTasksAccomplished() {
+  const selectButton = document.querySelector('#remover-finalizados');
+  selectButton.addEventListener('click', removeTasksAccomplished);
+}
+clickButtonClearTasksAccomplished();
