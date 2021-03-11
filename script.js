@@ -62,6 +62,19 @@ function completeTask() {
 }
 completeTask();
 
+function removeSelected() {
+  let btn = document.createElement('button');
+  btn.id = 'remover-selecionado';
+  btn.innerText = 'X';
+  document.getElementById('dinamic-session').appendChild(btn);
+  btn.addEventListener('click', function() {
+    let taskList = document.querySelector('#lista-tarefas');
+    let selectedTask = document.querySelector('.selected');
+    taskList.removeChild(selectedTask);
+  })
+}
+removeSelected();
+
 function deleteAllBtn() {
   let btn = document.createElement('button');
   btn.id ='apaga-tudo';
