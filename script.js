@@ -54,9 +54,14 @@ function removeTaskDone() {
 }
 removeTaskDone();
 
-// Teste de função de mudança de cor de fundo de item selecionado
+// Teste 2 de função de mudança de cor de fundo de item selecionado
 function changeBgColorSelectedItem(e) {
-  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const bgColor = 'rgb(128, 128, 128)';
+  if (e.target.style.backgroundColor !== bgColor) {
+    e.target.style.backgroundColor = bgColor;
+  } else {
+    e.target.style.backgroundColor = 'white';
+  }
 }
 myListOfTasks.addEventListener('click', changeBgColorSelectedItem);
 
