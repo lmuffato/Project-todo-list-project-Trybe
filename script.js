@@ -83,7 +83,7 @@ function removeCompleted() {
   remove.addEventListener('click', () => {
     const completed = document.querySelectorAll('.completed');
     for (let index = 0; index < completed.length; index += 1) {
-      if (completed[index].className === 'completed' || completed[index].className === 'completed selected' || completed[index].className === 'selected completed') {
+      if (completed[index].className.includes('completed')) {
         taskListContainer.removeChild(completed[index]);
       }
     }
