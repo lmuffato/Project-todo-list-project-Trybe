@@ -1,3 +1,4 @@
+
 function createLi(text) {
   const listItem = document.createElement('li');
   listItem.innerText = text;
@@ -5,64 +6,42 @@ function createLi(text) {
   document.getElementById('lista-tarefas').appendChild(listItem);
 }
 
-function change(list) {
-  const selectedClass = 'task selected';
-  let result = 0;
-  for (let index2 = 0; index2 < list.length; index2 += 1) {
-    const element2 = list[index2];
-    if (element2.className === selectedClass) {
-      element2.classList.remove('selected');
-      result = 1;
-    } else {
-      result = 1;
-    }
-  }
-  return result;
-}
-
+// codigo abaixo otimizado apos verificar o codigo de alguns colegas e aprendi o event e o target
 function setColor() {
-  const list = document.getElementsByClassName('task');
-  for (let index = 0; index < list.length; index += 1) {
-    const element = list[index];
-    element.addEventListener('click', () => {
-      if (change(list) === 1) {
-        element.classList.add('selected');
-      }
-    });
-  }
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('click', (event) => {
+    const selected = document.querySelector('.selected');
+    if (selected === null) {
+      event.target.classList.add('selected');
+    } else {
+      selected.classList.remove('selected');
+      event.target.classList.add('selected');
+    }
+  });
 }
 
-function doneTaskSelect(list) {
+function doneTaskSelect(array) {
   let result = 0;
-  let counter = 0;
-  for (let index = 0; index < list.length; index += 1) {
-    const element = list[index];
+  for (let index = 0; index < array.length; index += 1) {
+    const element = array[index];
     if (element === 'completed') {
       result = 1;
-    } else {
-      counter += 1;
     }
-  }
-  if (counter === list.length) {
-    result = 2;
   }
   return result;
 }
 
 function doneTask() {
-  const task = document.getElementsByClassName('task');
-  for (let index = 0; index < task.length; index += 1) {
-    const element = task[index];
-    element.addEventListener('dblclick', () => {
-      const list = element.classList;
-      const result = doneTaskSelect(list);
-      if (result === 1) {
-        element.classList.remove('completed');
-      } else if (result === 2) {
-        element.classList.add('completed');
-      }
-    });
-  }
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('dblclick', (event) => {
+    const array = event.target.classList;
+    const result = doneTaskSelect(array);
+    if (result === 1) {
+      event.target.classList.remove('completed');
+    } else if (result === 0) {
+      event.target.classList.add('completed');
+    }
+  });
 }
 
 function addItem() {
@@ -72,11 +51,11 @@ function addItem() {
     const text = textBox.value;
     createLi(text);
     textBox.value = '';
-    setColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
-    doneTask();
   });
 }
 
 window.onload = function run() {
   addItem();
+  setColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
+  doneTask();
 };
