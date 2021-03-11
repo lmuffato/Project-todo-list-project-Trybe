@@ -85,7 +85,22 @@ function activeButtonClearAll() {
   buttonClearAll.addEventListener('click', clearListItens);
 }
 
+function deleteCompleteds() {
+  const listItens = document.getElementsByClassName('item');
+  for (let index = listItens.length - 1; index >= 0; index -= 1) {
+    if (listItens[index].className === 'item completed') {
+      listItens[index].remove();
+    }
+  }
+}
+
+function activeButtonClearCompleteds() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', deleteCompleteds);
+}
+
 window.onload = () => {
   addItemList();
   activeButtonClearAll();
+  activeButtonClearCompleteds();
 };
