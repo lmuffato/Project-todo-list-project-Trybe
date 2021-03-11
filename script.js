@@ -23,3 +23,10 @@ function paintBackground(e) {
 }
 
 list.addEventListener('click', paintBackground);
+
+/* ------- completed line-through -------- */
+function turnCompleted(e) {
+    e.target.classList.toggle('completed');
+}
+
+list.addEventListener('dblclick', turnCompleted);
