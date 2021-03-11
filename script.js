@@ -1,6 +1,7 @@
 const idInput = 'texto-tarefa';
 const idOrderList = 'lista-tarefas';
 const itemCompletedClass = 'item completed';
+const colorSelectedItem = 'rgb(128, 128, 128)';
 
 function clearSelection() {
   const listLis = document.getElementsByClassName('item');
@@ -100,7 +101,6 @@ function deletedCompletedsStorage() {
   for (let index = 0; index < localStorage.length; index += 1) {
     const key = localStorage.key(index);
     console.log(JSON.parse(localStorage.getItem(key))[1]);
-    // console.log(localStorage.getItem(key)[1]);
     if (JSON.parse(localStorage.getItem(key))[1] === itemCompletedClass) {
       localStorage.removeItem(key);
     }
@@ -157,11 +157,6 @@ function checkStorage() {
   }
 }
 
-// // função extraída de: https://stackoverflow.com/a/4793630/4921014
-// function insertAfter(newNode, referenceNode) {
-//   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-// }
-
 function moveUp(item) {
   const itensList = document.querySelectorAll('.item');
   for (let index = 0; index < itensList.length; index += 1) {
@@ -180,7 +175,7 @@ function activeButtonMoveToUp() {
     const itensList = document.querySelectorAll('.item');
     itensList.forEach((item) => {
       if (
-        (item.style.backgroundColor === 'rgb(128, 128, 128)')
+        (item.style.backgroundColor === colorSelectedItem)
         && ((item !== ordernedList.firstElementChild))
       ) {
         moveUp(item);
@@ -207,13 +202,31 @@ function activeButtonMoveToDown() {
     const itensList = document.querySelectorAll('.item');
     itensList.forEach((item) => {
       if (
-        (item.style.backgroundColor === 'rgb(128, 128, 128)')
+        (item.style.backgroundColor === colorSelectedItem)
         && ((item !== ordernedList.lastElementChild))
       ) {
         moveDown(item);
       }
     });
   });
+}
+
+function removeSelected() {
+  const itens = document.querySelectorAll('.item');
+
+  itens.forEach((item) => {
+    if (item.style.backgroundColor === colorSelectedItem) {
+      item.remove();
+      console.log('removeSelected');
+      saveTasks();
+    }
+  });
+}
+
+function activeButtonRemoveSelected() {
+  const button = document.getElementById('remover-selecionado');
+  button.addEventListener('click', removeSelected);
+  console.log('listener');
 }
 
 window.onload = () => {
@@ -224,4 +237,5 @@ window.onload = () => {
   activeButtonSaveTasks();
   activeButtonMoveToUp();
   activeButtonMoveToDown();
+  activeButtonRemoveSelected();
 };
