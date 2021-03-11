@@ -15,28 +15,41 @@ body {
 
 #list {
   background-color: rgb(235, 213, 173);
+  border-radius: 10px;
 }
+
 ol {
   color: rgb(120, 115, 169);
   font-weight: 600;
 }
+
+li:hover {
+  transform: scale(1.05, 1.05);
+  cursor: pointer;
+}
+
 .item-selected {
   background-color: rgb(128, 128, 128);
 }
+
 .item {
   background-color: initial;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 /* Personalizar buttons e inputs */
 button {
   font-size: 16px;
   background-color: rgb(0, 185, 71);
-  color: white;
-  padding: 10px 10px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
   border-radius: 12px;
   border: 1px solid rgb(0, 185, 71);
   transition-duration: 0.5s;
-  box-shadow: 0 4px #999;
+  box-shadow: 0 4px rgb(153, 153, 153);
   cursor: pointer;
   outline: none;
 }
@@ -47,7 +60,7 @@ button:hover {
 }
 
 button:active {
-  box-shadow: 0 2px #666;
+  box-shadow: 0 2px rgb(102, 102, 102);
   transform: translateY(2px);
 }
 

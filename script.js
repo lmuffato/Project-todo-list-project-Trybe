@@ -1,4 +1,3 @@
-
 function getInput() {
   const textoTarefa = document.getElementById('texto-tarefa').value;
   return textoTarefa;
@@ -23,7 +22,7 @@ function criarTarefa() {
   }
 }
 
-function changeBgColor(click){
+function changeBgColor(click) {
   const event = click.target;
   const li = document.getElementsByClassName('item');
   const liSelected = document.getElementsByClassName('item-selected');
@@ -37,11 +36,27 @@ function changeBgColor(click){
   }
 }
 
-const clickList = document.querySelector('ol');
-clickList.addEventListener('click', changeBgColor);
-
-function loadPage() {
-
+function toComplete(click) {
+  const event = click.target;
+  event.className = 'completed'
 }
 
-window.onload = loadPage();
+function removeAllTasks() {
+  const tasks = getList();
+  while (tasks.firstChild) {
+    tasks.removeChild(tasks.lastChild);
+  }
+}
+
+function removeDone() {
+  const tasksDone = getList().children;
+  for (let index = 0; index < tasksDone.length; index += 1) {
+    if (tasksDone[index].className == 'completed') {
+      tasksDone[index].remove();
+    }
+  }
+}
+
+const clickList = document.querySelector('ol');
+clickList.addEventListener('click', changeBgColor);
+clickList.addEventListener('dblclick', toComplete);

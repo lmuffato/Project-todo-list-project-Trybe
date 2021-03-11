@@ -16,9 +16,13 @@
     <section id="input">
       <input id="texto-tarefa" type="text" placeholder="Digite aqui a tarefa a ser adicionada!">
       <button id="criar-tarefa" onclick="criarTarefa();">Adicionar</button>
-      <div id="list">
-        <ol id="lista-tarefas"></ol>
-      </div>
+    </section>
+    <section id="list">
+      <ol id="lista-tarefas"></ol>
+    </section>
+    <section id="buttons">
+      <button id="apaga-tudo" onclick="removeAllTasks();">Apagar tudo</button>
+      <button id="remover-finalizados" onclick="removeDone();">Remover finalizados</button>
     </section>
   </div>
   <script type="text/javascript" src="script.js"></script>
