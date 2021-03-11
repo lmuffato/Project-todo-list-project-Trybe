@@ -1,4 +1,5 @@
 const createTaskBtn = document.getElementById('criar-tarefa');
+const eraseBtn = document.getElementById('remover-selecionado');
 const eraseAllBtn = document.getElementById('apaga-tudo');
 const removeCompletedBtn = document.getElementById('remover-finalizados');
 const saveBtn = document.getElementById('salvar-tarefas');
@@ -25,13 +26,18 @@ function selectItem(e) {
     allTasks[index].classList.remove('selected');
     // }
   }
-  // e.target.classList.toggle('selected'); Assim o requisito 14 não passa!
+  // e.target.classList.toggle('selected'); Assim o requisito 13 não passa!
   e.target.classList.add('selected');
 }
 
 // .toggle retirado da documentação do MDN inspirado pela dica do Johnatas no Plantão
 function markCompleted(e) {
   e.target.classList.toggle('completed');
+}
+
+function eraseItem() {
+  const selectedItem = document.querySelector('.selected');
+  selectedItem.remove();
 }
 
 function eraseAll() {
@@ -99,6 +105,7 @@ function moveItemDown() {
 createTaskBtn.addEventListener('click', addTask);
 taskList.addEventListener('click', selectItem);
 taskList.addEventListener('dblclick', markCompleted);
+eraseBtn.addEventListener('click', eraseItem);
 eraseAllBtn.addEventListener('click', eraseAll);
 removeCompletedBtn.addEventListener('click', removeCompleted);
 saveBtn.addEventListener('click', setTasks);
