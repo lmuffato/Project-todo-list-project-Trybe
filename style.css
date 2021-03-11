@@ -33,7 +33,7 @@ header {
     margin: 15px;
     text-align: center;
     font-size: 1.5vw;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 4px 4px black;
 }
 
 #list-container {
@@ -53,5 +53,12 @@ header {
     margin: 15px;
     text-align: center;
     font-size: 1.5vw;
-    box-shadow: 10px 5px 5px black;
+    box-shadow: 10px 4px 4px black;
+}
+
+#remover-finalizados {
+    margin: 15px;
+    text-align: center;
+    font-size: 1.4vw;
+    box-shadow: 10px 4px 4px black;
 }

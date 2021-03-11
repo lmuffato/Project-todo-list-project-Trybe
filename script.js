@@ -32,7 +32,7 @@ function turnCompleted(e) {
 
 list.addEventListener('dblclick', turnCompleted);
 
-/* -------- button erase --------- */
+/* -------- button erase all --------- */
 const eraseButton = document.querySelector('#apaga-tudo');
 
 function eraseAll() {
@@ -43,3 +43,15 @@ function eraseAll() {
 }
 
 eraseButton.addEventListener('click', eraseAll);
+
+/* -------- button clean completeds --------- */
+const cleanCompletedButton = document.querySelector('#remover-finalizados');
+
+function cleanCompleted() {
+    const completedTasks = document.querySelectorAll('.completed');
+    for (taskIndex = 0; taskIndex < completedTasks.length; taskIndex += 1) {
+        completedTasks[taskIndex].remove();
+    }
+}
+
+cleanCompletedButton.addEventListener('click', cleanCompleted);
