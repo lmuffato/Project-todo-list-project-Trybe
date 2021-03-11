@@ -14,8 +14,9 @@ addTask();
 
 function selectTask() {
   let taskList = document.querySelector('#lista-tarefas');
+  
   taskList.addEventListener('click', function(event) {
-    event.target.className += ' selected';
+    event.target.classList.add('selected');
     let allLines = document.querySelectorAll('li');
     for (let index = 0; index < allLines.length; index += 1) {
       if (allLines[index] !== event.target) {
@@ -40,11 +41,3 @@ function colorTask() {
   })
 }
 colorTask();
-
-// function completeTask() {
-//   let taskList = document.querySelector('#lista-tarefas');
-//   taskList.addEventListener('dblclick', function(event) {
-//     if (event.target.
-
-//   })
-// }
