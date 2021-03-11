@@ -153,6 +153,18 @@ function moveDown() {
   });
 }
 
+function removeSelectedTask() {
+  const btn = document.getElementById('remover-selecionado');
+  const tasks = document.querySelectorAll('li');
+  btn.addEventListener('click', () => {
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].classList.contains('selected')) {
+        tasks[index].remove();
+      }
+    }
+  });
+}
+
 window.onload = () => {
   addTaskToList();
   selectedTask();
@@ -162,10 +174,12 @@ window.onload = () => {
   addButton('salvar-tarefas', 'Salvar tarefas');
   addButton('mover-cima', '↑');
   addButton('mover-baixo', '↓');
+  addButton('remover-selecionado', 'Remover');
   clearTaksList();
   clearCompletedTasks();
   saveTasks();
   getTasks();
   moveUp();
   moveDown();
+  removeSelectedTask();
 };
