@@ -33,8 +33,11 @@ function scratchItemList(event) {
 
 $taskList.addEventListener('dblclick', scratchItemList);
 
-function clearItensList(event) {
+function clearItensList() {
   const $tasksItens = document.querySelectorAll('.tasks__item');
+  $tasksItens.forEach((taskItem) => {
+    taskItem.parentNode.removeChild(taskItem);
+  });
 }
 
 $clearBtn.addEventListener('click', clearItensList);
