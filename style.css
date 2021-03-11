@@ -5,7 +5,7 @@
 }
 
 .li-color {
-  background-color: rgb(128, 128, 128);
+  background-color: grey;
 }
 
 .completed {
@@ -25,13 +25,13 @@
 }
 
 #remover-selecionado {
-  background-color: rgb(235, 128, 128);
+  background-color: rgb(235 , 128 ,128);
   border-radius: 5px;
   color: white;
 }
 
 #salvar-tarefas {
-  background-color: rgb(185, 235, 128);
+  background-color: rgb(185 , 235 , 128);
   border-radius: 5px;
   color: black;
 }

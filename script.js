@@ -1,11 +1,3 @@
-window.onload = () => {
-  if (localStorage.length >= 1) {
-    const storedList = localStorage.getItem('listSaved');
-    const changeList = document.getElementById('lista-tarefas');
-    changeList.outerHTML = storedList;
-  }
-};
-
 const buttonAddTask = document.getElementById('criar-tarefa');
 const buttonClearList = document.getElementById('apaga-tudo');
 const buttonRemoveCompleteTask = document.getElementById('remover-finalizados');
@@ -38,7 +30,6 @@ function clearSelectedTasks() {
 function changeBgList(event) {
   const listSelect = event.target;
   clearSelectedTasks();
-  // listSelect.setAttribute('style', 'background-color: rgb(128, 128, 128);');
   listSelect.classList.add('li-color');
 }
 
@@ -94,3 +85,16 @@ function saveList() {
 } */
 
 buttonSaveTask.addEventListener('click', saveList);
+
+window.onload = () => {
+  if (localStorage.length >= 1) {
+    const storedList = localStorage.getItem('listSaved');
+    const changeList = document.getElementById('lista-tarefas');
+    changeList.outerHTML = storedList;
+  }
+
+  document.getElementById('lista-tarefas').addEventListener('click', changeBgList);
+
+  document.getElementById('lista-tarefas').addEventListener('dblclick', completeTasks);
+
+};
