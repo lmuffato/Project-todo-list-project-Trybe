@@ -1,4 +1,3 @@
-const items = [];
 const idInput = 'texto-tarefa';
 const idOrderList = 'lista-tarefas';
 
@@ -32,7 +31,6 @@ function addFromButton() {
   newLi.addEventListener('click', selectItemList);
   newLi.addEventListener('dblclick', checkItem);
   listTodo.appendChild(newLi);
-  items.push(inputSearch.value);
   inputSearch.value = '';
 }
 
@@ -45,7 +43,6 @@ function addFromEnter(e) {
   newLi.addEventListener('click', selectItemList);
   newLi.addEventListener('dblclick', checkItem);
   listTodo.appendChild(newLi);
-  items.push(e.target.value);
   e.target.value = '';
 }
 
@@ -71,13 +68,11 @@ function addItemList() {
 }
 
 function clearListItens() {
-  console.log(items);
   const allItens = document.getElementById(idOrderList);
   for (let index = allItens.children.length - 1; index >= 0; index -= 1) {
     allItens.children[index].remove();
-    items.pop();
+    localStorage.removeItem(localStorage.key(index));
   }
-  console.log(items);
 }
 
 function activeButtonClearAll() {
@@ -90,6 +85,7 @@ function deleteCompleteds() {
   for (let index = listItens.length - 1; index >= 0; index -= 1) {
     if (listItens[index].className === 'item completed') {
       listItens[index].remove();
+      localStorage.removeItem(localStorage.key(index - 1));
     }
   }
 }
@@ -99,8 +95,53 @@ function activeButtonClearCompleteds() {
   button.addEventListener('click', deleteCompleteds);
 }
 
+function saveTasks() {
+  const listItens = document.getElementsByClassName('item');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    localStorage.setItem(
+      index,
+      JSON.stringify([listItens[index].innerText, listItens[index].className]),
+    );
+  }
+}
+
+function activeButtonSaveTasks() {
+  const button = document.getElementById('salvar-tarefas');
+  button.addEventListener('click', saveTasks);
+}
+
+function addItensStorage(array) {
+  const orderList = document.getElementById(idOrderList);
+
+  console.log(array);
+
+  const newEl = document.createElement('li');
+  newEl.innerText = array[0].toString();
+  newEl.className = array[1].toString();
+  console.log(array);
+  newEl.addEventListener('click', selectItemList);
+  newEl.addEventListener('dblclick', checkItem);
+
+  orderList.appendChild(newEl);
+}
+
+function checkStorage() {
+  if (localStorage.length > 0) {
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const key = localStorage.key(index);
+      console.log(key);
+      const item = JSON.parse(localStorage.getItem(localStorage.key(index)));
+      console.log(item);
+      addItensStorage(item);
+    }
+  }
+}
+
 window.onload = () => {
+  checkStorage();
   addItemList();
   activeButtonClearAll();
   activeButtonClearCompleteds();
+  activeButtonSaveTasks();
 };
