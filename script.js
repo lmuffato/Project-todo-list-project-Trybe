@@ -1,3 +1,8 @@
+window.onload = function () {
+  getAll();
+}
+
+
 function changeColor(item) {
   const colorize = document.getElementsByClassName('itens');
   const targe = item.target;
@@ -48,6 +53,45 @@ function removeFinished() {
   }
 }
 
+// function saveAll() {
+//   const li = document.querySelector('#lista-tarefas').innerText;
+//   let tasks = {};
+//   for (let index = 0; index < li.length; index += 1) {
+//     tasks[index] = ('task', `${li[index]}`);
+//   }
+//   console.log(tasks);
+//   localStorage.setItem('task', JSON.stringify(tasks));
+// }
+
+// function getAll() {
+//   console.log(JSON.parse(localStorage.getItem('tasks')));
+// }
+
+// function moveUp() {
+//   const li = document.getElementsByClassName('itens');
+//   let liDescarte = '';
+//   console.log(li);
+//   for (let index = 0; index < li.length; index += 1) {
+//     if (li[index].classList.contains('selected')) {
+//       liDescarte = li[index - 1];
+//       console.log(liDescarte);
+//       li[index - 1] = li[index];
+//       console.log(li[index - 1]);
+//       li[index] = liDescarte;
+//       console.log(li[index]);
+//     }
+//   }
+//   console.log(li);
+// }
+
+// for (let index = 0; index < li.length; index += 1) {
+//   if (index === 1) {
+//     liDescarte = li[index + 1];
+//     li[index + 1] = li[index];
+//     li[index] = liDescarte;
+//   }
+// }
+
 const button = document.querySelector('#criar-tarefa');
 button.addEventListener('click', resetInput);
 
@@ -56,3 +100,11 @@ cleanButton.addEventListener('click', cleanList);
 
 const removeFinishedBtn = document.querySelector('#remover-finalizados');
 removeFinishedBtn.addEventListener('click', removeFinished);
+
+// const saveAllBtn = document.querySelector('#salvar-tarefas');
+// saveAllBtn.addEventListener('click', saveAll);
+
+// const upBtn = document.querySelector('#mover-cima');
+// upBtn.addEventListener('click', moveUp);
+
+// const downBtn = document.querySelector('#mover-baixo');
