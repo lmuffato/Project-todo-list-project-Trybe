@@ -49,7 +49,20 @@ function removeFinishedItems() {
   }
 }
 
+function saveTasks() {
+  localStorage.setItem('userSession', list.innerHTML);
+}
+
+function getTasks() {
+  const content = localStorage.getItem('userSession');
+  console.log(content);
+  if (content) {
+    list.innerHTML = content;
+  }
+}
+
 window.onload = () => {
   setBackgroundColor();
   markCompleted();
+  getTasks();
 };
