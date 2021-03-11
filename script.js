@@ -82,14 +82,27 @@ function loadSavedTasks() {
 
 function moveTaskUp() {
   const selectedTask = document.querySelector('.selected');
-  list.insertBefore(selectedTask, selectedTask.previousElementSibling); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js
+  const hasSelectedItem = selectedTask !== null;
+
+  if (hasSelectedItem) {
+    const isFirstElement = selectedTask === selectedTask.parentElement.firstChild;
+    if (!isFirstElement) {
+      list.insertBefore(selectedTask, selectedTask.previousElementSibling); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js
+    }
+  }
 }
 
 function moveTaskDown() {
   const selectedTask = document.querySelector('.selected');
-  list.insertBefore(selectedTask.nextElementSibling, selectedTask); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js
-}
+  const hasSelectedItem = selectedTask !== null;
 
+  if (hasSelectedItem) {
+    const isLastElement = selectedTask === selectedTask.parentElement.lastChild;
+    if (!isLastElement) {
+      list.insertBefore(selectedTask.nextElementSibling, selectedTask); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js}
+    }
+  }
+}
 // Referencia: Stack Overflow - https://stackoverflow.com/questions/14542062/eventlistener-enter-key
 function enterPress(Event) {
   if (Event.key === 'Enter') {
