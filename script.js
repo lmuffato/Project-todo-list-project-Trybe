@@ -11,10 +11,9 @@ function buttonCreateTaks() {
       changeColorItems();
       cleanItems();
       killerChecked();
-      completedTasks();
     });
+  completedTasks();
 }
-
 
 buttonCreateTaks();
 
@@ -68,11 +67,6 @@ function killerChecked() {
       }
     }
   });
-
-  
-
-  
-
 }
 
 
