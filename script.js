@@ -53,7 +53,7 @@ function doneTask() {
   const task = document.getElementsByClassName('task');
   for (let index = 0; index < task.length; index += 1) {
     const element = task[index];
-    element.addEventListener('dblclick', () =>{
+    element.addEventListener('dblclick', () => {
       const list = element.classList;
       const result = doneTaskSelect(list);
       if (result === 1) {
@@ -76,7 +76,6 @@ function addItem() {
     doneTask();
   });
 }
-
 
 window.onload = function run() {
   addItem();
