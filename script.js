@@ -7,8 +7,6 @@ const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
 const btnApagarTarefas = document.getElementById('apaga-tudo');
 
-const colorList = 'rgb(128,128,128)';
-
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
   btnAdicionarTarefa.addEventListener('click' , () => {  
@@ -24,6 +22,18 @@ function addListInput() {
   });
 }
 addListInput();
+
+// Função responsavel por riscar um elemento da lista
+function listCompleted(list) {
+  const arrayList = document.getElementById('lista-tarefas').childNodes
+  list.addEventListener('dblclick', (event) => {
+    if(event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed')
+    } else {
+      event.target.classList.add('completed');
+    }
+  })
+}
 
 // Função responsavel para apagar todas tarefas da lista
 function clearTarefas() {
@@ -47,7 +57,7 @@ function apagaTarefas() {
 }
 apagaTarefas();
 
-// Função para adicionar um dblclik na lista rgb(128,128,128);
+// Função para adicionar um click na lista rgb(128,128,128);
 function selectColor(list) {
   const arrayList = document.getElementById('lista-tarefas').childNodes;
   list.addEventListener('click', (event) => {
@@ -58,19 +68,7 @@ function selectColor(list) {
   });
 }
 
-// Função responsavel por riscar um elemento da lista
-function listCompleted(list) {
-  const arrayList = document.getElementById('lista-tarefas').childNodes
-  list.addEventListener('dblclick', (event) => {
-    for (let indexTwo = 0; indexTwo < arrayList.length; indexTwo += 1) {
-      if(event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed')
-      } else {
-        event.target.classList.add('completed');
-      }
-    } 
-  })
-}
+
 
 // Função responsavel para limpar o input;
 function clearInput() {
