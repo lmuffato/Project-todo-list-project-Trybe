@@ -1,5 +1,6 @@
+const list = document.getElementById('lista-tarefas');
+
 function renderNewTask(task) {
-  const list = document.getElementById('lista-tarefas');
   list.appendChild(task);
 }
 
@@ -47,13 +48,12 @@ function addNewTask() {
 }
 
 function deleteList() {
-  const list = document.getElementById('lista-tarefas');
   list.innerHTML = '';
 }
 
 function removeCompletedTasks() {
-  const list = document.querySelectorAll('.completed');
-  list.forEach((task) => task.remove());
+  const completedTasks = document.querySelectorAll('.completed');
+  completedTasks.forEach((task) => task.remove());
 }
 
 function saveList() {
@@ -64,13 +64,22 @@ function saveList() {
 }
 
 function loadSavedTasks() {
-  const list = document.getElementById('lista-tarefas');
-  const tasks = localStorage.getItem('tasks').split(',');
-  console.log(tasks);
+  if (Storage) {
+    const tasks = localStorage.getItem('tasks').split(',');
+    console.log(tasks);
 
-  tasks.forEach((task) => {
-    list.innerHTML += task;
-  });
+    tasks.forEach((task) => {
+      list.innerHTML += task;
+    });
+  }
+
+  if (document.querySelectorAll('li')) {
+    const listItem = document.querySelectorAll('li');
+    listItem.forEach((item) => {
+      item.addEventListener('click', selectTask);
+      item.addEventListener('dblclick', completeTask);
+    });
+  }
 }
 
 window.onload = () => {
@@ -86,9 +95,4 @@ window.onload = () => {
   document.getElementById('salvar-tarefas').addEventListener('click', saveList);
 
   // Adicina eventos de cliques nas tarefas
-  const listItem = document.querySelectorAll('li');
-  listItem.forEach((item) => {
-    item.addEventListener('click', selectTask);
-    item.addEventListener('dblclick', completeTask);
-  });
 };
