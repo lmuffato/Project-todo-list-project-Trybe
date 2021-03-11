@@ -37,30 +37,58 @@ function addNewTask() {
   const task = document.getElementById('texto-tarefa');
   const listItem = document.createElement('li');
 
-  task.focus();
   listItem.innerText = task.value;
   listItem.className = 'list-item';
   listItem.addEventListener('click', selectTask);
   listItem.addEventListener('dblclick', completeTask);
   renderNewTask(listItem);
   clearInput(task);
+  task.focus();
 }
 
 function deleteList() {
   const list = document.getElementById('lista-tarefas');
-
   list.innerHTML = '';
 }
 
 function removeCompletedTasks() {
   const list = document.querySelectorAll('.completed');
-
   list.forEach((task) => task.remove());
 }
 
+function saveList() {
+  const tasks = document.querySelectorAll('.list-item');
+  const tasksArray = [];
+  tasks.forEach(((task) => tasksArray.push(task.outerHTML)));
+  localStorage.setItem('tasks', tasksArray);
+}
+
+function loadSavedTasks() {
+  const list = document.getElementById('lista-tarefas');
+  const tasks = localStorage.getItem('tasks').split(',');
+  console.log(tasks);
+
+  tasks.forEach((task) => {
+    list.innerHTML += task;
+  });
+}
+
 window.onload = () => {
+  loadSavedTasks();
+
+  // Adicina eventos de cliques nos botões
   document.getElementById('criar-tarefa').addEventListener('click', addNewTask);
+
   document.getElementById('apaga-tudo').addEventListener('click', deleteList);
+
   document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks);
-  // document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+
+  document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+
+  // Adicina eventos de cliques nas tarefas
+  const listItem = document.querySelectorAll('li');
+  listItem.forEach((item) => {
+    item.addEventListener('click', selectTask);
+    item.addEventListener('dblclick', completeTask);
+  });
 };
