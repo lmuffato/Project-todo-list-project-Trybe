@@ -62,3 +62,17 @@ function completeTask() {
 }
 completeTask();
 
+function deleteAllBtn() {
+  let btn = document.createElement('button');
+  btn.id ='remover-finalizados';
+  btn.innerText = 'Limpar a lista';
+  document.getElementById('dinamic-session').appendChild(btn);
+  btn.addEventListener('click', function() {
+    let taskList = document.getElementById('lista-tarefas');
+    let tasks = document.getElementsByClassName('task');
+    for(let index = tasks.length; index > 0; index -= 1) {
+      taskList.removeChild(tasks[index-1]);
+    }
+  })
+}
+deleteAllBtn();
