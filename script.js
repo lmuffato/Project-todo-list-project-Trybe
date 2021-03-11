@@ -1,4 +1,3 @@
-
 function addTaskToList() {
   const ol = document.getElementById('lista-tarefas');
   const btnAddTask = document.getElementById('criar-tarefa');
@@ -28,8 +27,8 @@ function selectedTask() {
   tasksList.addEventListener('click', (e) => {
     removeSelected();
     e.target.classList.add('selected');
-  });  
-}   
+  });
+}
 
 function completedTask() {
   const tasksList = document.querySelector('ol');
@@ -38,8 +37,28 @@ function completedTask() {
   });
 }
 
+function addCleanButton() {
+  const btn = document.createElement('button');
+  const section = document.getElementById('buttons');
+  btn.id = 'apaga-tudo';
+  btn.innerText = 'Apagar tarefas';
+  section.appendChild(btn);
+}
+
+function clearTaksList() {
+  const btn = document.getElementById('apaga-tudo');
+  btn.addEventListener('click', () => {
+    const lis = document.querySelectorAll('li');
+    for (let index = 0; index < lis.length; index += 1) {
+      lis[index].remove();
+    }
+  });
+}
+
 window.onload = () => {
   addTaskToList();
   selectedTask();
   completedTask();
+  addCleanButton();
+  clearTaksList();
 };
