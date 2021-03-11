@@ -66,8 +66,6 @@ function saveList() {
 function loadSavedTasks() {
   if (localStorage.length > 0) {
     const tasks = localStorage.getItem('tasks').split(',');
-    console.log(tasks);
-
     tasks.forEach((task) => {
       list.innerHTML += task;
     });
@@ -82,16 +80,37 @@ function loadSavedTasks() {
   }
 }
 
+function moveTaskUp() {
+  const selectedTask = document.querySelector('.selected');
+  list.insertBefore(selectedTask, selectedTask.previousElementSibling); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js
+}
+
+function moveTaskDown() {
+  const selectedTask = document.querySelector('.selected');
+  list.insertBefore(selectedTask.nextElementSibling, selectedTask); // Referencia: João Nascimento -https://github.com/tryber/sd-010-a-project-todo-list/pull/5/files?file-filters%5B%5D=.css&file-filters%5B%5D=.js
+}
+
+// Referencia: Stack Overflow - https://stackoverflow.com/questions/14542062/eventlistener-enter-key
+function enterPress(Event) {
+  if (Event.key === 'Enter') {
+    addNewTask();
+  }
+}
+
 window.onload = () => {
   loadSavedTasks();
   // Adicina eventos de cliques nos botões
   document.getElementById('criar-tarefa').addEventListener('click', addNewTask);
+  document.body.addEventListener('keypress', enterPress);
 
   document.getElementById('apaga-tudo').addEventListener('click', deleteList);
 
   document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks);
 
   document.getElementById('salvar-tarefas').addEventListener('click', saveList);
+
+  document.getElementById('mover-cima').addEventListener('click', moveTaskUp);
+  document.getElementById('mover-baixo').addEventListener('click', moveTaskDown);
 
   // Adicina eventos de cliques nas tarefas
 };
