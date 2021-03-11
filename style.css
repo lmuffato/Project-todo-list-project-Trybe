@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(251, 255, 254);
+  background-color: rgb(251 , 255 , 254);
 }
 
 .header {
@@ -16,7 +16,7 @@ body {
 }
 
 .header-content {
-  background-color: rgb(64, 121, 140);
+  background-color: rgb(64 , 121 , 140);
   text-align: center;
   height: 180px;
   border-radius: 30px;
