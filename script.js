@@ -53,6 +53,13 @@ function removeFinishedItems() {
   }
 }
 
+function removeSelectedItem() {
+  const getChilds = list.getElementsByClassName('selectedItem');
+  while (getChilds[0]) {
+    getChilds[0].parentNode.removeChild(getChilds[0]);
+  }
+}
+
 function saveTasks() {
   localStorage.setItem('userSession', list.innerHTML);
 }
