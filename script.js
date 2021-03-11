@@ -40,3 +40,11 @@ clearCompleted.addEventListener('click', () => {
   const completeds = document.querySelectorAll('.completed');
   completeds.forEach((removeitem) => removeitem.remove());
 });
+
+// Requisito 12
+const savebttn = document.querySelector('#salvar-tarefas');
+savebttn.addEventListener('click', () => {
+  localStorage.setItem('toDoList', outputOl.innerHTML);
+});
+
+outputOl.innerHTML = localStorage.getItem('toDoList');
