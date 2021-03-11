@@ -55,3 +55,18 @@ function eraseAll() {
 }
 
 eraseAll();
+
+function eraseCompleted() {
+  const button = document.querySelector('#remover-finalizados');
+  const list = document.getElementsByClassName('to-do-itens')
+  const listFather = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', function () {
+    for (let index = 0; index < list.length; index += 1) {
+      if (list[index].classList.contains('completed')) {
+        listFather.removeChild(list[index])
+      }
+    }
+  })
+}
+
+eraseCompleted();
