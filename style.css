@@ -14,6 +14,10 @@ body {
   text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
+.selected {
+  background-color: gray;
+}
+
 /* Header */
 #container {
   width: 100%;
