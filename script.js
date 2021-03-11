@@ -1,10 +1,10 @@
-let captureOl = null;
+let captureOl = document.querySelector('#lista-tarefas');
 
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
 
 function deleteAllSelected() {
-  let buttonDeleteAllSelected = document.getElementById('remover-finalizados');
+  let buttonDeleteAllSelected = document.querySelector('#remover-finalizados');
   buttonDeleteAllSelected.addEventListener('click', function () {
     let captureItemsSelected = captureOl.childNodes;
     for (let i = 0; i < captureItemsSelected.length; i += 1) {
@@ -16,7 +16,7 @@ function deleteAllSelected() {
 };
 
 function deleteAll() {
-  let buttonDeleteAll = document.getElementById('apaga-tudo');
+  let buttonDeleteAll = document.querySelector('#apaga-tudo');
   buttonDeleteAll.addEventListener('click', function () {
     while (captureOl.lastElementChild) {
       captureOl.removeChild(captureOl.lastElementChild);
@@ -54,19 +54,19 @@ function altColorClick() {
 };
 
 function captureText() {
-  let captureInputText = document.getElementById('texto-tarefa');
+  let captureInputText = document.querySelector('#texto-tarefa');
   return captureInputText.value;
 };
 
 function clearInput() {
-  let captureInputText = document.getElementById('texto-tarefa');
+  let captureInputText = document.querySelector('#texto-tarefa');
   captureInputText.value = '';
 };
 
 function insertItemTask() {
-  let captureButton = document.getElementById('criar-tarefa');
+  let captureButton = document.querySelector('#criar-tarefa');
   captureButton.addEventListener('click', function () {
-    captureOl = document.getElementById('lista-tarefas');
+    captureOl = document.querySelector('#lista-tarefas');
     let task = captureText();
     if (task == '') {
       alert('Insira uma tarefa para conseguir adicionar.');
@@ -79,9 +79,6 @@ function insertItemTask() {
       //altListItems();
       doubleClickThrough(); //ao clicar 2x no item o grifa.
       deleteAll();
-
     }
-
   })
-
 };
