@@ -10,15 +10,28 @@ function clearInput() {
   inputTasks.value = '';
 }
 
+// function removesBackgroundColor() {
+//   for (let index = 0; index < listItems.length; index += 1) {
+//     listItems[index].style.setProperty('background-color', 'transparent');
+//   }
+// }
+
+// function changeBgColor(event) {
+//   removesBackgroundColor();
+//   event.target.style.setProperty('background-color', 'rgb(128, 128, 128)');
+// }
+
 function removesBackgroundColor() {
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].style.setProperty('background-color',
-      'rgb(255, 255, 255)');
+    console.log('teste');
+    listItems[index].classList.remove('selected');
+    listItems[index].style.setProperty('background-color', 'transparent');
   }
 }
 
 function changeBgColor(event) {
   removesBackgroundColor();
+  event.target.classList.add('selected');
   event.target.style.setProperty('background-color', 'rgb(128, 128, 128)');
 }
 
