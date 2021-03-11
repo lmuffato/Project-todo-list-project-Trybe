@@ -33,15 +33,23 @@ function eraseAll() {
 const eraseMyList = document.getElementById('apaga-tudo');
 eraseMyList.addEventListener('click', eraseAll);
 
+/* Solução da função removeTaskDone foi compartilhada pelo colega Luciano Amâncio no Slack.
+Segue link para a thread:
+https://trybecourse.slack.com/archives/C01L16B9XC7/p1615426426071100 */
+
 function removeTaskDone() {
-  if (myListOfTasks.childNodes.className === 'completed') {
-    myListOfTasks.target.childNodes.className('completed').removeItem();
-  }
+  const removeItem = document.querySelector('#remover-finalizados');
+  removeItem.addEventListener('click', () => {
+    const taskCompleted = document.querySelectorAll('.completed');
+    console.log('Item Removido');
+    for (let index = 0; index < taskCompleted.length; index += 1) {
+      if (taskCompleted[index].className === 'completed') {
+        myListOfTasks.removeChild(taskCompleted[index]);
+      }
+    }
+  });
 }
-
-const doneTasks = document.getElementById('remover-finalizados');
-doneTasks.addEventListener('click', removeTaskDone);
-
+removeTaskDone();
 // const listItem = document.getElementsByTagName('li');
 
 function saveMyTasks() {
