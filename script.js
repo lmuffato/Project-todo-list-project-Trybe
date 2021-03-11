@@ -3,7 +3,7 @@ function getCount() {
   if (!Number.isNaN(numberCount)) {
     return numberCount;
   }
-  return 1;
+  return 0;
 }
 
 function getInputNameTask() {
@@ -12,6 +12,14 @@ function getInputNameTask() {
 
 function getListTask() {
   return document.getElementById('lista-tarefas');
+}
+
+function getTasks() {
+  const listTask = [];
+  for (let i = 1; i <= getCount(); i += 1) {
+    listTask.push(localStorage.getItem(`task_${i}`));
+  }
+  return listTask;
 }
 
 function getTaskName() {
@@ -55,6 +63,15 @@ function addEventButtonAddTarefa() {
   buttonAddTarefa.addEventListener('click', addTask);
 }
 
+function loadTasks() {
+  const listTask = getTasks();
+  for (let i = 0; i < listTask.length; i += 1) {
+    const taskLi = createTask(listTask[i]);
+    getListTask().appendChild(taskLi);
+  }
+}
+
 window.onload = function init() {
+  loadTasks();
   addEventButtonAddTarefa();
 };
