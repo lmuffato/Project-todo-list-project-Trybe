@@ -1,4 +1,4 @@
-const taskList = document.querySelector('#lista-tarefas');
+const taskListContainer = document.querySelector('#lista-tarefas');
 
 function createListItem() {
   const listItem = document.createElement('li');
@@ -11,14 +11,13 @@ function inputText() {
 }
 
 function addTask() {
-  const taskList = document.querySelector('#lista-tarefas');
   const createTask = document.querySelector('#criar-tarefa');
 
   createTask.addEventListener('click', () => {
     const text = inputText();
     const listItem = createListItem();
     listItem.innerHTML = text;
-    taskList.appendChild(listItem);
+    taskListContainer.appendChild(listItem);
     document.querySelector('#texto-tarefa').value = '';
   });
 }
@@ -33,12 +32,23 @@ function colorNone() {
   return list;
 }
 
+function removeClassSelected() {
+  const list = document.querySelectorAll('#lista-tarefas > li');
+  for (let index = 0; index < list.length; index += 1) {
+    list[index].classList.remove('selected');
+  }
+}
+
 function changeBackgroundColor() {
+  const gray = 'rgb(128, 128, 128)';
   const list = document.querySelectorAll('#lista-tarefas');
   for (let index = 0; index < list.length; index += 1) {
     list[index].addEventListener('click', (event) => {
+      const parameter = event;
+      removeClassSelected();
       list[index] = colorNone();
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      parameter.target.classList.add('selected');
+      parameter.target.style.backgroundColor = gray;
     });
   }
 }
@@ -61,7 +71,7 @@ function btnEraseAll() {
   const eraseAll = document.querySelector('#apaga-tudo');
 
   eraseAll.addEventListener('click', () => {
-    localStorage.removeItem('tasks')
+    localStorage.removeItem('tasks');
     list.innerHTML = '';
   });
 }
@@ -74,7 +84,7 @@ function removeCompleted() {
     const completed = document.querySelectorAll('.completed');
     for (let index = 0; index < completed.length; index += 1) {
       if (completed[index].className === 'completed') {
-        taskList.removeChild(completed[index]);
+        taskListContainer.removeChild(completed[index]);
       }
     }
   });
@@ -82,11 +92,26 @@ function removeCompleted() {
 
 removeCompleted();
 
+function removeSelected() {
+  const remove = document.querySelector('#remover-selecionado');
+
+  remove.addEventListener('click', () => {
+    const list = document.querySelectorAll('.selected');
+    for (let index = 0; index < list.length; index += 1) {
+      if (list[index].className === 'selected') {
+        taskListContainer.removeChild(list[index]);
+      }
+    }
+  });
+}
+
+removeSelected();
+
 function saveTasks() {
   const save = document.querySelector('#salvar-tarefas');
 
   save.addEventListener('click', () => {
-    localStorage.setItem('tasks', JSON.stringify(taskList.innerHTML));
+    localStorage.setItem('tasks', JSON.stringify(taskListContainer.innerHTML));
   });
 }
 
@@ -95,8 +120,28 @@ saveTasks();
 function loudTasks() {
   if (localStorage.getItem('tasks') !== undefined) {
     const toDo = localStorage.getItem('tasks');
-    taskList.innerHTML = JSON.parse(toDo);
+    taskListContainer.innerHTML = JSON.parse(toDo);
   }
 }
 
 loudTasks();
+
+const moveUp = () => {
+  const up = document.querySelector('#mover-cima');
+
+  up.addEventListener('click', () => {
+    console.log('cricou pra cima mano!');
+  });
+};
+
+moveUp();
+
+const moveDown = () => {
+  const up = document.querySelector('#mover-baixo');
+
+  up.addEventListener('click', () => {
+    console.log('cricou pra baixo mano!');
+  });
+};
+
+moveDown();
