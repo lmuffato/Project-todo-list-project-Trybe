@@ -1,28 +1,75 @@
-const btnCreateTask = document.getElementById('criar-tarefa');
-const oListTask = document.getElementById('lista-tarefas');
-const btnRemoveAll = document.getElementById('apaga-tudo');
-const btnRemoveCompleted = document.getElementById('remover-finalizados');
-const btnSaveList = document.getElementById('salvar-tarefas');
-const btnRemoveSelected = document.getElementById('remover-selecionado');
-const btnMoveUp = document.getElementById('mover-cima');
-const btnMoveDown = document.getElementById('mover-baixo');
 const idName = 'selected-task';
+const oListTask = document.getElementById('lista-tarefas');
+
+const btnCreateTask = () => {
+  document.getElementById('criar-tarefa').addEventListener('click', () => {
+    const listTaskElement = document.createElement('li');
+    const inputTextTask = document.getElementById('texto-tarefa');
+
+    listTaskElement.innerText = inputTextTask.value;
+    oListTask.appendChild(listTaskElement);
+    inputTextTask.value = '';
+  });
+};
+
+const btnRemoveAll = () => {
+  document.getElementById('apaga-tudo').addEventListener('click', () => {
+    oListTask.innerHTML = '';
+  });
+};
+
+const btnRemoveCompleted = () => {
+  document.getElementById('remover-finalizados').addEventListener('click', () => {
+    document.querySelectorAll('.completed').forEach((e) => e.remove());
+  });
+};
+
+const btnRemoveSelected = () => {
+  document.getElementById('remover-selecionado').addEventListener('click', () => {
+    oListTask.removeChild(document.getElementById(idName));
+  });
+};
+
+const btnMoveUp = () => {
+  document.getElementById('mover-cima').addEventListener('click', () => {
+    const listSelected = document.getElementById(idName);
+    const eList = document.getElementsByTagName('li');
+
+    if (eList[0] === listSelected) return;
+
+    for (let index = 0; index < eList.length; index += 1) {
+      if (eList[index] === listSelected) {
+        listSelected.outerHTML = eList[index - 1].outerHTML;
+        eList[index - 1].outerHTML = listSelected.outerHTML;
+      }
+    }
+  });
+};
+
+const btnMoveDown = () => {
+  document.getElementById('mover-baixo').addEventListener('click', () => {
+    const listSelected = document.getElementById(idName);
+    const eList = document.getElementsByTagName('li');
+
+    if (eList[eList.length - 1] === listSelected) return;
+
+    for (let index = 0; index < eList.length; index += 1) {
+      if (eList[index] === listSelected) {
+        listSelected.outerHTML = eList[index + 1].outerHTML;
+        eList[index + 1].outerHTML = listSelected.outerHTML;
+      }
+    }
+  });
+};
+
 const loadList = () => {
+  const btnSaveList = document.getElementById('salvar-tarefas');
   btnSaveList.addEventListener('click', () => {
     localStorage.setItem('lists', oListTask.innerHTML);
   });
 
   oListTask.innerHTML = localStorage.getItem('lists');
 };
-
-btnCreateTask.addEventListener('click', () => {
-  const listTaskElement = document.createElement('li');
-  const inputTextTask = document.getElementById('texto-tarefa');
-
-  listTaskElement.innerText = inputTextTask.value;
-  oListTask.appendChild(listTaskElement);
-  inputTextTask.value = '';
-});
 
 oListTask.addEventListener('click', (e) => {
   const listElement = e.target;
@@ -40,47 +87,15 @@ oListTask.addEventListener('dblclick', (e) => {
   else e.target.classList.add('completed');
 });
 
-btnRemoveAll.addEventListener('click', () => {
-  oListTask.innerHTML = '';
-});
-
-btnRemoveCompleted.addEventListener('click', () => {
-  document.querySelectorAll('.completed').forEach((e) => e.remove());
-});
-
-btnRemoveSelected.addEventListener('click', () => {
-  oListTask.removeChild(document.getElementById(idName));
-});
-
-btnMoveUp.addEventListener('click', () => {
-  const listSelected = document.getElementById(idName);
-  const eList = document.getElementsByTagName('li');
-
-  if (eList[0] === listSelected) return;
-
-  for (let index = 0; index < eList.length; index += 1) {
-    if (eList[index] === listSelected) {
-      listSelected.outerHTML = eList[index - 1].outerHTML;
-      eList[index - 1].outerHTML = listSelected.outerHTML;
-    }
-  }
-});
-
-btnMoveDown.addEventListener('click', () => {
-  const listSelected = document.getElementById(idName);
-  const eList = document.getElementsByTagName('li');
-
-  if (eList[eList.length - 1] === listSelected) return;
-
-  for (let index = 0; index < eList.length; index += 1) {
-    if (eList[index] === listSelected) {
-      listSelected.outerHTML = eList[index + 1].outerHTML;
-      eList[index + 1].outerHTML = listSelected.outerHTML;
-    }
-  }
-});
-
-loadList();
+window.onload = () => {
+  loadList();
+  btnMoveUp();
+  btnMoveDown();
+  btnCreateTask();
+  btnRemoveAll();
+  btnRemoveCompleted();
+  btnRemoveSelected();
+};
 
 /*
 REFERÊNCIAS:
