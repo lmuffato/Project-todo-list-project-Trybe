@@ -42,6 +42,17 @@ body {
   padding: 2px;
 }
 
+#todos #criar-tarefa {
+  background-color: rgba(87, 139, 214, 1);
+  border: none;
+  padding-top: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  color: white;
+}
+
 #todos #lista-tarefas {
   padding-left: 20px;
   margin-top: 20px;
