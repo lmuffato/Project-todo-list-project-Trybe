@@ -151,11 +151,69 @@ function checkStorage() {
 
     for (let index = 0; index < localStorage.length; index += 1) {
       const key = localStorageArray[index];
-      console.log(key);
       const item = JSON.parse(localStorage.getItem(key));
       addItensStorage(item);
     }
   }
+}
+
+// // função extraída de: https://stackoverflow.com/a/4793630/4921014
+// function insertAfter(newNode, referenceNode) {
+//   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+// }
+
+function moveUp(item) {
+  const itensList = document.querySelectorAll('.item');
+  for (let index = 0; index < itensList.length; index += 1) {
+    if (itensList[index] === item) {
+      console.log('moveUp');
+      const elPai = itensList[index].parentElement;
+      elPai.insertBefore(itensList[index], itensList[index].previousElementSibling);
+    }
+  }
+}
+
+function activeButtonMoveToUp() {
+  const ordernedList = document.getElementById(idOrderList);
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', () => {
+    const itensList = document.querySelectorAll('.item');
+    itensList.forEach((item) => {
+      if (
+        (item.style.backgroundColor === 'rgb(128, 128, 128)')
+        && ((item !== ordernedList.firstElementChild))
+      ) {
+        moveUp(item);
+      }
+    });
+  });
+}
+
+function moveDown(item) {
+  const itensList = document.querySelectorAll('.item');
+  for (let index = 0; index < itensList.length; index += 1) {
+    if (itensList[index] === item) {
+      console.log('moveDown');
+      const elPai = itensList[index].parentElement;
+      elPai.insertBefore(itensList[index], itensList[index].nextElementSibling.nextElementSibling);
+    }
+  }
+}
+
+function activeButtonMoveToDown() {
+  const ordernedList = document.getElementById(idOrderList);
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', () => {
+    const itensList = document.querySelectorAll('.item');
+    itensList.forEach((item) => {
+      if (
+        (item.style.backgroundColor === 'rgb(128, 128, 128)')
+        && ((item !== ordernedList.lastElementChild))
+      ) {
+        moveDown(item);
+      }
+    });
+  });
 }
 
 window.onload = () => {
@@ -164,4 +222,6 @@ window.onload = () => {
   activeButtonClearAll();
   activeButtonClearCompleteds();
   activeButtonSaveTasks();
+  activeButtonMoveToUp();
+  activeButtonMoveToDown();
 };
