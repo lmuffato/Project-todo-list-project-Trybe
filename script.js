@@ -19,10 +19,14 @@ function insertToDo() {
 function setBackgroundColor() {
   list.addEventListener('click', (event) => {
     const childrenList = list.children;
-    for (let index = 0; index < childrenList.length; index += 1) {
-      childrenList[index].classList.remove('selectedItem');
+    if (event.target.classList.contains('selectedItem')) {
+      event.target.classList.remove('selectedItem');
+    } else {
+      for (let index = 0; index < childrenList.length; index += 1) {
+        childrenList[index].classList.remove('selectedItem');
+      }
+      event.target.classList.add('selectedItem');
     }
-    event.target.classList.add('selectedItem');
   });
 }
 
@@ -61,17 +65,25 @@ function getTasks() {
 }
 
 function moveTop() {
-  const itemToMove = list.querySelector('.selectedItem');
-  const swapItem = itemToMove.previousElementSibling;
-  if (swapItem === null) return alert('Não é possível mover o item!');
-  swapItem.parentNode.insertBefore(itemToMove, swapItem);
+  try {
+    const itemToMove = list.querySelector('.selectedItem');
+    const swapItem = itemToMove.previousElementSibling;
+    if (swapItem === null || itemToMove === null) return alert('Não é possível mover o item!');
+    swapItem.parentNode.insertBefore(itemToMove, swapItem);
+  } catch (e) {
+    alert('Operação inválida!');
+  }
 }
 
 function moveBottom() {
-  const itemToMove = list.querySelector('.selectedItem');
-  const swapItem = itemToMove.nextElementSibling;
-  if (swapItem === null) return alert('Não é possível mover o item!');
-  swapItem.parentNode.insertBefore(swapItem, itemToMove);
+  try {
+    const itemToMove = list.querySelector('.selectedItem');
+    const swapItem = itemToMove.nextElementSibling;
+    if (swapItem === null || itemToMove === null) return alert('Não é possível mover o item!');
+    swapItem.parentNode.insertBefore(swapItem, itemToMove);
+  } catch (e) {
+    alert('Operação inválida!');
+  }
 }
 
 window.onload = () => {
