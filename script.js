@@ -30,3 +30,11 @@ theList.addEventListener('dblclick', function risc(element) {
   }
 });
 // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+
+const clear = document.querySelector('#apaga-tudo');
+clear.addEventListener('click', function clearAll() {
+  const task = document.querySelectorAll('.task');
+  for (let index = 0; index < task.length; index += 1) {
+    theList.removeChild(task[index]);
+  }
+});
