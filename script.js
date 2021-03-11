@@ -46,24 +46,6 @@ function createTask(name) {
   return task;
 }
 
-function addTask() {
-  const listTask = getListTask();
-  const taskName = getTaskName();
-  if (taskName === false) {
-    return false;
-  }
-  const task = createTask(taskName);
-  listTask.appendChild(task);
-  saveTask(task);
-  clearInputTask();
-  addEventListItem();
-}
-
-function addEventButtonAddTarefa() {
-  const buttonAddTarefa = document.getElementById('criar-tarefa');
-  buttonAddTarefa.addEventListener('click', addTask);
-}
-
 function removeAllSelectItemLi() {
   const listTask = getListTask();
   for (let i = 0; i < listTask.childElementCount; i += 1) {
@@ -93,6 +75,24 @@ function addEventListItem() {
     listTask.getElementsByTagName('li')[i].addEventListener('click', fillListItem);
     listTask.getElementsByTagName('li')[i].addEventListener('dblclick', completeTask);
   }
+}
+
+function addTask() {
+  const listTask = getListTask();
+  const taskName = getTaskName();
+  if (taskName === false) {
+    return false;
+  }
+  const task = createTask(taskName);
+  listTask.appendChild(task);
+  saveTask(task);
+  clearInputTask();
+  addEventListItem();
+}
+
+function addEventButtonAddTarefa() {
+  const buttonAddTarefa = document.getElementById('criar-tarefa');
+  buttonAddTarefa.addEventListener('click', addTask);
 }
 
 function loadTasks() {
