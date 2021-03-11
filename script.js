@@ -2,6 +2,7 @@ const btnTask = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados')
+const saveTasks = document.querySelector('#salvar-tarefas')
 
 btnTask.addEventListener('click', function () {
   const textTask = document.getElementById('texto-tarefa').value;
@@ -39,6 +40,7 @@ deleteAll.addEventListener('click', function () {
   const listItemsToDelete = document.querySelectorAll('li');
   for (let indexEraseAll = 0; indexEraseAll < listItemsToDelete.length; indexEraseAll += 1) {
     listItemsToDelete[indexEraseAll].outerHTML = '';
+    storageTasks()
   }
 });
 
@@ -47,6 +49,23 @@ deleteCompleted.addEventListener('click', function () {
   for (let indexCompleted = 0; indexCompleted < listItemsComplete.length; indexCompleted += 1) {
     if (listItemsComplete[indexCompleted].classList.contains('completed')) {
       listItemsComplete[indexCompleted].outerHTML = '';
+      storageTasks()
     }
   }
 });
+
+function storageTasks() {
+  { localStorage.setItem('tasks', tasksList.innerHTML) };
+};
+
+saveTasks.addEventListener('click', function () {
+  storageTasks();
+})
+
+function loadTasks() {
+  { tasksList.innerHTML = localStorage.getItem('tasks') };
+};
+
+window.onload = function () {
+  loadTasks()
+};
