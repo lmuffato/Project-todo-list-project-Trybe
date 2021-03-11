@@ -1,3 +1,5 @@
+const taskList = '#lista-tarefas';
+
 function createLi(text) {
   const listItem = document.createElement('li');
   listItem.innerText = text;
@@ -17,7 +19,7 @@ function addItem() {
 
 // codigo abaixo otimizado apos verificar o codigo de alguns colegas e aprendi o event e o target
 function setColor() {
-  const list = document.querySelector('#lista-tarefas');
+  const list = document.querySelector(taskList);
   list.addEventListener('click', (event) => {
     const selected = document.querySelector('.selected');
     if (selected === null) {
@@ -41,7 +43,7 @@ function doneTaskSelect(array) {
 }
 
 function doneTask() {
-  const list = document.querySelector('#lista-tarefas');
+  const list = document.querySelector(taskList);
   list.addEventListener('dblclick', (event) => {
     const array = event.target.classList;
     const result = doneTaskSelect(array);
@@ -54,8 +56,8 @@ function doneTask() {
 }
 
 function clearTasks() {
+  const list = document.querySelector(taskList);
   const btn = document.querySelector('#apaga-tudo');
-  const list = document.querySelector('#lista-tarefas');
   btn.addEventListener('click', () => {
     while (list.hasChildNodes()) { // essa parte do código vi no w3school
       list.removeChild(list.firstChild);
@@ -63,9 +65,20 @@ function clearTasks() {
   });
 }
 
+function clearCompleted() {
+  const btn = document.querySelector('#remover-finalizados');
+  const done = document.getElementsByClassName('completed');
+  btn.addEventListener('click', () => {
+    while (done.length > 0) {
+      done[0].remove();
+    }
+  });
+}
+
 window.onload = function run() {
   addItem();
-  setColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
+  setColor();
   doneTask();
   clearTasks();
+  clearCompleted();
 };
