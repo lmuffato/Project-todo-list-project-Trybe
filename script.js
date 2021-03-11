@@ -1,6 +1,7 @@
 function checkEachTask() {
   const newElement = document.createElement('li');
   const inputValue = document.getElementById('texto-tarefa');
+  inputValue === '';
   if (inputValue === '') {
     alert('Você precisa escrever algo para adicionar à lista!');
   } else {
