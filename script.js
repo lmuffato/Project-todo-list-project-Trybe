@@ -27,21 +27,6 @@ function selectTask() {
 }
 selectTask();
 
-// function colorTask() {
-//   let taskList = document.querySelector('#lista-tarefas');
-//   taskList.addEventListener('click', function(event) {
-//     let tasksCounter = document.getElementsByClassName('task');
-//     for (let index = 0; index < tasksCounter.length; index += 1) {
-//       if (tasksCounter[index].classList.contains('selected')) {
-//         tasksCounter[index].style.backgroundColor = 'rgb(128,128,128)';
-//       } else {
-//         tasksCounter[index].style.backgroundColor = 'white';
-//       }
-//     }
-//   })
-// }
-// colorTask();
-
 function completeTask() {
   let taskList = document.querySelector('#lista-tarefas');
   taskList.addEventListener('dblclick', function(event) {
@@ -116,12 +101,48 @@ function moveUp() {
       if (tasksList[index].classList.contains('selected') && index !== 0) {
         tasksList[index].classList.remove('selected');
         tasksList[index-1].classList.add('selected');
+        if(tasksList[index].classList.contains('completed')) {
+          if(tasksList[index-1].classList.contains('completed')){
+            tasksList[index].classList.add('completed')
+          } else {
+            tasksList[index].classList.remove('completed');
+            tasksList[index-1].classList.add('completed');
+          }
+        }
         let aux = tasksList[index].innerText;
         tasksList[index].innerText = tasksList[index-1].innerText;
         tasksList[index-1].innerText = aux;
       }
     }
   })
-  
 }
 moveUp();
+
+function moveDown() {
+  let btn = document.createElement('button');
+  btn.id = 'mover-baixo';
+  btn.innerText = 'Baixo';
+  document.querySelector('#dinamic-session').appendChild(btn);
+  btn.addEventListener('click', function() {
+    let tasksList = document.querySelectorAll('.task');
+    for (let index = 0; index < tasksList.length; index += 1) {
+      if (tasksList[index].classList.contains('selected') && index !== (tasksList.length - 1)) {
+        if(tasksList[index].classList.contains('completed')) {
+          if(tasksList[index+1].classList.contains('completed')) {
+            tasksList[index+1].classList.add('completed');
+          } else {
+            tasksList[index].classList.remove('completed');
+            tasksList[index+1].classList.add('completed');
+          }
+        }
+        let aux = tasksList[index].innerText;
+        tasksList[index].innerText = tasksList[index+1].innerText;
+        tasksList[index+1].innerText = aux;
+        tasksList[index].classList.remove('selected');
+        tasksList[index+1].classList.add('selected');
+        break;
+      }
+    }
+  })
+}
+moveDown();
