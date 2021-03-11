@@ -56,6 +56,7 @@ function addTask() {
   listTask.appendChild(task);
   saveTask(task);
   clearInputTask();
+  addEventListItem();
 }
 
 function addEventButtonAddTarefa() {
@@ -82,9 +83,7 @@ function completeTask(event) {
   if (itemLi.classList.contains('completed')) {
     itemLi.classList.remove('completed');
   } else {
-    setTimeout(() => {
-      itemLi.classList.add('completed');
-    }, 100);
+    itemLi.classList.add('completed');
   }
 }
 
@@ -104,8 +103,10 @@ function loadTasks() {
   }
 }
 
-window.onload = function init() {
+function init() {
   loadTasks();
   addEventButtonAddTarefa();
   addEventListItem();
-};
+}
+
+init();
