@@ -99,7 +99,7 @@ window.onload = onloadItems;
 const moveUpButton = document.querySelector('#mover-cima');
 
 function moveUp() {
-  for (i = 1; i < taskListLi.length; i += 1) {
+  for (let i = 1; i < taskListLi.length; i += 1) {
     if (taskListLi[i].classList.contains('selected')) {
       let previousSibling = taskListLi[i - 1];
       taskList.insertBefore(taskListLi[i], previousSibling);
@@ -113,7 +113,7 @@ moveUpButton.addEventListener('click', moveUp);
 const moveDownButton = document.querySelector('#mover-baixo');
 
 function moveDown() {
-  for (i = taskListLi.length - 2; i >= 0; i -= 1) {
+  for (let i = taskListLi.length - 2; i >= 0; i -= 1) {
     if (taskListLi[i].classList.contains('selected')) {
       let nextSibling = taskListLi[i + 2];
       taskList.insertBefore(taskListLi[i], nextSibling);
@@ -122,3 +122,17 @@ function moveDown() {
 }
 
 moveDownButton.addEventListener('click', moveDown);
+
+// Apagar item selecionado
+const selected = document.querySelector('.selected');
+const removeItem = document.querySelector('#remover-selecionado');
+
+function deleteSelected() {
+  for (let i = 1; i < taskListLi.length; i += 1) {
+    if (taskListLi[i].classList.contains('selected')) {
+      taskList.removeChild(taskListLi[i]);
+    }
+  }
+}
+
+removeItem.addEventListener('click', deleteSelected);
