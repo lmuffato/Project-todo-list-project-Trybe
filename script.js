@@ -42,8 +42,8 @@ function clearItensList() {
 $clearBtn.addEventListener('click', clearItensList);
 
 function removeFinishedElement() {
-  const finishedElements = document.querySelectorAll('.completed');
-  finishedElements.forEach((element) => element.parentNode.removeChild(element));
+  const $finishedElements = document.querySelectorAll('.completed');
+  $finishedElements.forEach((element) => element.parentNode.removeChild(element));
 }
 
 $finishedBtn.addEventListener('click', removeFinishedElement);
