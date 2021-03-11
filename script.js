@@ -14,7 +14,6 @@ function addListInput() {
     const list = document.createElement('li');
     if (inputText.value !== '') {
       list.innerHTML = inputText.value;
-      list.className = 'list';
       listOrdenada.appendChild(list);
       selectColor(list);
       listCompleted(list);
@@ -40,11 +39,16 @@ function selectColor(list) {
 }
 
 function listCompleted(list) {
+  const arrayList = document.getElementById('lista-tarefas').childNodes
   list.addEventListener('dblclick', (event) => {
-    if(event.target) {
-      event.target.classList.add('completed');
-    }
-  });
+    for (let indexTwo = 0; indexTwo < arrayList.length; indexTwo += 1) {
+      if(event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed')
+      } else {
+        event.target.classList.add('completed');
+      }
+    } 
+  })
 }
 
 // Função responsavel para limpar o input;
