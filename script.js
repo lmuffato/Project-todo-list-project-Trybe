@@ -23,10 +23,20 @@ function setBackgroundColor() {
       childrenList[index].classList.remove('selectedItem');
     }
     event.target.classList.add('selectedItem');
-    console.log(event.target);
+  });
+}
+
+function markCompleted() {
+  list.addEventListener('dblclick', (event) => {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   });
 }
 
 window.onload = () => {
   setBackgroundColor();
+  markCompleted();
 };
