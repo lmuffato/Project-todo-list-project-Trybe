@@ -3,10 +3,23 @@ const taskList = document.querySelector('#lista-tarefas');
 const taskText = document.querySelector('#texto-tarefa');
 const taskListLi = document.querySelector('#lista-tarefas').childNodes;
 
+// Criando o evento de clique duplo para riscar o item da lista
+function lineThroughItem(event) {
+  event.currentTarget.classList.toggle('completed');
+}
+
+// Alterar a cor de fundo do item quando clicado
+function changeBackgroundColor(event) {
+  for (let j = 0; j < taskListLi.length; j += 1) {
+    taskListLi[j].classList.remove('selected');
+  }
+  event.currentTarget.classList.add('selected');
+}
+
 // Cria um item na "lista-tarefas" quando clicka no botão
 function createLi() {
-  let creatingLi = document.createElement('li');
-  let textValue = taskText.value;
+  const creatingLi = document.createElement('li');
+  const textValue = taskText.value;
   creatingLi.innerText = textValue;
 
   taskList
@@ -20,19 +33,6 @@ function createLi() {
 }
 
 createTask.addEventListener('click', createLi);
-
-// Alterar a cor de fundo do item quando clicado
-function changeBackgroundColor(event) {
-  for (let j = 0; j < taskListLi.length; j += 1) {
-    taskListLi[j].classList.remove('selected');
-  }
-  event.currentTarget.classList.add('selected');
-}
-
-// Criando o evento de clique duplo para riscar o item da lista
-function lineThroughItem(event) {
-  event.currentTarget.classList.toggle('completed');
-}
 
 // Botão apagar tudo
 const btnDelete = document.querySelector('#apaga-tudo');
@@ -76,7 +76,7 @@ function onloadItems() {
   }
 
   function getListStorage() {
-    let saved = localStorage.getItem('lista-itens');
+    const saved = localStorage.getItem('lista-itens');
     if (saved) {
       taskList.innerHTML = saved;
     }
@@ -101,7 +101,7 @@ const moveUpButton = document.querySelector('#mover-cima');
 function moveUp() {
   for (let i = 1; i < taskListLi.length; i += 1) {
     if (taskListLi[i].classList.contains('selected')) {
-      let previousSibling = taskListLi[i - 1];
+      const previousSibling = taskListLi[i - 1];
       taskList.insertBefore(taskListLi[i], previousSibling);
     }
   }
@@ -115,7 +115,7 @@ const moveDownButton = document.querySelector('#mover-baixo');
 function moveDown() {
   for (let i = taskListLi.length - 2; i >= 0; i -= 1) {
     if (taskListLi[i].classList.contains('selected')) {
-      let nextSibling = taskListLi[i + 2];
+      const nextSibling = taskListLi[i + 2];
       taskList.insertBefore(taskListLi[i], nextSibling);
     }
   }
@@ -124,7 +124,6 @@ function moveDown() {
 moveDownButton.addEventListener('click', moveDown);
 
 // Apagar item selecionado
-const selected = document.querySelector('.selected');
 const removeItem = document.querySelector('#remover-selecionado');
 
 function deleteSelected() {
