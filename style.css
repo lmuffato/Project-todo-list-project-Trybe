@@ -12,17 +12,18 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  top: 50px;
+  margin-top: 50px;
 }
 
 .header-content {
   background-color: rgb(64, 121, 140);
   text-align: center;
-  height: 120px;
+  height: 180px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  line-height: 40px;
 }
 
 .header-content h1 {
@@ -33,4 +34,22 @@ body {
 #funcionamento {
   font-family: Barlow Condensed, Arial, sans-serif;
   font-size: 20px;
+}
+
+.commands {
+  position: relative;
+  top: 20px;
+}
+
+#texto-tarefa {
+  background-repeat: repeat;
+  background-color: white;
+  color: rgb(34 , 34 , 34);
+  border: 1px solid rgb(170 , 170 , 170);
+  border-radius: 4px;
+  box-shadow: 0 0 8px -3px rgb(136 , 136 , 136);
+  position: relative;
+  width: 400px;
+  height: 25px;
+  padding-left: 5px;
 }
