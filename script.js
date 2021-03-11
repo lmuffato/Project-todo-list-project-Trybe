@@ -1,7 +1,6 @@
-window.onload = function () {
-  getAll();
-}
-
+// window.onload = function () {
+//   getAll();
+// };
 
 function changeColor(item) {
   const colorize = document.getElementsByClassName('itens');
