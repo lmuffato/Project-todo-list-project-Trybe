@@ -6,6 +6,7 @@ const removeFinalizadosButton = document.querySelector('#remover-finalizados');
 const salvarTarefasButton = document.querySelector('#salvar-tarefas');
 const moverCimaButton = document.querySelector('#mover-cima');
 const moverBaixoButton = document.querySelector('#mover-baixo');
+const removerSelecionadoButton = document.querySelector('#remover-selecionado');
 
 function selecionarTarefa(tarefaElementoHtml) {
   const tarefaClicada = tarefaElementoHtml;
@@ -84,6 +85,10 @@ function moverTarefaParaBaixo() {
   }
 }
 
+function removerSelecionado() {
+  document.querySelector('.selected').remove();
+}
+
 window.onload = carregarTarefas;
 
 adicionarTarefaButton.addEventListener('click', adicionaTarefa);
@@ -92,3 +97,4 @@ removeFinalizadosButton.addEventListener('click', removerTarefasFinalizadas);
 salvarTarefasButton.addEventListener('click', salvarTarefas);
 moverCimaButton.addEventListener('click', moverTarefaParaCima);
 moverBaixoButton.addEventListener('click', moverTarefaParaBaixo);
+removerSelecionadoButton.addEventListener('click', removerSelecionado);
