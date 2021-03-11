@@ -27,20 +27,20 @@ function selectTask() {
 }
 selectTask();
 
-function colorTask() {
-  let taskList = document.querySelector('#lista-tarefas');
-  taskList.addEventListener('click', function(event) {
-    let tasksCounter = document.getElementsByClassName('task');
-    for (let index = 0; index < tasksCounter.length; index += 1) {
-      if (tasksCounter[index].classList.contains('selected')) {
-        tasksCounter[index].style.backgroundColor = 'rgb(128,128,128)';
-      } else {
-        tasksCounter[index].style.backgroundColor = 'white';
-      }
-    }
-  })
-}
-colorTask();
+// function colorTask() {
+//   let taskList = document.querySelector('#lista-tarefas');
+//   taskList.addEventListener('click', function(event) {
+//     let tasksCounter = document.getElementsByClassName('task');
+//     for (let index = 0; index < tasksCounter.length; index += 1) {
+//       if (tasksCounter[index].classList.contains('selected')) {
+//         tasksCounter[index].style.backgroundColor = 'rgb(128,128,128)';
+//       } else {
+//         tasksCounter[index].style.backgroundColor = 'white';
+//       }
+//     }
+//   })
+// }
+// colorTask();
 
 function completeTask() {
   let taskList = document.querySelector('#lista-tarefas');
@@ -104,3 +104,24 @@ function deleteCompleteBtn() {
   })
 }
 deleteCompleteBtn();
+
+function moveUp() {
+  let btn = document.createElement('button');
+  btn.id = 'mover-cima';
+  btn.innerText = 'Cima';
+  document.querySelector('#dinamic-session').appendChild(btn);
+  btn.addEventListener('click', function() {
+    let tasksList = document.querySelectorAll('.task');
+    for (let index = 0; index < tasksList.length; index += 1) {
+      if (tasksList[index].classList.contains('selected') && index !== 0) {
+        tasksList[index].classList.remove('selected');
+        tasksList[index-1].classList.add('selected');
+        let aux = tasksList[index].innerText;
+        tasksList[index].innerText = tasksList[index-1].innerText;
+        tasksList[index-1].innerText = aux;
+      }
+    }
+  })
+  
+}
+moveUp();
