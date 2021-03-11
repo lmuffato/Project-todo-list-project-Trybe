@@ -19,9 +19,13 @@ buttonInsertItem.addEventListener('click', () => {
 function selectItem() {
   const listClick = document.getElementsByTagName('ol')[0];
   const listItens = document.getElementsByTagName('li');
-  listClick.addEventListener('click', () => {
+  listClick.addEventListener('click', (event) => {
+    const clickEvent = event.target;
     for (let index = 0; index < listItens.length; index += 1) {
-      listItens[index].style.backgroundColor = 'rgb(128, 128, 128)';
+      listItens[index].style.backgroundColor = document.body.style.backgroundColor;
+      if (clickEvent.localName === 'li') {
+        clickEvent.style.backgroundColor = 'rgb(128, 128, 128)';
+      }
     }
   });
 }
