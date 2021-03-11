@@ -1,5 +1,3 @@
-const toDoList = [];
-
 function renderNewTask(task) {
   const list = document.getElementById('lista-tarefas');
   list.appendChild(task);
@@ -44,7 +42,6 @@ function addNewTask() {
   listItem.className = 'list-item';
   listItem.addEventListener('click', selectTask);
   listItem.addEventListener('dblclick', completeTask);
-  toDoList.push(listItem);
   renderNewTask(listItem);
   clearInput(task);
 }
@@ -56,17 +53,14 @@ function deleteList() {
 }
 
 function removeCompletedTasks() {
-  const list = document.getElementById('lista-tarefas');
+  const list = document.querySelectorAll('.completed');
 
-  for (let task = 0; task <= list.children.length; task += 1) {
-    if (list.children[task].className.includes('completed')) {
-      list.removeChild(list.children[task]);
-    }
-  }
+  list.forEach((task) => task.remove());
 }
 
 window.onload = () => {
   document.getElementById('criar-tarefa').addEventListener('click', addNewTask);
   document.getElementById('apaga-tudo').addEventListener('click', deleteList);
   document.getElementById('remover-finalizados').addEventListener('click', removeCompletedTasks);
+  document.getElementById('salvar-tarefas').addEventListener('click', saveList);
 };
