@@ -106,60 +106,73 @@ function checkIndex(array, element) {
 }
 
 function moveUp() {
+  const selected = document.getElementsByClassName('selected');
   const list = document.querySelectorAll('.task');
   const btn = document.getElementById('mover-cima');
   btn.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
-    if (selected === list[0]) {
-      const text = list[0].innerText;
-      for (let index = 0; index < (list.length - 1); index += 1) {
-        list[index].innerText = list[(index + 1)].innerText;
+    if (selected.length !== 0) {
+      const selected = document.querySelector('.selected');
+      if (selected === list[0]) {
+        const classe = list[0].className;
+        const text = list[0].innerText;
+        for (let index = 0; index < list.length - 1; index += 1) {
+          list[index].innerText = list[index + 1].innerText;
+          list[index].className = list[index + 1].className;
+        }
+        list[list.length - 1].innerText = text;
+        list[list.length - 1].className = classe;
+      } else {
+        const indexOfSelected = checkIndex(list, selected);
+        const text = list[indexOfSelected].innerText;
+        const classe = list[indexOfSelected].className;
+        list[indexOfSelected].className = list[indexOfSelected -1].className;
+        list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
+        list[(indexOfSelected - 1)].innerText = text;
+        list[indexOfSelected - 1].className = classe;
       }
-      list[list.length - 1].innerText = text;
-      removeSelected();
-      list[list.length - 1].classList.add('selected');
-    } else {
-      const indexOfSelected = checkIndex(list, selected);
-      const text = list[indexOfSelected].innerText;
-      list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
-      list[(indexOfSelected - 1)].innerText = text;
-      removeSelected();
-      list[indexOfSelected - 1].classList.add('selected');
     }
-  });
+  }); 
 }
 
 function moveDown() {
+  const selected = document.getElementsByClassName('selected');
   const list = document.getElementsByClassName('task');
   const btn = document.getElementById('mover-baixo');
   btn.addEventListener('click', () => {
-    const selected = document.querySelector('.selected');
-    if (selected === list[list.length - 1]) {
-      const text = list[list.length - 1].innerText;
-      for (let index = list.length - 1; index > 0; index -= 1) {
-        list[index].innerText = list[index - 1].innerText;
+    if (selected.length !== 0) {
+      const selected = document.querySelector('.selected');
+      if (selected === list[list.length - 1]) {
+        const classe = list[list.length - 1].className;
+        const text = list[list.length - 1].innerText;
+        for (let index = list.length - 1; index > 0; index -= 1) {
+          list[index].innerText = list[index - 1].innerText;
+          list[index].className = list[index - 1].className;
+        }
+        list[0].innerText = text;
+        list[0].className = classe;
+      } else {
+        const indexOfSelected = checkIndex(list, selected);
+        const text = list[indexOfSelected].innerText;
+        const classe = list[indexOfSelected].className;
+        list[indexOfSelected].className = list[indexOfSelected + 1].className;
+        list[indexOfSelected].innerText = list[(indexOfSelected + 1)].innerText;
+        list[(indexOfSelected + 1)].innerText = text;
+        list[indexOfSelected + 1].className = classe;
       }
-      list[0].innerText = text;
-      removeSelected();
-      list[0].classList.add('selected');
-    } else {
-      const indexOfSelected = checkIndex(list, selected);
-      const text = list[indexOfSelected].innerText;
-      list[indexOfSelected].innerText = list[(indexOfSelected + 1)].innerText;
-      list[(indexOfSelected + 1)].innerText = text;
-      removeSelected();
-      list[indexOfSelected + 1].classList.add('selected');
-    }
+    }  
   });
 }
 
 function removeSelectedTask() {
+  const selected = document.getElementsByClassName('selected');
   const btn = document.getElementById('remover-selecionado');
   const tasks = document.querySelectorAll('li');
   btn.addEventListener('click', () => {
-    for (let index = 0; index < tasks.length; index += 1) {
-      if (tasks[index].classList.contains('selected')) {
-        tasks[index].remove();
+    if (selected.length !== 0) {
+      for (let index = 0; index < tasks.length; index += 1) {
+        if (tasks[index].classList.contains('selected')) {
+          tasks[index].remove();
+        }
       }
     }
   });
