@@ -17,23 +17,33 @@ function addTask(){
 document.body.addEventListener("click",ElementSelected);
 function ElementSelected(e){
     console.log(e.target.className);
-    for(let index =0;index<tasks.length;index+=1){
-        if(e.target==tasks[index]){
-            tasks[index].style.backgroundColor="rgb(128,128,128)";
-            
-            if(e.target.className=="selected"){
-                tasks[index].style.backgroundColor="initial";
-                tasks[index].classList.remove("selected");
-            }else{
-                tasks[index].classList.add("selected");
-            }
+    let hasAnotherSelect = classRepeatChecker(tasks);
+    let hasTask=false;
+    console.log(hasAnotherSelect);
+    for(let index=0;index<tasks.length;index+=1){
+    if(e.target==tasks[index]&&hasAnotherSelect==false){
+        tasks[index].classList.add("selected") 
+    }
+    else if(e.target==tasks[index]&&hasAnotherSelect==true){
+        let x = document.getElementsByClassName("selected");
+        for (let ondex = 0; ondex < x.length; ondex++) {
+            x[ondex].classList.remove("selected");           
+        }
+        tasks[index].classList.add("selected");
         }
     }
+ }
+
+function classRepeatChecker(array){
+    let counter=0;
+    for(let index = 0;index<array.length;index+=1){
+        if(array[index].className=="selected"){
+            counter+=1;
+        }
+    }
+    if(counter>0){
+        return true
+    }else{
+        return false
+    }
 }
-// if(taskList.children.length > 0 ){
-// taskList.children[0].addEventListener('click',taskSelected)
-// function taskSelected(e){
-//     let event = e
-//     event.target.
-// }
-// }

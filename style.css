@@ -44,3 +44,7 @@ form {
     width: 120px;
     height: 30px;
 }
+
+.selected{
+    background-color: rgb(128,128,128);
+}
