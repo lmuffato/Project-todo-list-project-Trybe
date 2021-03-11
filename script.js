@@ -33,6 +33,20 @@ function addLi() {
     liCreate.addEventListener('click', backgroundLiColor)
 }
 
+function clearCompletedItem() {
+    const clearOnlyComplet = document.getElementsByClassName('item')
+    for (let index = clearOnlyComplet.length - 1; index >= 0; index -= 1) {
+        if (clearOnlyComplet[index].className === 'item completed') {
+            clearOnlyComplet[index].remove();
+        }
+    }
+}
+
+function byeItemCompleted() {
+    const deleteElement = document.getElementById('remover-finalizados')
+    deleteElement.addEventListener('click', clearCompletedItem)
+}
+
 function buttonClearAll() {
     const itemsToClean = document.getElementById('lista-tarefas');
     for (let index = itemsToClean.children.length - 1; index >= 0; index -= 1) {
@@ -51,3 +65,4 @@ function createListItems() {
 }
 createListItems()
 clearButton()
+byeItemCompleted()
