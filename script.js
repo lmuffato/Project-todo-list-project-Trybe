@@ -48,3 +48,12 @@ savebttn.addEventListener('click', () => {
 });
 
 outputOl.innerHTML = localStorage.getItem('toDoList');
+
+// Requisito 13
+
+// Requisito 14
+const clearSelectedBttn = document.querySelector('#remover-selecionado');
+clearSelectedBttn.addEventListener('click', () => {
+  const clearSelected = document.querySelector('.selected');
+  clearSelected.remove();
+});
