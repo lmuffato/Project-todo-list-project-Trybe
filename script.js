@@ -4,6 +4,16 @@ function clearInput() {
   input.value = '';
 }
 
+function completedTask(event) {
+  const task = event.target;
+
+  // https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
+  if (task.classList.contains('completed')) {
+    return task.classList.remove('completed');
+  }
+  return task.classList.add('completed');
+}
+
 function backgroundDeselected() {
   const selectedElement = document.querySelector('.selected');
   if (selectedElement !== null) {
@@ -23,6 +33,7 @@ function addTask() {
 
   task.innerText = inputValue;
   task.addEventListener('click', backgroundSelected);
+  task.addEventListener('dblclick', completedTask);
   list.appendChild(task);
   clearInput();
 }
