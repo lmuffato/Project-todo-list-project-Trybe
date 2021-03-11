@@ -13,3 +13,14 @@ function clickButton() {
   });
 }
 clickButton();
+
+function clickItemList() {
+  const listPai = document.querySelectorAll('#lista-tarefas')[0];
+  listPai.addEventListener('click', () => {
+    const list = document.querySelectorAll('li');
+    for (let index = 0; index < list.length; index += 1) {
+      list[index].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  });
+}
+clickItemList();
