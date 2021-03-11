@@ -1,3 +1,4 @@
+const colorGray = 'rgb(128, 128, 128)';
 const addEvListener = (elementNode, event, fn) => {
   if (typeof fn !== 'function') {
     console.log('O parâmetro fn deve ser uma função.');
@@ -5,6 +6,17 @@ const addEvListener = (elementNode, event, fn) => {
   }
   const node = document.querySelector(elementNode);
   node.addEventListener(event, fn);
+};
+
+const addEvListenerNElements = (elementsNodes, event, fn) => {
+  if (typeof fn !== 'function') {
+    console.log('O parâmetro fn deve ser uma função.');
+    return;
+  }
+  const nodes = document.querySelectorAll(elementsNodes);
+  for (let index = 0; index < nodes.length; index += 1) {
+    nodes[index].addEventListener(event, fn);
+  }
 };
 
 const getAllTodoList = () => document.querySelectorAll('li');
@@ -21,7 +33,7 @@ const resetClass = (item, className) => {
   }
 };
 
-const changeColor = (ev, color) => { // 'rgb(128, 128, 128)'
+const changeColor = (ev, color) => {
   getAllTodoList().forEach((x) => resetColor(x));
   getAllTodoList().forEach((x) => resetClass(x, 'selected'));
 
@@ -40,7 +52,7 @@ const createTodoItem = (text) => {
   const li = document.createElement('li');
   li.innerText = text;
   li.addEventListener('dblclick', (e) => { changeLineThrough(e, 'completed'); });
-  li.addEventListener('click', (e) => { changeColor(e, 'rgb(128, 128, 128)'); });
+  li.addEventListener('click', (e) => { changeColor(e, colorGray); });
   return li;
 };
 
@@ -79,7 +91,7 @@ const moveTodoItem = (count) => {
   const listTodoItem = getAllTodoList();
   for (let index = 0; index < listTodoItem.length; index += 1) {
     const element = listTodoItem[index];
-    if (element.style.backgroundColor === 'rgb(128, 128, 128)') {
+    if (element.style.backgroundColor === colorGray) {
       selected = listTodoItem[index];
       indexItem = index;
       listLength = listTodoItem.length;
@@ -129,6 +141,8 @@ const getListLocalStorage = () => {
     const listContainer = getListContainer();
     listContainer.innerHTML = JSON.parse(listTodoItens);
   }
+  addEvListenerNElements('li', 'click', (e) => { changeColor(e, colorGray); });
+  addEvListenerNElements('li', 'dblclick', (e) => { changeLineThrough(e, 'completed'); });
 };
 
 window.onload = () => {
