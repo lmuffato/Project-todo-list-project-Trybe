@@ -14,9 +14,8 @@ function addText () {
 
 function clicou (event) {
   const receiveItem = document.getElementsByClassName('listItem');
-  console.log(event);
   const select = event.target
-  for (index = 0; index < receiveItem.length; index += 1) {
+  for (let index = 0; index < receiveItem.length; index += 1) {
     if (receiveItem[index] === select) {
       receiveItem[index].classList.add('selected');
       receiveItem[index].style.backgroundColor = 'rgb(128, 128, 128)';
