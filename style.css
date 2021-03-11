@@ -5,3 +5,7 @@ h1 {
 .selected {
   background-color: gray;
 }
+
+.selected-dblClick {
+  text-decoration: line-through;
+}
