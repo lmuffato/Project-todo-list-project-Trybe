@@ -1,6 +1,7 @@
 const btnTask = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
+const deleteCompleted = document.querySelector('#remover-finalizados')
 
 btnTask.addEventListener('click', function () {
   const textTask = document.getElementById('texto-tarefa').value;
@@ -35,8 +36,17 @@ tasksList.addEventListener('dblclick', function (event) {
 });
 
 deleteAll.addEventListener('click', function () {
-  const listItems = document.querySelectorAll('li');
-  for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].innerHTML = '';
+  const listItemsToDelete = document.querySelectorAll('li');
+  for (let indexEraseAll = 0; indexEraseAll < listItemsToDelete.length; indexEraseAll += 1) {
+    listItemsToDelete[indexEraseAll].outerHTML = '';
+  }
+});
+
+deleteCompleted.addEventListener('click', function () {
+  const listItemsComplete = document.querySelectorAll('li');
+  for (let indexCompleted = 0; indexCompleted < listItemsComplete.length; indexCompleted += 1) {
+    if (listItemsComplete[indexCompleted].classList.contains('completed')) {
+      listItemsComplete[indexCompleted].outerHTML = '';
+    }
   }
 });
