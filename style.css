@@ -13,7 +13,7 @@
 }
 
 #apaga-tudo {
-  background-color: #00956F;
+  background-color: #00956f;
   border-radius: 5px;
   color: white;
 }
@@ -28,4 +28,10 @@
   background-color: rgb(235, 128, 128);
   border-radius: 5px;
   color: white;
+}
+
+#salvar-tarefas {
+  background-color: rgb(185, 235, 128);
+  border-radius: 5px;
+  color: black;
 }
