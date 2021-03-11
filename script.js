@@ -82,8 +82,43 @@ function onloadItems() {
     }
   }
 
+  function removeSelected() {
+    for (let i = 0; i < taskListLi.length; i += 1) {
+      taskListLi[i].classList.remove('selected');
+    }
+  }
+
   getListStorage();
+  removeSelected();
   addEventLi();
 }
 
 window.onload = onloadItems;
+
+// Mover um item para cima
+const moveUpButton = document.querySelector('#mover-cima');
+
+function moveUp() {
+  for (i = 1; i < taskListLi.length; i += 1) {
+    if (taskListLi[i].classList.contains('selected')) {
+      let previousSibling = taskListLi[i - 1];
+      taskList.insertBefore(taskListLi[i], previousSibling);
+    }
+  }
+}
+
+moveUpButton.addEventListener('click', moveUp);
+
+// Mover um item para baixo
+const moveDownButton = document.querySelector('#mover-baixo');
+
+function moveDown() {
+  for (i = taskListLi.length - 2; i >= 0; i -= 1) {
+    if (taskListLi[i].classList.contains('selected')) {
+      let nextSibling = taskListLi[i + 2];
+      taskList.insertBefore(taskListLi[i], nextSibling);
+    }
+  }
+}
+
+moveDownButton.addEventListener('click', moveDown);
