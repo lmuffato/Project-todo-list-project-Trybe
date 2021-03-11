@@ -1,8 +1,14 @@
 const taskListContainer = document.querySelector('#lista-tarefas');
 
 function removeSelected() {
-  const selected = querySelector('.selected');
-  
+  const selected = document.querySelector('.selected');
+  selected.parentNode.removeChild(selected);
+}
+
+function clickRemove() {
+  const removeButton = document.querySelector('#remover-selecionado');
+
+  removeButton.addEventListener('click', removeSelected);
 }
 
 function findSelected(list) {
@@ -22,8 +28,8 @@ function moveDown() {
   }
   const selectedIndex = findSelected(list);
   if (selectedIndex + 1 < list.length) {
-    let selectedItem = list[selectedIndex];
-    let nextItem = list[selectedIndex + 1];
+    const selectedItem = list[selectedIndex];
+    const nextItem = list[selectedIndex + 1];
     const nextItemHolder = nextItem.outerHTML;
     nextItem.outerHTML = selectedItem.outerHTML;
     selectedItem.outerHTML = nextItemHolder;
@@ -43,8 +49,8 @@ function moveUp() {
   }
   const selectedIndex = findSelected(list);
   if (selectedIndex > 0) {
-    let selectedItem = list[selectedIndex];
-    let previousItem = list[selectedIndex - 1];
+    const selectedItem = list[selectedIndex];
+    const previousItem = list[selectedIndex - 1];
     const previousItemHolder = previousItem.outerHTML;
     previousItem.outerHTML = selectedItem.outerHTML;
     selectedItem.outerHTML = previousItemHolder;
@@ -171,3 +177,4 @@ setStoraged();
 displayStoraged();
 buttonUp();
 buttonDown();
+clickRemove();
