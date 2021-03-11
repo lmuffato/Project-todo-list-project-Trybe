@@ -19,10 +19,10 @@ addItens();
 function changeItemColor() {
   const list = document.querySelector('#lista-tarefas');
   list.addEventListener('click', function (e) {
-    let itens = e.target;
+    const itens = e.target;
     const elementosLi = document.querySelectorAll('#lista-tarefas li');
     for (let index = 0; index < elementosLi.length; index += 1) {
-      elementosLi[index].style.backgroundColor = document.body.style.backgroundColor
+      elementosLi[index].style.backgroundColor = document.body.style.backgroundColor;
     }
     if (itens.localName === 'li') {
       itens.style.backgroundColor = 'rgb(128,128,128)';
@@ -32,3 +32,16 @@ function changeItemColor() {
 
 changeItemColor();
 
+function crossWord() {
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('dblclick', function (e) {
+    let itens = e.target;
+    if (itens.classList.contains('completed')) {
+      itens.classList.remove('completed')
+    } else {
+      itens.classList.add('completed')
+    }
+  })
+}
+
+crossWord();

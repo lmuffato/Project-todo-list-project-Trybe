@@ -30,3 +30,7 @@ body {
 .to-do-itens {
   width: 800px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
