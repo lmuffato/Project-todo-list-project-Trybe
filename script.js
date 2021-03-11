@@ -20,11 +20,7 @@ function clickItemList() {
     const list = document.querySelectorAll('li');
     for (let index = 0; index < list.length; index += 1) {
       const color = 'rgb(128, 128, 128)';
-      if (list[index].style.backgroundColor === color) {
-        list[index].style.backgroundColor = 'white';
-      } else {
-        list[index].style.backgroundColor = color;
-      }
+      list[index].style.backgroundColor = color;
     }
   });
 }
