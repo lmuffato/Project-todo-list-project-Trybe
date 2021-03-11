@@ -1,3 +1,8 @@
 .bkGray {
   background-color: gray;
 }
+
+#lista-tarefas {
+  width: fit-content;
+  background-color: white;
+}
