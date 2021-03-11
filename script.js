@@ -20,10 +20,10 @@ function setBackgroundColor() {
   list.addEventListener('click', (event) => {
     const childrenList = list.children;
     if (event.target.classList.contains('selectedItem')) {
-      event.target.classList.remove('selectedItem');
+      event.target.removeAttribute('class');
     } else {
       for (let index = 0; index < childrenList.length; index += 1) {
-        childrenList[index].classList.remove('selectedItem');
+        childrenList[index].removeAttribute('class');
       }
       event.target.classList.add('selectedItem');
     }
