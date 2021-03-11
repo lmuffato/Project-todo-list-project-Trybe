@@ -29,9 +29,9 @@ todoList.addEventListener('dblclick', (e) => {
 
 //código feito baseado no code Review do Lucas Pedroso.
 clear.addEventListener('click', () => {
-  const listContainer = document.querySelectorAll('.completed');
-  for (let index = 0; index < listContainer.length; index += 1) {
-    listContainer[index].remove();
+  const fineshed = document.querySelectorAll('.completed');
+  for (let final of fineshed) {
+    final.remove();
   }
 });
 
