@@ -1,5 +1,7 @@
 const btnTask = document.querySelector('#criar-tarefa');
 const tasksList = document.querySelector('#lista-tarefas');
+const lists = document.querySelectorAll('li');
+
 btnTask.addEventListener('click', function () {
   const textTask = document.getElementById('texto-tarefa').value;
   document.getElementById('texto-tarefa').value = '';
@@ -21,5 +23,13 @@ tasksList.addEventListener('click', function (event) {
       event.target.backgroundColor = 'rgb(128, 128, 128)';
       event.target.classList.add('selected');
     }
+  }
+});
+
+tasksList.addEventListener('dblclick', function (event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
   }
 });
