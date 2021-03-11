@@ -33,3 +33,10 @@ const clearBttn = document.querySelector('#apaga-tudo');
 clearBttn.addEventListener('click', () => {
   outputOl.innerHTML = '';
 });
+
+// Requisito 11
+const clearCompleted = document.querySelector('#remover-finalizados');
+clearCompleted.addEventListener('click', () => {
+  const completeds = document.querySelectorAll('.completed');
+  completeds.forEach((removeitem) => removeitem.remove());
+});
