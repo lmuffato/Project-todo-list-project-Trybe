@@ -24,7 +24,6 @@ function clickEvent(event) {
     classSelected.classList.add('selected');
   }
 }
-
 function clickDel(event) {
   const getCompleted = event.target;
   if (getCompleted.classList.value.includes('completed') == true) {
@@ -33,7 +32,6 @@ function clickDel(event) {
       getCompleted.classList.add('completed');
     }
 }
-
 
 function swapSelected() {
   const getSelected = document.getElementById('lista-tarefas');
@@ -45,8 +43,15 @@ function swapCompleted() {
   getSelected.addEventListener('dblclick', clickDel);
 }
 
-const getCleanButton = document.getElementById('apaga-tudo')  
-getCleanButton.addEventListener('click', CleanAll)
+function cleanAllListener() {
+  const getCleanButton = document.getElementById('apaga-tudo')  
+  getCleanButton.addEventListener('click', CleanAll)
+}
+
+function cleanCompletedListener() {
+  const getCleanButton = document.getElementById('remover-finalizados')  
+  getCleanButton.addEventListener('click', cleanCompleted)
+}
 
 function CleanAll() {
   const getAllList = document.getElementById('lista-tarefas');
@@ -55,6 +60,20 @@ function CleanAll() {
   }
 }
 
+function cleanCompleted() {
+  const getAllList = document.querySelectorAll('li')
+  for (let index = 0; index < getAllList.length; index += 1) {
+    if (getAllList[index].classList.value.includes('completed') == true) {
+      getAllList[index].remove()
+    }
+  }
+}
+
 add();
 swapSelected();
 swapCompleted();
+cleanAllListener();
+cleanCompletedListener();
+
+//Referências:
+//https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
