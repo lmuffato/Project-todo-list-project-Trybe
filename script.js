@@ -61,6 +61,7 @@ function btnEraseAll() {
   const eraseAll = document.querySelector('#apaga-tudo');
 
   eraseAll.addEventListener('click', () => {
+    localStorage.removeItem('tasks')
     list.innerHTML = '';
   });
 }
@@ -71,7 +72,6 @@ function removeCompleted() {
   const remove = document.querySelector('#remover-finalizados');
   remove.addEventListener('click', () => {
     const completed = document.querySelectorAll('.completed');
-    console.log('cricou danado!');
     for (let index = 0; index < completed.length; index += 1) {
       if (completed[index].className === 'completed') {
         taskList.removeChild(completed[index]);
@@ -81,3 +81,22 @@ function removeCompleted() {
 }
 
 removeCompleted();
+
+function saveTasks() {
+  const save = document.querySelector('#salvar-tarefas');
+
+  save.addEventListener('click', () => {
+    localStorage.setItem('tasks', JSON.stringify(taskList.innerHTML));
+  });
+}
+
+saveTasks();
+
+function loudTasks() {
+  if (localStorage.getItem('tasks') !== undefined) {
+    const toDo = localStorage.getItem('tasks');
+    taskList.innerHTML = JSON.parse(toDo);
+  }
+}
+
+loudTasks();
