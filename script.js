@@ -104,6 +104,48 @@ function getTasks() {
   }
 }
 
+function up() {
+  const upBtn = document.querySelector('#mover-cima');
+  upBtn.addEventListener('click', () => {
+    const selectedTask = document.querySelector('.selected');
+    let previousTask;
+    if (selectedTask) {
+      previousTask = selectedTask.previousElementSibling;
+    }
+    if (previousTask) {
+      const element = {
+        text: previousTask.innerText,
+        class: previousTask.className,
+      };
+      previousTask.innerText = selectedTask.innerText;
+      previousTask.className = selectedTask.className;
+      selectedTask.innerText = element.text;
+      selectedTask.className = element.className;
+    }
+  });
+}
+
+function down() {
+  const upBtn = document.querySelector('#mover-baixo');
+  upBtn.addEventListener('click', () => {
+    const selectedTask = document.querySelector('.selected');
+    let nextTask;
+    if (selectedTask) {
+      nextTask = selectedTask.nextElementSibling;
+    }
+    if (nextTask) {
+      const element = {
+        text: nextTask.innerText,
+        class: nextTask.className,
+      };
+      nextTask.innerText = selectedTask.innerText;
+      nextTask.className = selectedTask.className;
+      selectedTask.innerText = element.text;
+      selectedTask.className = element.className;
+    }
+  });
+}
+
 window.onload = () => {
   addTask();
   selectTask();
@@ -113,4 +155,6 @@ window.onload = () => {
   removeSelected();
   saveTasks();
   getTasks();
+  up();
+  down();
 };
