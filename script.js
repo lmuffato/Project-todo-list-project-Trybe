@@ -116,13 +116,40 @@ function moveUp() {
         list[index].innerText = list[(index + 1)].innerText;
       }
       list[list.length - 1].innerText = text;
+      removeSelected();
+      list[list.length - 1].classList.add('selected');
     } else {
       const indexOfSelected = checkIndex(list, selected);
       const text = list[indexOfSelected].innerText;
       list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
       list[(indexOfSelected - 1)].innerText = text;
+      removeSelected();
+      list[indexOfSelected - 1].classList.add('selected');
     }
-    removeSelected();
+  });
+}
+
+function moveDown() {
+  const list = document.getElementsByClassName('task');
+  const btn = document.getElementById('mover-baixo');
+  btn.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    if (selected === list[list.length - 1]) {
+      const text = list[list.length - 1].innerText;
+      for (let index = list.length - 1; index > 0; index -= 1) {
+        list[index].innerText = list[index - 1].innerText;
+      }
+      list[0].innerText = text;
+      removeSelected();
+      list[0].classList.add('selected');
+    } else {
+      const indexOfSelected = checkIndex(list, selected);
+      const text = list[indexOfSelected].innerText;
+      list[indexOfSelected].innerText = list[(indexOfSelected + 1)].innerText;
+      list[(indexOfSelected + 1)].innerText = text;
+      removeSelected();
+      list[indexOfSelected + 1].classList.add('selected');
+    }
   });
 }
 
@@ -140,4 +167,5 @@ window.onload = () => {
   saveTasks();
   getTasks();
   moveUp();
+  moveDown();
 };
