@@ -76,4 +76,4 @@ window.onload = () => {
   clearComplet();
   saveList();
   clearSelec();
-}
+};

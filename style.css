@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #1982c4;
+  background: rgb(25 , 130 , 196);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -20,24 +20,23 @@ header {
   padding: 30px;
   border-radius: 10px 30px;
   box-sizing: content-box;
-  box-shadow: 5px;
-  box-shadow: 10px 10px 50px #005aad;
+  box-shadow: 10px 10px 50px rgb(0 , 90 , 173);
 }
 
 h1 {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: Gloria Hallelujah, cursive;
   text-align: center;
   font-size: 40px;
   margin-bottom: 0%;
 }
 
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Open Sans, sans-serif;
   font-size: large;
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: Open Sans, sans-serif;
   text-align: center;
   margin-top: 0;
   padding-top: 0;
@@ -48,8 +47,8 @@ button {
   border: none;
   display: inline-block;
   cursor: pointer;
-  color: #ffffff;
-  font-family: 'Open Sans', sans-serif;
+  color: rgb(228 , 228 , 228);
+  font-family: Open Sans, sans-serif;
   font-size: 17px;
   padding: 16px 31px;
   text-decoration: none;
@@ -61,29 +60,29 @@ button:hover {
 }
 
 #remover-selecionado {
-  background-color: #ff595e;
+  background-color: rgb(255 , 89 , 94);
 }
 
 #remover-finalizados {
-  background-color: #ffca3a;
+  background-color: rgb(255 , 202 , 58);
 }
 
 #apaga-tudo {
-  background-color: #ff595e;
+  background-color: rgb(255 , 89 , 94);
 }
 
 #salvar-tarefas {
-  background-color: #8ac926;
+  background-color: rgb(138 , 201 , 38);
 }
 
 #criar-tarefa {
-  background-color: #1982c4;
+  background-color: rgb(25 , 130 , 196);
 }
 
 hr {
   margin-top: 30px;
   margin-bottom: 30px;
-  border-color: #ffffff3b;
+  border-color: rgba(126 , 136 , 143 , 0.1);
 }
 
 input {
@@ -96,6 +95,6 @@ input {
 }
 
 input:focus {
-  border: solid 3px #1982c4;
+  border: solid 3px rgb(25 , 130 , 196);
   border-radius: 10px;
 }
