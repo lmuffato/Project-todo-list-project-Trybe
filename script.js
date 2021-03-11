@@ -19,10 +19,10 @@ function insertToDo() {
 function setBackgroundColor() {
   list.addEventListener('click', (event) => {
     const childrenList = list.children;
-    if (event.target.classList.contains('selectedItem')) {
-      event.target.removeAttribute('class');
-    } else {
-      for (let index = 0; index < childrenList.length; index += 1) {
+    for (let index = 0; index < childrenList.length; index += 1) {
+      if (childrenList[index].classList.contains('completed')) {
+        childrenList[index].classList.remove('selectedItem');
+      } else {
         childrenList[index].removeAttribute('class');
       }
       event.target.classList.add('selectedItem');
