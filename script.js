@@ -3,6 +3,7 @@ const createAssignment = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
 const clear = document.querySelector('#remover-finalizados');
 const clearAll = document.querySelector('#apaga-tudo');
+const clearSelected = document.querySelector('#remover-selecionado')
 
 createAssignment.addEventListener('click', () => {
   const li = document.createElement('li');
@@ -39,6 +40,13 @@ clear.addEventListener('click', () => {
 clearAll.addEventListener('click', () => {
   const allCleaned = document.querySelectorAll('#lista-tarefas li');
   for (let final of allCleaned) {
+    final.remove();
+  }
+});
+
+clearSelected.addEventListener('click', () => {
+  const fineshed = document.querySelectorAll('.gray');
+  for (let final of fineshed) {
     final.remove();
   }
 });

@@ -60,7 +60,8 @@ button {
 }
 
 #remover-finalizados {
-  background-color: rgb(121, 26, 10);
+  width: 150px;
+  background-color: rgb(77, 134, 228);
 }
 
 #up {
@@ -71,9 +72,8 @@ button {
   background-color: rgb(246, 113, 36);
 }
 
-#clearCompleted {
-  width: 150px;
-  background-color: rgb(77, 134, 228);
+#remover-selecionado {
+  background-color: rgb(121, 26, 10);
 }
 
 #apaga-tudo {
