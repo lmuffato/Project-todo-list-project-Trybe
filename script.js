@@ -45,3 +45,13 @@ function crossWord() {
 }
 
 crossWord();
+
+function eraseAll() {
+  const button = document.querySelector('#apaga-tudo');
+  const list = document.querySelector('#lista-tarefas')
+  button.addEventListener('click', function () {
+    list.innerHTML = '';
+  })
+}
+
+eraseAll();

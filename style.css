@@ -25,6 +25,7 @@ body {
   height: 30px;
   background-color: blueviolet;
   color: white;
+  border: 5px solid black;
 }
 
 .to-do-itens {
@@ -33,4 +34,18 @@ body {
 
 .completed {
   text-decoration: line-through;
+}
+
+#apaga-tudo {
+  background-color: magenta;
+  width: 150px;
+  height: 30px;
+  border: 5px solid black;
+}
+
+#remover-finalizados {
+  background-color: pink;
+  width: 150px;
+  height: 30px;
+  border: 5px solid black;
 }
