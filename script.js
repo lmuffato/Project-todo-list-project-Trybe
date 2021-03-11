@@ -17,7 +17,7 @@ function criaTarefa() {
 listaDeTarefas.addEventListener('click', trocaCor);
 
 function trocaCor(event) {
-  let elementoClicado = document.querySelectorAll('li');
+  const elementoClicado = document.querySelectorAll('li');
   for (let index = 0; index < elementoClicado.length; index += 1) {
     elementoClicado[index].style.backgroundColor = 'white';
   }
@@ -33,7 +33,7 @@ function clickDuplo(event) {
 botaoApagaTudo.addEventListener('click', apagaTudo);
 
 function apagaTudo() {
-  let apagaElemento = document.querySelectorAll('li');
+  const apagaElemento = document.querySelectorAll('li');
   for (let index = 0; index < apagaElemento.length; index += 1) {
     listaDeTarefas.removeChild(apagaElemento[index]);
   }

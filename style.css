@@ -1,4 +1,3 @@
-/*4 - Crie uma classe CSS para o elemento com o nome "completed"*/
 .completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
