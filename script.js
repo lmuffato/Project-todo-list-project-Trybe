@@ -8,16 +8,18 @@ function buttonCreateTaks() {
         listHeader.appendChild(itemList);
         document.getElementById('texto-tarefa').value = ''; 
       }
-      changeColorItems();
+      /* changeColorItems(); */
       cleanItems();
       killerChecked();
+      colorItem();
     });
-  completedTasks();
+  
 }
 
 buttonCreateTaks();
+completedTasks();
 
-function changeColorItems() {
+/* function changeColorItems() {
   let itemLi = document.getElementsByTagName('li');
 
   for (let index = 0; index < itemLi.length; index += 1) {
@@ -29,7 +31,7 @@ function changeColorItems() {
       event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
   }
-}
+} */
 
 function completedTasks() {
   let myList = document.getElementById('lista-tarefas');
@@ -62,11 +64,29 @@ function killerChecked() {
 
   btnRemoveEnded.addEventListener('click', ()=>{
     for (let index = 0; index < list.length; index += 1) {
-      if (list[index].className === 'completed') {
+      if (list[index].classList.contains('completed')) {
         list[index].remove();
       }
     }
   });
 }
+
+function colorItem() {
+  let listHeader = document.getElementById('lista-tarefas');
+
+  listHeader.addEventListener('click',(e)=> {
+    e.target.classList.add('selected');
+    let allItems = document.querySelectorAll('li');
+    for (let index = 0; index < allItems.length; index += 1) {
+      if (allItems[index] !== e.target) {
+        allItems[index].classList.remove('selected');
+      }
+    }
+          
+  });
+
+}
+
+
 
 
