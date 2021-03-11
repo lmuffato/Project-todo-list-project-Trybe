@@ -1,3 +1,7 @@
 h1 {
   font-family: Lucida Sans, sans-serif;
 }
+
+.selected {
+  background-color: gray;
+}

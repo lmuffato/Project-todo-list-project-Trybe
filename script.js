@@ -3,22 +3,30 @@ function getInput() {
   return inputValue;
 }
 
-function clickListItem() {
-  const listItem = document.getElementsByTagName('li');
-
+function removeBackground() {
+  const listItem = document.querySelectorAll('.selected');
   Array.from(listItem).forEach((item) => {
+    item.classList.remove('selected');
+  });
+}
+
+function clickListItem() {
+  const clickItem = document.getElementsByTagName('li');
+
+  Array.from(clickItem).forEach((item) => {
     item.addEventListener('click', (event) => {
       const element = event.target;
-      element.style.backgroundColor = 'rgb(128, 128, 128)';
+      removeBackground();
+      element.classList.add('selected');
     });
   });
 }
 
 function addListItem() {
   const ol = document.getElementById('lista-tarefas');
-  const listItem = document.createElement('li');
-  listItem.innerHTML = getInput();
-  ol.appendChild(listItem);
+  const listElement = document.createElement('li');
+  listElement.innerHTML = getInput();
+  ol.appendChild(listElement);
   clickListItem();
 }
 
