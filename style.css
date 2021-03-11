@@ -21,12 +21,18 @@ input {
   margin-bottom: 10px;
   margin-top: 10px;
 }
- 
+
 ol {
   list-style-type: decimal;
   padding-left: 20px;
 }
 
 #selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  margin-right: 75%;
 }

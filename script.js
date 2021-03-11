@@ -1,25 +1,23 @@
-const button = document.querySelector('#criar-tarefa');
+const buttonCreate = document.querySelector('#criar-tarefa');
 const addInput = document.querySelector('#texto-tarefa');
 const olItem = document.querySelector('#lista-tarefas');
+const buttonErase = document.querySelector('#apaga-tudo');
 
-button.addEventListener('click', () => {
+buttonCreate.addEventListener('click', () => {
   const liItem = document.createElement('li');
   liItem.innerText = addInput.value;
-  liItem.style.marginBottom = '10px';
-  liItem.style.fontSize = '15px';
-  liItem.style.marginRight = '75%'
   liItem.addEventListener('click', (event) => {
     const selectedItem = document.querySelector('#selected');
     if (selectedItem) {
       selectedItem.removeAttribute('id');
     }
-    let gray = event.target;
+    const gray = event.target;
     gray.id = 'selected';
   });
   olItem.appendChild(liItem);
   addInput.value = '';
+
+  buttonErase.addEventListener('click', () => {
+    olItem.removeChild(liItem);
+  });
 });
-
- 
-
-
