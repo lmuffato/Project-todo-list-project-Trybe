@@ -76,3 +76,18 @@ function deleteAllBtn() {
   })
 }
 deleteAllBtn();
+
+function deleteCompleteBtn() {
+  let btn = document.createElement('button');
+  btn.id = 'remover-finalizados';
+  btn.innerText = 'Remove finalizados';
+  document.getElementById('dinamic-session').appendChild(btn);
+  btn.addEventListener('click', function() {
+    let taskList = document.querySelector('#lista-tarefas');
+    let completedTasks = document.querySelectorAll('.completed');
+    for (let index = completedTasks.length; index > 0; index -= 1) {
+      taskList.removeChild(completedTasks[index-1]);
+    }
+  })
+}
+deleteCompleteBtn();
