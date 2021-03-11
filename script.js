@@ -1,4 +1,4 @@
-// Requisito 5 - Clicando no Botão e adicionando uma nova lista
+// Requisito 5 e 6 - Clicando no Botão e adicionando uma nova lista ordenada
 function newList() {
   const getTextoTarefa = document.querySelector('#texto-tarefa');
   const getCriarTarefa = document.querySelector('#criar-tarefa');
@@ -6,7 +6,7 @@ function newList() {
 
   getCriarTarefa.addEventListener('click', () => {
     if (getTextoTarefa.value.length > 0) {
-      let novaLista = document.createElement('li');
+      const novaLista = document.createElement('li');
       novaLista.innerText = getTextoTarefa.value;
 
       getListaTarefa.appendChild(novaLista);
