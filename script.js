@@ -1,3 +1,7 @@
+// Variavél Global;
+const listPai = document.querySelector('#lista-tarefas');
+
+// Requisito 5 e 6;
 function clickButton() {
   const button = document.getElementById('criar-tarefa');
   button.addEventListener('click', () => {
@@ -7,15 +11,14 @@ function clickButton() {
       list = '';
     } else {
       list = document.createElement('li');
-      document.querySelector('#lista-tarefas').appendChild(list).innerText = input.value;
+      listPai.appendChild(list).innerText = input.value;
       input.value = '';
     }
   });
 }
 clickButton();
-
+// Requisito  7;
 function clickItemList() {
-  const listPai = document.querySelectorAll('#lista-tarefas')[0];
   listPai.addEventListener('click', () => {
     const list = document.querySelectorAll('li');
     for (let index = 0; index < list.length; index += 1) {
@@ -25,3 +28,18 @@ function clickItemList() {
   });
 }
 clickItemList();
+
+// Requisito 8;
+function nextItemList() {
+  listPai.addEventListener('click', (e) => {
+    const color = e.target;
+    const li = document.querySelectorAll('li');
+    for (let index = 0; index < li.length; index += 1) {
+      li[index].style.backgroundColor = document.body.style.backgroundColor;
+      if (color.localName === 'li') {
+        color.style.backgroundColor = 'rgb(128, 128, 128)';
+      }
+    }
+  });
+}
+nextItemList();
