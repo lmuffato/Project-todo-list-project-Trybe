@@ -14,11 +14,22 @@
 <main>
     <div id="margin">
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-        <form method="get">
+        <form method="dialog">
             <input type="text" id="texto-tarefa" name="task">
+            <button id="criar-tarefa">Adicionar</button>
         </form>
+        <ol id="lista-tarefas">
+        </ol>
+        <div id="buttonBox">
+            <button id="remover-selecionado">X</button>
+            <button id="mover-cima">⇑</button>
+            <button id="mover-baixo">⇩</button>
+            <button id ="remover-finalizados">Limpar finalizados</button>
+            <button id = "apaga-tudo">Limpar Lista</button>            
+            <button id = "salvar-tarefas">Salvar Lista</button>
+        </div>
     </div>  
 </main> 
-  
+  <script src="script.js"></script>
 </body>
 </html>
