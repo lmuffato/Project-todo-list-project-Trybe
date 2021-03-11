@@ -10,13 +10,10 @@ function buttonCreateTaks() {
       }
       changeColorItems();
       cleanItems();
-  });
-
-
-    
-    completedTasks();
-    killerChecked();
-  }
+      killerChecked();
+      completedTasks();
+    });
+}
 
 
 buttonCreateTaks();
@@ -64,17 +61,17 @@ function killerChecked() {
   let btnRemoveEnded = document.getElementById('remover-finalizados');
   let list = document.getElementsByTagName('li');
 
-  btnRemoveEnded.addEventListener('click', funcao);
-
-  function funcao() {
+  btnRemoveEnded.addEventListener('click', ()=>{
     for (let index = 0; index < list.length; index += 1) {
       if (list[index].className === 'completed') {
         list[index].remove();
       }
     }
-  }
- 
+  });
 
+  
+
+  
 
 }
 
