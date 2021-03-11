@@ -2,18 +2,24 @@
 const button = document.querySelector('#criar-tarefa');
 const boxText = document.querySelector('#texto-tarefa');
 
-// botao adiciona nova tarefa
-button.addEventListener('click', function() {
+// função muda a cor de fundo da tarefa ao ser clicada
+function changeColor(e) {
+  e.target.className = 'tarefa-selecionada';
+  e.target.style.backgroundColor = 'red';
+}
+// adiciona nova tarefa
+function criaTarefa() {
   let item = document.createElement('li');
   document.querySelector('#lista-tarefas').appendChild(item);
   item.innerText = boxText.value;
   boxText.value = '';
-  changeColor(item);
-});
-
-// função muda a cor de fundo da tarefa ao ser clicada
-function changeColor(itemList) {
-  itemList.addEventListener('click', function (e) {
-    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
+  // resetColor(item);
+  // changeColor(item);
+  item.addEventListener('click', changeColor);
 }
+
+button.addEventListener('click', criaTarefa);
+
+/* function resetColor() {
+  if()
+} */
