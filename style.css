@@ -64,11 +64,11 @@ button {
   background-color: rgb(77, 134, 228);
 }
 
-#up {
+#mover-cima {
   background-color: rgb(246, 113, 36);
 }
 
-#down {
+#mover-baixo {
   background-color: rgb(246, 113, 36);
 }
 
