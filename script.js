@@ -1,21 +1,23 @@
 function buttonCreateTaks() {
   let button = document.getElementById('criar-tarefa');
-  
-  button.addEventListener('click', newTask);
-
-  function newTask () {
-    let listHeader = document.getElementById('lista-tarefas');
+  let listHeader = document.getElementById('lista-tarefas');
+  button.addEventListener('click', ()=>{
     let itemList = document.createElement('li');
-    itemList.innerHTML = document.getElementById('texto-tarefa').value;
-    listHeader.appendChild(itemList);
-    document.getElementById('texto-tarefa').value = '';
-    changeColorItems();
-    completeTasks();
-    clean();
-    killerChecked()
+    itemList.innerText = document.getElementById('texto-tarefa').value;
+      if (itemList.textContent !== '') { 
+        listHeader.appendChild(itemList);
+        document.getElementById('texto-tarefa').value = ''; 
+      }
+      changeColorItems();
+      cleanItems();
+  });
+
+
+    
+    completedTasks();
+    killerChecked();
   }
 
-}
 
 buttonCreateTaks();
 
@@ -33,26 +35,21 @@ function changeColorItems() {
   }
 }
 
-function completeTasks() {
-  let itemL = document.getElementsByTagName('li');
-
-  for (let index = 0; index < itemL.length; index += 1) {
-    itemL[index].addEventListener('dblclick', risc);
-
-    function risc(event) {
-      if (event.target.className === 'completed') {
-        event.target.className = '';
-      } else {
-        event.target.className = 'completed';
-      }
+function completedTasks() {
+  let myList = document.getElementById('lista-tarefas');
+  
+  myList.addEventListener('dblclick', (e)=>{
+    if (e.target.classList.contains('completed')) {
+      e.target.classList.remove('completed');
+    } else {
+      e.target.classList.add('completed');
     }
-  }
+  });
 }
 
-function clean() {
+function cleanItems() {
   let buttonClean = document.getElementById('apaga-tudo');
   let list = document.getElementsByTagName('li');
-  console.log(list.length);
 
   buttonClean.addEventListener('click', limpar);
 
@@ -64,10 +61,10 @@ function clean() {
 }
 
 function killerChecked() {
-  let myButton = document.getElementById('remover-finalizados');
+  let btnRemoveEnded = document.getElementById('remover-finalizados');
   let list = document.getElementsByTagName('li');
 
-  myButton.addEventListener('click', funcao);
+  btnRemoveEnded.addEventListener('click', funcao);
 
   function funcao() {
     for (let index = 0; index < list.length; index += 1) {
