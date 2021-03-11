@@ -30,6 +30,7 @@ header {
 }
 
 #criar-tarefa {
+    margin: 15px;
     text-align: center;
     font-size: 1.5vw;
     box-shadow: 10px 5px 5px black;
@@ -46,4 +47,11 @@ header {
 
 .completed {
     text-decoration: line-through;
+}
+
+#apaga-tudo {
+    margin: 15px;
+    text-align: center;
+    font-size: 1.5vw;
+    box-shadow: 10px 5px 5px black;
 }

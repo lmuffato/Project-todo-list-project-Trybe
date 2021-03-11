@@ -1,6 +1,7 @@
+const list = document.querySelector('#lista-tarefas');
+
 /* -------- button add --------- */
 const addButton = document.querySelector('#criar-tarefa');
-const list = document.querySelector('#lista-tarefas');
 
 function addTextToList() {
     const writedText = document.querySelector('#texto-tarefa').value;
@@ -30,3 +31,15 @@ function turnCompleted(e) {
 }
 
 list.addEventListener('dblclick', turnCompleted);
+
+/* -------- button erase --------- */
+const eraseButton = document.querySelector('#apaga-tudo');
+
+function eraseAll() {
+    const liList = document.querySelectorAll('#lista-tarefas li');
+    for (let liIndex = 0; liIndex < liList.length; liIndex += 1) {
+        liList[liIndex].remove();
+    }
+}
+
+eraseButton.addEventListener('click', eraseAll);
