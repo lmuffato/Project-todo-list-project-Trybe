@@ -27,5 +27,15 @@ function checkCompleteMyListOfTasks(event) {
     event.target.classList.remove('completed');
   }
 }
+
 const myListOfTasks = document.getElementById('lista-tarefas');
 myListOfTasks.addEventListener('dblclick', checkCompleteMyListOfTasks);
+
+function eraseAll() {
+  while (myListOfTasks.childElementCount > 0) {
+    myListOfTasks.firstElementChild.remove();
+  }
+}
+
+const eraseMyList = document.getElementById('apaga-tudo');
+eraseMyList.addEventListener('click', eraseAll);
