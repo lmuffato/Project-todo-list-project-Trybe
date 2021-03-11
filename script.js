@@ -95,6 +95,19 @@ function addEventButtonAddTarefa() {
   buttonAddTarefa.addEventListener('click', addTask);
 }
 
+function clearAll() {
+  const taskList = getListTask();
+  while (taskList.childElementCount > 0) {
+    taskList.firstElementChild.remove();
+  }
+  localStorage.clear();
+}
+
+function addEventButtonClearAllTasks() {
+  const buttonClearAll = document.getElementById('apaga-tudo');
+  buttonClearAll.addEventListener('click', clearAll);
+}
+
 function loadTasks() {
   const listTask = getTasks();
   for (let i = 0; i < listTask.length; i += 1) {
@@ -107,6 +120,7 @@ function init() {
   loadTasks();
   addEventButtonAddTarefa();
   addEventListItem();
+  addEventButtonClearAllTasks();
 }
 
 init();
