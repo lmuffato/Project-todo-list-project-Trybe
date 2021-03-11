@@ -66,15 +66,17 @@ function getTasks() {
 
 function moveTop() {
   const itemToMove = list.querySelector('.selectedItem');
+  if (itemToMove === null) return alert('Selecione um item para mover');
   const swapItem = itemToMove.previousElementSibling;
-  if (!itemToMove || !swapItem) return alert('Operação inválida!');
+  if (swapItem === null) return alert('Não é possível mover o item');
   swapItem.parentNode.insertBefore(itemToMove, swapItem);
 }
 
 function moveBottom() {
   const itemToMove = list.querySelector('.selectedItem');
+  if (itemToMove === null) return alert('Selecione um item para mover');
   const swapItem = itemToMove.nextElementSibling;
-  if (!itemToMove || !swapItem) return alert('Operação inválida!');
+  if (swapItem === null) return alert('Não é possível mover o item');
   swapItem.parentNode.insertBefore(swapItem, itemToMove);
 }
 
