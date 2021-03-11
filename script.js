@@ -52,3 +52,14 @@ function completedTask() {
 }
 
 completedTask();
+
+function btnEraseAll() {
+  const list = document.querySelector('#lista-tarefas');
+  const eraseAll = document.querySelector('#apaga-tudo');
+
+  eraseAll.addEventListener('click', () => {
+    list.innerHTML = '';
+  });
+}
+
+btnEraseAll();
