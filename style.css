@@ -2,6 +2,8 @@ button {
   width: 100px;
   height: 35px;
   border-radius: 45%;
+  border: 2px solid black;
+  color: white;
 }
 
 header {
@@ -21,8 +23,13 @@ header {
 }
 
 #criar-tarefa {
-  background-color: teal;
   cursor: pointer;
+  background-color: teal;
+}
+
+#apaga-tudo {
+  cursor: pointer;
+  background-color: #8b0303;
 }
 
 #box-list {
