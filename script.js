@@ -67,26 +67,34 @@ saveListBtn.addEventListener('click', saveListToLocalStorage);
 
 function moveItemUp() {
   const selected = document.querySelector('.selected');
-  const previous = selected.previousElementSibling;
-  if (previous === null) {
-    console.log('da não cumpadi');
+  if (selected !== null) {
+    const previous = selected.previousElementSibling;
+    if (previous !== null) {
+      const temp = selected.outerHTML;
+      selected.outerHTML = previous.outerHTML;
+      previous.outerHTML = temp;
+    } else {
+      // Faz nada
+    }
   } else {
-    const temp = selected.outerHTML;
-    selected.outerHTML = previous.outerHTML;
-    previous.outerHTML = temp;
+    // Faz nada
   }
 }
 moveUpBtn.addEventListener('click', moveItemUp);
 
 function moveItemDown() {
   const selected = document.querySelector('.selected');
-  const next = selected.nextElementSibling;
-  if (next === null) {
-    console.log('da não cumpadi');
+  if (selected !== null) {
+    const next = selected.nextElementSibling;
+    if (next !== null) {
+      const temp = selected.outerHTML;
+      selected.outerHTML = next.outerHTML;
+      next.outerHTML = temp;
+    } else {
+      // Faz nada
+    }
   } else {
-    const temp = selected.outerHTML;
-    selected.outerHTML = next.outerHTML;
-    next.outerHTML = temp;
+    // Faz nada
   }
 }
 moveDownBtn.addEventListener('click', moveItemDown);
