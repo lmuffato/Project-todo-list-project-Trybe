@@ -4,7 +4,7 @@ function addNewTask() {
   const newList = document.createElement('li');
   taskList.appendChild(newList);
   newList.innerText = textTask;
-  newList.style.backgroundColor = 'white'
+  newList.style.backgroundColor = ''
 }
 const addBtn = document.querySelector('#criar-tarefa');
 addBtn.addEventListener('click', addNewTask);
@@ -16,16 +16,18 @@ function restartInput() {
 addBtn.addEventListener('click', restartInput);
 
 function changeBackgroundColor() {
-    let textList = document.querySelectorAll('li');
+    let textList = document.querySelectorAll('#lista-tarefas > li');
     for (let index = 0; index < textList.length; index += 1) {
-      textList[index].addEventListener('click', function (event) {
-        let selectedItem = event.target;
-        let selectedColor = 'rgb(128,128,128)';
-        selectedItem.style.backgroundColor = selectedColor;
-      });  
+     textList[index].style.backgroundColor = 'red';
     }
   }
   changeBackgroundColor();
 
-
+function setListColor() {
+    let textList = document.querySelectorAll('#lista-tarefas > li');
+    for (let index = 0; index < textList.length; index += 1) {
+        textList.addEventListener('click', changeBackgroundColor);
+    }
+}
+setListColor();
 
