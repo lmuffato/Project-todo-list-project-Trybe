@@ -7,11 +7,11 @@
 }
 
 body {
-  background-color: rgba(76 , 175 , 80 , 1);
+  background-color: rgba(218 , 223 , 5 , 1);
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
 /* Header */

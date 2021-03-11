@@ -6,7 +6,7 @@ const addTask = () => {
   const btnTask = document.querySelector('#criar-tarefa');
 
   btnTask.onclick = () => {
-    const taskList = document.querySelector('#lista-tarefas');
+    const taskList = document.getElementById('lista-tarefas');
     const inputTask = document.querySelector('#texto-tarefa');
     const taskItem = document.createElement('li');
 
