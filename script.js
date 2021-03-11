@@ -19,9 +19,11 @@ function addTask(e) {
 function selectItem(e) {
   const allTasks = document.querySelectorAll('.task');
   for (let index = 0; index < allTasks.length; index += 1) {
-    allTasks[index].classList.remove('selected');
+    if (allTasks[index] !== e.target) {
+      allTasks[index].classList.remove('selected');
+    }
   }
-  e.target.classList.add('selected');
+  e.target.classList.toggle('selected');
 }
 
 // .toggle retirado da documentação do MDN inspirado pela dica do Johnatas no Plantão
