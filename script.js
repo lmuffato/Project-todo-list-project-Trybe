@@ -4,6 +4,8 @@ const adicionarTarefaInput = document.querySelector('#texto-tarefa');
 const apagaTudoButton = document.querySelector('#apaga-tudo');
 const removeFinalizadosButton = document.querySelector('#remover-finalizados');
 const salvarTarefasButton = document.querySelector('#salvar-tarefas');
+const moverCimaButton = document.querySelector('#mover-cima');
+const moverBaixoButton = document.querySelector('#mover-baixo');
 
 function selecionarTarefa(tarefaElementoHtml) {
   const tarefaClicada = tarefaElementoHtml;
@@ -58,9 +60,35 @@ function carregarTarefas() {
   tarefasEl.forEach((el) => listaTarefas.appendChild(el));
 }
 
+function moverTarefaParaCima() {
+  const itemSelecionado = document.querySelector('.selected');
+  const itensDaLista = document.querySelectorAll('ol li');
+  const listaTamanho = document.querySelectorAll('ol li').length;
+
+  for (let index = 0; index < listaTamanho; index += 1) {
+    if (itensDaLista[index].classList.contains('selected') && index !== 0) {
+      listaTarefas.insertBefore(itemSelecionado, itensDaLista[index - 1]);
+    }
+  }
+}
+
+function moverTarefaParaBaixo() {
+  const itemSelecionado = document.querySelector('.selected');
+  const itensDaLista = document.querySelectorAll('ol li');
+  const listaTamanho = document.querySelectorAll('ol li').length;
+
+  for (let index = 0; index < listaTamanho; index += 1) {
+    if (itensDaLista[index].classList.contains('selected') && index !== listaTamanho - 1) {
+      listaTarefas.insertBefore(itensDaLista[index + 1], itemSelecionado);
+    }
+  }
+}
+
 window.onload = carregarTarefas;
 
 adicionarTarefaButton.addEventListener('click', adicionaTarefa);
 apagaTudoButton.addEventListener('click', removerTodasTarefas);
 removeFinalizadosButton.addEventListener('click', removerTarefasFinalizadas);
 salvarTarefasButton.addEventListener('click', salvarTarefas);
+moverCimaButton.addEventListener('click', moverTarefaParaCima);
+moverBaixoButton.addEventListener('click', moverTarefaParaBaixo);
