@@ -103,6 +103,11 @@ function moveTaskDown() {
     }
   }
 }
+
+function deleteTask() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) selectedTask.remove();
+}
 // Referencia: Stack Overflow - https://stackoverflow.com/questions/14542062/eventlistener-enter-key
 function enterPress(Event) {
   if (Event.key === 'Enter') {
@@ -125,5 +130,5 @@ window.onload = () => {
   document.getElementById('mover-cima').addEventListener('click', moveTaskUp);
   document.getElementById('mover-baixo').addEventListener('click', moveTaskDown);
 
-  // Adicina eventos de cliques nas tarefas
+  document.getElementById('remover-selecionado').addEventListener('click', deleteTask);
 };
