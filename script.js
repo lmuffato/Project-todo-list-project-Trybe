@@ -22,10 +22,10 @@ function selectItem(e) {
   const allTasks = document.querySelectorAll('.task');
   for (let index = 0; index < allTasks.length; index += 1) {
     // if (allTasks[index] !== e.target) {
-      allTasks[index].classList.remove('selected');
+    allTasks[index].classList.remove('selected');
     // }
   }
-  // e.target.classList.toggle('selected');
+  // e.target.classList.toggle('selected'); Assim o requisito 14 não passa!
   e.target.classList.add('selected');
 }
 
