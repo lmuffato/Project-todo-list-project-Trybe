@@ -55,10 +55,23 @@ function saveTasks() {
 
 function getTasks() {
   const content = localStorage.getItem('userSession');
-  console.log(content);
   if (content) {
     list.innerHTML = content;
   }
+}
+
+function moveTop() {
+  const itemToMove = list.querySelector('.selectedItem');
+  const swapItem = itemToMove.previousElementSibling;
+  if (swapItem === null) return alert('Não é possível mover o item!');
+  swapItem.parentNode.insertBefore(itemToMove, swapItem);
+}
+
+function moveBottom() {
+  const itemToMove = list.querySelector('.selectedItem');
+  const swapItem = itemToMove.nextElementSibling;
+  if (swapItem === null) return alert('Não é possível mover o item!');
+  swapItem.parentNode.insertBefore(swapItem, itemToMove);
 }
 
 window.onload = () => {
