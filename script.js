@@ -67,12 +67,41 @@ function clearCompletedTasks() {
   });
 }
 
+function saveTasks() {
+  const btn = document.getElementById('salvar-tarefas');
+  btn.addEventListener('click', () => {
+    const lis = document.querySelectorAll('.task');
+    for (let index = 0; index < lis.length; index += 1) {
+      const savedTasks = {
+        text: lis[index].innerText,
+        class: lis[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(savedTasks));
+    }
+  });
+}
+
+function getTasks() {
+  const ol = document.getElementById('lista-tarefas');
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const li = document.createElement('li');
+    const localTask = JSON.parse(localStorage.getItem(index));
+    li.innerText = localTask.text;
+    li.className = localTask.class;
+    li.classList.remove('selected');
+    ol.appendChild(li);
+  }
+}
+
 window.onload = () => {
   addTaskToList();
   selectedTask();
   completedTask();
   addButton('apaga-tudo', 'Apagar tarefas');
   addButton('remover-finalizados', 'Remover finalizados');
+  addButton('salvar-tarefas', 'Salvar tarefas');
   clearTaksList();
   clearCompletedTasks();
+  saveTasks();
+  getTasks();
 };
