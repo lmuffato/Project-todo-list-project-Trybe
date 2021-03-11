@@ -1,5 +1,5 @@
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: grey;
 }
 
 #texto-tarefa {
@@ -8,4 +8,8 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+#texto-tarefa {
+  width: 400px;
 }
