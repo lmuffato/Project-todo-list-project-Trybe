@@ -36,6 +36,19 @@ function markCompleted() {
   });
 }
 
+function clearList() {
+  while (list.firstChild) {
+    list.removeChild(list.lastChild);
+  }
+}
+// https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
+function removeFinishedItems() {
+  const getChilds = list.getElementsByClassName('completed');
+  while (getChilds[0]) {
+    getChilds[0].parentNode.removeChild(getChilds[0]);
+  }
+}
+
 window.onload = () => {
   setBackgroundColor();
   markCompleted();
