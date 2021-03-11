@@ -12,4 +12,5 @@ buttonInsertItem.addEventListener('click', () => {
   const listItem = document.createElement('li');
   listItem.innerText = inputList.value;
   taskList.appendChild(listItem);
+  inputList.value = '';
 });
