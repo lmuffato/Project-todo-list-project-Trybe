@@ -6,6 +6,7 @@ const saveListBtn = document.getElementById('salvar-tarefas');
 const savedList = localStorage['latest-list'];
 const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
+const eraseSelectedBtn = document.getElementById('remover-selecionado');
 
 // Adicionar itens do localStorage, caso existam
 if (savedList !== undefined) {
@@ -98,3 +99,9 @@ function moveItemDown() {
   }
 }
 moveDownBtn.addEventListener('click', moveItemDown);
+
+function eraseSelected() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+eraseSelectedBtn.addEventListener('click', eraseSelected);
