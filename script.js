@@ -1,9 +1,18 @@
-
 function createLi(text) {
   const listItem = document.createElement('li');
   listItem.innerText = text;
   listItem.className = 'task';
   document.getElementById('lista-tarefas').appendChild(listItem);
+}
+
+function addItem() {
+  const button = document.getElementById('criar-tarefa');
+  const textBox = document.getElementById('texto-tarefa');
+  button.addEventListener('click', () => {
+    const text = textBox.value;
+    createLi(text);
+    textBox.value = '';
+  });
 }
 
 // codigo abaixo otimizado apos verificar o codigo de alguns colegas e aprendi o event e o target
@@ -44,13 +53,13 @@ function doneTask() {
   });
 }
 
-function addItem() {
-  const button = document.getElementById('criar-tarefa');
-  const textBox = document.getElementById('texto-tarefa');
-  button.addEventListener('click', () => {
-    const text = textBox.value;
-    createLi(text);
-    textBox.value = '';
+function clearTasks() {
+  const btn = document.querySelector('#apaga-tudo');
+  const list = document.querySelector('#lista-tarefas');
+  btn.addEventListener('click', () => {
+    while (list.hasChildNodes()) { // essa parte do código vi no w3school
+      list.removeChild(list.firstChild);
+    }
   });
 }
 
@@ -58,4 +67,5 @@ window.onload = function run() {
   addItem();
   setColor(); // declarado aqui para toda vez que um item for adicionado rodar a função de mudar de cor e atualizar o array;
   doneTask();
+  clearTasks();
 };
