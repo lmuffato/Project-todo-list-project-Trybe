@@ -4,12 +4,25 @@ function clearInput() {
   input.value = '';
 }
 
+function backgroundDeselected() {
+  const selectedElement = document.querySelector('.selected');
+  if (selectedElement !== null) {
+    selectedElement.classList.remove('selected');
+  }
+}
+
+function backgroundSelected(event) {
+  backgroundDeselected();
+  event.target.classList.add('selected');
+}
+
 function addTask() {
   const list = document.querySelector('#lista-tarefas');
   const task = document.createElement('li');
   const inputValue = document.querySelector('#texto-tarefa').value;
 
   task.innerText = inputValue;
+  task.addEventListener('click', backgroundSelected);
   list.appendChild(task);
   clearInput();
 }
