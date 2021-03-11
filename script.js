@@ -37,11 +37,11 @@ function completedTask() {
   });
 }
 
-function addCleanButton() {
+function addButton(id, text) {
   const btn = document.createElement('button');
   const section = document.getElementById('buttons');
-  btn.id = 'apaga-tudo';
-  btn.innerText = 'Apagar tarefas';
+  btn.id = id;
+  btn.innerText = text;
   section.appendChild(btn);
 }
 
@@ -55,10 +55,24 @@ function clearTaksList() {
   });
 }
 
+function clearCompletedTasks() {
+  const btn = document.querySelector('#remover-finalizados');
+  btn.addEventListener('click', () => {
+    const lis = document.querySelectorAll('li');
+    for (let index = 0; index < lis.length; index += 1) {
+      if (lis[index].classList.contains('completed')) {
+        lis[index].remove();
+      }
+    }
+  });
+}
+
 window.onload = () => {
   addTaskToList();
   selectedTask();
   completedTask();
-  addCleanButton();
+  addButton('apaga-tudo', 'Apagar tarefas');
+  addButton('remover-finalizados', 'Remover finalizados');
   clearTaksList();
+  clearCompletedTasks();
 };
