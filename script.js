@@ -2,6 +2,7 @@ const $addTaskBtn = document.getElementById('criar-tarefa');
 const $taskInput = document.getElementById('texto-tarefa');
 const $taskList = document.getElementById('lista-tarefas');
 const $clearBtn = document.getElementById('apaga-tudo');
+const $finishedBtn = document.getElementById('remover-finalizados');
 
 function addTask() {
   if ($taskInput.value !== '') {
@@ -35,9 +36,14 @@ $taskList.addEventListener('dblclick', scratchItemList);
 
 function clearItensList() {
   const $tasksItens = document.querySelectorAll('.tasks__item');
-  $tasksItens.forEach((taskItem) => {
-    taskItem.parentNode.removeChild(taskItem);
-  });
+  $tasksItens.forEach((taskItem) => taskItem.parentNode.removeChild(taskItem));
 }
 
 $clearBtn.addEventListener('click', clearItensList);
+
+function removeFinishedElement() {
+  const finishedElements = document.querySelectorAll('.completed');
+  finishedElements.forEach((element) => element.parentNode.removeChild(element));
+}
+
+$finishedBtn.addEventListener('click', removeFinishedElement);
