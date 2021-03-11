@@ -1,21 +1,33 @@
 body {
   background-color: rgb(140, 164, 96);
   color: rgb(235, 213, 173);
+  transition-duration: 0.5s;
+}
+
+p {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+h1 {
+  margin-bottom: 5px;
 }
 
 #content {
   background-color: rgb(96, 141, 96);
-  border-radius: 10%;
+  border-radius: 30px;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   padding: 10px;
+  padding-bottom: 20px;
 }
 
 #list {
   background-color: rgb(235, 213, 173);
   border-radius: 10px;
+  padding: 10px 25px 10px 0;
 }
 
 ol {
@@ -40,6 +52,9 @@ li:hover {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+section {
+  margin-top: 20px;
+}
 /* Personalizar buttons e inputs */
 button {
   font-size: 16px;
@@ -65,9 +80,14 @@ button:active {
 }
 
 input {
-  padding: 10px;
+  padding: 15px;
   border-radius: 12px;
   outline: none;
   border: none;
   background-color: rgb(235, 213, 173);
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

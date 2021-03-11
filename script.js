@@ -18,7 +18,7 @@ function criarTarefa() {
     listaTarefa.appendChild(tarefa);
     document.getElementById('texto-tarefa').value = '';
   } else {
-    alert ('Digite uma tarefa para adicionar!');
+    alert('Digite uma tarefa para adicionar!');
   }
 }
 
@@ -26,19 +26,23 @@ function changeBgColor(click) {
   const event = click.target;
   const li = document.getElementsByClassName('item');
   const liSelected = document.getElementsByClassName('item-selected');
-    for (let index = 0; index < li.length; index += 1) {
-      if (typeof(liSelected[index]) != 'undefined'){
-        liSelected[index].className = 'item';
-        event.className = 'item-selected';
-      } else {
-        event.className = 'item-selected';
+  for (let index = 0; index < li.length; index += 1) {
+    if (typeof (liSelected[index]) !== 'undefined') {
+      liSelected[index].className = 'item';
+      event.className = 'item-selected';
+    } else {
+      event.className = 'item-selected';
     }
   }
 }
 
 function toComplete(click) {
   const event = click.target;
-  event.className = 'completed'
+  if (event.className === 'completed'){
+    event.className = 'item'
+  } else {
+    event.className = 'completed';
+  }
 }
 
 function removeAllTasks() {
@@ -51,7 +55,7 @@ function removeAllTasks() {
 function removeDone() {
   const tasksDone = getList().children;
   for (let index = 0; index < tasksDone.length; index += 1) {
-    if (tasksDone[index].className == 'completed') {
+    if (tasksDone[index].className === 'completed') {
       tasksDone[index].remove();
     }
   }
