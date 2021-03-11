@@ -48,10 +48,47 @@ li {
   text-decoration: line-through solid black;
 }
 
+#tools {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  gap: 15px;
+}
+
 #criar-tarefa {
   background: green;
 }
 
 #remover-finalizados , #apaga-tudo {
   background: red;
+}
+
+#arrows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#arrows img {
+  width: 20px;
+  height: 20px;
+}
+
+#arrows button {
+  width: 50px;
+  height: 22.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: scale 0.4s;
+}
+
+#arrows button:hover {
+  transform: scale(1.2);
+  border: 1px solid black;
+}
+
+#mover-baixo img {
+  transform: rotate(180deg);
 }
