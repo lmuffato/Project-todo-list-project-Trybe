@@ -17,8 +17,8 @@ function AddToList() {
 
 AddToList();
 
-// Requisito 7
-// Lógica pega no meu código de selecionar cor do projeto Pixel Art
+// Requisito 7 e 8
+// Lógica do "selected" vista no projeto do Jodiel
 function SelectingTask() {
     list.addEventListener('click', (event) =>{
         let color = 'rgb(128, 128, 128)';
