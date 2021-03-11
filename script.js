@@ -7,6 +7,12 @@ function createListItem() {
     document.getElementById('lista-tarefas').appendChild(node);
   });
 }
+function clearInput() {
+  document.getElementById('criar-tarefa').addEventListener('click', () => {
+    document.getElementById('texto-tarefa').value = '';
+  });
+}
 window.onload = () => {
   createListItem();
+  clearInput();
 };
