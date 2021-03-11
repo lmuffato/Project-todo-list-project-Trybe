@@ -6,6 +6,6 @@ h1 {
   background-color: gray;
 }
 
-.selected-dblClick {
+.completed {
   text-decoration: line-through;
 }

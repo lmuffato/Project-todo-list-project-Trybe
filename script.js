@@ -29,7 +29,7 @@ function dblClickListItem() {
       const element = event.target;
       //  Para saber mais sobre toggle acessei o seguinte link:
       //  https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
-      element.classList.toggle('selected-dblClick');
+      element.classList.toggle('completed');
     });
   });
 }
