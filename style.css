@@ -6,3 +6,7 @@
   width: fit-content;
   background-color: white;
 }
+
+.completed {
+  text-decoration: line-through solid black;
+}

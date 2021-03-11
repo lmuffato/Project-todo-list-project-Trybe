@@ -19,3 +19,14 @@ theList.addEventListener('click', function mark(element) {
     element.target.classList.add('bkGray');
   }
 });
+
+theList.addEventListener('dblclick', function risc(element) {
+  const elementRisc = element.target;
+  const test = elementRisc.getAttribute('class');
+  if (test.includes('completed')) {
+    elementRisc.classList.remove('completed');
+  } else {
+    elementRisc.classList.add('completed');
+  }
+});
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/includes
