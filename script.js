@@ -3,8 +3,6 @@ const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const inputTexto = document.querySelector('#texto-tarefa');
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 
-botaoCriaTarefa.addEventListener('click', criaTarefa);
-
 function criaTarefa() {
   if (inputTexto.value !== '') {
     const lista = document.createElement('li');
@@ -14,7 +12,7 @@ function criaTarefa() {
   }
 }
 
-listaDeTarefas.addEventListener('click', trocaCor);
+botaoCriaTarefa.addEventListener('click', criaTarefa);
 
 function trocaCor(event) {
   const elementoClicado = document.querySelectorAll('li');
@@ -24,13 +22,13 @@ function trocaCor(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-listaDeTarefas.addEventListener('dblclick', clickDuplo);
+listaDeTarefas.addEventListener('click', trocaCor);
 
 function clickDuplo(event) {
   event.target.classList.toggle('completed');
 }
 
-botaoApagaTudo.addEventListener('click', apagaTudo);
+listaDeTarefas.addEventListener('dblclick', clickDuplo);
 
 function apagaTudo() {
   const apagaElemento = document.querySelectorAll('li');
@@ -38,3 +36,5 @@ function apagaTudo() {
     listaDeTarefas.removeChild(apagaElemento[index]);
   }
 }
+
+botaoApagaTudo.addEventListener('click', apagaTudo);
