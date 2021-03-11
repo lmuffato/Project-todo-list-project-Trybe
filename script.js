@@ -23,11 +23,15 @@ function passGrayColorToTheList() {
 passGrayColorToTheList();
 
 function crossOutLine(e) {
-    const crossOutText = document.querySelectorAll('#lista-tarefas li');
-    e.target.classList.add('line-through');
+  const crossOutText = document.querySelectorAll('#lista-tarefas li');
+  e.target.classList.add('completed');
+  console.log(e.target.classList.value)
+  if (e.target.classList.value === 'completed gray-color') {
+    e.target.classList.remove('completed');
+  }
 }
 
 function crossOutTheAssignmentLine() {
-    assignmentList.addEventListener('dblclick', crossOutLine);
+  assignmentList.addEventListener('dblclick', crossOutLine);
 }
 crossOutTheAssignmentLine();
