@@ -1,3 +1,5 @@
+const taskList = document.querySelector('#lista-tarefas');
+
 function createListItem() {
   const listItem = document.createElement('li');
   return listItem;
@@ -28,6 +30,7 @@ function colorNone() {
   for (let index = 0; index < list.length; index += 1) {
     list[index].style.backgroundColor = 'white';
   }
+  return list;
 }
 
 function changeBackgroundColor() {
@@ -63,3 +66,18 @@ function btnEraseAll() {
 }
 
 btnEraseAll();
+
+function removeCompleted() {
+  const remove = document.querySelector('#remover-finalizados');
+  remove.addEventListener('click', () => {
+    const completed = document.querySelectorAll('.completed');
+    console.log('cricou danado!');
+    for (let index = 0; index < completed.length; index += 1) {
+      if (completed[index].className === 'completed') {
+        taskList.removeChild(completed[index]);
+      }
+    }
+  });
+}
+
+removeCompleted();
