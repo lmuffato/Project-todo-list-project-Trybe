@@ -1,5 +1,6 @@
 const taskWriten = document.querySelector('#texto-tarefa');
 const list = document.querySelector('#lista-tarefas');
+const eraser = document.querySelector('#apaga-tudo');
 
 // Requisitos 5 e 6
 // Lógica para pegar texto do input e apagá-lo ao final vista no repositório
@@ -10,6 +11,7 @@ function AddToList() {
     const elementList = document.createElement('li');
     let text = taskWriten.value;
     elementList.innerHTML = text;
+    elementList.className = 'tasks';
     list.appendChild(elementList);
     taskWriten.value = '';
   });
@@ -33,3 +35,21 @@ function SelectingTask() {
 }
 
 SelectingTask();
+
+// Requisito 9
+
+
+// Requisito 10
+// lógica de apagar vista no código do Jodiel, já citado
+function EraseAll () {
+  eraser.addEventListener('click', function() {
+    allTasks = document.querySelectorAll('.tasks');
+    //const elementList = document.createElement('li');
+    //for (let index = 0; index < allTasks.length; index += 1 ){
+    //elementList.lastChild.remove();
+    list.innerHTML = '';
+  
+  });
+}
+
+EraseAll();
