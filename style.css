@@ -55,11 +55,11 @@ li {
   gap: 15px;
 }
 
-#criar-tarefa {
+#criar-tarefa , #salvar-tarefas {
   background: green;
 }
 
-#remover-finalizados , #apaga-tudo {
+#remover-selecionado , #remover-finalizados , #apaga-tudo {
   background: red;
 }
 
