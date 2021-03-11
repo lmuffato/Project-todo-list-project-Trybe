@@ -59,8 +59,6 @@ function saveList() {
   outputOl.innerHTML = localStorage.getItem('toDoList');
 }
 
-// Requisito 13
-
 // Requisito 14
 function clearSelec() {
   const clearSelectedBttn = document.querySelector('#remover-selecionado');
