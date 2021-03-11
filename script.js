@@ -57,3 +57,33 @@ function deleteFinishedList() {
 }
 
 btnItensFinished.addEventListener('click', deleteFinishedList);
+
+// Salvar lista
+const saveItensButton = document.querySelector('#salvar-tarefas');
+
+function storageList() {
+  localStorage.setItem('lista-itens', taskList.innerHTML);
+}
+
+saveItensButton.addEventListener('click', storageList);
+
+function onloadItems() {
+  function addEventLi() {
+    for (let i = 0; i < taskListLi.length; i += 1) {
+      taskListLi[i].addEventListener('dblclick', lineThroughItem);
+      taskListLi[i].addEventListener('click', changeBackgroundColor);
+    }
+  }
+
+  function getListStorage() {
+    let saved = localStorage.getItem('lista-itens');
+    if (saved) {
+      taskList.innerHTML = saved;
+    }
+  }
+
+  getListStorage();
+  addEventLi();
+}
+
+window.onload = onloadItems;
