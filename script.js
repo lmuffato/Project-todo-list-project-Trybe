@@ -111,7 +111,6 @@ function moveUp() {
   const btn = document.getElementById('mover-cima');
   btn.addEventListener('click', () => {
     if (selected.length !== 0) {
-      const selected = document.querySelector('.selected');
       if (selected === list[0]) {
         const classe = list[0].className;
         const text = list[0].innerText;
@@ -125,13 +124,13 @@ function moveUp() {
         const indexOfSelected = checkIndex(list, selected);
         const text = list[indexOfSelected].innerText;
         const classe = list[indexOfSelected].className;
-        list[indexOfSelected].className = list[indexOfSelected -1].className;
+        list[indexOfSelected].className = list[indexOfSelected - 1].className;
         list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
         list[(indexOfSelected - 1)].innerText = text;
         list[indexOfSelected - 1].className = classe;
       }
     }
-  }); 
+  });
 }
 
 function moveDown() {
@@ -140,7 +139,6 @@ function moveDown() {
   const btn = document.getElementById('mover-baixo');
   btn.addEventListener('click', () => {
     if (selected.length !== 0) {
-      const selected = document.querySelector('.selected');
       if (selected === list[list.length - 1]) {
         const classe = list[list.length - 1].className;
         const text = list[list.length - 1].innerText;
@@ -159,7 +157,7 @@ function moveDown() {
         list[(indexOfSelected + 1)].innerText = text;
         list[indexOfSelected + 1].className = classe;
       }
-    }  
+    }
   });
 }
 
