@@ -49,7 +49,9 @@ function clearTaskList() {
 
 function removeCompletedTasks() {
   const completedTasks = document.getElementsByClassName('completed');
-  completedTasks.clear();
+  for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
+    completedTasks[index].remove();
+  }
 }
 
 function saveTaskList() {
