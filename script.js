@@ -4,7 +4,7 @@ function addItens() {
   const input = document.querySelector('#texto-tarefa');
   button.addEventListener('click', function add() {
     const item = document.createElement('li');
-    item.className = 'to-do-itens';
+    //item.className = 'to-do-itens';
     list.appendChild(item);
     item.innerText = input.value;
     input.value = '';
@@ -55,13 +55,11 @@ eraseAll();
 
 function eraseCompleted() {
   const button = document.querySelector('#remover-finalizados');
-  const list = document.getElementsByClassName('to-do-itens');
+  const list = document.getElementsByClassName('completed');
   const listFather = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
     for (let index = 0; index < list.length; index += 1) {
-      if (list[index].classList.contains('completed')) {
         listFather.removeChild(list[index]);
-      }
     }
   });
 }
