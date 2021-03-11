@@ -1,11 +1,11 @@
 function checkEachTask() {
   const newElement = document.createElement('li');
-  const inputValue = document.getElementById('texto-tarefa').value;
-  if (inputValue === '') {
+  const inputValue = document.getElementById('texto-tarefa');
+  if (inputValue.value === '') {
     alert('Você precisa escrever algo para adicionar à lista!');
   } else {
     document.getElementById('lista-tarefas').appendChild(newElement);
-    newElement.innerText = inputValue;
+    newElement.innerText = inputValue.value;
     inputValue.value = '';
   }
 }
@@ -75,7 +75,7 @@ function saveMyTasks() {
 }
 const btnSaveMyTasks = document.getElementById('salvar-tarefas');
 
-if (typeof Storage !== 'undefined') {
+if (typeof Storage !== 'undefined' && localStorage.myListOfTasks) {
   myListOfTasks.innerHTML = localStorage.myListOfTasks;
 }
 
