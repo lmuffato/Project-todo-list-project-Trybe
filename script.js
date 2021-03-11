@@ -1,6 +1,7 @@
 const btnAddTask = document.getElementById('criar-tarefa');
 const btnClearTasks = document.getElementById('apaga-tudo');
 const btnRemoveCompletedTasks = document.getElementById('remover-finalizados');
+const btnSaveTasks = document.getElementById('salvar-tarefas');
 const inputTasks = document.getElementById('texto-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
 const listItems = document.getElementsByClassName('item-lista');
@@ -11,10 +12,8 @@ function clearInput() {
 
 function removesBackgroundColor() {
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].style.setProperty(
-      'background-color',
-      'rgb(255, 255, 255)'
-    );
+    listItems[index].style.setProperty('background-color',
+      'rgb(255, 255, 255)');
   }
 }
 
@@ -64,6 +63,18 @@ function removeCompletedTasks() {
   }
 }
 
+function saveTasks() {
+  localStorage.setItem(1, listOfTasks.innerHTML);
+}
+
+function getSavedTasks() {
+  listOfTasks.innerHTML = localStorage.getItem(1);
+  updateListItemsListeners();
+}
+
+window.onload = getSavedTasks;
+
 btnAddTask.addEventListener('click', addsTaskToList);
 btnClearTasks.addEventListener('click', clearTasks);
 btnRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
+btnSaveTasks.addEventListener('click', saveTasks);
