@@ -43,3 +43,20 @@ function nextItemList() {
   });
 }
 nextItemList();
+
+// Requisito 9 ;
+function doubleClick() {
+  listPai.addEventListener('dblclick', () => {
+    const li = document.querySelectorAll('li');
+    const decoration = 'line-through solid rgb(0, 0, 0)';
+    for (let index = 0; index < li.length; index += 1) {
+      li[index].classList.add('completed');
+      if (li[index].style.textDecoration === decoration) {
+        li[index].style.textDecoration = 'none';
+      } else {
+        li[index].style.textDecoration = decoration;
+      }
+    }
+  });
+}
+doubleClick();
