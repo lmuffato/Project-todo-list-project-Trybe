@@ -5,7 +5,7 @@ function clearInputField() {
   clearContent.value = '';
 }
 
-function insertToDo() {
+document.getElementById('criar-tarefa').addEventListener('click', () => {
   const content = document.getElementById('texto-tarefa').value;
   const node = document.createElement('li');
   // Refatorar condição
@@ -14,7 +14,7 @@ function insertToDo() {
     list.appendChild(node);
   }
   clearInputField();
-}
+});
 
 function setBackgroundColor() {
   list.addEventListener('click', (event) => {
@@ -40,29 +40,30 @@ function markCompleted() {
   });
 }
 
-function clearList() {
+document.getElementById('apaga-tudo').addEventListener('click', () => {
   while (list.firstChild) {
     list.removeChild(list.lastChild);
   }
-}
+});
+
 // https://stackoverflow.com/questions/13555785/remove-all-child-from-node-with-the-same-class-pure-js
-function removeFinishedItems() {
+document.getElementById('remover-finalizados').addEventListener('click', () => {
   const getChilds = list.getElementsByClassName('completed');
   while (getChilds[0]) {
     getChilds[0].parentNode.removeChild(getChilds[0]);
   }
-}
+});
 
-function removeSelectedItem() {
+document.getElementById('remover-selecionado').addEventListener('click', () => {
   const getChilds = list.getElementsByClassName('selectedItem');
   while (getChilds[0]) {
     getChilds[0].parentNode.removeChild(getChilds[0]);
   }
-}
+});
 
-function saveTasks() {
+document.getElementById('salvar-tarefas').addEventListener('click', () => {
   localStorage.setItem('userSession', list.innerHTML);
-}
+});
 
 function getTasks() {
   const content = localStorage.getItem('userSession');
@@ -71,21 +72,21 @@ function getTasks() {
   }
 }
 
-function moveTop() {
+document.getElementById('mover-cima').addEventListener('click', () => {
   const itemToMove = list.querySelector('.selectedItem');
   if (itemToMove === null) return alert('Selecione um item para mover');
   const swapItem = itemToMove.previousElementSibling;
   if (swapItem === null) return alert('Não é possível mover o item');
   swapItem.parentNode.insertBefore(itemToMove, swapItem);
-}
+});
 
-function moveBottom() {
+document.getElementById('mover-baixo').addEventListener('click', () => {
   const itemToMove = list.querySelector('.selectedItem');
   if (itemToMove === null) return alert('Selecione um item para mover');
   const swapItem = itemToMove.nextElementSibling;
   if (swapItem === null) return alert('Não é possível mover o item');
   swapItem.parentNode.insertBefore(swapItem, itemToMove);
-}
+});
 
 window.onload = () => {
   setBackgroundColor();
