@@ -6,19 +6,12 @@ function checkEachTask() {
   } else {
     document.getElementById('lista-tarefas').appendChild(newElement);
     newElement.innerText = inputValue;
+    inputValue.value = '';
   }
 }
 
 const btn = document.getElementById('criar-tarefa');
 btn.addEventListener('click', checkEachTask);
-
-// function alterColorWhenClicked() {
-//  const listItem = document.getElementsByTagName('li');
-//  listItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
-//  listItem.addEventListener('click', alterColorWhenClicked);
-// }
-
-// alterColorWhenClicked();
 
 function checkCompleteMyListOfTasks(event) {
   if (event.target.className !== 'completed') {
@@ -39,3 +32,18 @@ function eraseAll() {
 
 const eraseMyList = document.getElementById('apaga-tudo');
 eraseMyList.addEventListener('click', eraseAll);
+
+function removeTaskDone() {
+  if (myListOfTasks.childNodes.className === 'completed') {
+    myListOfTasks.target.childNodes.className('completed').removeItem();
+  }
+}
+
+const doneTasks = document.getElementById('remover-finalizados');
+doneTasks.addEventListener('click', removeTaskDone);
+
+function saveMyTasks() {
+  localStorage.myListOfTasks = myListOfTasks.innerHTML;
+}
+const btnSaveMyTasks = document.getElementById('salvar-tarefas');
+btnSaveMyTasks.addEventListener('click', saveMyTasks);
