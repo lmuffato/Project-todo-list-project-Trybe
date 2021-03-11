@@ -92,6 +92,7 @@ input {
   border: solid 2px rgb(228 , 228 , 228);
   border-radius: 10px;
   outline: none;
+  width: 400px;
 }
 
 input:focus {
