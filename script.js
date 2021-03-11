@@ -38,3 +38,11 @@ clear.addEventListener('click', function clearAll() {
     theList.removeChild(task[index]);
   }
 });
+
+const finishClear = document.querySelector('#remover-finalizados');
+finishClear.addEventListener('click', function finishHim() {
+  const him = document.querySelectorAll('.completed');
+  for (let index = 0; index < him.length; index += 1) {
+    theList.removeChild(him[index]);
+  }
+});

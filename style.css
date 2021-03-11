@@ -10,3 +10,8 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+#remover-finalizados {
+  display: block;
+  padding: 25px;
+}
