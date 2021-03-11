@@ -1,12 +1,32 @@
 const taskListContainer = document.querySelector('#lista-tarefas');
 
+function removeSelected() {
+  const selected = querySelector('.selected');
+  
+}
+
+function findSelected(list) {
+  let selectedIndex;
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].className.includes('selected')) {
+      selectedIndex = index;
+    }
+  }
+  return selectedIndex;
+}
+
 function moveDown() {
-  const selected = document.querySelector('.selected');
-  const downTask = selected.nextElementSibling;
-  if (downTask.tagName === 'LI') {
-    const downTaskHold = downTask;
-    downTask.outerHTML = selected.outerHTML;
-    selected.outerHTML = downTaskHold.outerHTML;
+  const list = document.querySelectorAll('.task');
+  if (list.length <= 1) {
+    return;
+  }
+  const selectedIndex = findSelected(list);
+  if (selectedIndex + 1 < list.length) {
+    let selectedItem = list[selectedIndex];
+    let nextItem = list[selectedIndex + 1];
+    const nextItemHolder = nextItem.outerHTML;
+    nextItem.outerHTML = selectedItem.outerHTML;
+    selectedItem.outerHTML = nextItemHolder;
   }
 }
 
@@ -17,12 +37,17 @@ function buttonDown() {
 }
 
 function moveUp() {
-  const selected = document.querySelector('.selected');
-  const upTask = selected.previousElementSibling;
-  if (upTask.tagName === 'LI') {
-    const upTaskHold = upTask;
-    upTask.outerHTML = selected.outerHTML;
-    selected.outerHTML = upTaskHold.outerHTML;
+  const list = document.querySelectorAll('.task');
+  if (list.length <= 1) {
+    return;
+  }
+  const selectedIndex = findSelected(list);
+  if (selectedIndex > 0) {
+    let selectedItem = list[selectedIndex];
+    let previousItem = list[selectedIndex - 1];
+    const previousItemHolder = previousItem.outerHTML;
+    previousItem.outerHTML = selectedItem.outerHTML;
+    selectedItem.outerHTML = previousItemHolder;
   }
 }
 
