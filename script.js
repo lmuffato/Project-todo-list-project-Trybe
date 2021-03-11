@@ -64,7 +64,7 @@ function saveList() {
 }
 
 function loadSavedTasks() {
-  if (Storage) {
+  if (Storage.lenght > 0) {
     const tasks = localStorage.getItem('tasks').split(',');
     console.log(tasks);
 
@@ -84,7 +84,6 @@ function loadSavedTasks() {
 
 window.onload = () => {
   loadSavedTasks();
-
   // Adicina eventos de cliques nos botões
   document.getElementById('criar-tarefa').addEventListener('click', addNewTask);
 
