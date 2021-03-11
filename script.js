@@ -23,6 +23,15 @@ function resetColor() {
   }
 } */
 
+// risca tarefas concluídas
+function completedTask (e) {
+  if (e.target.className === 'itemList completed') {
+    e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');
+  }
+}
+
 // adiciona nova tarefa
 function criaTarefa() {
   const item = document.createElement('li');
@@ -32,12 +41,7 @@ function criaTarefa() {
   boxText.value = '';
   item.addEventListener('click', resetColor);
   item.addEventListener('click', changeColor);
+  item.addEventListener('dblclick', completedTask);
 }
 
 button.addEventListener('click', criaTarefa);
-
-
-
-
-
-//document.getElementById('lista-tarefas').addEventListener('click', changeColor);
