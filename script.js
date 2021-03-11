@@ -1,6 +1,8 @@
 const idName = 'selected-task';
 const oListTask = document.getElementById('lista-tarefas');
 
+const updateStorage = () => { localStorage.setItem('lists', oListTask.innerHTML); };
+
 const btnCreateTask = () => {
   document.getElementById('criar-tarefa').addEventListener('click', () => {
     const listTaskElement = document.createElement('li');
@@ -15,18 +17,21 @@ const btnCreateTask = () => {
 const btnRemoveAll = () => {
   document.getElementById('apaga-tudo').addEventListener('click', () => {
     oListTask.innerHTML = '';
+    updateStorage();
   });
 };
 
 const btnRemoveCompleted = () => {
   document.getElementById('remover-finalizados').addEventListener('click', () => {
     document.querySelectorAll('.completed').forEach((e) => e.remove());
+    updateStorage();
   });
 };
 
 const btnRemoveSelected = () => {
   document.getElementById('remover-selecionado').addEventListener('click', () => {
     oListTask.removeChild(document.getElementById(idName));
+    updateStorage();
   });
 };
 
@@ -43,6 +48,7 @@ const btnMoveUp = () => {
         eList[index - 1].outerHTML = listSelected.outerHTML;
       }
     }
+    updateStorage();
   });
 };
 
@@ -59,17 +65,17 @@ const btnMoveDown = () => {
         eList[index + 1].outerHTML = listSelected.outerHTML;
       }
     }
+    updateStorage();
   });
 };
 
-const loadList = () => {
-  const btnSaveList = document.getElementById('salvar-tarefas');
-  btnSaveList.addEventListener('click', () => {
-    localStorage.setItem('lists', oListTask.innerHTML);
+const btnSaveList = () => {
+  document.getElementById('salvar-tarefas').addEventListener('click', () => {
+    updateStorage();
   });
-
-  oListTask.innerHTML = localStorage.getItem('lists');
 };
+
+const loadList = () => { oListTask.innerHTML = localStorage.getItem('lists'); };
 
 oListTask.addEventListener('click', (e) => {
   const listElement = e.target;
@@ -89,6 +95,7 @@ oListTask.addEventListener('dblclick', (e) => {
 
 window.onload = () => {
   loadList();
+  btnSaveList();
   btnMoveUp();
   btnMoveDown();
   btnCreateTask();
