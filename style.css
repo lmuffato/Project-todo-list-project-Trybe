@@ -42,7 +42,6 @@ body {
 }
 
 #texto-tarefa {
-  background-repeat: repeat;
   background-color: white;
   color: rgb(34 , 34 , 34);
   border: 1px solid rgb(170 , 170 , 170);
@@ -52,4 +51,16 @@ body {
   width: 400px;
   height: 25px;
   padding-left: 5px;
+}
+
+#criar-tarefa {
+  border: 1px solid rgb(170 , 170 , 170);
+  border-radius: 4px;
+  box-shadow: 0 0 8px -3px rgb(136 , 136 , 136);
+  height: 25px;
+  width: 50px;
+}
+
+#texto-tarefa:focus , #criar-tarefa:focus {
+  outline: none;
 }
