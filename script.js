@@ -171,6 +171,8 @@ buttonActions(buttonAddTask, [addTask, getTasks]);
 buttonActions(buttonClearTasks, [clearTasks]);
 buttonActions(buttonClearCompleted, [clearCompleted]);
 buttonActions(buttonSaveTasks, [saveTasks]);
-buttonActions(buttonMoveTaskUp, [moveTaskUp]);
-buttonActions(buttonMoveTaskDown, [moveTaskDown]);
+if (getSelectedTask() !== null) {
+  buttonActions(buttonMoveTaskUp, [moveTaskUp]);
+  buttonActions(buttonMoveTaskDown, [moveTaskDown]);
+}
 buttonActions(buttonRemoveTask, [removeTask]);
