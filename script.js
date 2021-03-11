@@ -41,7 +41,11 @@ function addButton(id, text) {
   const btn = document.createElement('button');
   const section = document.getElementById('buttons');
   btn.id = id;
-  btn.innerText = text;
+  if (text === undefined) {
+    btn.innerText = '';
+  } else {
+    btn.innerText = text;
+  }
   section.appendChild(btn);
 }
 
@@ -93,6 +97,35 @@ function getTasks() {
   }
 }
 
+function checkIndex(array, element) {
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] === element) {
+      return index;
+    }
+  }
+}
+
+function moveUp() {
+  const list = document.querySelectorAll('.task');
+  const btn = document.getElementById('mover-cima');
+  btn.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    if (selected === list[0]) {
+      const text = list[0].innerText;
+      for (let index = 0; index < (list.length - 1); index += 1) {
+        list[index].innerText = list[(index + 1)].innerText;
+      }
+      list[list.length - 1].innerText = text;
+    } else {
+      const indexOfSelected = checkIndex(list, selected);
+      const text = list[indexOfSelected].innerText;
+      list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
+      list[(indexOfSelected - 1)].innerText = text;
+    }
+    removeSelected();
+  });
+}
+
 window.onload = () => {
   addTaskToList();
   selectedTask();
@@ -100,8 +133,11 @@ window.onload = () => {
   addButton('apaga-tudo', 'Apagar tarefas');
   addButton('remover-finalizados', 'Remover finalizados');
   addButton('salvar-tarefas', 'Salvar tarefas');
+  addButton('mover-cima', '↑');
+  addButton('mover-baixo', '↓');
   clearTaksList();
   clearCompletedTasks();
   saveTasks();
   getTasks();
+  moveUp();
 };
