@@ -42,7 +42,7 @@ body {
   padding: 2px;
 }
 
-#todos #criar-tarefa {
+.estilo-botao {
   background-color: rgba(87 , 139 , 214 , 1);
   border: none;
   padding: 4px 15px;
