@@ -68,7 +68,6 @@ function moveTop() {
   try {
     const itemToMove = list.querySelector('.selectedItem');
     const swapItem = itemToMove.previousElementSibling;
-    if (swapItem === null || itemToMove === null) return alert('Não é possível mover o item!');
     swapItem.parentNode.insertBefore(itemToMove, swapItem);
   } catch (e) {
     alert('Operação inválida!');
@@ -79,7 +78,6 @@ function moveBottom() {
   try {
     const itemToMove = list.querySelector('.selectedItem');
     const swapItem = itemToMove.nextElementSibling;
-    if (swapItem === null || itemToMove === null) return alert('Não é possível mover o item!');
     swapItem.parentNode.insertBefore(swapItem, itemToMove);
   } catch (e) {
     alert('Operação inválida!');
