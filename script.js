@@ -14,3 +14,15 @@ buttonInsertItem.addEventListener('click', () => {
   taskList.appendChild(listItem);
   inputList.value = '';
 });
+
+// requisito 7
+function selectItem() {
+  const listClick = document.getElementsByTagName('ol')[0];
+  const listItens = document.getElementsByTagName('li');
+  listClick.addEventListener('click', () => {
+    for (let index = 0; index < listItens.length; index += 1) {
+      listItens[index].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  });
+}
+selectItem();
