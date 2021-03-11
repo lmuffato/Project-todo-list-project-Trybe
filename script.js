@@ -65,23 +65,17 @@ function getTasks() {
 }
 
 function moveTop() {
-  try {
-    const itemToMove = list.querySelector('.selectedItem');
-    const swapItem = itemToMove.previousElementSibling;
-    swapItem.parentNode.insertBefore(itemToMove, swapItem);
-  } catch (e) {
-    alert('Operação inválida!');
-  }
+  const itemToMove = list.querySelector('.selectedItem');
+  const swapItem = itemToMove.previousElementSibling;
+  if (!itemToMove || !swapItem) return alert('Operação inválida!');
+  swapItem.parentNode.insertBefore(itemToMove, swapItem);
 }
 
 function moveBottom() {
-  try {
-    const itemToMove = list.querySelector('.selectedItem');
-    const swapItem = itemToMove.nextElementSibling;
-    swapItem.parentNode.insertBefore(swapItem, itemToMove);
-  } catch (e) {
-    alert('Operação inválida!');
-  }
+  const itemToMove = list.querySelector('.selectedItem');
+  const swapItem = itemToMove.nextElementSibling;
+  if (!itemToMove || !swapItem) return alert('Operação inválida!');
+  swapItem.parentNode.insertBefore(swapItem, itemToMove);
 }
 
 window.onload = () => {
