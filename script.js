@@ -31,7 +31,7 @@ addListInput();
 // Função para adicionar um dblclik na lista rgb(128,128,128);
 function selectColor(list) {
   const arrayList = document.getElementById('lista-tarefas').childNodes
-  list.addEventListener('dblclick', (event) => {
+  list.addEventListener('click', (event) => {
     for (let indexTwo = 0; indexTwo < arrayList.length; indexTwo += 1) {
       arrayList[indexTwo].classList.remove('colorList');
     }
