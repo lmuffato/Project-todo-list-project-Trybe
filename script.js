@@ -1,6 +1,7 @@
 const $addTaskBtn = document.getElementById('criar-tarefa');
 const $taskInput = document.getElementById('texto-tarefa');
 const $taskList = document.getElementById('lista-tarefas');
+const $clearBtn = document.getElementById('apaga-tudo');
 
 function addTask() {
   if ($taskInput.value !== '') {
@@ -25,3 +26,15 @@ function changeColorItemList(event) {
 }
 
 $taskList.addEventListener('click', changeColorItemList);
+
+function scratchItemList(event) {
+  event.target.classList.toggle('completed');
+}
+
+$taskList.addEventListener('dblclick', scratchItemList);
+
+function clearItensList(event) {
+  const $tasksItens = document.querySelectorAll('.tasks__item');
+}
+
+$clearBtn.addEventListener('click', clearItensList);
