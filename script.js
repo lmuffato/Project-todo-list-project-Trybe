@@ -2,7 +2,7 @@
  * Consultei o repositório do Daniel Ribeiro para resolver essa parte.
  * Link: https://github.com/tryber/sd-010-a-project-todo-list/tree/defauth98-todo-list-project
  */
-function addTask() {
+const addTask = () => {
   const btnTask = document.querySelector('#criar-tarefa');
 
   btnTask.onclick = () => {
@@ -15,12 +15,23 @@ function addTask() {
     inputTask.value = '';
     taskList.appendChild(taskItem);
   };
-}
+};
 
-addTask();
+/** Source: https://github.com/tryber/sd-010-a-project-todo-list/tree/renzosev-todo-list-project */
+const completedItem = () => {
+  const taskList = document.querySelector('#lista-tarefas');
+
+  taskList.addEventListener('dblclick', (e) => {
+    if (e.target.classList.contains('completed')) {
+      e.target.classList.remove('completed');
+    } else {
+      e.target.classList.add('completed');
+    }
+  });
+};
 
 /** Source: https://github.com/tryber/sd-010-a-project-todo-list/tree/felipemuller20-todo-list-project */
-function deleteAllItems() {
+const deleteAllItems = () => {
   const btnDeleteAll = document.querySelector('#apaga-tudo');
 
   btnDeleteAll.addEventListener('click', () => {
@@ -31,6 +42,10 @@ function deleteAllItems() {
       taskList.removeChild(taskItem[index - 1]);
     }
   });
-}
+};
 
-deleteAllItems();
+window.onload = () => {
+  addTask();
+  deleteAllItems();
+  completedItem();
+};
