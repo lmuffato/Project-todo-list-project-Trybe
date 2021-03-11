@@ -64,7 +64,7 @@ completeTask();
 
 function deleteAllBtn() {
   let btn = document.createElement('button');
-  btn.id ='remover-finalizados';
+  btn.id ='apaga-tudo';
   btn.innerText = 'Limpar a lista';
   document.getElementById('dinamic-session').appendChild(btn);
   btn.addEventListener('click', function() {
