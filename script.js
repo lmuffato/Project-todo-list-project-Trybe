@@ -79,10 +79,12 @@ function fillListItem(event) {
 
 function completeTask(event) {
   const itemLi = event.currentTarget;
-  if (!itemLi.classList.contains('completed')) {
-    itemLi.classList.add('completed');
-  } else {
+  if (itemLi.classList.contains('completed')) {
     itemLi.classList.remove('completed');
+  } else {
+    setTimeout(() => {
+      itemLi.classList.add('completed');
+    }, 100);
   }
 }
 
