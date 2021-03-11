@@ -13,15 +13,15 @@ h2 {
   color: rgb(110, 110, 110);
 }
 body {
-  background-color:  rgb(62, 180, 62);
+  background-color: rgb(62, 180, 62);
 }
 
 .gray {
-  background-color: rgb(128,128,128);
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 button {
@@ -76,7 +76,7 @@ button {
   background-color: rgb(77, 134, 228);
 }
 
-#clearList {
+#apaga-tudo {
   width: 120px;
   background-color: rgb(121, 26, 10);
 }
