@@ -1,4 +1,5 @@
 const botaoCriaTarefa = document.querySelector('#criar-tarefa');
+const botaoApagaTudo = document.querySelector('#apaga-tudo');
 const inputTexto = document.querySelector('#texto-tarefa');
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 
@@ -27,5 +28,13 @@ listaDeTarefas.addEventListener('dblclick', clickDuplo);
 
 function clickDuplo(event) {
   event.target.classList.toggle('completed');
-  console.log(event);
+}
+
+botaoApagaTudo.addEventListener('click', apagaTudo);
+
+function apagaTudo() {
+  let apagaElemento = document.querySelectorAll('li');
+  for (let index = 0; index < apagaElemento.length; index += 1) {
+    listaDeTarefas.removeChild(apagaElemento[index]);
+  }
 }
