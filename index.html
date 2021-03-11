@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To do List</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
     <section id="todo-list">
@@ -18,7 +20,20 @@
       <button id="criar-tarefa">Adicionar</button>
       <ol id="lista-tarefas"></ol>
     </article>
+    <footer id="foot">
+      <button id="remover-finalizados">X</button>
+      <button id="up"><span class="material-icons">
+        keyboard_arrow_up
+        </span></button>
+      <button id="down"><span class="material-icons">
+        keyboard_arrow_down
+        </span></button>
+        <button id="clearCompleted">Limpar Completos</button>
+        <button id="clearList">Limpar Lista</button>
+        <button id="save">Salvar</button>
+    </footer>
   </section>
+
 
   <script src="script.js"></script>
 </body>

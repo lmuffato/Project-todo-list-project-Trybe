@@ -24,10 +24,24 @@ body {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
 
+button {
+  border-radius: 20px;
+  width: 60px;
+  height: 30px;
+  color: white;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  margin-inline-end: 15px;
+
+}
+
+
 #todo-list {
   background-color: white;
-  border-radius: 20px;
+  border-radius: 50px;
   padding: 2.5em;
+  margin: 5em;
 }
 
 #criar-tarefa {
@@ -43,4 +57,37 @@ body {
 
 #criar-tarefa:hover {
   background-color: rgb(134, 175, 241);
+}
+
+#remover-finalizados {
+  background-color: rgb(121, 26, 10);
+}
+
+#up {
+  background-color: rgb(246, 113, 36);
+}
+
+#down {
+  background-color: rgb(246, 113, 36);
+}
+
+#clearCompleted {
+  width: 150px;
+  background-color: rgb(77, 134, 228);
+}
+
+#clearList {
+  width: 120px;
+  background-color: rgb(121, 26, 10);
+}
+
+#save {
+  width: 120px;
+  background-color: rgb(13, 138, 29);
+}
+
+#foot {
+  display: inline-block;
+  margin-top: 100px;
+  text-align: center;
 }
