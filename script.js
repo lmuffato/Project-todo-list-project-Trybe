@@ -63,6 +63,27 @@ function addEventButtonAddTarefa() {
   buttonAddTarefa.addEventListener('click', addTask);
 }
 
+function removeAllSelectItemLi() {
+  const listTask = getListTask();
+  for (let i = 0; i < listTask.childElementCount; i += 1) {
+    const itemLi = listTask.getElementsByTagName('li')[i];
+    itemLi.classList.remove('selected');
+  }
+}
+
+function fillListItem(event) {
+  const itemLi = event.currentTarget;
+  removeAllSelectItemLi();
+  itemLi.className = 'selected';
+}
+
+function addEventListItem() {
+  const listTask = getListTask();
+  for (let i = 0; i < listTask.childElementCount; i += 1) {
+    listTask.getElementsByTagName('li')[i].addEventListener('click', fillListItem);
+  }
+}
+
 function loadTasks() {
   const listTask = getTasks();
   for (let i = 0; i < listTask.length; i += 1) {
@@ -74,4 +95,5 @@ function loadTasks() {
 window.onload = function init() {
   loadTasks();
   addEventButtonAddTarefa();
+  addEventListItem();
 };
