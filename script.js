@@ -3,6 +3,7 @@ function adicionarItem() {
   const pegarTagTextoTarefa = document.querySelector('#texto-tarefa');
   pegarBotao.addEventListener('click', function(event) {
   const escreverTarefa = document.querySelector('input').value;
+  
   if(escreverTarefa != ''){
     const criarTopico = document.createElement('li');
     criarTopico.className = 'criarTopico';
@@ -10,8 +11,9 @@ function adicionarItem() {
     const listaTarefa = document.querySelector('#lista-tarefas');
     listaTarefa.appendChild(criarTopico);
     pegarTagTextoTarefa.value = null;
+  }else{
+    alert('Por Favor Amigão, insira alguma tarefa!!');
   }
-  alert('Por Favor Amigão, insira alguma tarefa!!');
   });
 }
 adicionarItem();
