@@ -1,7 +1,9 @@
 document.getElementById('criar-tarefa').addEventListener('click', () => {
-  let task = document.getElementById('texto-tarefa').value;
-  let taskList = document.getElementById('lista-tarefas').innerHTML;
-  taskList = taskList + "<li>" + task + '</li>';
+  let btnContainer = document.getElementById('texto-tarefa').value;
+  let li = document.createElement('li');
+  let task = document.createTextNode(btnContainer);
 
-  document.getElementById('lista-tarefas').innerHTML = taskList;
-})
+  li.appendChild(task);
+  document.getElementById('lista-tarefas').appendChild(li);
+  document.getElementById('texto-tarefa').value = '';
+});
