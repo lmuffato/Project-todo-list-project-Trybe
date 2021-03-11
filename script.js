@@ -2,6 +2,8 @@ let input = document.querySelector('#texto-tarefa');
 let totalList = document.querySelector('#lista-tarefas');
 let buttonNewLi = document.getElementById('criar-tarefa');
 let buttonClear = document.getElementById('apaga-tudo');
+let buttonClearComplete = document.getElementById('remover-finalizados');
+
 
 function createLi() {
     if (input.value !== '') {
@@ -28,15 +30,23 @@ function completeTask(e) {
     }
 }
 
-function totalClear(){
+function totalClear() {
     while (totalList.firstChild) {
         totalList.firstChild.remove();
+    }
+}
+
+function clearComplete() {
+    let completeItens = document.getElementsByClassName('completed');
+    while (completeItens.length > 0) {
+        completeItens[0].remove();
     }
 }
 
 window.onload = function init() {
     buttonNewLi.addEventListener('click', createLi);
     buttonClear.addEventListener('click', totalClear);
+    buttonClearComplete.addEventListener('click', clearComplete);
     totalList.addEventListener('click', colorChange);
     totalList.addEventListener('dblclick', completeTask);
 }
