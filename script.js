@@ -1,7 +1,7 @@
 let input = document.querySelector('#texto-tarefa');
-
 let totalList = document.querySelector('#lista-tarefas');
 let buttonNewLi = document.getElementById('criar-tarefa');
+let buttonClear = document.getElementById('apaga-tudo');
 
 function createLi() {
     if (input.value !== '') {
@@ -28,8 +28,15 @@ function completeTask(e) {
     }
 }
 
+function totalClear(){
+    while (totalList.firstChild) {
+        totalList.firstChild.remove();
+    }
+}
+
 window.onload = function init() {
     buttonNewLi.addEventListener('click', createLi);
+    buttonClear.addEventListener('click', totalClear);
     totalList.addEventListener('click', colorChange);
     totalList.addEventListener('dblclick', completeTask);
 }
