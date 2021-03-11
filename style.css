@@ -29,3 +29,8 @@ body{
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);  
 }
+
+#apaga-tudo{
+width: 90px;
+height: 40px;    
+}

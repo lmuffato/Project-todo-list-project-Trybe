@@ -12,7 +12,7 @@ function troughLine(e) {
         e.target.className = 'item completed';
     }
     else {
-    e.target.className = 'item';    
+        e.target.className = 'item';
     }
 }
 
@@ -33,11 +33,21 @@ function addLi() {
     liCreate.addEventListener('click', backgroundLiColor)
 }
 
+function buttonClearAll() {
+    const itemsToClean = document.getElementById('lista-tarefas');
+    for (let index = itemsToClean.children.length - 1; index >= 0; index -= 1) {
+        itemsToClean.children[index].remove();
+    }
+}
+
+function clearButton() {
+    const clearOnClick = document.getElementById('apaga-tudo');
+    clearOnClick.addEventListener('click', buttonClearAll);
+}
 
 function createListItems() {
     const taskCreate = document.getElementById('criar-tarefa')
-    taskCreate.addEventListener('click', addLi)
-
+    taskCreate.addEventListener('click', addLi);
 }
-
 createListItems()
+clearButton()
