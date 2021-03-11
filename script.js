@@ -64,7 +64,7 @@ function saveList() {
 }
 
 function loadSavedTasks() {
-  if (Storage.lenght > 0) {
+  if (localStorage.length > 0) {
     const tasks = localStorage.getItem('tasks').split(',');
     console.log(tasks);
 
