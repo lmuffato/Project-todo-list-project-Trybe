@@ -1,5 +1,6 @@
 const idInput = 'texto-tarefa';
 const idOrderList = 'lista-tarefas';
+const itemCompletedClass = 'item completed';
 
 function clearSelection() {
   const listLis = document.getElementsByClassName('item');
@@ -15,7 +16,7 @@ function selectItemList(e) {
 
 function checkItem(e) {
   if (e.target.className === 'item') {
-    e.target.className = 'item completed';
+    e.target.className = itemCompletedClass;
   } else {
     e.target.className = 'item';
   }
@@ -80,30 +81,41 @@ function activeButtonClearAll() {
   buttonClearAll.addEventListener('click', clearListItens);
 }
 
-function deleteCompleteds() {
-  const listItens = document.getElementsByClassName('item');
-  for (let index = listItens.length - 1; index >= 0; index -= 1) {
-    if (listItens[index].className === 'item completed') {
-      listItens[index].remove();
-      localStorage.removeItem(localStorage.key(index - 1));
-    }
-  }
-}
-
-function activeButtonClearCompleteds() {
-  const button = document.getElementById('remover-finalizados');
-  button.addEventListener('click', deleteCompleteds);
-}
-
 function saveTasks() {
   const listItens = document.getElementsByClassName('item');
-
   for (let index = 0; index < listItens.length; index += 1) {
     localStorage.setItem(
       index,
       JSON.stringify([listItens[index].innerText, listItens[index].className]),
     );
   }
+}
+
+function deletedCompletedsStorage() {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const key = localStorage.key(index);
+    console.log(JSON.parse(localStorage.getItem(key))[1]);
+    // console.log(localStorage.getItem(key)[1]);
+    if (JSON.parse(localStorage.getItem(key))[1] === itemCompletedClass) {
+      localStorage.removeItem(key);
+    }
+  }
+}
+
+function deleteCompleteds() {
+  const listItens = document.getElementsByClassName('item');
+  saveTasks();
+  for (let index = listItens.length - 1; index >= 0; index -= 1) {
+    if (listItens[index].className === itemCompletedClass) {
+      listItens[index].remove();
+    }
+  }
+  deletedCompletedsStorage();
+}
+
+function activeButtonClearCompleteds() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', deleteCompleteds);
 }
 
 function activeButtonSaveTasks() {
@@ -114,12 +126,9 @@ function activeButtonSaveTasks() {
 function addItensStorage(array) {
   const orderList = document.getElementById(idOrderList);
 
-  console.log(array);
-
   const newEl = document.createElement('li');
   newEl.innerText = array[0].toString();
   newEl.className = array[1].toString();
-  console.log(array);
   newEl.addEventListener('click', selectItemList);
   newEl.addEventListener('dblclick', checkItem);
 
@@ -130,9 +139,7 @@ function checkStorage() {
   if (localStorage.length > 0) {
     for (let index = 0; index < localStorage.length; index += 1) {
       const key = localStorage.key(index);
-      console.log(key);
-      const item = JSON.parse(localStorage.getItem(localStorage.key(index)));
-      console.log(item);
+      const item = JSON.parse(localStorage.getItem(key));
       addItensStorage(item);
     }
   }
