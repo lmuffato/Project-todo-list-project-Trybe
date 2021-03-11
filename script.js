@@ -66,31 +66,6 @@ function removeTaskDone() {
 }
 removeTaskDone();
 
-/* function selectTask(e) {
-  if (e.target.nodeName === 'LI') {
-    const lastSelected = document.querySelector(`#${myListOfTasks} > .selected`);
-    // https://stackoverflow.com/questions/2647867/how-can-i-determine-if-a-variable-is-undefined-or-null
-    if (lastSelected != null) {
-      lastSelected.classList.toggle('selected');
-    }
-    e.target.classList.toggle('selected');
-  }
-} */
-/* function createSelectTaskEventListener() {
-  const taskList = document.getElementById(myListOfTasks);
-  taskList.addEventListener('click', selectTask, false);
-} */
-
-// const listItem = document.getElementsByTagName('li');
-
-/* function changeBgColor() {
-  if (listItem.className.include('selected')) {
-    listItem.style.backgroundColor = 'rgb(128, 128, 128)';
-  } else {
-    listItem.style.backgroundColor = 'rgb(123, 123, 123)';
-  }
-} */
-
 /* Para a função saveMyTasks, utilizei como base a solução de  Lucas Yoshida (Trybe, turma 4):
 segue link do repositório: https://github.com/tryber/sd-04-block5-project-todo-list/pull/58
 */
