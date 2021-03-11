@@ -40,6 +40,10 @@ li {
   padding: 5px;
 }
 
+#lista-tarefas {
+  margin: 25px 0;
+}
+
 .selected {
   background-color: gray;
 }
