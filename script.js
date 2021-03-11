@@ -108,6 +108,20 @@ function addEventButtonClearAllTasks() {
   buttonClearAll.addEventListener('click', clearAll);
 }
 
+function clearAllFinished() {
+  const taskList = getListTask().getElementsByTagName('li');
+  for (let i = taskList.length - 1; i >= 0; i -= 1) {
+    if (taskList[i].classList.contains('completed')) {
+      taskList[i].remove();
+    }
+  }
+}
+
+function addEventButtonClearAllTasksFinished() {
+  const buttonClear = document.getElementById('remover-finalizados');
+  buttonClear.addEventListener('click', clearAllFinished);
+}
+
 function loadTasks() {
   const listTask = getTasks();
   for (let i = 0; i < listTask.length; i += 1) {
@@ -121,6 +135,7 @@ function init() {
   addEventButtonAddTarefa();
   addEventListItem();
   addEventButtonClearAllTasks();
+  addEventButtonClearAllTasksFinished();
 }
 
 init();
