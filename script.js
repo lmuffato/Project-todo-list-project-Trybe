@@ -4,23 +4,32 @@ let totalList = document.querySelector('#lista-tarefas');
 let buttonNewLi = document.getElementById('criar-tarefa');
 
 function createLi() {
-   if(input.value !== ''){
-    let newLi = document.createElement('li');
-    newLi.innerHTML = input.value;
-    totalList.appendChild(newLi);
-    input.value = ''
-   }
+    if (input.value !== '') {
+        let newLi = document.createElement('li');
+        newLi.innerHTML = input.value;
+        totalList.appendChild(newLi);
+        input.value = ''
+    }
 }
 
-function colorChange(e){
+function colorChange(e) {
     let listItens = document.querySelectorAll('li');
-    for(let index = 0; index < listItens.length; index += 1){
-      listItens[index].style.backgroundColor = 'white';
+    for (let index = 0; index < listItens.length; index += 1) {
+        listItens[index].style.backgroundColor = 'white';
     }
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function completeTask(e) {
+    if (e.target.classList.contains('completed') === true) {
+        e.target.classList.remove('completed');
+    } else {
+        e.target.classList.add('completed');
+    }
 }
 
 window.onload = function init() {
     buttonNewLi.addEventListener('click', createLi);
     totalList.addEventListener('click', colorChange);
+    totalList.addEventListener('dblclick', completeTask);
 }
