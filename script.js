@@ -1,5 +1,6 @@
-const ol = document.getElementById('lista-tarefas');
-const li = document.querySelectorAll('.itens');
+let ol = document.getElementById('lista-tarefas');
+let li = document.querySelectorAll('.itens');
+
 
 function changeColor(itens) {
   const colorize = document.getElementsByClassName('itens');
@@ -40,6 +41,8 @@ function cleanList() {
 }
 
 function removeFinished() {
+  li = document.querySelectorAll('.itens');
+  ol = document.querySelector('#lista-tarefas');
   for (let index = 0; index < li.length; index += 1) {
     if (li[index].classList.contains('completed')) {
       ol.removeChild(li[index]);
@@ -47,9 +50,8 @@ function removeFinished() {
   }
 }
 
-function saveAll() {
-  localStorage.setItem('task', ol.innerHTML);
-}
+// saveAll e getAll com funcionalidades sugeridas por Lucas Pedroso - Turma 10 - Tribo A
+function saveAll() { localStorage.setItem('task', ol.innerHTML); }
 
 function getAll() {
   ol.innerHTML = localStorage.getItem('task');
@@ -57,30 +59,30 @@ function getAll() {
   ol.addEventListener('click', changeColor);
 }
 
-// function moveUp() {
-//   const li = document.getElementsByClassName('itens');
-//   let liDescarte = '';
-//   console.log(li);
-//   for (let index = 0; index < li.length; index += 1) {
-//     if (li[index].classList.contains('selected')) {
-//       liDescarte = li[index - 1];
-//       console.log(liDescarte);
-//       li[index - 1] = li[index];
-//       console.log(li[index - 1]);
-//       li[index] = liDescarte;
-//       console.log(li[index]);
-//     }
-//   }
-//   console.log(li);
-// }
+// moveUp e moveDown com funcionalidades sugeridas por Wanderson Sales - Turma 10 - Tribo A
+function moveUp() {
+  li = document.getElementsByClassName('itens');
+  console.log(li);
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected') && (li[index] !== ol.firstElementChild)) {
+      console.log(li[index]);
+      ol.insertBefore(li[index], li[index].previousElementSibling);
+      break;
+    }
+  }
+}
 
-// for (let index = 0; index < li.length; index += 1) {
-//   if (index === 1) {
-//     liDescarte = li[index + 1];
-//     li[index + 1] = li[index];
-//     li[index] = liDescarte;
-//   }
-// }
+function moveDown() {
+  li = document.getElementsByClassName('itens');
+  console.log(li);
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected') && (li[index] !== ol.lastElementChild)) {
+      console.log(li[index]);
+      ol.insertBefore(li[index], li[index].nextElementSibling.nextElementSibling);
+      break;
+    }
+  }
+}
 
 const sendBtn = document.querySelector('#criar-tarefa');
 sendBtn.addEventListener('click', resetInput);
@@ -94,10 +96,11 @@ removeFinishedBtn.addEventListener('click', removeFinished);
 const saveAllBtn = document.querySelector('#salvar-tarefas');
 saveAllBtn.addEventListener('click', saveAll);
 
-// const upBtn = document.querySelector('#mover-cima');
-// upBtn.addEventListener('click', moveUp);
+const upBtn = document.querySelector('#mover-cima');
+upBtn.addEventListener('click', moveUp);
 
-// const downBtn = document.querySelector('#mover-baixo');
+const downBtn = document.querySelector('#mover-baixo');
+downBtn.addEventListener('click', moveDown);
 window.onload = () => {
   getAll();
 };
