@@ -1,4 +1,6 @@
 const btnAddTask = document.getElementById('criar-tarefa');
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
 const btnClearTasks = document.getElementById('apaga-tudo');
 const btnRemoveCompletedTasks = document.getElementById('remover-finalizados');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
@@ -10,12 +12,12 @@ function clearInput() {
   inputTasks.value = '';
 }
 
+// Without adding the selected class
 // function removesBackgroundColor() {
 //   for (let index = 0; index < listItems.length; index += 1) {
 //     listItems[index].style.setProperty('background-color', 'transparent');
 //   }
 // }
-
 // function changeBgColor(event) {
 //   removesBackgroundColor();
 //   event.target.style.setProperty('background-color', 'rgb(128, 128, 128)');
@@ -23,7 +25,6 @@ function clearInput() {
 
 function removesBackgroundColor() {
   for (let index = 0; index < listItems.length; index += 1) {
-    console.log('teste');
     listItems[index].classList.remove('selected');
     listItems[index].style.setProperty('background-color', 'transparent');
   }
@@ -85,9 +86,37 @@ function getSavedTasks() {
   updateListItemsListeners();
 }
 
+// I created this function to drop the items before I knew that the insertBefore method existed.
+// for (let index = 0; index < listItems.length; index += 1) {
+//   if (selected[0] === listItems[index] && index !== 0) {
+//     listItems[index].parentNode.insertBefore(
+//       listItems[index],
+//       listItems[index - 1]
+//     );
+//   }
+// }
+// Reference: https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  if (selected.previousSibling != null) {
+    listOfTasks.insertBefore(selected, selected.previousSibling);
+  }
+}
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+
+  if (selected.nextSibling !== null) {
+    listOfTasks.insertBefore(selected.nextSibling, selected);
+  }
+}
+
 window.onload = getSavedTasks;
 
 btnAddTask.addEventListener('click', addsTaskToList);
 btnClearTasks.addEventListener('click', clearTasks);
 btnRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
 btnSaveTasks.addEventListener('click', saveTasks);
+btnMoveUp.addEventListener('click', moveUp);
+btnMoveDown.addEventListener('click', moveDown);
