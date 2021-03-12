@@ -12,13 +12,14 @@ botao.addEventListener('click', function() {
     tasks(recebeTarefa);
     document.querySelector('#texto-tarefa').value = '';
 });
-
+////////////////////////////////////////////////////////////////////////////
 function setClass(item){
     if(document.querySelector(".mystyle")){
         let itemRemove = document.querySelector(".mystyle");
         itemRemove.classList.remove("mystyle");
-        itemRemove.removeAttribute("style");
-        itemRemove.removeAttribute("class");
+        itemRemove.style.backgroundColor = '';
+        itemRemove.className = '';
+           
         item.className = "mystyle";
         item.style.backgroundColor ='rgb(128, 128, 128)';
     }else{
@@ -31,5 +32,16 @@ const taskList = document.getElementById('lista-tarefas');
 taskList.addEventListener('click',()=>{
     let clickedItem = event.target;
         setClass(clickedItem);
+});
+
+const taskList2 = document.getElementById('lista-tarefas');
+taskList2.addEventListener('dblclick',()=>{
+    let itemDblclick = event.target;
+    if(itemDblclick.style.textDecoration == 'line-through solid black'){
+       itemDblclick.style.textDecoration = 'none' 
+    }else{
+    itemDblclick.style.textDecoration = "line-through solid black";
+    
+    }
 });
 
