@@ -1,5 +1,6 @@
-// recupera o botão e a caixa de texto
-const button = document.querySelector('#criar-tarefa');
+// recupera os botões e a caixa de texto
+const buttonAdd = document.querySelector('#criar-tarefa');
+const buttonClean = document.querySelector('#apaga-tudo');
 const boxText = document.querySelector('#texto-tarefa');
 
 // muda a cor de fundo da tarefa ao ser clicada
@@ -24,7 +25,7 @@ function resetColor() {
 } */
 
 // risca tarefas concluídas
-function completedTask (e) {
+function completedTask(e) {
   if (e.target.className === 'itemList completed') {
     e.target.classList.remove('completed');
   } else {
@@ -44,4 +45,15 @@ function criaTarefa() {
   item.addEventListener('dblclick', completedTask);
 }
 
-button.addEventListener('click', criaTarefa);
+buttonAdd.addEventListener('click', criaTarefa);
+
+// limpa a lista toda
+function cleanList() {
+  const itens = document.getElementsByClassName('itemList');
+  const sizeList = itens.length;
+  for (let indexClean = 0; indexClean < sizeList; indexClean += 1) {
+    document.getElementById('lista-tarefas').firstElementChild.remove();
+  }
+}
+
+buttonClean.addEventListener('click', cleanList);
