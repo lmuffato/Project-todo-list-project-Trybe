@@ -58,3 +58,13 @@ function doubleClick() {
   });
 }
 doubleClick();
+
+// Requisito 10;
+function clear() {
+  const list = document.querySelectorAll('#lista-tarefas')[0];
+  const button = document.querySelector('#apaga-tudo');
+  button.addEventListener('click', () => {
+    list.innerText = '';
+  });
+}
+clear();
