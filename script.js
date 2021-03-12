@@ -1,5 +1,6 @@
 const taskList = document.getElementById("lista-tarefas");
 const tasks = document.getElementsByTagName('li');
+const killAllListButton = document.getElementById('apaga-tudo');
 let addTaskButton =  document.getElementById("criar-tarefa");
     addTaskButton.addEventListener("click",addTask);
 
@@ -18,6 +19,7 @@ function addTask(){
 
 document.body.addEventListener("click",clickSelected);
 document.body.addEventListener("dblclick",doubleClickSelected)
+killAllListButton.addEventListener("click",killAll)
 function clickSelected(e){
     let hasAnotherSelect = classRepeatChecker(tasks);
     for(let index=0;index<tasks.length;index+=1){
@@ -58,5 +60,13 @@ function doubleClickSelected(e) {
                 tasks[index].classList.remove("completed");
             }
         }
+    }
+}
+
+function killAll() {
+    let lastOne;
+    while(taskList.children.length != 0){
+        lastOne = taskList.lastChild;
+        taskList.removeChild(lastOne);
     }
 }
