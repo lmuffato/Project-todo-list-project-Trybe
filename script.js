@@ -1,5 +1,6 @@
-// Este site pode ser visto rodando na url https://rogerio-lambert.github.io/javaScript-DOM/todo/toDoList.html
-
+// Este site pode ser visto rodando na url
+// https://rogerio-lambert.github.io/javaScript-DOM/todo/toDoList.html
+//
 // Bloco de inicialização de variáveis globais
 
 const addTaskButton = document.getElementById('criar-tarefa');
