@@ -1,6 +1,7 @@
 const taskList = document.getElementById("lista-tarefas");
 const tasks = document.getElementsByTagName('li');
 const killAllListButton = document.getElementById('apaga-tudo');
+const killCompletedButton = document.getElementById('remover-finalizados')
 let addTaskButton =  document.getElementById("criar-tarefa");
     addTaskButton.addEventListener("click",addTask);
 
@@ -20,6 +21,7 @@ function addTask(){
 document.body.addEventListener("click",clickSelected);
 document.body.addEventListener("dblclick",doubleClickSelected)
 killAllListButton.addEventListener("click",killAll)
+killCompletedButton.addEventListener('click',killCompleted)
 function clickSelected(e){
     let hasAnotherSelect = classRepeatChecker(tasks);
     for(let index=0;index<tasks.length;index+=1){
@@ -68,5 +70,14 @@ function killAll() {
     while(taskList.children.length != 0){
         lastOne = taskList.lastChild;
         taskList.removeChild(lastOne);
+    }
+}
+
+function killCompleted(){
+    let completed = document.getElementsByClassName("completed")
+    let last = completed.length - 1;
+    while(last>=0){
+        taskList.removeChild(completed[last])
+        last = completed.length - 1;
     }
 }
