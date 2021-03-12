@@ -56,3 +56,34 @@ window.onload = () => {
   const lis = localStorage.getItem('lis');
   theList.innerHTML = lis;
 };
+
+/* Utilizei como referência o código do Angelo Bittencourt turma 10 - tribo B
+  https://github.com/tryber/sd-010-b-project-todo-list/pull/32/commits/99a98cd32dc4859c947717f061ce4ba275c4bfd0
+  e a documentação do insertBefore
+  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+  */
+const upArrow = document.querySelector('#mover-cima');
+upArrow.addEventListener('click', () => {
+  const toUp = document.querySelector('.bkGray');
+  if (toUp.previousElementSibling === null) {
+    alert('Esta tárefa já está no topo!');
+  } else {
+    theList.insertBefore(toUp, toUp.previousElementSibling);
+  }
+});
+
+const downArrow = document.querySelector('#mover-baixo');
+downArrow.addEventListener('click', () => {
+  const toDown = document.querySelector('.bkGray').nextElementSibling;
+  if (toDown === null) {
+    alert('Esta tárefa já está como ultima!');
+  } else {
+    theList.insertBefore(toDown, toDown.previousElementSibling);
+  }
+});
+
+const removeSelected = document.querySelector('#remover-selecionado');
+removeSelected.addEventListener('click', () => {
+  const removed = document.querySelector('.bkGray');
+  theList.removeChild(removed);
+});
