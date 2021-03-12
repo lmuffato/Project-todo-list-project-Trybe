@@ -3,7 +3,12 @@ function clearInput() {
     document.getElementById('texto-tarefa').value = '';
   });
 }
+function clearBackgroundColor() {
+  const itemSelected = document.querySelector('.selected');
+  itemSelected.classList.remove('selected');
+  itemSelected.classList.add('tarefa');
 
+}
 function createListItem() {
   document.getElementById('criar-tarefa').addEventListener('click', () => {
     const texto = document.getElementById('texto-tarefa').value;
@@ -12,21 +17,19 @@ function createListItem() {
     const textNode = document.createTextNode(texto);
     node.appendChild(textNode);
     document.getElementById('lista-tarefas').appendChild(node);
-    const listItem = document.getElementsByTagName('li'); 
-    for (let index = 0; index < listItem.length; index += 1) {
-      listItem[index].addEventListener('click', () => {
-        listItem[index].style.backgroundColor = 'red';
-        listItem[index].classList.add('selected');
-        clearColor();
-      });
-    }
+    const list = document.querySelector('#lista-tarefas'); 
+    list.addEventListener('click', (event) => {
+      const e = event.target;
+      if (document.querySelectorAll('.selected').length >= 1) {
+        clearBackgroundColor();
+      } 
+      e.classList.add('selected');
+      e.classList.remove('tarefa');
+    });
   });
 }
-function clearColor() {
 
-}
 window.onload = () => { 
   createListItem();
-
   clearInput();
 };
