@@ -45,23 +45,11 @@ function createListItem() {
   listItem.classList.add('item-lista');
   return listItem;
 }
-function verifyButtons() {
-  const selected = document.querySelector('.selected');
-
-  if (listItems.length <= 1 || selected === null) {
-    btnMoveUp.disabled = true;
-    btnMoveDown.disabled = true;
-  } else {
-    btnMoveUp.disabled = false;
-    btnMoveDown.disabled = false;
-  }
-}
 
 function updateListItemsListeners() {
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].addEventListener('click', changeBgColor);
     listItems[index].addEventListener('dblclick', streakItem);
-    listItems[index].addEventListener('click', verifyButtons);
   }
   if (listItems.length > 1) {
     btnMoveDown.disabled = false;
@@ -115,25 +103,20 @@ function getSavedTasks() {
 
 function moveUp() {
   const selected = document.querySelector('.selected');
-  if (selected.previousSibling != null) {
+  if (selected !== null && selected.previousSibling != null) {
     listOfTasks.insertBefore(selected, selected.previousSibling);
   }
 }
-
 function moveDown() {
   const selected = document.querySelector('.selected');
-  if (selected.nextSibling !== null) {
+  if (selected !== null && selected.nextSibling !== null) {
     listOfTasks.insertBefore(selected.nextSibling, selected);
   }
 }
 
-window.onload = function init() {
-  getSavedTasks();
-  verifyButtons();
-};
+window.onload = getSavedTasks;
 
 btnAddTask.addEventListener('click', addsTaskToList);
-btnAddTask.addEventListener('click', verifyButtons);
 btnClearTasks.addEventListener('click', clearTasks);
 btnRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
 btnSaveTasks.addEventListener('click', saveTasks);
