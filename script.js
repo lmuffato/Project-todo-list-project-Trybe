@@ -68,3 +68,15 @@ function clear() {
   });
 }
 clear();
+
+// Requisito 11;
+function removeFinished() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', () => {
+    const listClass = document.querySelectorAll('.completed');
+    for (let index = 0; index < listClass.length; index += 1) {
+      listPai.removeChild(listClass[index]);
+    }
+  });
+}
+removeFinished();
