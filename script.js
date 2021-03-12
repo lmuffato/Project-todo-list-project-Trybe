@@ -6,13 +6,23 @@ paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo
 const taskList = document.getElementById('lista-tarefas');
 const buttonInsertItem = document.getElementById('criar-tarefa');
 buttonInsertItem.innerText = 'Inserir';
+const buttonClear = document.getElementById('apaga-tudo');
+buttonClear.innerText = 'Apagar';
 const inputList = document.getElementById('texto-tarefa');
 
 buttonInsertItem.addEventListener('click', () => {
-  const listItem = document.createElement('li');
-  listItem.innerText = inputList.value;
-  taskList.appendChild(listItem);
+  if (inputList.value === '') {
+    alert('Digite uma tarefa válida!');
+  } else {
+    const listItem = document.createElement('li');
+    listItem.innerText = inputList.value;
+    taskList.appendChild(listItem);
+  }
   inputList.value = '';
+});
+
+buttonClear.addEventListener('click', () => {
+  taskList.innerHTML = '';
 });
 
 // requisito 7

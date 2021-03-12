@@ -10,3 +10,7 @@ main {
   padding: 20px;
   border-radius: 10px;
 }
+
+.completed {
+  text-decoration: line-through;  
+}
