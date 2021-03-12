@@ -11,7 +11,7 @@ const saveButton = document.getElementById('salvar-tarefas');
 const removeCompletedButton = document.getElementById('remover-finalizados');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
-const removeTaskButton = document.getElementById('remover');
+const removeTaskButton = document.getElementById('remover-selecionado');
 let selectedTask = null;
 
 // bloco de declaração de funções
