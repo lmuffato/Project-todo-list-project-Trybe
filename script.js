@@ -18,6 +18,13 @@ $addTaskBtn.addEventListener('click', addTask);
 
 function changebackgroundColorItemList(event) {
   const $target = event.target;
+  console.log($target);
+  const $itemListSelected = document.querySelectorAll('.selected');
+  $itemListSelected.forEach((element) => {
+    if (element !== $target) {
+      element.classList.remove('selected');
+    }
+  });
   $target.classList.toggle('selected');
 }
 
