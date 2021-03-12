@@ -1,7 +1,6 @@
 let ol = document.getElementById('lista-tarefas');
 let li = document.querySelectorAll('.itens');
 
-
 function changeColor(itens) {
   const colorize = document.getElementsByClassName('itens');
   const select = itens.target;
@@ -84,6 +83,16 @@ function moveDown() {
   }
 }
 
+function removeSelected() {
+  li = document.getElementsByClassName('itens');
+  ol = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected')) {
+      ol.removeChild(li[index]);
+    }
+  }
+}
+
 const sendBtn = document.querySelector('#criar-tarefa');
 sendBtn.addEventListener('click', resetInput);
 
@@ -101,6 +110,10 @@ upBtn.addEventListener('click', moveUp);
 
 const downBtn = document.querySelector('#mover-baixo');
 downBtn.addEventListener('click', moveDown);
+
+const removeSelectedBtn = document.querySelector('#remover-selecionado');
+removeSelectedBtn.addEventListener('click', removeSelected);
+
 window.onload = () => {
   getAll();
 };
