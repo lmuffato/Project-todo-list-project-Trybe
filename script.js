@@ -1,4 +1,4 @@
-// Este site pode ser visto rodando na url https://rogerio-lambert.github.io/javaScript-DOM/todo/toDoList.htlm
+// Este site pode ser visto rodando na url https://rogerio-lambert.github.io/javaScript-DOM/todo/toDoList.html
 
 // Bloco de inicialização de variáveis globais
 
@@ -10,6 +10,7 @@ const saveButton = document.getElementById('salvar-tarefas');
 const removeCompletedButton = document.getElementById('remover-finalizados');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
+const removeTaskButton = document.getElementById('remover');
 let selectedTask = null;
 
 // bloco de declaração de funções
@@ -99,6 +100,12 @@ function recoverySavedTaskList() {
   }
 }
 
+// Esta função remove o tarefa selecionada
+
+function removeTask() {
+  taskList.removeChild(selectedTask);
+}
+
 // Bloco de criação de escutadores de eventos
 
 addTaskButton.addEventListener('click', addTask);
@@ -107,6 +114,7 @@ removeCompletedButton.addEventListener('click', removeCompletedTasks);
 saveButton.addEventListener('click', saveTaskList);
 moveUpButton.addEventListener('click', moveTaskUp);
 moveDownButton.addEventListener('click', moveTaskDown);
+removeTaskButton.addEventListener('click', removeTask);
 
 // Bloco de ações de inicialização da página
 
