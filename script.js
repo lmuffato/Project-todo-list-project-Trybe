@@ -20,7 +20,7 @@ function main() {
 
         });
         liItem.addEventListener('dblclick', () => {
-            liItem.className = 'completed';
+            liItem.classList.toggle('completed')
         })
 
         list.appendChild(liItem);
