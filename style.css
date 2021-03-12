@@ -25,7 +25,7 @@
 }
 
 #remover-selecionado {
-  background-color: rgb(235 , 128 ,128);
+  background-color: rgb(235 , 128 , 128);
   border-radius: 5px;
   color: white;
 }
@@ -34,4 +34,29 @@
   background-color: rgb(185 , 235 , 128);
   border-radius: 5px;
   color: black;
+}
+
+#titulo {
+  font-size: 30px;
+  font-weight: bold;
+  color: orangered;
+}
+
+#page-content {
+  width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  background-color: cornsilk;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+body {
+  background-color: rgb(28 , 8 , 117);
+}
+
+button {
+  font-size: 16px;
+  padding: 4px;
+  margin: 2px;
 }

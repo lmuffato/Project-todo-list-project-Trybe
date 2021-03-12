@@ -96,5 +96,4 @@ window.onload = () => {
   document.getElementById('lista-tarefas').addEventListener('click', changeBgList);
 
   document.getElementById('lista-tarefas').addEventListener('dblclick', completeTasks);
-
 };
