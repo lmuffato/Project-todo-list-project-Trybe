@@ -16,7 +16,8 @@ window.onload = function (){
         //adiciona a lista e acrescenta 1 números        
         addList[cont].innerText = pushInput;
         cont += 1;
-                
+        document.getElementById('texto-tarefa').value = '';
     });
-
 }
+
+
