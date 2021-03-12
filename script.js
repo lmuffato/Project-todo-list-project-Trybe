@@ -6,11 +6,13 @@ const taskList = document.getElementById('lista-tarefas');
 const clearButton = document.getElementById('apaga-tudo');
 const saveButton = document.getElementById('salvar-tarefas');
 const removeCompletedButton = document.getElementById('remover-finalizados');
-const muveUpButton = document.getElementById('mover-cima');
+const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo');
 let selectedTask = null;
 
 // bloco de declaração de funções
+
+// Esta função adiciona a classe selected a tarefa quando clicada fazendo esta ficar marcada de cinza
 function markTask(event) {
   if (selectedTask === null) {
     selectedTask = event.target;
@@ -21,6 +23,7 @@ function markTask(event) {
   selectedTask.classList.add('selected');
 }
 
+// Esta função adiciona a classe completed à tarefa quando clicada duas vezes, fazendo esta ficar "cortada"
 function markCompleted(event) {
   const testedTask = event.target;
   if (testedTask.className.includes('completed')) {
@@ -29,6 +32,8 @@ function markCompleted(event) {
     testedTask.classList.add('completed');
   }
 }
+
+// Esta função adiciona à lista de tarefas uma nova tarefa digitada pelo usuário
 function addTask() {
   if (inputTask.value !== '') {
     const task = document.createElement('li');
@@ -43,10 +48,12 @@ function addTask() {
   }
 }
 
+// Esta função limpa a lista de tarefas quando o usuário aperta o botão "apagar lista"
 function clearTaskList() {
   document.getElementById('lista-tarefas').innerHTML = '';
 }
 
+// Esta função remove da lista de tarefas aquelas que foram previamente marcadas como completas
 function removeCompletedTasks() {
   const completedTasks = document.getElementsByClassName('completed');
   for (let index = completedTasks.length - 1; index >= 0; index -= 1) {
@@ -59,10 +66,25 @@ function saveTaskList() {
   alert('A lista foi salva no browser');
 }
 
-function moveTask() {
-
+// Esta função move uma tarefa selecionada uma posição para cima
+function moveTaskUp() {
+  if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
+    let previousTask = document.createElement('li');
+    previousTask = selectedTask.previousElementSibling;
+    taskList.insertBefore(selectedTask, previousTask);
+  }
 }
 
+// Esta função move uma tarefa selecionada uma posição para baixo
+function moveTaskDown() {
+  if (selectedTask !== null && selectedTask.nextElementSibling !== null) {
+    let nextTask = document.createElement('li');
+    nextTask = selectedTask.nextElementSibling;
+    taskList.insertBefore(nextTask, selectedTask);
+  }
+}
+
+// Esta função resgata uma lista de tarefas gravadas no browser do cliente
 function recoverySavedTaskList() {
   if (localStorage.getItem('taskList') !== null) {
     taskList.innerHTML = localStorage.getItem('taskList');
@@ -81,8 +103,8 @@ addTaskButton.addEventListener('click', addTask);
 clearButton.addEventListener('click', clearTaskList);
 removeCompletedButton.addEventListener('click', removeCompletedTasks);
 saveButton.addEventListener('click', saveTaskList);
-muveUpButton.addEventListener('click', moveTask);
-moveDownButton.addEventListener('click', moveTask);
+moveUpButton.addEventListener('click', moveTaskUp);
+moveDownButton.addEventListener('click', moveTaskDown);
 
 // Bloco de ações de inicialização da página
 

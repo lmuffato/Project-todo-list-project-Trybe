@@ -4,12 +4,9 @@
 
 #texto-tarefa {
   display: inline-block;
+  width: 400px;
 }
 
 .completed {
   text-decoration: line-through;
-}
-
-#texto-tarefa {
-  width: 400px;
 }
