@@ -46,14 +46,14 @@ nextItemList();
 
 // Requisito 9 ;
 function doubleClick() {
-  listPai.addEventListener('dblclick', () => {
-    const li = document.querySelectorAll('li');
-    for (let index = 0; index < li.length; index += 1) {
-      if (li[index].classList.contains('completed')) {
-        li[index].classList.remove('completed');
-      } else {
-        li[index].classList.add('completed');
-      }
+  listPai.addEventListener('dblclick', (e) => {
+    const target1 = e.target;
+    if (target1.classList.contains('completed')) {
+      target1.classList.remove('completed');
+      target1.style.textDecoration = '';
+    } else {
+      target1.classList.add('completed');
+      target1.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
     }
   });
 }
