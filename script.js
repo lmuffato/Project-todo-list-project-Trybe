@@ -1,25 +1,34 @@
-//Cria Botao
-const botao = document.createElement('button');
-botao.id = 'criar-tarefa'
-botao.innerHTML = 'Criar Tarefa';
-document.getElementById('espacoDoBotao').appendChild(botao);
-botao.addEventListener('click', clickDoBotao);
-
-function clickDoBotao() {
-    let pegaTexto = document.getElementById('texto-tarefa').value;
-    let criaLista = document.createElement('li');
-    criaLista.className = 'listasCriadas'
-    criaLista.innerText = pegaTexto;
-    document.getElementById('lista-tarefas').appendChild(criaLista);
-    document.getElementById('texto-tarefa').value = '';
-    criaLista.addEventListener('click', mudaCorDaLista);
-}
-
-function mudaCorDaLista() {
-    for (let index = 0; index < document.getElementsByClassName('listasCriadas').length; index += 1) {
-        document.getElementsByClassName('listasCriadas')[index].addEventListener('click', () => {
-            document.getElementsByClassName('listasCriadas')[index].style.backgroundColor = 'rgb(128,128,128)';
-        } );
+function createTask() {
+    console.log('create task ok')
+    inputText = document.getElementById('texto-tarefa').value;
+    if (inputText === '') {
+        alert('Digite algo!');
+    } else {
+        let createList = document.createElement('li');
+        createList.innerHTML = inputText;
+        createList.className = 'listClass'
+        createList.addEventListener('click', setColor);
+        document.getElementById('lista-tarefas').appendChild(createList);
     }
 }
-mudaCorDaLista();
+
+let button = document.getElementById('criar-tarefa');
+button.addEventListener('click', createTask);
+// button.addEventListener('click', function(){
+//     document.getElementById('texto-tarefa').value = '';
+// });
+button.addEventListener('dblclick', completedTask);
+
+function completedTask(event) {
+    event.target.classList.add('completed');
+    console.log('completed task ok')
+}
+
+function setColor(event) {
+    let fullList = document.getElementsByClassName('listClass');
+    for (let index = 0; index < fullList.length; index += 1) {
+        fullList[index].style.backgroundColor = 'white';
+        console.log('pinta li')
+    }
+    event.target.style.backgroundColor = 'gray';    
+}

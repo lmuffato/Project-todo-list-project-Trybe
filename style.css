@@ -5,3 +5,7 @@ h1 {
 li {
     background-color:white;
 }
+
+.completed {
+    text-decoration: line-through;
+}
