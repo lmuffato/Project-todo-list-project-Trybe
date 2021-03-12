@@ -17,6 +17,17 @@ buttonCreate.addEventListener('click', () => {
   olItem.appendChild(liItem);
   addInput.value = '';
 
+  liItem.addEventListener('dblclick', (event) => {
+    const item = event.target;
+    if (item.className === 'completed') {
+      item.className = '';
+      item.removeAttribute('id');
+    } else {
+      item.removeAttribute('id');
+      item.className = 'completed';
+    }
+  });
+  
   buttonErase.addEventListener('click', () => {
     olItem.removeChild(liItem);
   });
