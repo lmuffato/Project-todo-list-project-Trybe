@@ -1,3 +1,4 @@
+
 function clearInput() {
   document.getElementById('criar-tarefa').addEventListener('click', () => {
     document.getElementById('texto-tarefa').value = '';
@@ -47,11 +48,23 @@ function clearButton() {
      }
   });
 }
-window.onload = () => { 
+function clearCompleted() {
+  const btn = document.getElementById('remover-finalizados');
+  const completed = document.getElementsByClassName('completed');
+  btn.addEventListener('click', () => {
+    for (let index = completed.length - 1; index >= 0; index -= 1) {
+      completed[index].remove();
+    } 
+    
+  });
+}
+window.onload = () => {
   createListItem();
   clearInput();
+  
   if (document.getElementsByClassName('tarefa'.length >= 1)) {
-    itemCheck();
     clearButton();
+    itemCheck();
+    clearCompleted();
   }
-};
+}
