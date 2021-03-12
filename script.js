@@ -1,3 +1,5 @@
+//Criação das Funções:
+
 function createTask() {
     console.log('create task ok')
     inputText = document.getElementById('texto-tarefa').value;
@@ -7,21 +9,15 @@ function createTask() {
         let createList = document.createElement('li');
         createList.innerHTML = inputText;
         createList.className = 'listClass'
+        createList.addEventListener('dbclick', completedTask);
         createList.addEventListener('click', setColor);
         document.getElementById('lista-tarefas').appendChild(createList);
     }
 }
 
-let button = document.getElementById('criar-tarefa');
-button.addEventListener('click', createTask);
-// button.addEventListener('click', function(){
-//     document.getElementById('texto-tarefa').value = '';
-// });
-button.addEventListener('dblclick', completedTask);
-
 function completedTask(event) {
     event.target.classList.add('completed');
-    console.log('completed task ok')
+    console.log('completed task entrou')
 }
 
 function setColor(event) {
@@ -30,5 +26,13 @@ function setColor(event) {
         fullList[index].style.backgroundColor = 'white';
         console.log('pinta li')
     }
-    event.target.style.backgroundColor = 'gray';    
+    event.target.style.backgroundColor = 'rgb(128,128,128)';    
 }
+
+//Programação do Botao
+
+let button = document.getElementById('criar-tarefa');
+button.addEventListener('click', createTask);
+button.addEventListener('click', function(){
+    document.getElementById('texto-tarefa').value = '';
+});
