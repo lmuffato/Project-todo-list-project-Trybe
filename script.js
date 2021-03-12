@@ -16,17 +16,12 @@ function addTask() {
 
 $addTaskBtn.addEventListener('click', addTask);
 
-function changeColorItemList(event) {
+function changebackgroundColorItemList(event) {
   const $target = event.target;
-  const $tasksItens = document.querySelectorAll('.tasks__item');
-  $tasksItens.forEach((itemList) => {
-    const element = itemList;
-    element.style.cssText = 'background-color: rgb(255, 255, 255);';
-  });
-  $target.style.cssText = 'background-color: rgb(128, 128, 128); ';
+  $target.classList.toggle('selected');
 }
 
-$taskList.addEventListener('click', changeColorItemList);
+$taskList.addEventListener('click', changebackgroundColorItemList);
 
 function scratchItemList(event) {
   event.target.classList.toggle('completed');
