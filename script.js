@@ -11,6 +11,15 @@ function removeBackground() {
   });
 }
 
+function cleanList() {
+  const clearButton = document.getElementById('apaga-tudo');
+  const list = document.querySelector('ol');
+  console.log(clearButton);
+  clearButton.addEventListener('click', () => {
+    list.innerHTML = '';
+  });
+}
+
 function clickListItem(itemClick) {
   itemClick.addEventListener('click', (event) => {
     const element = event.target;
@@ -49,4 +58,5 @@ function clickButtonAddTask() {
 
 window.onload = function startSession() {
   clickButtonAddTask();
+  cleanList();
 };
