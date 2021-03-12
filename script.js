@@ -9,14 +9,14 @@ function clearBackgroundColor() {
   itemSelected.classList.add('tarefa');
 }
 function itemCheck() {
+  console.log('entrou');
   const list = document.querySelector('#lista-tarefas');
   list.addEventListener('dblclick', (event) => {
     const e = event.target;
     if (e.classList.contains('completed')) {
       e.classList.remove('completed');
     } else {
-    
-    e.classList.add('completed');
+     e.classList.add('completed');
   }
   });
 }
@@ -29,7 +29,7 @@ function createListItem() {
     node.appendChild(textNode);
     document.getElementById('lista-tarefas').appendChild(node);
     const list = document.querySelector('#lista-tarefas');
-    itemCheck(); 
+    
     list.addEventListener('click', (event) => {
       const e = event.target;
       if (document.querySelectorAll('.selected').length >= 1) {
@@ -44,4 +44,7 @@ function createListItem() {
 window.onload = () => { 
   createListItem();
   clearInput();
+  if (document.getElementsByClassName('tarefa'.length >= 1)) {
+    itemCheck();
+  }
 };
