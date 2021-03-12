@@ -73,18 +73,14 @@ function saveTaskList() {
 // Esta função move uma tarefa selecionada uma posição para cima
 function moveTaskUp() {
   if (selectedTask !== null && selectedTask.previousElementSibling !== null) {
-    let previousTask = document.createElement('li');
-    previousTask = selectedTask.previousElementSibling;
-    taskList.insertBefore(selectedTask, previousTask);
+    taskList.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
 }
 
 // Esta função move uma tarefa selecionada uma posição para baixo
 function moveTaskDown() {
   if (selectedTask !== null && selectedTask.nextElementSibling !== null) {
-    let nextTask = document.createElement('li');
-    nextTask = selectedTask.nextElementSibling;
-    taskList.insertBefore(nextTask, selectedTask);
+    taskList.insertBefore(selectedTask.nextElementSibling, selectedTask);
   }
 }
 
