@@ -37,3 +37,20 @@ function alterarCorFundoDoItem(){
 }
 
 alterarCorFundoDoItem();
+
+function botaoApagaTudo(){
+  const clearButton = document.createElement('button');
+  clearButton.id="apaga-tudo";
+  clearButton.innerHTML = 'Apagar Tudo';
+  const localizacaoButton = document.querySelector('section');
+  
+  localizacaoButton.appendChild(clearButton);
+  clearButton.addEventListener('click', function(){
+  const listaDeTarefas = document.querySelectorAll('li');
+    for(let index =0; index < listaDeTarefas.length; index += 1){
+      listaDeTarefas[index].remove();
+    }
+  });
+}
+
+botaoApagaTudo();
