@@ -37,6 +37,6 @@ li {
   margin-right: 75%;
 }
 
-.completed{
-text-decoration: line-through solid black;
+.completed {
+  text-decoration: line-through solid black;
 }
