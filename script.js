@@ -8,6 +8,10 @@ const toDoList = document.getElementById('lista-tarefas');
 
 const listItens = document.getElementsByTagName('li');
 
+const clearTasksDone = document.getElementById('remover-finalizados');
+
+clearTasksDone.innerText = 'Clear Tasks Done';
+
 function deleteSelectClass() {
   for (let index = 0; index < listItens.length; index += 1) {
     listItens[index].classList.remove('selected');
@@ -41,9 +45,8 @@ function addCompletedClass(e) {
 }
 
 function clearListTask() {
-  for (let index = 0; index < listItens.length; index += 1) {
-    console.log(toDoList);
-    toDoList.removeChildren();
+  for (let index = 0; index < listItens.length; index) {
+    toDoList.removeChild(toDoList.firstElementChild);
   }
 }
 
@@ -62,3 +65,17 @@ createTaskBtn.addEventListener('click', addTaskToList);
 const clearList = document.getElementById('apaga-tudo');
 clearList.innerText = 'clear all tasks';
 clearList.addEventListener('click', clearListTask);
+
+function clearingTasksDone() {
+  let arrayTaskDone = [];
+  for (let index = 0; index < listItens.length; index += 1) {
+    if (listItens[index].hasAttribute('completed')) {
+      arrayTaskDone.push(index);
+    }
+  }
+  for (let index = 0; index < arrayTaskDone.length; index += 1) {
+    toDoList.removeChild(listItens[arrayTaskDone[index]]);
+  }
+}
+
+clearTasksDone.addEventListener('click', clearingTasksDone);
