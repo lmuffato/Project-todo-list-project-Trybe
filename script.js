@@ -49,7 +49,7 @@ buttonCreate.addEventListener('click', () => {
   });
   buttonEraseSelected.addEventListener('click', () => {
     const list = document.getElementById('selected');
-    olItem.removeChild(list);
+    list.remove();
   });
   addInput.focus();
 });
