@@ -6,9 +6,9 @@ document.getElementById('criar-tarefa').addEventListener('click', () => {
   document.getElementById('lista-tarefas').appendChild(li);
   document.getElementById('texto-tarefa').value = '';
 
-  li.addEventListener('click', function (event) {
-    let taskItem = document.getElementById('lista-tarefas').childNodes;
-    let taskColor = event.target;
+  li.addEventListener('click', (event) => {
+    const taskItem = document.getElementById('lista-tarefas').childNodes;
+    const taskColor = event.target;
     for (let index = 0; index < taskItem.length; index += 1) {
       if (taskItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
         taskItem[index].style.backgroundColor = 'white';
