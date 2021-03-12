@@ -2,10 +2,9 @@
   background-color:rgb(128, 128, 128)
 }
 
-.tarefa {
-  background-color: white;
-}
-
 .completed {
   text-decoration: line-through;
+}
+#criar-tarefa{
+  display: inline;
 }

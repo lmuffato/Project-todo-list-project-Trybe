@@ -6,10 +6,9 @@ function clearInput() {
 function clearBackgroundColor() {
   const itemSelected = document.querySelector('.selected');
   itemSelected.classList.remove('selected');
-  itemSelected.classList.add('tarefa');
+ 
 }
 function itemCheck() {
-  console.log('entrou');
   const list = document.querySelector('#lista-tarefas');
   list.addEventListener('dblclick', (event) => {
     const e = event.target;
@@ -36,15 +35,23 @@ function createListItem() {
         clearBackgroundColor();
       }
       e.classList.add('selected');
-      e.classList.remove('tarefa');
     });
   });
 }
-
+function clearButton() {
+  const btn = document.getElementById('apaga-tudo');
+  btn.addEventListener('click', () => {
+    const list = document.getElementById('lista-tarefas');
+    while (list.lastElementChild) {
+      list.removeChild(list.lastElementChild);
+     }
+  });
+}
 window.onload = () => { 
   createListItem();
   clearInput();
   if (document.getElementsByClassName('tarefa'.length >= 1)) {
     itemCheck();
+    clearButton();
   }
 };
