@@ -7,3 +7,7 @@
 #lista-tarefas {}
 
 #criar-tarefa {}
+
+.add-background {
+  background: rgb(128, 128, 128);
+}
