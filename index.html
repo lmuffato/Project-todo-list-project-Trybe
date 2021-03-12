@@ -8,12 +8,15 @@
 </head>
 <body>
     <header><h1>Minha Lista de Tarefas</h1></header>
-    <p id="funcionamento"><h2>Clique duas vezes em um item para marcá-lo como completo</h2></p>
+    <h2>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </h2>
     <input type="text" id="texto-tarefa">
-    <input type="button" name="" value="Adicionar">
+    <button type="button" onclick="addTask()" id="criar-tarefa">Adicionar</button>
     <ol id="lista-tarefas"></ol>
     <input type="button" name="" value="Apagar" id="apaga-tudo">
     <input type="button" name="" value="Remover Finalizados" id="remover-finalizados">
-    
+    <input type="button" name="" value="Salvar Tarefas" id="salvar-tarefas">
+<script src="script.js"></script>
 </body>
 </html>
