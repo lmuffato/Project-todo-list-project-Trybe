@@ -2,10 +2,12 @@ const buttonCreate = document.querySelector('#criar-tarefa');
 const addInput = document.querySelector('#texto-tarefa');
 const olItem = document.querySelector('#lista-tarefas');
 const buttonErase = document.querySelector('#apaga-tudo');
+const buttonEraseCompleted = document.querySelector('#remover-finalizados');
 
 buttonCreate.addEventListener('click', () => {
   const liItem = document.createElement('li');
   liItem.innerText = addInput.value;
+  
   liItem.addEventListener('click', (event) => {
     const selectedItem = document.querySelector('#selected');
     if (selectedItem) {
@@ -14,6 +16,7 @@ buttonCreate.addEventListener('click', () => {
     const gray = event.target;
     gray.id = 'selected';
   });
+  
   olItem.appendChild(liItem);
   addInput.value = '';
 
@@ -31,4 +34,15 @@ buttonCreate.addEventListener('click', () => {
   buttonErase.addEventListener('click', () => {
     olItem.removeChild(liItem);
   });
+
+  buttonEraseCompleted.addEventListener('click', () => {
+    const list = document.querySelectorAll('#lista-tarefas li');
+    
+    for (let index = 0; index < list.length; index +=1) {
+      if (list[index].className === 'completed') {
+        olItem.removeChild(list[index]);
+      }
+    }
+  });
+
 });
