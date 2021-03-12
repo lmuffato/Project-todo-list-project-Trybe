@@ -3,6 +3,7 @@ const btnMoveUp = document.getElementById('mover-cima');
 const btnMoveDown = document.getElementById('mover-baixo');
 const btnClearTasks = document.getElementById('apaga-tudo');
 const btnRemoveCompletedTasks = document.getElementById('remover-finalizados');
+const btnRemoveSelected = document.getElementById('remover-selecionado');
 const btnSaveTasks = document.getElementById('salvar-tarefas');
 const inputTasks = document.getElementById('texto-tarefa');
 const listOfTasks = document.getElementById('lista-tarefas');
@@ -114,6 +115,11 @@ function moveDown() {
   }
 }
 
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  listOfTasks.removeChild(selected);
+}
+
 window.onload = getSavedTasks;
 
 btnAddTask.addEventListener('click', addsTaskToList);
@@ -122,3 +128,4 @@ btnRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
 btnSaveTasks.addEventListener('click', saveTasks);
 btnMoveUp.addEventListener('click', moveUp);
 btnMoveDown.addEventListener('click', moveDown);
+btnRemoveSelected.addEventListener('click', removeSelected);
