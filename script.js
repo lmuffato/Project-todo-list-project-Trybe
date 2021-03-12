@@ -1,11 +1,42 @@
-// Requirement 9;
+const selectButton = document.querySelector('#salvar-tarefas');
+const selectOl = document.querySelector('#lista-tarefas');
 
+// Requirement 13;
+
+function moveUp() {
+  const arrayList = document.querySelectorAll('li');
+  // const ArrayList = document.querySelector('ol');
+  for (let index = 0; index < arrayList.length; index += 1) {
+    if (arrayList[index].className === 'selected') {
+      const pos1 = arrayList[index].innerHTML; // pega posição atual em que o indice esta
+      const pos2 = arrayList[index - 1].innerHTML;
+
+      arrayList[index].innerHTML = pos2;
+      arrayList[index - 1].innerHTML = pos1;
+      arrayList[index - 1].classList.add('selected');
+      arrayList[index].classList.remove('selected');
+    }
+  }
+}
+
+function addEventClickButtonUp() {
+  const selectButtonUp = document.querySelector('#mover-cima');
+  selectButtonUp.addEventListener('click', moveUp);
+}
+addEventClickButtonUp();
+
+// function addEventClickButtonDown() {
+//   const selectButtonDown = document.querySelector('#mover-baixo');
+// }
+
+// Requirement 9;
+const twoClass = 'completed selected';
 function taskCompleted() {
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
     if (selectLis[index].className === 'selected') {
       selectLis[index].classList.add('completed');
-    } else if (selectLis[index].className === 'completed selected') {
+    } else if (selectLis[index].className === twoClass) {
       selectLis[index].classList.remove('completed');
     }
   }
@@ -18,13 +49,33 @@ function changeBackgroundColor(Event) {
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
     if (selectLis[index].className === 'selected'
-    || selectLis[index].className === 'selected completed'
-    || selectLis[index].className === 'completed selected') {
+      || selectLis[index].className === 'selected completed'
+      || selectLis[index].className === twoClass) {
       selectLis[index].classList.remove('selected');
     }
   }
   task.classList.add('selected');
 }
+
+function savePage() {
+  localStorage.setItem('Lis', selectOl.innerHTML);
+}
+
+function clikButtonSaveTasks() {
+  selectButton.addEventListener('click', savePage);
+}
+
+function getItemsPage() {
+  const getLi = localStorage.getItem('Lis');
+  selectOl.innerHTML = getLi;
+  const selectLis = document.querySelectorAll('li');
+  for (let index = 0; index < selectLis.length; index += 1) {
+    selectLis[index].addEventListener('click', changeBackgroundColor);
+    selectLis[index].addEventListener('dblclick', taskCompleted);
+  }
+}
+getItemsPage();
+clikButtonSaveTasks();
 
 // Requirement 5, 6;
 
@@ -40,8 +91,8 @@ function addTask() {
 }
 
 function createTask() {
-  const selectButton = document.querySelector('#criar-tarefa');
-  selectButton.addEventListener('click', addTask);
+  const selectButtonCreate = document.querySelector('#criar-tarefa');
+  selectButtonCreate.addEventListener('click', addTask);
 }
 
 createTask();
@@ -56,8 +107,8 @@ function removeTask() {
 }
 
 function clickButtonClearTasks() {
-  const selectButton = document.querySelector('#apaga-tudo');
-  selectButton.addEventListener('click', removeTask);
+  const selectButtonClear = document.querySelector('#apaga-tudo');
+  selectButtonClear.addEventListener('click', removeTask);
 }
 clickButtonClearTasks();
 
@@ -67,15 +118,15 @@ function removeTasksAccomplished() {
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
     if (selectLis[index].className === 'completed'
-    || selectLis[index].className === 'selected completed'
-    || selectLis[index].className === 'completed selected') {
+      || selectLis[index].className === 'selected completed'
+      || selectLis[index].className === twoClass) {
       selectLis[index].remove('li');
     }
   }
 }
 
 function clickButtonClearTasksAccomplished() {
-  const selectButton = document.querySelector('#remover-finalizados');
-  selectButton.addEventListener('click', removeTasksAccomplished);
+  const selectButtonClear = document.querySelector('#remover-finalizados');
+  selectButtonClear.addEventListener('click', removeTasksAccomplished);
 }
 clickButtonClearTasksAccomplished();
