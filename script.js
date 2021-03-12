@@ -21,11 +21,12 @@ buttonInsertItem.addEventListener('click', () => {
   inputList.value = '';
 });
 
+// Requisito 10
 buttonClear.addEventListener('click', () => {
   taskList.innerHTML = '';
 });
 
-// requisito 7
+// requisito 7 e requisito 8
 function selectItem() {
   const listClick = document.getElementsByTagName('ol')[0];
   const listItens = document.getElementsByTagName('li');
@@ -40,3 +41,17 @@ function selectItem() {
   });
 }
 selectItem();
+
+// Requisito 9
+// ajuda do Lucas Godoi - turma 10 - tribo A
+function markTasksDone() {
+  taskList.addEventListener('dblclick', (event) => {
+    const eventItem = event.target;
+    if (eventItem.classList.contains('completed')) {
+      eventItem.classList.remove('completed');
+    } else {
+      eventItem.classList.add('completed');
+    }
+  });
+}
+markTasksDone();
