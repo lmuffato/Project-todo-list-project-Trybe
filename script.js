@@ -1,4 +1,5 @@
 window.onload = function (){
+    
     // Pega o clique do botão 
     let btn = document.getElementById("criar-tarefa");
     // cria a variável que irá receber o texto do input
@@ -18,6 +19,23 @@ window.onload = function (){
         cont += 1;
         document.getElementById('texto-tarefa').value = '';
     });
-}
+
+    function mouseDown() {
+        document.getElementsByTagName("li").style.color = "green";
+      }
+      
+
+    /* let listClick = document.getElementsByTagName('li');
+    for (let index = 0; index < cont.length; index += 1) {
+        let clickOnList = listClick[index]
+        clickOnList.addEventListener('click', function()
+        {
+           clickOnList.style.backgroundColor = 'rgb(128, 128, 128)';
+        })    
+    } */
+
+} 
+
+
 
 

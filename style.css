@@ -1,3 +1,5 @@
 body { 
     width: 1366px; height: 768px; 
 }
+
+#lista-tarefas li:active {background-color: rgb(128, 128, 128);}
