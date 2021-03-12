@@ -1,3 +1,5 @@
+// Este site pode ser visto rodando na url https://rogerio-lambert.github.io/javaScript-DOM/todo/toDoList.htlm
+
 // Bloco de inicialização de variáveis globais
 
 const addTaskButton = document.getElementById('criar-tarefa');
