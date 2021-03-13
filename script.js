@@ -16,11 +16,10 @@ addTask();
 
 function grayLi() {
   listTask.addEventListener('click', (event) => {
-    for (let index; index < listTask.children[index]; index += 0) {
-      listTask.children[index].style.background = '';
+    for (let index = 0; index < listTask.children.length; index += 1) {
+      listTask.children[index].style.backgroundColor = '';
     }
     event.target.style.background = 'rgb(128, 128, 128)';
   });
 }
-
 grayLi();
