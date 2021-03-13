@@ -48,11 +48,11 @@ function clearAll() {
 }
 clearAllButton.addEventListener('click', clearAll);
 
+// função realizada com a ajuda do Patrik Morais!
 function clearTaskCompleted() {
-  for (let index = 0; index < itens.length; index += 1) {
-    if (itens[index].className.includes('completed')) {
-      taskList.removeChild(itens[index]);
-    }
+  const intensCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < intensCompleted.length; index += 1) {
+    taskList.removeChild(intensCompleted[index]);
   }
 }
 clearCompletedButton.addEventListener('click', clearTaskCompleted);

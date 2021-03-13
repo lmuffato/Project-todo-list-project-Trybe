@@ -5,3 +5,28 @@
 .completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+body {
+  background-image: url("plano\ de\ fundo.jpg");
+  background-size: 10%;
+}
+
+main {
+  background-color: rgb(110, 86, 126);
+  width: 500px;
+  margin: 40px auto;
+  padding: 10px;
+  border: blueviolet solid 5px;
+  border-radius: 8%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30pt;
+  color: rgb(168, 168, 168);
+}
+
+p {
+  font-size: 15pt;
+  color: rgb(168, 168, 168);
+}
