@@ -1,3 +1,5 @@
+const listStored = localStorage.getItem('list');
+
 const textBox = document.getElementById('texto-tarefa');
 
 const createTaskBtn = document.getElementById('criar-tarefa');
