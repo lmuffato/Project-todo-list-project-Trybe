@@ -1,6 +1,7 @@
 const creatTaskButton = document.querySelector('#criar-tarefa');
 const task = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const itens = document.getElementsByClassName('list-item');
 
 function creatTask() {
   const list = document.createElement('li');
@@ -13,7 +14,6 @@ creatTaskButton.addEventListener('click', creatTask);
 
 // função realizada com a ajuda do Mauricio Viegas!
 function addBackgroundColor() {
-  const itens = document.getElementsByClassName('list-item');
   taskList.addEventListener('click', (event) => {
     const backgroundColor = event.target;
     for (let index = 0; index < itens.length; index += 1) {
@@ -25,3 +25,17 @@ function addBackgroundColor() {
   });
 }
 addBackgroundColor();
+
+function taskCompleted() {
+  taskList.addEventListener('dblclick', (event) => {
+    const completTask = event.target;
+    if (completTask.className.includes('completed')) {
+      completTask.classList.remove('completed');
+      completTask.classList.remove('selected');
+    } else {
+      completTask.classList.remove('selected');
+      completTask.classList.add('completed');
+    }
+  });
+}
+taskCompleted();
