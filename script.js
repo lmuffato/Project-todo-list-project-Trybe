@@ -6,9 +6,9 @@ function pressbutton() {
   const inputValue = (input.value);
   const divLi = document.createElement('li');
   divLi.innerText = inputValue;
-	divLi.style.backgroundColor = 'rgb(128, 128, 128)';
+  divLi.style.backgroundColor = 'rgb(128, 128, 128)';
   elementOl.appendChild(divLi);
-	input.value = '';
+  input.value = '';
 }
 
 button.addEventListener('click', pressbutton);
