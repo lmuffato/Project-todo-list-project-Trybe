@@ -1,3 +1,7 @@
 body {
-  background-color: deepskyblue;    
+  background-color: deepskyblue;
+}
+
+.color {
+  background-color: rgb(128,128,128);
 }
