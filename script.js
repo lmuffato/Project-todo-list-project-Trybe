@@ -3,6 +3,7 @@ const task = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const itens = document.getElementsByClassName('list-item');
 const clearAllButton = document.getElementById('apaga-tudo');
+const clearCompletedButton = document.getElementById('remover-finalizados');
 
 function creatTask() {
   const list = document.createElement('li');
@@ -45,3 +46,12 @@ function clearAll() {
   taskList.innerHTML = '';
 }
 clearAllButton.addEventListener('click', clearAll);
+
+function clearTaskCompleted() {
+  for (let index = 0; index < itens.length; index += 1) {
+    if (itens[index].className.includes('completed')) {
+      taskList.removeChild(itens[index]);
+    }
+  }
+}
+clearCompletedButton.addEventListener('click', clearTaskCompleted);
