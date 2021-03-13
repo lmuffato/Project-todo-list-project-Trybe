@@ -4,6 +4,7 @@ const taskList = document.querySelector('#lista-tarefas');
 const itens = document.getElementsByClassName('list-item');
 const clearAllButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
+const clearSelectedButton = document.getElementById('remover-selecionado');
 
 function creatTask() {
   const list = document.createElement('li');
@@ -55,3 +56,13 @@ function clearTaskCompleted() {
   }
 }
 clearCompletedButton.addEventListener('click', clearTaskCompleted);
+
+// quesito 14
+function clearTaskSelected() {
+  for (let index = 0; index < itens.length; index += 1) {
+    if (itens[index].className.includes('selected')) {
+      taskList.removeChild(itens[index]);
+    }
+  }
+}
+clearSelectedButton.addEventListener('click', clearTaskSelected);
