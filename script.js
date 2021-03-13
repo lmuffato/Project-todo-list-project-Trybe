@@ -64,18 +64,22 @@ function salveTasks() {
 function moveUp() {
   taskItem = listTasks.children;
   const taskSelected = document.querySelector('.selected');
-  const taskPre = taskSelected.previousElementSibling;
-  if (listTasks.firstChild !== taskSelected) {
-    taskSelected.parentNode.insertBefore(taskSelected, taskPre);
+  if (taskSelected !== null) {
+    const taskPre = taskSelected.previousElementSibling;
+    if (listTasks.firstChild !== taskSelected) {
+      taskSelected.parentNode.insertBefore(taskSelected, taskPre);
+    }
   }
 }
 
 function moveDown() {
   taskItem = listTasks.children;
   const taskSelected = document.querySelector('.selected');
-  const taskNext = taskSelected.nextElementSibling;
-  if (listTasks.lastChild !== taskSelected) {
-    taskNext.parentNode.insertBefore(taskNext, taskSelected);
+  if (taskSelected !== null) {
+    const taskNext = taskSelected.nextElementSibling;
+    if (listTasks.lastChild !== taskSelected) {
+      taskNext.parentNode.insertBefore(taskNext, taskSelected);
+    }
   }
 }
 
