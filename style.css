@@ -9,6 +9,10 @@
   text-decoration: line-through solid rgb(0 0 0);
 }
 
+#container-buttons {
+  margin-top: 25px;
+}
+
 #funcionamento {
   font-style: italic;
   opacity: 0.5;

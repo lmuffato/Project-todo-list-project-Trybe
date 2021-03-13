@@ -26,7 +26,8 @@ function changingBackgroundGreen(event) {
 
 function eventchangeBackgroundGreen() {
   const getIDTarefaLista = document.getElementById('lista-tarefas');
-  getIDTarefaLista.addEventListener('click', changingBackgroundGreen);
+  const getTarefa = getIDTarefaLista;
+  getTarefa.addEventListener('click', changingBackgroundGreen);
 }
 
 // Requisito 8
@@ -66,3 +67,20 @@ function eventSetLineTrough() {
 }
 
 eventSetLineTrough();
+
+// Requisito 10
+// http://devfuria.com.br/javascript/dom-remove-child/
+function excludingAllList() {
+  const lista = document.getElementById('lista-tarefas');
+  const itens = lista.getElementsByClassName('item');
+
+  for (let index = 0; index < itens.length; index += 1) {
+    lista.removeChild(itens[index]);
+  }
+}
+
+function eventExcludingAllList() {
+  const getApagaTudo = document.getElementById('apaga-tudo');
+  getApagaTudo.addEventListener('click',excludingAllList);
+}
+eventExcludingAllList();
