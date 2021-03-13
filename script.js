@@ -8,30 +8,9 @@ function buttonCreateTaks() {
         listHeader.appendChild(itemList);
         document.getElementById('texto-tarefa').value = ''; 
       }
-      /* changeColorItems(); */
-      cleanItems();
-      killerChecked();
-      colorItem();
-    });
-  
+      cleanCompletedTasks();
+    });  
 }
-
-buttonCreateTaks();
-completedTasks();
-
-/* function changeColorItems() {
-  let itemLi = document.getElementsByTagName('li');
-
-  for (let index = 0; index < itemLi.length; index += 1) {
-    itemLi[index].addEventListener('click', paintBrush);
-    function paintBrush(event) {
-      for (index = 0; index < itemLi.length; index += 1) {
-        itemLi[index].style.backgroundColor = '';
-      }
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
-    }
-  }
-} */
 
 function completedTasks() {
   let myList = document.getElementById('lista-tarefas');
@@ -45,30 +24,31 @@ function completedTasks() {
   });
 }
 
-function cleanItems() {
-  let buttonClean = document.getElementById('apaga-tudo');
-  let list = document.getElementsByTagName('li');
+function cleanAllTasks() {
 
-  buttonClean.addEventListener('click', limpar);
+  let listHeader = document.getElementById('lista-tarefas');
+  let btnClean = document.getElementById('apaga-tudo');
 
-  function limpar() {
-    for (let index = 0; index < list.length; index += 1) {
-      list[index].remove();
+  btnClean.addEventListener('click', ()=>{
+    while (listHeader.lastElementChild) {
+      listHeader.removeChild(listHeader.lastElementChild);
     }
-  }
+  });
 }
 
-function killerChecked() {
-  let btnRemoveEnded = document.getElementById('remover-finalizados');
-  let list = document.getElementsByTagName('li');
-
-  btnRemoveEnded.addEventListener('click', ()=>{
-    for (let index = 0; index < list.length; index += 1) {
-      if (list[index].classList.contains('completed')) {
-        list[index].remove();
+function cleanCompletedTasks() {
+  let listItems = document.getElementsByTagName('li');
+  let buttonClearCompleted = document.getElementById('remover-finalizados');
+  buttonClearCompleted.addEventListener('click', ()=>{
+    
+    for (let index = 0; index < listItems.length; index += 1) {
+      if (listItems[index].classList.contains('completed')) {
+        listItems[index].remove();
       }
     }
   });
+
+
 }
 
 function colorItem() {
@@ -84,8 +64,16 @@ function colorItem() {
     }
           
   });
-
 }
+
+buttonCreateTaks();
+completedTasks();
+cleanAllTasks();
+colorItem();
+
+
+
+
 
 
 
