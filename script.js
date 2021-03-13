@@ -5,16 +5,18 @@ const btnSalveTask = document.getElementById('salvar-tarefas');
 const listTasks = document.getElementById('lista-tarefas');
 const inputValue = document.getElementById('texto-tarefa');
 const completedTask = document.getElementsByClassName('completed');
+const btnMoveUp = document.getElementById('mover-cima');
+const btnMoveDown = document.getElementById('mover-baixo');
 let taskItem = document.querySelectorAll('.task');
 
 function selectedTask() {
   listTasks.addEventListener('click', (e) => {
     const task = e.target;
     const taskSelected = document.querySelector('.selected');
-    task.classList.add('selected');
     if (taskSelected !== null) {
       taskSelected.classList.remove('selected');
     }
+    task.classList.add('selected');
   });
 }
 
@@ -50,30 +52,44 @@ function createTask() {
     li.innerHTML = inputValue.value;
     inputValue.value = '';
   }
-  taskItem = document.querySelectorAll('.task');
 }
+
+function salveTasks() {
+// for (let i = 0; i < taskItem.length; i += 1) {
+  //   localStorage.setItem(`lista ${i}`, taskItem[i].outerHTML);
+  // }
+  localStorage.setItem('lista', listTasks.innerHTML);
+}
+
+function moveUp() {
+  taskItem = listTasks.children;
+  const taskSelected = document.querySelector('.selected');
+  const taskPre = taskSelected.previousElementSibling;
+  if (listTasks.firstChild !== taskSelected) {
+    taskSelected.parentNode.insertBefore(taskSelected, taskPre);
+  }
+}
+
+function moveDown() {
+  taskItem = listTasks.children;
+  const taskSelected = document.querySelector('.selected');
+  const taskNext = taskSelected.nextElementSibling;
+  if (listTasks.lastChild !== taskSelected) {
+    taskNext.parentNode.insertBefore(taskNext, taskSelected);
+  }
+}
+
+btnCriarTarefa.addEventListener('click', createTask);
+btnClearCompleted.addEventListener('click', clearCompletedTask);
+btnClearList.addEventListener('click', clearList);
+btnSalveTask.addEventListener('click', salveTasks);
+btnMoveUp.addEventListener('click', moveUp);
+btnMoveDown.addEventListener('click', moveDown);
 
 window.onload = () => {
   createTask();
   selectedTask();
-};
-
-dblClickTask();
-btnCriarTarefa.addEventListener('click', createTask);
-
-function salveTasks() {
-  // for (let i = 0; i < taskItem.length; i += 1) {
-  //   localStorage.setItem(`lista ${i}`, taskItem[i].outerHTML);
-  // }
-
-  localStorage.setItem('lista', listTasks.innerHTML);
-}
-
-btnClearCompleted.addEventListener('click', clearCompletedTask);
-btnClearList.addEventListener('click', clearList);
-btnSalveTask.addEventListener('click', salveTasks);
-
-window.onload = () => {
+  dblClickTask();
   // for (let i = 0; i < localStorage.length; i += 1) {
   //   listTasks.innerHTML += localStorage.getItem(`lista ${i}`);
   // }
