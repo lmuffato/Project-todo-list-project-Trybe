@@ -59,6 +59,21 @@ function colorItem() {
   });
 }
 
+function removeSelected() {
+  const btnRemoveSelected = document.getElementById('remover-selecionado');
+  const itemList = document.getElementsByTagName('li');
+
+  btnRemoveSelected.addEventListener('click', () => {
+    for (let index = 0; index < itemList.length; index += 1) {
+      if (itemList[index].classList.contains('selected')) {
+        itemList[index].remove();
+        break;
+      }
+    }
+  });
+}
+
+removeSelected();
 buttonCreateTaks();
 completedTasks();
 cleanAllTasks();
