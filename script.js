@@ -1,5 +1,3 @@
-const listStored = localStorage.getItem('list');
-
 const textBox = document.getElementById('texto-tarefa');
 
 const createTaskBtn = document.getElementById('criar-tarefa');
@@ -96,9 +94,12 @@ function saveAllTasks() {
 
 saveTasksBtn.addEventListener('click', saveAllTasks);
 
-if (listStored.length !== 0) {
+if (listStored !== null && listStored.length !== 0) {
   for (let index = 0; index < listStored.length; index += 1) {
-    document.createElement('li');
-
+    const task = document.createElement('li');
+    task.innerHTML = listStored[index].innerText;
+    task.classList = listStored[index].classList;
+    task.id = listStored[index].id;
+    toDoList.appendChild(task);
   }
 }
