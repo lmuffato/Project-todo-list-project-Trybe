@@ -5,3 +5,10 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+.emoji {
+  font-size: 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
