@@ -1,6 +1,7 @@
-// window.onload = () => {
-
-// };
+window.onload = () => {
+  apagaTarefas();
+  clearTarefas();
+};
 
 const btnAdicionarTarefa = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
@@ -25,7 +26,6 @@ addListInput();
 
 // Função responsavel por riscar um elemento da lista
 function listCompleted(list) {
-  const arrayList = document.getElementById('lista-tarefas').childNodes
   list.addEventListener('dblclick', (event) => {
     if(event.target.classList.contains('completed')) {
       event.target.classList.remove('completed')
@@ -41,21 +41,18 @@ function clearTarefas() {
     listOrdenada.innerHTML = '';
   });
 }
-clearTarefas();
 
 // Função responsavel para apagar tarefas selecionadas;
 function apagaTarefas() {
   const btnRemoveTarefa = document.getElementById('remover-finalizados');
-  btnRemoveTarefa.addEventListener('click', (event) => {
-    const arrayList = document.getElementById('lista-tarefas').childNodes;
-    for (let index = 0; index < arrayList.length; index += 1) {
-      if (event.target.classList.contains('completed')) {
-        listOrdenada.appendChild(arrayList[index])
-      }
+  const listCompleted = document.getElementsByClassName('completed')
+  btnRemoveTarefa.addEventListener('click', () => {
+    for (let index = 0; index < listCompleted.length; index += 1) {
+      console.log(listCompleted);
+      listCompleted[index].remove();
     }
   });
 }
-apagaTarefas();
 
 // Função para adicionar um click na lista rgb(128,128,128);
 function selectColor(list) {
@@ -68,10 +65,7 @@ function selectColor(list) {
   });
 }
 
-
-
 // Função responsavel para limpar o input;
 function clearInput() {
   inputText.value = '';
 }
-clearInput()
