@@ -8,8 +8,6 @@ function pressbutton() {
   divLi.innerText = inputValue;
 	divLi.style.backgroundColor = 'rgb(128, 128, 128)';
   elementOl.appendChild(divLi);
-  
-	
 	input.value = '';
 }
 
