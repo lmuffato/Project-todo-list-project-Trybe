@@ -3,10 +3,13 @@
 }
 
 #lista-tarefas {
-  width: fit-content;
-  background-color: white;
+  list-style-position: inside;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+body {
+  text-align: center;
 }

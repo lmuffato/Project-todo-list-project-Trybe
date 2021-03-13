@@ -9,6 +9,18 @@ maker.addEventListener('click', () => { // function newTask
   task.value = '';
 });
 
+/* const tasks = document.querySelectorAll('.task');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].addEventListener('click' (element) => {
+      const remove = document.querySelector('.bkGray');
+  if (remove === null) {
+    element.target.classList.add('bkGray');
+  } else {
+    remove.classList.remove('bkGray');
+    element.target.classList.add('bkGray');
+  }
+    });
+  }; */
 const theList = document.querySelector('#lista-tarefas');
 theList.addEventListener('click', (element) => { //  function mark
   const remove = document.querySelector('.bkGray');
@@ -74,11 +86,11 @@ upArrow.addEventListener('click', () => {
 
 const downArrow = document.querySelector('#mover-baixo');
 downArrow.addEventListener('click', () => {
-  const toDown = document.querySelector('.bkGray').nextElementSibling;
-  if (toDown === null) {
+  const toDown = document.querySelector('.bkGray');
+  if (toDown.nextElementSibling === null) {
     alert('Esta tárefa já está como ultima!');
   } else {
-    theList.insertBefore(toDown, toDown.previousElementSibling);
+    theList.insertBefore(toDown.nextElementSibling, toDown);
   }
 });
 
