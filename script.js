@@ -84,21 +84,19 @@ removeFinished();
 
 function saveitens() {
   const button = document.querySelector('#salvar-tarefas');
-  const lista = document.querySelector('#lista-tarefas');
   button.addEventListener('click', () => {
-    localStorage.setItem('lista', lista.innerHTML);
+    localStorage.setItem('lista', listPai.innerHTML);
   });
 }
 saveitens();
 
-function gravaItens(){
-  const lista = document.querySelector('#lista-tarefas');
-   const getItem = localStorage.getItem('lista');
-   if(getItem === null){
-    console.log('Você não salvou nada amigo!')
-   }else{
-     lista.innerHTML = getItem;
-   }
+function gravaItens() {
+  const getItem = localStorage.getItem('lista');
+  if (getItem === null) {
+    console.log('Você não salvou nada amigo!');
+  } else {
+    listPai.innerHTML = getItem;
+  }
 }
 
 gravaItens();
