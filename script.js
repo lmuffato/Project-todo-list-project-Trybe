@@ -74,7 +74,7 @@ function excludingAllList() {
   const lista = document.getElementById('lista-tarefas');
   while (lista.firstChild) {
     lista.removeChild(lista.firstChild);
-  } 
+  }
 }
 
 function eventExcludingAllList() {
