@@ -92,6 +92,9 @@ function saveList() {
         indice: index,
         value: tasks[index].textContent,
       };
+      if(tasks[index].className != ""){
+        task.class=tasks[index].className
+      }
       taskSaved.push(task);
     }
     localStorage.setItem('list', JSON.stringify(taskSaved));
@@ -104,6 +107,12 @@ function getList() {
     for (let index = 0; index < lists.length; index+=1) {
       let listItemRequested = document.createElement('li');
       listItemRequested.innerText = lists[index].value;
+      let listsClass = lists[index].class;
+      if(listsClass != undefined){
+        if(listsClass.includes("completed")==true){
+        listItemRequested.classList.add("completed");
+        }
+      }
       taskList.appendChild(listItemRequested);
     }
   }
