@@ -8,9 +8,24 @@ function selectedTask() {
     task.addEventListener('click', () => {
       for (let i = 0; i < taskItem.length; i += 1) {
         taskItem[i].classList.remove('selected');
+        taskItem[i].style.backgroundColor = null;
       }
-      taskItem[index].className = 'task selected';
+      taskItem[index].classList.add('selected');
+      const taskSelected = document.getElementsByClassName('selected');
+      taskSelected[0].style.backgroundColor = 'rgb(128 , 128 , 128)';
     });
+  });
+}
+
+function dblClickTask() {
+  listTasks.addEventListener('dblclick', (e) => {
+    const task = e.target;
+    task.classList.toggle('completed');
+    if (task.classList.contains('completed')) {
+      task.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    } else {
+      task.style.textDecoration = null;
+    }
   });
 }
 
@@ -24,6 +39,7 @@ function createTask() {
     taskItem = document.querySelectorAll('.task');
   }
   selectedTask();
+  dblClickTask();
 }
 
 btnCriarTarefa.addEventListener('click', createTask);

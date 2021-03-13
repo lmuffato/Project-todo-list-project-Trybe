@@ -64,7 +64,3 @@ body {
 #texto-tarefa:focus , #criar-tarefa:focus {
   outline: none;
 }
-
-.selected {
-  background-color: rgb(128 , 128 , 128);
-}
