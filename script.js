@@ -37,7 +37,7 @@ function changingBackgroundWhite() {
   for (let index = 0; index < getClassItem.length; index += 1) {
     if (getClassItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       getClassItem[index].style.backgroundColor = 'white';
-    }
+    } 
   }
 }
 
@@ -47,3 +47,22 @@ function eventchangeBackgroundWhite() {
 }
 eventchangeBackgroundWhite();
 eventchangeBackgroundGreen();
+
+// Requisito 9
+// Exercício feito com a ajuda do código Lucas Andrade
+// Link: https://github.com/tryber/sd-010-a-project-todo-list/blob/a08087c599642b1c3dbe9e5f048fa6c5c403ff3b/script.js
+function setLineTrough(event) {
+  const eventTarget = event.target;
+  if (eventTarget.className === 'item') {
+    eventTarget.className = 'item completed';
+  } else {
+    eventTarget.className = 'item';
+  }
+}
+
+function eventSetLineTrough() {
+  const getListaTarefa = document.getElementById('lista-tarefas');
+  getListaTarefa.addEventListener('dblclick', setLineTrough);
+}
+
+eventSetLineTrough();
