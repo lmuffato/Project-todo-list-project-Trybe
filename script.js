@@ -25,7 +25,7 @@ function changingBackground(event) {
 }
 
 function eventchangeBackground() {
-  const getListaTarefa = document.getElementById('lista-tarefas');
-  getListaTarefa.addEventListener('click',changingBackground);
+const getListaTarefa = document.getElementById('lista-tarefas');
+getListaTarefa.addEventListener('click', changingBackground);
 }
 eventchangeBackground();
