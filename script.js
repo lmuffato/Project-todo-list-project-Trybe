@@ -15,6 +15,14 @@ function clickList(e) {
   e.target.style.setProperty('background', 'rgb(128,128,128)');
 }
 
+function doubleClick(e) {
+  if (e.target.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');    
+  }
+}
+
 function listText() {
   const makelist = document.getElementById('lista-tarefas');
   const pushList = document.createElement('li');
@@ -22,6 +30,7 @@ function listText() {
     pushList.innerHTML = list.data[index];
     makelist.appendChild(pushList);
     pushList.addEventListener('click', clickList);
+    pushList.addEventListener('dblclick', doubleClick);
   }
 }
 
