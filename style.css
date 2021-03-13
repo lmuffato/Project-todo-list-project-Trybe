@@ -50,3 +50,11 @@ div {
   background-color: rgb(75 , 182 , 214);
   cursor: pointer;
 }
+
+#salvar-tarefas {
+  border-radius: 5px;
+  background-color: rgb(75 , 182 , 214);
+  cursor: pointer;
+}
+
+

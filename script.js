@@ -80,3 +80,25 @@ function removeFinished() {
   });
 }
 removeFinished();
+// Requisito 12;
+
+function saveitens() {
+  const button = document.querySelector('#salvar-tarefas');
+  const lista = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', () => {
+    localStorage.setItem('lista', lista.innerHTML);
+  });
+}
+saveitens();
+
+function gravaItens(){
+  const lista = document.querySelector('#lista-tarefas');
+   const getItem = localStorage.getItem('lista');
+   if(getItem === null){
+    console.log('Você não salvou nada amigo!')
+   }else{
+     lista.innerHTML = getItem;
+   }
+}
+
+gravaItens();
