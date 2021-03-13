@@ -69,18 +69,16 @@ function eventSetLineTrough() {
 eventSetLineTrough();
 
 // Requisito 10
-// http://devfuria.com.br/javascript/dom-remove-child/
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/removeChild
 function excludingAllList() {
   const lista = document.getElementById('lista-tarefas');
-  const itens = lista.getElementsByClassName('item');
-
-  for (let index = 0; index < itens.length; index += 1) {
-    lista.removeChild(itens[index]);
-  }
+  while (lista.firstChild) {
+    lista.removeChild(lista.firstChild);
+  } 
 }
 
 function eventExcludingAllList() {
   const getApagaTudo = document.getElementById('apaga-tudo');
-  getApagaTudo.addEventListener('click',excludingAllList);
+  getApagaTudo.addEventListener('click', excludingAllList);
 }
 eventExcludingAllList();
