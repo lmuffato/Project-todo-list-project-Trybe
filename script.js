@@ -25,8 +25,8 @@ function changingBackgroundGreen(event) {
 }
 
 function eventchangeBackgroundGreen() {
-  const getListaTarefa = document.getElementById('lista-tarefas');
-  getListaTarefa.addEventListener('click', changingBackgroundGreen);
+  const getTarefaLista = document.getElementById('lista-tarefas');
+  getTarefaLista.addEventListener('click', changingBackgroundGreen);
 }
 
 // Requisito 8
@@ -37,7 +37,7 @@ function changingBackgroundWhite() {
   for (let index = 0; index < getClassItem.length; index += 1) {
     if (getClassItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       getClassItem[index].style.backgroundColor = 'white';
-    } 
+    }
   }
 }
 
