@@ -1,3 +1,5 @@
+const listStored = localStorage.getItem('list');
+
 const textBox = document.getElementById('texto-tarefa');
 
 const createTaskBtn = document.getElementById('criar-tarefa');
@@ -11,6 +13,8 @@ const listItens = document.getElementsByTagName('li');
 const clearTasksDone = document.getElementById('remover-finalizados');
 
 clearTasksDone.innerText = 'Clear Tasks Done';
+
+const saveTasksBtn = document.getElementById('salvar-tarefas');
 
 function deleteSelectClass() {
   for (let index = 0; index < listItens.length; index += 1) {
@@ -75,3 +79,26 @@ function clearingTasksDone() {
 }
 
 clearTasksDone.addEventListener('click', clearingTasksDone);
+
+function saveAllTasks() {
+  const tasks = document.getElementsByTagName('li');
+  const savedTasks = [];
+  for (let index = 0; index < tasks.length; index += 1) {
+    const objTasks = {
+      tag: 'li',
+      innerText: tasks[index].innerText,
+      classList: tasks[index].classList,
+      id: tasks[index].id,
+    };
+    savedTasks.push(objTasks);
+  }
+  localStorage.setItem('list', savedTasks);
+}
+
+saveTasksBtn.addEventListener('click', saveAllTasks);
+
+if (listStored.length !== 0) {
+  for (let index = 0; index < listStored.length; index += 1) {
+    toDoList.appendChild(listStored[index]);
+  }
+}
