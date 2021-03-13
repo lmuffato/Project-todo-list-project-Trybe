@@ -7,26 +7,43 @@
 body {
   width: 100%;
   height: 100vh;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  color: #fafafa;
+  padding: 10px 0;
 }
 
 header {
-  margin-bottom: 10px;
+  width: 70vw;
+  margin: auto;
+  text-align: center;
+  padding: 8px;
+  background-color: rgb(228, 91, 91);
+  border-radius: 10px 10px 0 0;
 }
 
 main {
+  width: 70vw;
+  margin: auto;
   padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  background-color: rgb(37, 158, 214);
+  border-radius: 0 0 10px 10px;
+
 }
 
 #texto-tarefa {
+  width: 25vw;
+  height: 25px;
   margin: 10px 0;
+  background: #FAFAFA;
+  box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  border: none;
+}
+
+#lista-tarefas {
+  margin: auto;
+  width: 25vw;
+  padding: 15px;
 }
 
 .selected {
@@ -52,6 +69,11 @@ main {
   background: rgb(117, 228, 117);
   cursor: pointer;
   margin-right: 5px;
+  transition: 0.2s;
+}
+
+.emoji-green:hover {
+  opacity: 0.8;
 }
 
 .button {
@@ -62,4 +84,11 @@ main {
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
+  background-color: rgb(233, 132, 137);
+  color: #fafafa;
+  transition: 0.2s;
+}
+
+.button:hover {
+  opacity: 0.9;
 }
