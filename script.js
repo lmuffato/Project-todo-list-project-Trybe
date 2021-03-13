@@ -3,12 +3,17 @@ const list = {
   lengthData: 0,
 };
 
+function clickList(e) {
+  e.target.style.setProperty('background', 'rgb(128,128,128)');
+}
+
 function listText() {
   const makelist = document.getElementById('lista-tarefas');
   const pushList = document.createElement('li');
   for (let index = 0; index < list.data.length; index += 1) {
     pushList.innerHTML = list.data[index];
     makelist.appendChild(pushList);
+    pushList.addEventListener('click', clickList);
   }
 }
 
