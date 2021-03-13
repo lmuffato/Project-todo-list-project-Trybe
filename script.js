@@ -8,7 +8,11 @@ const buttonInsertItem = document.getElementById('criar-tarefa');
 buttonInsertItem.innerText = 'Inserir';
 const buttonClear = document.getElementById('apaga-tudo');
 buttonClear.innerText = 'Apagar';
+const buttonClearCompleted = document.getElementById('remover-finalizados');
+buttonClearCompleted.innerText = 'Remover Finalizados';
 const inputList = document.getElementById('texto-tarefa');
+const listClick = document.getElementsByTagName('ol')[0];
+const listItens = document.getElementsByTagName('li');
 
 buttonInsertItem.addEventListener('click', () => {
   if (inputList.value === '') {
@@ -28,8 +32,6 @@ buttonClear.addEventListener('click', () => {
 
 // requisito 7 e requisito 8
 function selectItem() {
-  const listClick = document.getElementsByTagName('ol')[0];
-  const listItens = document.getElementsByTagName('li');
   listClick.addEventListener('click', (event) => {
     const clickEvent = event.target;
     for (let index = 0; index < listItens.length; index += 1) {
@@ -55,3 +57,15 @@ function markTasksDone() {
   });
 }
 markTasksDone();
+
+// requisito 11
+function removeCompleted() {
+  buttonClearCompleted.addEventListener('click', () => {
+    for (let index = 0; index < listItens.length; index += 1) {
+      if (listItens[index].classList.contains('completed')) {
+        listClick.removeChild(listItens[index]);
+      }
+    }
+  });
+}
+removeCompleted();
