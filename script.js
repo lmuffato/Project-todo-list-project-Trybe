@@ -1,3 +1,11 @@
+window.onload = function recoverData() {
+  const recoverTasks = JSON.parse(localStorage.getItem('currentTasks'));
+  for (let index = 0; index < recoverTasks.length; index += 1) {
+    const accessList = document.getElementById('lista-tarefas');
+    accessList.appendChild.innerHTML = recoverTasks[index];
+  }
+};
+
 // Desafio 5 a 9
 function selectItem(eventoDeOrigem) {
   const exclueOld = document.getElementsByClassName('selected');
@@ -58,3 +66,12 @@ function deleteAllDones() {
 
 const deleteDoneTasks = document.getElementById('remover-finalizados');
 deleteDoneTasks.addEventListener('click', deleteAllDones);
+
+// Desafio 12
+function saveTasks() {
+  const currentTasks = document.getElementsByTagName('li');
+  localStorage.setItem('currentTasks', JSON.stringify(currentTasks));
+}
+
+const saveAllTasks = document.getElementById('salvar-tarefas');
+saveAllTasks.addEventListener('click', saveTasks);
