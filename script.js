@@ -43,7 +43,7 @@ function changingBackgroundWhite() {
 
 function eventchangeBackgroundWhite() {
   const getListaTarefa = document.getElementById('lista-tarefas');
-  getListaTarefa.addEventListener('click',changingBackgroundWhite);
+  getListaTarefa.addEventListener('click', changingBackgroundWhite);
 }
 eventchangeBackgroundWhite();
 eventchangeBackgroundGreen();
