@@ -28,9 +28,10 @@ function lineThrough() {
   listTask.addEventListener('dblclick', (event) => {
     for (let index = 0; index < listTask.children.length; index += 1) {
       if (listTask.children[index].classList.contains('completed')) {
-        listTask.children[index].classList.remove('completed');
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
       }
-      event.target.classList.add('completed');
     }  
   })
 };
