@@ -29,6 +29,15 @@ function dblClickTask() {
   });
 }
 
+function clearList() {
+  const btnClearList = document.getElementById('apaga-tudo');
+  btnClearList.addEventListener('click', () => {
+    for (let i = 0; i < taskItem.length; i += 1) {
+      listTasks.removeChild(listTasks.firstChild);
+    }
+  });
+}
+
 function createTask() {
   if (inputValue.value !== '') {
     const li = document.createElement('li');
@@ -41,5 +50,6 @@ function createTask() {
   selectedTask();
   dblClickTask();
 }
+clearList();
 
 btnCriarTarefa.addEventListener('click', createTask);
