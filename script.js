@@ -15,9 +15,14 @@ function newTask () {
     let listItem = document.querySelectorAll('.back')
     for (let index = 0; index < listItem.length; index += 1) {
         listItem[index].addEventListener('click', function(e) {
+        getSelected = document.querySelector('.selected');
+
+
+
+        getSelected.classList.remove('selected');
           //listItem[index].classList.add('selected');
-         e.target.style.backgroundColor = 'rgb(128,128,128)';
-          e.target.classList.add('selected');
+        //e.target.style.backgroundColor = 'rgb(128,128,128)';
+        e.target.classList.add('selected');
       })
     }
 }
