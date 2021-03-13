@@ -6,22 +6,22 @@ function creatTask() {
   const list = document.createElement('li');
   list.innerText = task.value;
   task.value = '';
-  list.className = 'list-item'
+  list.className = 'list-item';
   taskList.appendChild(list);
 }
 creatTaskButton.addEventListener('click', creatTask);
 
+// função realizada com a ajuda do Mauricio Viegas!
 function addBackgroundColor() {
-    const itens = document.getElementsByClassName('li');
-    taskList.addEventListener('click', (event) => {
+  const itens = document.getElementsByClassName('list-item');
+  taskList.addEventListener('click', (event) => {
     const backgroundColor = event.target;
-    for (index = 0; index < itens.length; index += 1) {
-      if (itens[index].className === 'selected') {
+    for (let index = 0; index < itens.length; index += 1) {
+      if (itens[index].className.includes('selected')) {
         itens[index].classList.remove('selected');
       }
     }
     backgroundColor.classList.add('selected');
   });
 }
-addBackgroundColor()
-
+addBackgroundColor();
