@@ -70,3 +70,10 @@ body {
   height: 35px;
   border: 5px solid black;
 }
+
+#remover-selecionado {
+  background-color: palevioletred;
+  width: 170px;
+  height: 35px;
+  border: 5px solid black;
+}

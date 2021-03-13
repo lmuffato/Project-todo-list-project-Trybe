@@ -107,7 +107,7 @@ function itemDown() {
   const listaPai = document.querySelector('#lista-tarefas');
   const button = document.querySelector('#mover-baixo');
   button.addEventListener('click', function () {
-    const selected = document.querySelector('.selected')
+    const selected = document.querySelector('.selected');
     if (selected !== null) {
       const next = selected.nextSibling;
       if (next !== null) listaPai.insertBefore(next, selected);
@@ -116,3 +116,16 @@ function itemDown() {
 }
 
 itemDown();
+
+function removeSelected() {
+  const button = document.querySelector('#remover-selecionado');
+  const listFather = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', () => {
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      listFather.removeChild(selected)
+    }
+  })
+}
+
+removeSelected();
