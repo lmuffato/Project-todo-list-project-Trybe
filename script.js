@@ -42,8 +42,6 @@ function taskCompleted() {
 taskCompleted();
 
 function clearAll() {
-  for (let index = 0; index < itens.length; index += 1) {
-    taskList.removeChild(itens[index]);
-  }
+  taskList.innerHTML = '';
 }
 clearAllButton.addEventListener('click', clearAll);
