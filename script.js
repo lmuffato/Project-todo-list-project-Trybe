@@ -7,7 +7,7 @@ const inputValue = document.getElementById('texto-tarefa');
 const completedTask = document.getElementsByClassName('completed');
 const btnMoveUp = document.getElementById('mover-cima');
 const btnMoveDown = document.getElementById('mover-baixo');
-let taskItem = document.querySelectorAll('.task');
+const btnSelectedRemove = document.getElementById('remover-selecionado');
 
 function selectedTask() {
   listTasks.addEventListener('click', (e) => {
@@ -62,7 +62,6 @@ function salveTasks() {
 }
 
 function moveUp() {
-  taskItem = listTasks.children;
   const taskSelected = document.querySelector('.selected');
   if (taskSelected !== null) {
     const taskPre = taskSelected.previousElementSibling;
@@ -73,7 +72,6 @@ function moveUp() {
 }
 
 function moveDown() {
-  taskItem = listTasks.children;
   const taskSelected = document.querySelector('.selected');
   if (taskSelected !== null) {
     const taskNext = taskSelected.nextElementSibling;
@@ -83,12 +81,20 @@ function moveDown() {
   }
 }
 
+function selectedRemove() {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected !== null) {
+    taskSelected.remove();
+  }
+}
+
 btnCriarTarefa.addEventListener('click', createTask);
 btnClearCompleted.addEventListener('click', clearCompletedTask);
 btnClearList.addEventListener('click', clearList);
 btnSalveTask.addEventListener('click', salveTasks);
 btnMoveUp.addEventListener('click', moveUp);
 btnMoveDown.addEventListener('click', moveDown);
+btnSelectedRemove.addEventListener('click', selectedRemove);
 
 window.onload = () => {
   createTask();
