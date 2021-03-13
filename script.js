@@ -4,15 +4,16 @@ function addNewTask() {
   const newList = document.createElement('li');
   if (textTask === '') {
       alert('Você deve adicionar uma tarefa')
-  } else {
-  taskList.appendChild(newList);
-  newList.innerText = textTask;
-  newList.style.backgroundColor = '';
-  newList.addEventListener('click', function () {
-    newList.classList.add('color')
-  })
+    } else {
+      taskList.appendChild(newList);
+      newList.innerText = textTask;
+      newList.style.backgroundColor = '';
+      newList.addEventListener('click', function () {
+        clearBgColor();
+        newList.classList.add('color')  
+      })
+    }
   }
-}
 const addBtn = document.querySelector('#criar-tarefa');
 addBtn.addEventListener('click', addNewTask);
 
@@ -22,4 +23,10 @@ function restartInput() {
 }
 addBtn.addEventListener('click', restartInput);
 
+function clearBgColor() {
+  const coloredBg = document.querySelectorAll('.color');
+  for (let index = 0; index < coloredBg.length; index += 1) {
+    coloredBg[index].classList.remove('color');
+  }
+}
 
