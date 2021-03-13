@@ -2,6 +2,7 @@ const creatTaskButton = document.querySelector('#criar-tarefa');
 const task = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const itens = document.getElementsByClassName('list-item');
+const clearAllButton = document.getElementById('apaga-tudo');
 
 function creatTask() {
   const list = document.createElement('li');
@@ -39,3 +40,10 @@ function taskCompleted() {
   });
 }
 taskCompleted();
+
+function clearAll() {
+  for (let index = 0; index < itens.length; index += 1) {
+    taskList.removeChild(itens[index]);
+  }
+}
+clearAllButton.addEventListener('click', clearAll);
