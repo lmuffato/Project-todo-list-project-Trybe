@@ -5,10 +5,14 @@ function pressbutton() {
   input = document.querySelector('#texto-tarefa');
   const inputValue = (input.value);
   const divLi = document.createElement('li');
+  divLi.classList.add('elementLi');
   divLi.innerText = inputValue;
-  divLi.style.backgroundColor = 'rgb(128, 128, 128)';
   elementOl.appendChild(divLi);
   input.value = '';
+  function addColor() {
+    divLi.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+  divLi.addEventListener('click', addColor);
 }
 
 button.addEventListener('click', pressbutton);
