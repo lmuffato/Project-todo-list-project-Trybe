@@ -3,20 +3,21 @@ function addNewTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const newList = document.createElement('li');
   if (textTask === '') {
-    alert('Você deve adicionar uma tarefa')
+    alert('Você deve adicionar uma tarefa');
   } else {
     taskList.appendChild(newList);
     newList.innerText = textTask;
     newList.style.backgroundColor = '';
-    newList.addEventListener('click', function() {
+    newList.addEventListener('click', function () {
       clearBgColor();
       newList.classList.add('color');
-    newList.addEventListener('dblclick', function() {
-      newList.classList.add('completed');
-    }); 
+      newList.addEventListener('dblclick', function () {
+        newList.classList.toggle('completed'); // Toggle - habilita e desabilita o parâmetro atribuído. 
+       
     });
-    }
+    });
   }
+}
 const addBtn = document.querySelector('#criar-tarefa');
 addBtn.addEventListener('click', addNewTask);
 
