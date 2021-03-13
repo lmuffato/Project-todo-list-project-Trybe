@@ -1,5 +1,5 @@
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
 
 #lista-tarefas {
@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: rgb(43, 43, 44);
+  background-color: rgb(43 , 43 , 44);
   margin-left: 30px;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 #criar-tarefa {
@@ -33,7 +33,7 @@ header {
 }
 
 #remover-finalizados {
-  background-color: rgba(192, 37, 37, 0.76);
+  background-color: rgba(192 , 37 , 37 , 0.76);
   border-radius: 10px;
 }
 
@@ -48,5 +48,5 @@ header {
 
 #remover-selecionado {
   border-radius: 10px;
-  background-color: rgb(255, 50, 50);
+  background-color: rgb(255 , 50 , 50);
 }
