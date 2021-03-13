@@ -3,6 +3,7 @@ inputText.value = '';
 const botAdicionar = document.getElementById('criar-tarefa');
 const listaOl = document.getElementById('lista-tarefas');
 const buttonClearAll = document.getElementById('apaga-tudo');
+const buttonClearChecked = document.getElementById('remover-finalizados');
 let item;
 
 function concatList() {
@@ -58,6 +59,18 @@ function clearAll() {
   buttonClearAll.addEventListener('click', eventRemoveAllItens);
 }
 
+function eventRemoveCheckedItens() {
+  const li = document.querySelectorAll('.completed');
+  for (let i = 0; i < li.length; i += 1) {
+    const parentLi = li[i].parentElement;
+    parentLi.removeChild(li[i]);
+  }
+}
+
+function clearSelecteds() {
+  buttonClearChecked.addEventListener('click', eventRemoveCheckedItens);
+}
+
 function clickBtnAdicionar() {
   botAdicionar.addEventListener('click', concatList);
   botAdicionar.addEventListener('click', addBackgroudColorInElement);
@@ -66,3 +79,4 @@ function clickBtnAdicionar() {
 
 clickBtnAdicionar();
 clearAll();
+clearSelecteds();
