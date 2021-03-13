@@ -19,13 +19,31 @@ newList();
 // Requisito 7
 // Exercício feito com a ajuda do código Lucas Andrade
 // Link: https://github.com/tryber/sd-010-a-project-todo-list/blob/cdc6f5084c225c6852fcfe3e5acd1ac6269c540f/script.js
-function changingBackground(event) {
+function changingBackgroundGreen(event) {
   const eventTarget = event.target;
   eventTarget.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function eventchangeBackground() {
+function eventchangeBackgroundGreen() {
   const getListaTarefa = document.getElementById('lista-tarefas');
-  getListaTarefa.addEventListener('click', changingBackground);
+  getListaTarefa.addEventListener('click', changingBackgroundGreen);
 }
-eventchangeBackground();
+
+// Requisito 8
+// Exercício feito com a ajuda do código Lucas Andrade
+// Link: https://github.com/tryber/sd-010-a-project-todo-list/blob/cdc6f5084c225c6852fcfe3e5acd1ac6269c540f/script.js
+function changingBackgroundWhite() {
+  const getClassItem = document.getElementsByClassName('item');
+  for (let index = 0; index < getClassItem.length; index += 1) {
+    if (getClassItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      getClassItem[index].style.backgroundColor = 'white';
+    }
+  }
+}
+
+function eventchangeBackgroundWhite() {
+  const getListaTarefa = document.getElementById('lista-tarefas');
+  getListaTarefa.addEventListener('click',changingBackgroundWhite);
+}
+eventchangeBackgroundWhite();
+eventchangeBackgroundGreen();

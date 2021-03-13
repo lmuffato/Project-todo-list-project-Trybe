@@ -10,10 +10,6 @@
   opacity: 0.5;
 }
 
-.item {
-  background-color: white;
-}
-
 #texto-tarefa:hover {
   border: 2px solid rgb(0 153 255);
   border-radius: 2px;
