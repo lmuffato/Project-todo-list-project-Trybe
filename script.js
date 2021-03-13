@@ -1,11 +1,3 @@
-window.onload = function recoverData() {
-  const recoverTasks = JSON.parse(localStorage.getItem('currentTasks'));
-  for (let index = 0; index < recoverTasks.length; index += 1) {
-    const accessList = document.getElementById('lista-tarefas');
-    accessList.appendChild.innerHTML = recoverTasks[index];
-  }
-};
-
 // Desafio 5 a 9
 function selectItem(eventoDeOrigem) {
   const exclueOld = document.getElementsByClassName('selected');
