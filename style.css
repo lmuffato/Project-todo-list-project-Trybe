@@ -7,7 +7,7 @@
 body {
   width: 100%;
   height: 100vh;
-  color: #fafafa;
+  color: rgb(250, 250, 250);
   padding: 10px 0;
 }
 
@@ -16,7 +16,7 @@ header {
   margin: auto;
   text-align: center;
   padding: 8px;
-  background-color: #e45b5b;
+  background-color: rgb(228, 91, 91);
   border-radius: 10px 10px 0 0;
 }
 
@@ -25,7 +25,7 @@ main {
   margin: auto;
   padding: 20px;
   text-align: center;
-  background-color: #259ed6;
+  background-color: rgb(37, 158, 214);
   border-radius: 0 0 10px 10px;
 
 }
@@ -34,7 +34,7 @@ main {
   width: 25vw;
   height: 25px;
   margin: 10px 0;
-  background: #fafafa;
+  background: rgb(250, 250, 250);
   box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   border: none;
@@ -68,7 +68,7 @@ main {
   padding: 5px 10px;
   border: none;
   border-radius: 10px;
-  background: #75e475;
+  background: rgb(117, 228, 117);
   cursor: pointer;
   margin-right: 5px;
   transition: 0.2s;
@@ -86,8 +86,8 @@ main {
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  background-color: #e98489;
-  color: #fafafa;
+  background-color: rgb(233, 132, 137);
+  color: rgb(250, 250, 250);
   transition: 0.2s;
 }
 
