@@ -2,6 +2,7 @@ const inputText = document.getElementById('texto-tarefa');
 inputText.value = '';
 const botAdicionar = document.getElementById('criar-tarefa');
 const listaOl = document.getElementById('lista-tarefas');
+const buttonClearAll = document.getElementById('apaga-tudo');
 let item;
 
 function concatList() {
@@ -44,6 +45,19 @@ function checkElement() {
     li[i].addEventListener('dblclick', riskElement);
   }
 }
+
+function eventRemoveAllItens() {
+  const li = document.querySelectorAll('.listElement');
+  for (let i = 0; i < li.length; i += 1) {
+    const parentLi = li[i].parentElement;
+    parentLi.removeChild(li[i]);
+  }
+}
+
+function clearAll() {
+  buttonClearAll.addEventListener('click', eventRemoveAllItens);
+}
+
 function clickBtnAdicionar() {
   botAdicionar.addEventListener('click', concatList);
   botAdicionar.addEventListener('click', addBackgroudColorInElement);
@@ -51,3 +65,4 @@ function clickBtnAdicionar() {
 }
 
 clickBtnAdicionar();
+clearAll();
