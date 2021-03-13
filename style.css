@@ -28,7 +28,7 @@ body {
   border: 5px solid black;
 }
 
-.to-do-itens {
+#lista-tarefas li {
   width: 800px;
 }
 
@@ -53,6 +53,20 @@ body {
 #salvar-tarefas {
   background-color: lightblue;
   width: 150px;
+  height: 35px;
+  border: 5px solid black;
+}
+
+#mover-cima {
+  background-color: orange;
+  width: 50px;
+  height: 35px;
+  border: 5px solid black;
+}
+
+#mover-baixo {
+  background-color: orange;
+  width: 50px;
   height: 35px;
   border: 5px solid black;
 }

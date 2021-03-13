@@ -19,9 +19,11 @@ function changeItemColor() {
     const elementosLi = document.querySelectorAll('#lista-tarefas li');
     for (let index = 0; index < elementosLi.length; index += 1) {
       elementosLi[index].style.backgroundColor = document.body.style.backgroundColor;
+      elementosLi[index].classList.remove('selected');
     }
     if (itens.localName === 'li') {
       itens.style.backgroundColor = 'rgb(128,128,128)';
+      itens.classList.add('selected')
     }
   });
 }
@@ -86,3 +88,35 @@ function saveTasks() {
 }
 
 saveTasks();
+
+function itemUp() {
+  const listaPai = document.querySelector('#lista-tarefas');
+  const button = document.querySelector('#mover-cima');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected')
+    const previous = selected.previousSibling;
+    if (previous !== null) {
+      listaPai.insertBefore(selected, previous)
+    } else {
+      alert('num dá')
+    }
+  });
+}
+
+itemUp();
+
+function itemDown() {
+  const listaPai = document.querySelector('#lista-tarefas');
+  const button = document.querySelector('#mover-baixo');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected')
+    const next = selected.nextSibling;
+    if (next !== null) {
+      listaPai.insertBefore(next, selected)
+    } else {
+      alert('num dá')
+    }
+  });
+}
+
+itemDown();
