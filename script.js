@@ -1,19 +1,19 @@
 const btnCriarTarefa = document.getElementById('criar-tarefa');
+const btnClearList = document.getElementById('apaga-tudo');
+const btnClearCompleted = document.getElementById('remover-finalizados');
 const listTasks = document.getElementById('lista-tarefas');
 const inputValue = document.getElementById('texto-tarefa');
+const completedTask = document.getElementsByClassName('completed');
 let taskItem = document.querySelectorAll('.task');
 
 function selectedTask() {
-  taskItem.forEach((task, index) => {
-    task.addEventListener('click', () => {
-      for (let i = 0; i < taskItem.length; i += 1) {
-        taskItem[i].classList.remove('selected');
-        taskItem[i].style.backgroundColor = null;
-      }
-      taskItem[index].classList.add('selected');
-      const taskSelected = document.getElementsByClassName('selected');
-      taskSelected[0].style.backgroundColor = 'rgb(128 , 128 , 128)';
-    });
+  listTasks.addEventListener('click', (e) => {
+    const task = e.target;
+    const taskSelected = document.querySelector('.selected');
+    task.classList.add('selected');
+    if (taskSelected !== null) {
+      taskSelected.classList.remove('selected');
+    }
   });
 }
 
@@ -30,12 +30,15 @@ function dblClickTask() {
 }
 
 function clearList() {
-  const btnClearList = document.getElementById('apaga-tudo');
-  btnClearList.addEventListener('click', () => {
-    for (let i = 0; i < taskItem.length; i += 1) {
-      listTasks.removeChild(listTasks.firstChild);
-    }
-  });
+  while (listTasks.firstChild) {
+    listTasks.removeChild(listTasks.firstChild);
+  }
+}
+
+function clearCompletedTask() {
+  while (completedTask.length !== 0) {
+    completedTask[0].remove();
+  }
 }
 
 function createTask() {
@@ -45,11 +48,17 @@ function createTask() {
     li.className = 'task';
     li.innerHTML = inputValue.value;
     inputValue.value = '';
-    taskItem = document.querySelectorAll('.task');
   }
-  selectedTask();
-  dblClickTask();
 }
-clearList();
 
+window.onload = () => {
+  createTask();
+  taskItem = document.querySelectorAll('.task');
+  selectedTask();
+};
+
+dblClickTask();
 btnCriarTarefa.addEventListener('click', createTask);
+
+btnClearCompleted.addEventListener('click', clearCompletedTask);
+btnClearList.addEventListener('click', clearList);
