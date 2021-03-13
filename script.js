@@ -19,7 +19,7 @@ function doubleClick(e) {
   if (e.target.classList.contains('completed')) {
     e.target.classList.remove('completed');
   } else {
-    e.target.classList.add('completed');    
+    e.target.classList.add('completed');
   }
 }
 
@@ -28,6 +28,7 @@ function listText() {
   const pushList = document.createElement('li');
   for (let index = 0; index < list.data.length; index += 1) {
     pushList.innerHTML = list.data[index];
+    pushList.className = 'text-list';
     makelist.appendChild(pushList);
     pushList.addEventListener('click', clickList);
     pushList.addEventListener('dblclick', doubleClick);
@@ -42,9 +43,22 @@ function pullText() {
   listText();
 }
 
+function removeList() {
+  const makelist = document.getElementById('lista-tarefas');
+  const removeText = document.querySelectorAll('.text-list');
+  console.log(removeText.length);
+  for (let index = 0; index < removeText.length; index += 1) {
+    makelist.removeChild(removeText[index]);
+    list.data.pop();
+    list.lengthData -= 1;
+  }
+  console.log(list.data);
+  console.log(list.lengthData);
+}
+
 function listButton() {
-  const click = document.getElementById('criar-tarefa');
-  click.addEventListener('click', pullText);
+  document.getElementById('criar-tarefa').addEventListener('click', pullText);
+  document.getElementById('apaga-tudo').addEventListener('click', removeList);
 }
 
 function init() {
