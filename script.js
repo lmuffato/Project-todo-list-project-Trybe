@@ -93,12 +93,10 @@ function itemUp() {
   const listaPai = document.querySelector('#lista-tarefas');
   const button = document.querySelector('#mover-cima');
   button.addEventListener('click', function () {
-    const selected = document.querySelector('.selected')
-    const previous = selected.previousSibling;
-    if (previous !== null) {
-      listaPai.insertBefore(selected, previous)
-    } else {
-      alert('num dá')
+    const selected = document.querySelector('.selected');
+    if (selected !== null) {
+      const previous = selected.previousSibling;
+      if (previous !== null) listaPai.insertBefore(selected, previous);
     }
   });
 }
@@ -110,11 +108,9 @@ function itemDown() {
   const button = document.querySelector('#mover-baixo');
   button.addEventListener('click', function () {
     const selected = document.querySelector('.selected')
-    const next = selected.nextSibling;
-    if (next !== null) {
-      listaPai.insertBefore(next, selected)
-    } else {
-      alert('num dá')
+    if (selected !== null) {
+      const next = selected.nextSibling;
+      if (next !== null) listaPai.insertBefore(next, selected);
     }
   });
 }
