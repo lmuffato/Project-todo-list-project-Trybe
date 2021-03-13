@@ -12,10 +12,14 @@ function addNewTask() {
       clearBgColor();
       newList.classList.add('color');
       newList.addEventListener('dblclick', function () {
-        newList.classList.toggle('completed'); // Toggle - habilita e desabilita o parâmetro atribuído. 
-       
+        newList.classList.toggle('completed'); // Toggle - habilita e desabilita o parâmetro atribuído.   
     });
     });
+    function clearAll () {
+      document.location.reload();
+    }
+    const clearBtn = document.querySelector('#apaga-tudo');
+    clearBtn.addEventListener('click', clearAll);
   }
 }
 const addBtn = document.querySelector('#criar-tarefa');
@@ -33,3 +37,4 @@ function clearBgColor() {
     coloredBg[index].classList.remove('color');
   }
 }
+
