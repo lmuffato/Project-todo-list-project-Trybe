@@ -1,8 +1,6 @@
-// Requisito 2
+// Variáveis e atribuições
 const paragraph = document.getElementById('funcionamento');
 paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-
-// Requisito 5
 const taskList = document.getElementById('lista-tarefas');
 const buttonInsertItem = document.getElementById('criar-tarefa');
 buttonInsertItem.innerText = 'Inserir';
@@ -61,10 +59,9 @@ markTasksDone();
 // requisito 11
 function removeCompleted() {
   buttonClearCompleted.addEventListener('click', () => {
-    for (let index = 0; index < listItens.length; index += 1) {
-      if (listItens[index].classList.contains('completed')) {
-        listClick.removeChild(listItens[index]);
-      }
+    const completedClass = document.querySelectorAll('.completed');
+    for (let index = 0; index < completedClass.length; index += 1) {
+      listClick.removeChild(completedClass[index]);
     }
   });
 }
