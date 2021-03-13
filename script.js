@@ -3,15 +3,18 @@ function addNewTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const newList = document.createElement('li');
   if (textTask === '') {
-      alert('Você deve adicionar uma tarefa')
-    } else {
-      taskList.appendChild(newList);
-      newList.innerText = textTask;
-      newList.style.backgroundColor = '';
-      newList.addEventListener('click', function () {
-        clearBgColor();
-        newList.classList.add('color')  
-      })
+    alert('Você deve adicionar uma tarefa')
+  } else {
+    taskList.appendChild(newList);
+    newList.innerText = textTask;
+    newList.style.backgroundColor = '';
+    newList.addEventListener('click', function() {
+      clearBgColor();
+      newList.classList.add('color');
+    newList.addEventListener('dblclick', function() {
+      newList.classList.add('completed');
+    }); 
+    });
     }
   }
 const addBtn = document.querySelector('#criar-tarefa');
@@ -29,4 +32,3 @@ function clearBgColor() {
     coloredBg[index].classList.remove('color');
   }
 }
-
