@@ -3,6 +3,7 @@ inputText.value = '';
 const botAdicionar = document.getElementById('criar-tarefa');
 const listaOl = document.getElementById('lista-tarefas');
 const buttonClearAll = document.getElementById('apaga-tudo');
+const buttonClearChecked = document.getElementById('remover-finalizados');
 let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
 
@@ -61,9 +62,9 @@ function clearAll() {
 
 function eventRemoveCheckeds() {
   const li = document.querySelectorAll('.completed');
-  for (let i = 0; i < li.length; i += 1) {
-    const parentLi = li[i].parentElement;
-    parentLi.removeChild(li[i]);
+  for (let index = 0; index < li.length; index += 1) {
+    const parentLi = li[index].parentElement;
+    parentLi.removeChild(li[index]);
   }
 }
 
