@@ -25,8 +25,8 @@ function changingBackgroundGreen(event) {
 }
 
 function eventchangeBackgroundGreen() {
-  const getTarefaLista = document.getElementById('lista-tarefas');
-  getTarefaLista.addEventListener('click', changingBackgroundGreen);
+  const getIDTarefaLista = document.getElementById('lista-tarefas');
+  getIDTarefaLista.addEventListener('click', changingBackgroundGreen);
 }
 
 // Requisito 8
@@ -61,8 +61,8 @@ function setLineTrough(event) {
 }
 
 function eventSetLineTrough() {
-  const getListaTarefa = document.getElementById('lista-tarefas');
-  getListaTarefa.addEventListener('dblclick', setLineTrough);
+  const getIDListaTarefa = document.getElementById('lista-tarefas');
+  getIDListaTarefa.addEventListener('dblclick', setLineTrough);
 }
 
 eventSetLineTrough();
