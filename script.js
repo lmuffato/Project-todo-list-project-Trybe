@@ -30,9 +30,12 @@ function addBackgroudColorInElement() {
 }
 
 function riskElement(e) {
-  e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
   if (!e.target.classList.contains('completed')) {
     e.target.className += ' completed';
+    e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  } else {
+    e.target.classList.remove('completed');
+    e.target.style.textDecoration = 'none';
   }
 }
 function checkElement() {
