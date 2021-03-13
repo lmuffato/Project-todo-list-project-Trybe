@@ -1,14 +1,11 @@
-// Desafio 5 a 7
+// Desafio 5 a 8
 function selectItem(eventoDeOrigem) {
     let exclueOld = document.getElementsByClassName('selected');
     if (exclueOld.length > 0) {
-        exclueOld[0].style.background = '';
         exclueOld[0].classList.remove('selected');
         eventoDeOrigem.target.classList.add('selected');
-        exclueOld[0].style.background = 'rgb(128,128,128)';
     } else {
         eventoDeOrigem.target.classList.add('selected');
-        eventoDeOrigem.target.style.background = 'rgb(128,128,128)';
     }
 }
 
@@ -28,8 +25,16 @@ function addTask() {
     let currentLists = document.getElementsByTagName('li');
     for (let index = 0; index < currentLists.length; index += 1) {
         currentLists[index].addEventListener('click', selectItem);
+        currentLists[index].addEventListener('dblclick', donetItem);
     }
 }
 
 const createTask = document.getElementById('criar-tarefa');
 createTask.addEventListener('click', addTask);
+
+//Desafio 9
+function donetItem(eventoDeOrigem) {
+    eventoDeOrigem.target.classList.toggle('completed');
+}
+
+
