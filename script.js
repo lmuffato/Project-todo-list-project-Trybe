@@ -3,7 +3,15 @@ const list = {
   lengthData: 0,
 };
 
+function clickRemove() {
+  for (let index = 0; index < list.data.length; index += 1) {
+    const listLi = document.getElementsByTagName('li')[index];
+    listLi.style.background = 'white';
+  }
+}
+
 function clickList(e) {
+  clickRemove();
   e.target.style.setProperty('background', 'rgb(128,128,128)');
 }
 
