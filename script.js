@@ -21,7 +21,6 @@ function deleteSelectClass() {
 function addSelectClass(e) {
   deleteSelectClass();
   e.target.className += ' selected';
-  console.log(e);
 }
 
 function deleteCompletedClass() {
@@ -67,14 +66,11 @@ clearList.innerText = 'clear all tasks';
 clearList.addEventListener('click', clearListTask);
 
 function clearingTasksDone() {
-  let arrayTaskDone = [];
-  for (let index = 0; index < listItens.length; index += 1) {
-    if (listItens[index].hasAttribute('completed')) {
-      arrayTaskDone.push(index);
+  const tasks = document.getElementsByTagName('li');
+  for (let index = (tasks.length - 1); index >= 0; index -= 1) {
+    if (tasks[index].hasAttribute('class', 'completed')) {
+      toDoList.removeChild(tasks[index]);
     }
-  }
-  for (let index = 0; index < arrayTaskDone.length; index += 1) {
-    toDoList.removeChild(listItens[arrayTaskDone[index]]);
   }
 }
 
