@@ -85,7 +85,6 @@ function saveAllTasks() {
   const savedTasks = [];
   for (let index = 0; index < tasks.length; index += 1) {
     const objTasks = {
-      tag: 'li',
       innerText: tasks[index].innerText,
       classList: tasks[index].classList,
       id: tasks[index].id,
@@ -99,6 +98,7 @@ saveTasksBtn.addEventListener('click', saveAllTasks);
 
 if (listStored.length !== 0) {
   for (let index = 0; index < listStored.length; index += 1) {
-    toDoList.appendChild(listStored[index]);
+    document.createElement('li');
+
   }
 }
