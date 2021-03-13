@@ -5,22 +5,20 @@ const buttonErase = document.querySelector('#apaga-tudo');
 const buttonEraseCompleted = document.querySelector('#remover-finalizados');
 const buttonEraseSelected = document.querySelector('#remover-selecionado');
 
-window.onload = function () {
+window.onload = function load() {
   addInput.focus();
 };
 
-buttonCreate.addEventListener('click', () => {
+function creatTask() {
   const liItem = document.createElement('li');
   liItem.innerText = addInput.value;
   liItem.addEventListener('click', (event) => {
     const selectedItem = document.querySelector('#selected');
     if (selectedItem) {
       selectedItem.removeAttribute('id');
-      addInput.focus();
     }
     const gray = event.target;
     gray.id = 'selected';
-    addInput.focus();
   });
   olItem.appendChild(liItem);
   addInput.value = '';
@@ -29,27 +27,32 @@ buttonCreate.addEventListener('click', () => {
     if (item.className === 'completed') {
       item.className = '';
       item.removeAttribute('id');
-      addInput.focus();
     } else {
       item.removeAttribute('id');
       item.className = 'completed';
-      addInput.focus();
     }
-  });
-  buttonErase.addEventListener('click', () => {
-    olItem.removeChild(liItem);
-  });
-  buttonEraseCompleted.addEventListener('click', () => {
-    const list = document.querySelectorAll('#lista-tarefas li');
-    for (let index = 0; index < list.length; index += 1) {
-      if (list[index].className === 'completed') {
-        olItem.removeChild(list[index]);
-      }
-    }
-  });
-  buttonEraseSelected.addEventListener('click', () => {
-    const list = document.getElementById('selected');
-    list.remove();
   });
   addInput.focus();
-});
+}
+function eraseAll() {
+  const list = document.getElementById('lista-tarefas');
+  list.innerHTML = '';
+}
+function eraseCompleted() {
+  const list = document.querySelectorAll('#lista-tarefas li');
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].className === 'completed') {
+      olItem.removeChild(list[index]);
+    }
+  }
+}
+function eraseSelected() {
+  const list = document.getElementById('selected');
+  if (list.id === 'selected') {
+    olItem.removeChild(list);
+  }
+}
+buttonCreate.addEventListener('click', creatTask);
+buttonErase.addEventListener('click', eraseAll);
+buttonEraseCompleted.addEventListener('click', eraseCompleted);
+buttonEraseSelected.addEventListener('click', eraseSelected);
