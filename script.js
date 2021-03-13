@@ -28,3 +28,19 @@ function colorLi () {
 	})
 }
 colorLi ()
+
+function taskCompleted() {
+	let tarefas = document.getElementsByClassName('color-li');
+	let listaDeTarefas = document.querySelector('#lista-tarefas');
+	listaDeTarefas.addEventListener('dblclick', function (event) {
+		let tarefaSelecionada = event.target;
+		for (let index = 0; index < tarefas.length; index += 1) {
+			if (tarefas[index].className.includes('completed')) {
+				tarefas[index].classList.remove('completed');
+			} else {
+				tarefaSelecionada.classList.add('completed');
+			}
+		}
+	});
+}
+taskCompleted()
