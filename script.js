@@ -1,6 +1,16 @@
-// Desafio 5
-const createTask = document.getElementById('criar-tarefa');
-createTask.addEventListener('click', addTask);
+// Desafio 5 a 7
+function selectItem(eventoDeOrigem) {
+    let exclueOld = document.getElementsByClassName('selected');
+    if (exclueOld.length > 0) {
+        exclueOld[0].style.background = '';
+        exclueOld[0].classList.remove('selected');
+        eventoDeOrigem.target.classList.add('selected');
+        exclueOld[0].style.background = 'rgb(128,128,128)';
+    } else {
+        eventoDeOrigem.target.classList.add('selected');
+        eventoDeOrigem.target.style.background = 'rgb(128,128,128)';
+    }
+}
 
 function addTask() {
     // Captura informação de texto
@@ -14,15 +24,12 @@ function addTask() {
     const print = accessList.appendChild(creatListElement);
     // Apaga a entrada na caixa de digitação
     actualizeText.value = '';
-    return print;
+    // Adiciona o escutador de eventos
+    let currentLists = document.getElementsByTagName('li');
+    for (let index = 0; index < currentLists.length; index += 1) {
+        currentLists[index].addEventListener('click', selectItem);
+    }
 }
 
-//Desafio 7
-function selectItem (position) {
-    let tasks = document.getElementsByTagName('li');
-    tasks[position].style.background = 'rgb(128,128,128)';
-}
-
-for (let index7 = 0; index7 < tasks.length; index7 +=1){
-    document.getElementsByTagName('li')[index7].addEventListener('click', selectItem(index7))
-}
+const createTask = document.getElementById('criar-tarefa');
+createTask.addEventListener('click', addTask);
