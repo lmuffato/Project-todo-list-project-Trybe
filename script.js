@@ -36,3 +36,25 @@ function addTask() {
 
 const createTask = document.getElementById('criar-tarefa');
 createTask.addEventListener('click', addTask);
+
+// Desafio 10
+function deleteAll() {
+  const currentTasks = document.querySelectorAll('li');
+  for (let index = 0; index < currentTasks.length; index += 1) {
+    currentTasks[index].remove();
+  }
+}
+
+const deleteTasks = document.getElementById('apaga-tudo');
+deleteTasks.addEventListener('click', deleteAll);
+
+// Desafio 11
+function deleteAllDones() {
+  const currentDoneTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < currentDoneTasks.length; index += 1) {
+    currentDoneTasks[index].remove();
+  }
+}
+
+const deleteDoneTasks = document.getElementById('remover-finalizados');
+deleteDoneTasks.addEventListener('click', deleteAllDones);
