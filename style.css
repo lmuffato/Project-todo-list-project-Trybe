@@ -49,3 +49,10 @@ body {
   height: 35px;
   border: 5px solid black;
 }
+
+#salvar-tarefas {
+  background-color: lightblue;
+  width: 150px;
+  height: 35px;
+  border: 5px solid black;
+}

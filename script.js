@@ -58,9 +58,31 @@ function eraseCompleted() {
   button.addEventListener('click', function () {
     const list = document.getElementsByClassName('completed');
     while (list.length > 0) {
-    listFather.removeChild(list[0]);
+      listFather.removeChild(list[0]);
     }
   });
 }
 
 eraseCompleted();
+
+function getTasks() {
+  const lista = document.querySelector("#lista-tarefas");
+  const getItem = localStorage.getItem('lista');
+  if (getItem !== null) {
+    lista.innerHTML = getItem;
+  } else {
+    console.log('nada armazenado');
+  };
+}
+
+getTasks();
+
+function saveTasks() {
+  const lista = document.querySelector("#lista-tarefas");
+  const button = document.querySelector('#salvar-tarefas');
+  button.addEventListener('click', function () {
+    localStorage.setItem('lista', lista.innerHTML);
+  });
+}
+
+saveTasks();
