@@ -2,7 +2,8 @@ const text = document.getElementById('texto-tarefa');
 const getClick = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 getClick.addEventListener('click', addText);
-list.addEventListener('click', clicou);
+list.addEventListener('click', click);
+list.addEventListener('dblclick', dblclick)
 
 function addText () {
   const createItem = document.createElement('li');
@@ -12,9 +13,9 @@ function addText () {
   list.appendChild(createItem);
 }
 
-function clicou (event) {
+function click (event) {
   const receiveItem = document.getElementsByClassName('listItem');
-  const select = event.target
+  const select = event.target;
   for (let index = 0; index < receiveItem.length; index += 1) {
     if (receiveItem[index] === select) {
       receiveItem[index].classList.add('selected');
@@ -25,5 +26,14 @@ function clicou (event) {
       receiveItem[index].removeAttribute('style');
     }
   }
+}
 
+function dblclick () {
+  const receiveItem = document.getElementsByClassName('listItem');
+  const finishSelected = event.target;
+  for (let index = 0; index < receiveItem.length; index += 1) {
+    if (receiveItem[index] === finishSelected) {
+      receiveItem[index].classList.add('completed');
+    }
+  }
 }
