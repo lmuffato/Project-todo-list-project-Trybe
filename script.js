@@ -73,6 +73,28 @@ function removeSelected() {
   });
 }
 
+function moveUp() {
+  let buttonMvUp = document.getElementById('mover-cima');
+  const itemList = document.getElementsByTagName('li');
+
+  buttonMvUp.addEventListener('click', ()=>{
+      for (let index = 0; index < itemList.length; index += 1) {
+        if (itemList[index].classList.contains('selected')) {
+          if (index === 0) {
+            break;
+          }
+          listHeader.insertBefore(itemList[index], itemList[index - 1]);
+        }
+      }
+  });
+}
+
+function moveDown() {
+
+}
+
+moveDown()
+moveUp();
 removeSelected();
 buttonCreateTaks();
 completedTasks();
