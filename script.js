@@ -16,4 +16,14 @@ function selectTask(event) {
   event.target.classList.add('selected');
 }
 
-document.getElementById('lista-tarefas').addEventListener('click', selectTask);
+document.getElementById('lista-tarefas').addEventListener('click', completeTask);
+
+function completeTask(event) {
+  if (event.target.classList.contains("completed")) {
+    event.target.classList.remove("completed");
+  } else {
+    event.target.classList.add("completed");
+  }
+}
+
+document.getElementById('lista-tarefas').addEventListener('dblclick', completeTask);
