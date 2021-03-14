@@ -128,9 +128,16 @@ loudTasks();
 
 const moveUp = () => {
   const up = document.querySelector('#mover-cima');
+  const taskList = document.querySelector('#lista-tarefas').childNodes;
 
   up.addEventListener('click', () => {
-    console.log('cricou pra cima mano!');
+    console.log(taskList);
+    for (let index = 1; index < taskList.length; index += 1) {
+      if (taskList[index].className.includes('selected')) {
+        const previousTask = taskList[index - 1];
+        taskListContainer.insertBefore(taskList[index], previousTask);
+      }
+    }
   });
 };
 
@@ -138,9 +145,16 @@ moveUp();
 
 const moveDown = () => {
   const up = document.querySelector('#mover-baixo');
+  const taskList = document.querySelector('#lista-tarefas').childNodes;
 
   up.addEventListener('click', () => {
-    console.log('cricou pra baixo mano!');
+    console.log(taskList);
+    for (let index = taskList.length - 2; index >= 0; index -= 1) {
+      if (taskList[index].className.includes('selected')) {
+        const nextTask = taskList[index + 2];
+        taskListContainer.insertBefore(taskList[index], nextTask);
+      }
+    }
   });
 };
 
