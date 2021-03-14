@@ -48,10 +48,9 @@ const deleteAllItems = () => {
 
   btnDeleteAll.addEventListener('click', () => {
     const taskList = document.querySelector('#lista-tarefas');
-    const taskItem = document.getElementsByClassName('task');
-
-    for (let index = taskItem.length; index > 0; index -= 1) {
-      taskList.removeChild(taskItem[index - 1]);
+    const completedTasks = document.querySelectorAll('.completed');
+    for (let index = completedTasks.length; index > 0; index -= 1) {
+      taskList.removeChild(completedTasks[index - 1]);
     }
   });
 };
