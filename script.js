@@ -7,12 +7,13 @@ let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
 const buttonSalve = document.querySelector('#salvar-tarefas');
 const myList = document.getElementById('myList');
+let listaLocalStoryString;
 let trocador1;
 let trocador2;
 
 function verificaLocalStorageNull() {
   if (localStorage.getItem('listaCompleta') != null) {
-    let listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
+    listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
     myList.innerHTML = listaLocalStoryString.list;
     listaOl = myList.firstElementChild;
   }
@@ -45,7 +46,6 @@ function addBackgroudColorInElement() {
 
 function moveBackgroudColorInElementUpEvent() {
   const li = document.querySelectorAll('.listElement');
-  const lastPosition = li.length-1;
   for (let i = 0; i < li.length; i += 1) {
     if (li[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== 0) {
       trocador1 = li[i].innerText;
@@ -65,7 +65,7 @@ function moveBackgroudColorInElementUp() {
 
 function moveBackgroudColorInElementDownEvent() {
   const li = document.querySelectorAll('.listElement');
-  const lastPosition = li.length-1;
+  const lastPosition = li.length - 1;
 
   for (let i = 0; i < li.length; i += 1) {
     if (li[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== lastPosition) {
@@ -83,6 +83,20 @@ function moveBackgroudColorInElementDownEvent() {
 function moveBackgroudColorInElementDown() {
   const buttonDown = document.getElementById('mover-baixo');
   buttonDown.addEventListener('click', moveBackgroudColorInElementDownEvent);
+}
+
+function RMElementEvent() {
+  const li = document.querySelectorAll('.listElement');
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+      li[i].parentElement.removeChild(li[i]);
+    }
+  }
+}
+
+function RMElement() {
+  const buttonRM = document.getElementById('remover-selecionado');
+  buttonRM.addEventListener('click', RMElementEvent);
 }
 
 function riskElement(e) {
@@ -154,4 +168,4 @@ clearChecked();
 salvaLista();
 moveBackgroudColorInElementUp();
 moveBackgroudColorInElementDown();
-
+RMElement();
