@@ -4,6 +4,8 @@ const listTask = document.getElementById('lista-tarefas');
 const deleteAll = document.getElementById('apaga-tudo');
 const getList = document.createElement('li');
 const taskLi = document.getElementsByClassName('task');
+const finish = document.getElementsByClassName('completed');
+const buttonFinish = document.getElementById('remover-finalizados');
 
 // REQUISITO 5 E 6 //
 
@@ -34,7 +36,7 @@ function completeItem() {
     event.target.classList.toggle('completed');
   });
 }
-// toggle - para alternar //
+// toggle - para alternar para CLASS //
 
 // REQUISITO 10//
 
@@ -47,9 +49,22 @@ function clearList() {
   });
 }
 
+// REQUISITO 11 //
+
+function finishedRemove() {
+  buttonFinish.addEventListener('click', () => {
+    if (finish.length != 0) {
+      for (let index = 0; index < finish.length; index += 1) {
+        finish[index].remove();
+      }
+    }
+  });
+}
+
 window.onload = () => {
   addTask();
   getGray();
   completeItem();
   clearList();
+  finishedRemove();
 };
