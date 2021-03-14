@@ -3,6 +3,7 @@ const $taskInput = document.getElementById('texto-tarefa');
 const $taskList = document.getElementById('lista-tarefas');
 const $clearBtn = document.getElementById('apaga-tudo');
 const $finishedBtn = document.getElementById('remover-finalizados');
+const $saveTasks = document.getElementById('salvar-tarefas');
 
 function addTask() {
   if ($taskInput.value !== '') {
@@ -49,3 +50,20 @@ function removeFinishedElement() {
 }
 
 $finishedBtn.addEventListener('click', removeFinishedElement);
+
+const $status = {
+  added: [],
+  marked: [],
+  completed: [],
+};
+
+function saveStatusItens() {
+  const $itensList = document.querySelectorAll('.tasks__item');
+  const $itemSelected = document.querySelector('.selected');
+  const $itensCompleted = document.querySelectorAll('.completed');
+  $itensList.forEach((item) => $status.added.push(item));
+  $status.marked.push($itemSelected);
+  $itensCompleted.forEach((itemCompleted) => $status.completed.push(itemCompleted));
+}
+
+$saveTasks.addEventListener('click', saveStatusItens);
