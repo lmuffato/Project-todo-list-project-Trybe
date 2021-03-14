@@ -115,6 +115,6 @@ window.onload = () => {
   getSaveAllTasksButton();
   console.log('onload');
 };
-
+ 
 insertItemTask(); // função disparada ao clicar no botão "adicionar";
 getItemsLocalStorage();
