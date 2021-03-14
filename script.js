@@ -5,15 +5,29 @@ const selectOl = document.querySelector('#lista-tarefas');
 
 function moveUp() {
   const arrayList = document.querySelectorAll('li');
-  // const ArrayList = document.querySelector('ol');
   for (let index = 0; index < arrayList.length; index += 1) {
-    if (arrayList[index].className === 'selected') {
-      const pos1 = arrayList[index].innerHTML; // pega posição atual em que o indice esta
+    if (arrayList[index].className === 'selected' && index > 0) {
+      const pos1 = arrayList[index].innerHTML;
       const pos2 = arrayList[index - 1].innerHTML;
 
       arrayList[index].innerHTML = pos2;
       arrayList[index - 1].innerHTML = pos1;
       arrayList[index - 1].classList.add('selected');
+      arrayList[index].classList.remove('selected');
+    }
+  }
+}
+
+function moveDown() {
+  const arrayList = document.querySelectorAll('li');
+  for (let index = arrayList.length - 1; index >= 0; index -= 1) {
+    if (arrayList[index].className === 'selected' && index < arrayList.length - 1) {
+      const pos1 = arrayList[index].innerHTML;
+      const pos2 = arrayList[index + 1].innerHTML;
+
+      arrayList[index].innerHTML = pos2;
+      arrayList[index + 1].innerHTML = pos1;
+      arrayList[index + 1].classList.add('selected');
       arrayList[index].classList.remove('selected');
     }
   }
@@ -25,9 +39,11 @@ function addEventClickButtonUp() {
 }
 addEventClickButtonUp();
 
-// function addEventClickButtonDown() {
-//   const selectButtonDown = document.querySelector('#mover-baixo');
-// }
+function addEventClickButtonDown() {
+  const selectButtonDown = document.querySelector('#mover-baixo');
+  selectButtonDown.addEventListener('click', moveDown);
+}
+addEventClickButtonDown();
 
 // Requirement 9;
 const twoClass = 'completed selected';
