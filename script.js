@@ -27,3 +27,10 @@ function completeTask(event) {
 }
 
 document.getElementById('lista-tarefas').addEventListener('dblclick', completeTask);
+
+function clearTaskList() {
+  let toClear = document.getElementById("lista-tarefas");
+  toClear.innerText = "";
+}
+
+document.getElementById("apaga-tudo").addEventListener('click', clearTaskList);
