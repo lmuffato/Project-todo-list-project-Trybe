@@ -2,11 +2,12 @@ function insertList() {
   const button = document.getElementById('criar-tarefa');
   button.addEventListener('click', () => {
     const input = document.getElementById('texto-tarefa').value;
-      let list = document.createElement('li');
-      if(input != ''){
+    const list = document.createElement('li');
+    if (input !== '') {
       document.getElementById('lista-tarefas').appendChild(list).innerText = input;
+      document.getElementById('texto-tarefa').value = '';
     }
   });
 }
 
-insertList()
+insertList();
