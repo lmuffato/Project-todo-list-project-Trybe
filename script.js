@@ -7,7 +7,8 @@ let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
 const buttonSalve = document.querySelector('#salvar-tarefas');
 const myList = document.getElementById('myList');
-
+let trocador1;
+let trocador2;
 
 function verificaLocalStorageNull() {
   if (localStorage.getItem('listaCompleta') != null) {
@@ -40,6 +41,48 @@ function addBackgroudColorInElement() {
   for (let i = 0; i < li.length; i += 1) {
     li[i].addEventListener('click', changeBackgroudColorElement);
   }
+}
+
+function moveBackgroudColorInElementUpEvent() {
+  const li = document.querySelectorAll('.listElement');
+  const lastPosition = li.length-1;
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== 0) {
+      trocador1 = li[i].innerText;
+      trocador2 = li[i - 1].innerText;
+      li[i].innerText = trocador2;
+      li[i - 1].innerText = trocador1;
+      li[i].style.backgroundColor = 'white';
+      li[i - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  }
+}
+
+function moveBackgroudColorInElementUp() {
+  const buttonUp = document.getElementById('mover-cima');
+  buttonUp.addEventListener('click', moveBackgroudColorInElementUpEvent);
+}
+
+function moveBackgroudColorInElementDownEvent() {
+  const li = document.querySelectorAll('.listElement');
+  const lastPosition = li.length-1;
+
+  for (let i = 0; i < li.length; i += 1) {
+    if (li[i].style.backgroundColor === 'rgb(128, 128, 128)' && i !== lastPosition) {
+      trocador1 = li[i].innerText;
+      trocador2 = li[i + 1].innerText;
+      li[i].innerText = trocador2;
+      li[i + 1].innerText = trocador1;
+      li[i].style.backgroundColor = 'white';
+      li[i + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+      return;
+    }
+  }
+}
+
+function moveBackgroudColorInElementDown() {
+  const buttonDown = document.getElementById('mover-baixo');
+  buttonDown.addEventListener('click', moveBackgroudColorInElementDownEvent);
 }
 
 function riskElement(e) {
@@ -101,6 +144,7 @@ function clickBtnAdicionar() {
   botAdicionar.addEventListener('click', checkElement);
 }
 
+verificaLocalStorageNull();
 clickBtnAdicionar();
 concatList();
 addBackgroudColorInElement();
@@ -108,4 +152,6 @@ checkElement();
 clearAll();
 clearChecked();
 salvaLista();
-verificaLocalStorageNull();
+moveBackgroudColorInElementUp();
+moveBackgroudColorInElementDown();
+
