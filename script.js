@@ -7,7 +7,6 @@ const moveUpBtn = document.getElementById('mover-cima');
 const moveDownBtn = document.getElementById('mover-baixo');
 const inputTask = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
-let tasks = [];
 
 function addTask(e) {
   e.preventDefault();
@@ -55,28 +54,13 @@ function removeCompleted() {
 }
 
 function setTasks() {
-  const allTasks = document.querySelectorAll('.task');
-  tasks = [];
-  allTasks.forEach((li) => tasks.push({
-    name: li.innerText,
-    classes: li.classList,
-  }));
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  const allTasks = taskList.innerHTML;
+  localStorage.setItem('tasks', allTasks);
 }
 
-// Object.entries relembrado consultando documentação do MDN
 function getTasks() {
   if (localStorage.tasks) {
-    const recoveredTasks = JSON.parse(localStorage.getItem('tasks'));
-    recoveredTasks.forEach((task) => {
-      const newTaskItem = document.createElement('li');
-      const classEntries = Object.entries(task.classes);
-      for (let index = 0; index < classEntries.length; index += 1) {
-        newTaskItem.classList.add(classEntries[index][1]);
-      }
-      newTaskItem.innerText = task.name;
-      taskList.appendChild(newTaskItem);
-    });
+    taskList.innerHTML = localStorage.getItem('tasks');
   }
 }
 
