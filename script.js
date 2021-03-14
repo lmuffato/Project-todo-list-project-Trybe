@@ -34,3 +34,14 @@ function clearTaskList() {
 }
 
 document.getElementById("apaga-tudo").addEventListener('click', clearTaskList);
+
+function clearCompleted() {
+  const completedItens = document.getElementById('lista-tarefas').childNodes;
+  for (let index = completedItens.length - 1; index >= 0; index -= 1) {
+    if (completedItens[index].classList.contains("completed")) {
+      document.getElementById('lista-tarefas').removeChild(completedItens[index]);
+    }
+  }
+}
+
+document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
