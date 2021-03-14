@@ -1,11 +1,16 @@
 const inputText = document.getElementById('texto-tarefa');
 inputText.value = '';
 const botAdicionar = document.getElementById('criar-tarefa');
-const listaOl = document.getElementById('lista-tarefas');
+let listaOl = document.getElementById('lista-tarefas');
+let listaLocalStoryString = listaOl;
 const buttonClearAll = document.getElementById('apaga-tudo');
-const buttonClearChecked = document.getElementById('remover-finalizados');
 let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
+const buttonSalve = document.querySelector('#salvar-tarefas');
+const myList = document.getElementById('myList');
+listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
+myList.innerHTML = listaLocalStoryString.list;
+listaOl = myList.firstElementChild;
 
 function concatList() {
   if (inputText.value !== '') {
@@ -72,6 +77,19 @@ function clearChecked() {
   buttonClearCheckeds.addEventListener('click', eventRemoveCheckeds);
 }
 
+function eventSaveList() {
+  const getInnerHTML = {
+    list: listaOl.parentNode.innerHTML,
+  };
+  const getInnerHTMLJSON = JSON.stringify(getInnerHTML);
+  localStorage.setItem('listaCompleta', getInnerHTMLJSON);
+  listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
+}
+
+function salvaLista() {
+  buttonSalve.addEventListener('click', eventSaveList);
+}
+
 function clickBtnAdicionar() {
   botAdicionar.addEventListener('click', concatList);
   botAdicionar.addEventListener('click', addBackgroudColorInElement);
@@ -79,5 +97,9 @@ function clickBtnAdicionar() {
 }
 
 clickBtnAdicionar();
+concatList();
+addBackgroudColorInElement();
+checkElement();
 clearAll();
 clearChecked();
+salvaLista();
