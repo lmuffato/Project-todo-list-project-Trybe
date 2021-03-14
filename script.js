@@ -6,7 +6,7 @@ const addTask = () => {
   const btnTask = document.querySelector('#criar-tarefa');
 
   btnTask.onclick = () => {
-    const taskList = document.getElementById('lista-tarefas');
+    const taskList = document.querySelector('#lista-tarefas');
     const inputTask = document.querySelector('#texto-tarefa');
     const taskItem = document.createElement('li');
 
@@ -42,15 +42,13 @@ const selectItemList = () => {
   });
 };
 
-/** Source: https://github.com/tryber/sd-010-a-project-todo-list/tree/felipemuller20-todo-list-project */
+/** Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files */
 const deleteAllItems = () => {
   const btnDeleteAll = document.querySelector('#apaga-tudo');
-
+  const listTasks = document.getElementById('lista-tarefas');
   btnDeleteAll.addEventListener('click', () => {
-    const taskList = document.querySelector('#lista-tarefas');
-    const completedTasks = document.querySelectorAll('.completed');
-    for (let index = completedTasks.length; index > 0; index -= 1) {
-      taskList.removeChild(completedTasks[index - 1]);
+    while (listTasks.firstChild) {
+      listTasks.removeChild(listTasks.firstChild);
     }
   });
 };
