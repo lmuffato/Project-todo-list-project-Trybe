@@ -7,10 +7,10 @@ const buttonClearAll = document.getElementById('apaga-tudo');
 let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
 const buttonSalve = document.querySelector('#salvar-tarefas');
-const myList = document.getElementById('myList');
-listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
-myList.innerHTML = listaLocalStoryString.list;
-listaOl = myList.firstElementChild;
+//const myList = document.getElementById('myList');
+//listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
+//myList.innerHTML = listaLocalStoryString.list;
+//listaOl = myList.firstElementChild;
 
 function concatList() {
   if (inputText.value !== '') {
@@ -102,4 +102,4 @@ addBackgroudColorInElement();
 checkElement();
 clearAll();
 clearChecked();
-salvaLista();
+//salvaLista();
