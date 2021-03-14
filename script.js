@@ -46,19 +46,29 @@ function pullText() {
 function removeList() {
   const makelist = document.getElementById('lista-tarefas');
   const removeText = document.querySelectorAll('.text-list');
-  console.log(removeText.length);
   for (let index = 0; index < removeText.length; index += 1) {
     makelist.removeChild(removeText[index]);
     list.data.pop();
     list.lengthData -= 1;
   }
-  console.log(list.data);
-  console.log(list.lengthData);
+}
+
+function removeListCompleted() {
+  const makelist = document.getElementById('lista-tarefas');
+  const removeText = document.querySelectorAll('.text-list');
+  for (let index = 0; index < removeText.length; index += 1) {
+    if(removeText[index].classList.contains('completed')) {
+      makelist.removeChild(removeText[index]);
+      list.data.splice(index, 1);
+      list.lengthData -= 1;
+    }
+  }
 }
 
 function listButton() {
   document.getElementById('criar-tarefa').addEventListener('click', pullText);
   document.getElementById('apaga-tudo').addEventListener('click', removeList);
+  document.getElementById('remover-finalizados').addEventListener('click', removeListCompleted);
 }
 
 function init() {
