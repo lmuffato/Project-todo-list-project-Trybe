@@ -13,7 +13,7 @@ function addTask() {
   });
 }
 
-// REQUISITO 7 //
+// REQUISITO 7 E 8 //
 
 function getGray() {
   listTask.addEventListener('click', (event) => {
@@ -24,7 +24,17 @@ function getGray() {
   });
 }
 
+// REQUISITO 9 //
+
+function completeItem() {
+  listTask.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+// toggle - para alternar //
+
 window.onload = () => {
   addTask();
   getGray();
+  completeItem();
 };
