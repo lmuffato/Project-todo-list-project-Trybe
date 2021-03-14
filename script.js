@@ -77,8 +77,26 @@ function excludingAllList() {
   }
 }
 
+// Requisito 11 
 function eventExcludingAllList() {
   const getApagaTudo = document.getElementById('apaga-tudo');
   getApagaTudo.addEventListener('click', excludingAllList);
 }
 eventExcludingAllList();
+
+function excludingSelected() {
+  const listTask = document.getElementById('lista-tarefas');
+  const itemClass = document.getElementsByClassName('item completed');
+
+  for (let index = 0; index < itemClass.length; index += 1) {
+    if (itemClass[index].className === 'item completed') {
+      listTask.removeChild(itemClass[index]);
+    }
+  }
+}
+
+function eventExcludingSelected() {
+  const btnRemove = document.getElementById('remover-finalizados');
+  btnRemove.addEventListener('click', excludingSelected);
+}
+eventExcludingSelected();
