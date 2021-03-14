@@ -51,3 +51,9 @@ button {
   background-color: rgb(62 , 109 , 178);
   color: white;
 }
+
+footer {
+  margin-top: 40px;
+  font-size: smaller;
+  text-align: center;
+}
