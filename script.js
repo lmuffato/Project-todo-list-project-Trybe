@@ -47,6 +47,18 @@ const selectItemList = () => {
 };
 
 /** Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files */
+const deleteCompletedItems = () => {
+  const btnDeleteCompleted = document.querySelector('#remover-finalizados');
+  const completedItemList = document.getElementsByClassName('completed');
+
+  btnDeleteCompleted.addEventListener('click', () => {
+    while (completedItemList.length !== 0) {
+      completedItemList[0].remove();
+    }
+  });
+};
+
+/** Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files */
 const deleteAllItems = () => {
   const btnDeleteAll = document.querySelector('#apaga-tudo');
   const listTasks = document.getElementById('lista-tarefas');
@@ -62,4 +74,5 @@ window.onload = () => {
   deleteAllItems();
   completedItem();
   selectItemList();
+  deleteCompletedItems();
 };
