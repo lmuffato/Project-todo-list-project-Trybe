@@ -2,15 +2,20 @@ const inputText = document.getElementById('texto-tarefa');
 inputText.value = '';
 const botAdicionar = document.getElementById('criar-tarefa');
 let listaOl = document.getElementById('lista-tarefas');
-// let listaLocalStoryString = listaOl;
 const buttonClearAll = document.getElementById('apaga-tudo');
 let item;
 const buttonClearCheckeds = document.getElementById('remover-finalizados');
 const buttonSalve = document.querySelector('#salvar-tarefas');
 const myList = document.getElementById('myList');
-let listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
-//myList.innerHTML = listaLocalStoryString.list;
-//listaOl = myList.firstElementChild;
+
+
+function verificaLocalStorageNull() {
+  if (localStorage.getItem('listaCompleta') != null) {
+    let listaLocalStoryString = JSON.parse(localStorage.getItem('listaCompleta'));
+    myList.innerHTML = listaLocalStoryString.list;
+    listaOl = myList.firstElementChild;
+  }
+}
 
 function concatList() {
   if (inputText.value !== '') {
@@ -103,3 +108,4 @@ checkElement();
 clearAll();
 clearChecked();
 salvaLista();
+verificaLocalStorageNull();
