@@ -30,14 +30,18 @@ const completedItem = () => {
   });
 };
 
+/** Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files */
 const selectItemList = () => {
   const taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('click', (e) => {
-    if (e.target.classList.contains('selected')) {
-      e.target.classList.remove('selected');
+    const taskItem = e.target;
+    const taskSelected = document.querySelector('.selected');
+
+    if (taskSelected !== null) {
+      taskSelected.classList.remove('selected');
     } else {
-      e.target.classList.add('selected');
+      taskItem.classList.add('selected');
     }
   });
 };
