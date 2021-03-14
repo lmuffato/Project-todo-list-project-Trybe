@@ -114,7 +114,7 @@ function createTask() {
 createTask();
 
 // Requirement 10;
-
+// pesquisado o uso da função .remove() em: https://developer.mozilla.org/pt-BR/docs/Web/API/ChildNode/remove
 function removeTask() {
   const selectLis = document.querySelectorAll('li');
   for (let index = 0; index < selectLis.length; index += 1) {
@@ -146,3 +146,17 @@ function clickButtonClearTasksAccomplished() {
   selectButtonClear.addEventListener('click', removeTasksAccomplished);
 }
 clickButtonClearTasksAccomplished();
+
+function removeTaskSelected() {
+  const select = document.querySelector('.selected');
+
+  select.remove();
+}
+
+// Requirement 14;
+
+function clickButtonRemoveSelectedTask() {
+  const selectButtonClear = document.querySelector('#remover-selecionado');
+  selectButtonClear.addEventListener('click', removeTaskSelected);
+}
+clickButtonRemoveSelectedTask();
