@@ -99,15 +99,44 @@ function moveDown() {
         if (index === (itemList.length - 1)) {
           break;
         }
+        if (itemList[index].classList.contains('completed')) {
+          makeCompleted(index, index + 1);
+        }
+        if (itemList[index + 1].classList.contains('completed')) {
+          makeCompleted(index, index + 1);
+        }
         let aux = itemList[index].innerHTML;
         itemList[index].innerHTML = itemList[index + 1].innerHTML;
         itemList[index + 1].innerHTML = aux;
         itemList[index].classList.remove('selected');
         itemList[index + 1].classList.add('selected');
         break;
-      } 
-    }   
+        }
+        
+      }    
   });
+}
+
+function makeCompleted(a, b) {
+  const itemList = document.getElementsByTagName('li');
+  let varCurrentCompleted = itemList[a].classList;
+  let varAfterCompleted = itemList[b].classList;
+  if (varAfterCompleted.contains('completed')){
+    if (varCurrentCompleted.contains('completed')) {
+      return 0;
+    }
+    itemList[a].classList.add('completed');
+    itemList[b].classList.remove('completed');
+  }
+  
+  if (varCurrentCompleted.contains('completed')){
+    if (varAfterCompleted.contains('completed')) {
+      return 0;
+    }
+    itemList[a].classList.remove('completed');
+    itemList[b].classList.add('completed');
+  } 
+  
 }
 
 moveDown()
