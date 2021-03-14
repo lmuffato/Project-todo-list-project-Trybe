@@ -90,7 +90,24 @@ function moveUp() {
 }
 
 function moveDown() {
+  let buttonMvDown = document.getElementById('mover-baixo');
+  const itemList = document.getElementsByTagName('li');
 
+  buttonMvDown.addEventListener('click', ()=>{
+    for (let index = 0; index < itemList.length; index += 1) {
+      if (itemList[index].classList.contains('selected')) {
+        if (index === (itemList.length - 1)) {
+          break;
+        }
+        let aux = itemList[index].innerHTML;
+        itemList[index].innerHTML = itemList[index + 1].innerHTML;
+        itemList[index + 1].innerHTML = aux;
+        itemList[index].classList.remove('selected');
+        itemList[index + 1].classList.add('selected');
+        break;
+      } 
+    }   
+  });
 }
 
 moveDown()
