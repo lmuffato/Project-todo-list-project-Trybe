@@ -40,6 +40,7 @@ $taskList.addEventListener('dblclick', scratchItemList);
 function clearItensList() {
   const $tasksItens = document.querySelectorAll('.tasks__item');
   $tasksItens.forEach((taskItem) => taskItem.parentNode.removeChild(taskItem));
+  localStorage.removeItem('status');
 }
 
 $clearBtn.addEventListener('click', clearItensList);
@@ -53,17 +54,37 @@ $finishedBtn.addEventListener('click', removeFinishedElement);
 
 const $status = {
   added: [],
-  marked: [],
   completed: [],
 };
 
 function saveStatusItens() {
-  const $itensList = document.querySelectorAll('.tasks__item');
-  const $itemSelected = document.querySelector('.selected');
-  const $itensCompleted = document.querySelectorAll('.completed');
-  $itensList.forEach((item) => $status.added.push(item));
-  $status.marked.push($itemSelected);
-  $itensCompleted.forEach((itemCompleted) => $status.completed.push(itemCompleted));
+  $status.added = [];
+  $status.completed = [];
+  const $itensList = document.querySelectorAll('.tasks__list  > li');
+  $itensList.forEach((item) => $status.added.push(item.textContent));
+  $itensList.forEach((item) => $status.completed.push(item.classList.contains('completed')));
+  localStorage.setItem('status', JSON.stringify($status));
 }
 
 $saveTasks.addEventListener('click', saveStatusItens);
+
+function restoreStatusItens() {
+  const list = JSON.parse(localStorage.getItem('status'));
+  list.added.forEach((item) => {
+    const $newTaskItem = document.createElement('li');
+    $newTaskItem.classList.add('tasks__item');
+    $newTaskItem.textContent = item;
+    $taskList.appendChild($newTaskItem);
+  });
+  list.completed.forEach((item, index) => {
+    const listItem = document.querySelectorAll('.tasks__item');
+    if (item === true) {
+      listItem[index].classList.add('completed');
+    }
+  });
+}
+
+const test = JSON.parse(localStorage.getItem('status'));
+if (test !== null) {
+  restoreStatusItens();
+}
