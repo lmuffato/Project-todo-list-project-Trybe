@@ -2,6 +2,33 @@ let captureOl = document.querySelector('#lista-tarefas');
 
 
 insertItemTask(); //função disparada ao clicar no botão "adicionar";
+getItemsLocalStorage();
+function getItemsLocalStorage() {
+  if (localStorage.getItem('listItems') !== undefined) {
+    const listTaskItems = localStorage.getItem('listItems');
+    const attListItems = captureOl;
+    attListItems.innerHTML = JSON.parse(listTaskItems);
+    altColorClick(); //ao clicar em um item faz o background ficar cinza;
+    //altListItems();
+    doubleClickThrough(); //ao clicar 2x no item o grifa.
+    deleteAll();
+  }
+}
+
+function getSaveAllTasksButton() {
+  let salvarTudo = document.querySelector('#salvar-tarefas');
+  salvarTudo.addEventListener('click', function () {
+    saveTasksLocalStorage();
+  })
+};
+
+function saveTasksLocalStorage() { //esta função deve ser chamada toda vez que eu completar alguma task
+  const listTasks = captureOl;
+  localStorage.clear();
+  localStorage.setItem('listItems', JSON.stringify(listTasks.innerHTML));
+}
+console.log('teste');
+
 
 function deleteAllSelected() {
   let buttonDeleteAllSelected = document.querySelector('#remover-finalizados');
@@ -12,11 +39,13 @@ function deleteAllSelected() {
         captureOl.removeChild(captureItemsSelected[i]);
       }
     }
+    
   })
 };
 
 function deleteAll() {
   let buttonDeleteAll = document.querySelector('#apaga-tudo');
+
   buttonDeleteAll.addEventListener('click', function () {
     while (captureOl.lastElementChild) {
       captureOl.removeChild(captureOl.lastElementChild);
@@ -79,6 +108,7 @@ function insertItemTask() {
       //altListItems();
       doubleClickThrough(); //ao clicar 2x no item o grifa.
       deleteAll();
+      getSaveAllTasksButton();
     }
   })
 };
