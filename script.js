@@ -86,12 +86,9 @@ eventExcludingAllList();
 
 function excludingSelected() {
   const listTask = document.getElementById('lista-tarefas');
-  const itemClass = document.getElementsByClassName('item completed');
-
+  const itemClass = document.querySelectorAll('.completed');
   for (let index = 0; index < itemClass.length; index += 1) {
-    if (itemClass[index].className === 'item completed') {
-      listTask.removeChild(itemClass[index]);
-    }
+    listTask.removeChild(itemClass[index]);
   }
 }
 
