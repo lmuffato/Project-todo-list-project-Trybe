@@ -16,7 +16,7 @@ function selectTask(event) {
   event.target.classList.add('selected');
 }
 
-document.getElementById('lista-tarefas').addEventListener('click', completeTask);
+document.getElementById('lista-tarefas').addEventListener('click', selectTask);
 
 function completeTask(event) {
   if (event.target.classList.contains("completed")) {
