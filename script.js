@@ -2,8 +2,6 @@ const buttonTask = document.getElementById('criar-tarefa');
 const inputTask = document.getElementById('texto-tarefa');
 const listTask = document.getElementById('lista-tarefas');
 const deleteAll = document.getElementById('apaga-tudo');
-const getList = document.createElement('li');
-const taskLi = document.getElementsByClassName('task');
 const finish = document.getElementsByClassName('completed');
 const buttonFinish = document.getElementById('remover-finalizados');
 
@@ -11,6 +9,7 @@ const buttonFinish = document.getElementById('remover-finalizados');
 
 function addTask() {
   buttonTask.addEventListener('click', () => {
+    const getList = document.createElement('li');
     getList.innerText = inputTask.value;
     getList.className = 'task';
     listTask.appendChild(getList);
@@ -42,7 +41,7 @@ function completeItem() {
 
 function clearList() {
   deleteAll.addEventListener('click', () => {
-    // listTask.children.remove(); //
+    const taskLi = document.querySelectorAll('.task');
     for (let index = 0; index < taskLi.length; index += 1) {
       taskLi[index].remove();
     }
@@ -53,7 +52,7 @@ function clearList() {
 
 function finishedRemove() {
   buttonFinish.addEventListener('click', () => {
-    if (finish.length != 0) {
+    if (finish.length !== 0) {
       for (let index = 0; index < finish.length; index += 1) {
         finish[index].remove();
       }
