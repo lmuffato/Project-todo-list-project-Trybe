@@ -3,7 +3,7 @@ const getClick = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 getClick.addEventListener('click', addText);
 list.addEventListener('click', click);
-list.addEventListener('dblclick', dblclick)
+list.addEventListener('dblclick', dblclick);
 
 function addText () {
   const createItem = document.createElement('li');
@@ -28,12 +28,14 @@ function click (event) {
   }
 }
 
-function dblclick () {
-  const receiveItem = document.getElementsByClassName('listItem');
+function dblclick (event) {
+  const receiveItem = document.getElementsByClassName('selected');
   const finishSelected = event.target;
   for (let index = 0; index < receiveItem.length; index += 1) {
-    if (receiveItem[index] === finishSelected) {
-      receiveItem[index].classList.add('completed');
+    if (receiveItem[index] === finishSelected && receiveItem[index].classList.contains('completed')) {
+      finishSelected.classList.remove('completed');
+    } else {
+      finishSelected.classList.add('completed');
     }
   }
 }
