@@ -49,3 +49,11 @@ p {
   border-style: none;
   padding: 5px 20px;
 }
+
+#remover-finalizados {
+  background-color: rgb(231 , 91 , 26);
+  border-radius: 10px;
+  color: white;
+  border-style: none;
+  padding: 5px 20px;
+}

@@ -43,3 +43,12 @@ function removeList() {
 }
 
 document.querySelector('#apaga-tudo').addEventListener('click', removeList);
+
+function removeCompleted() {
+  const allCompleted = document.querySelectorAll('.completed');
+  for (let i = 0; i < allCompleted.length; i += 1) {
+    taskList.removeChild(allCompleted[i]);
+  }
+}
+
+document.querySelector('#remover-finalizados').addEventListener('click', removeCompleted);
