@@ -12,17 +12,19 @@ botao.addEventListener('click', function () {
     tasks(recebeTarefa);
     document.querySelector('#texto-tarefa').value = '';
 });
+
 ////////////////////////////////////////////////////////////////////////////
+
 function setClass(item) {
     if (document.querySelector(".mystyle")) {
         let itemRemove = document.querySelector(".mystyle");
         itemRemove.classList.remove("mystyle");
         itemRemove.style.backgroundColor = '';
 
-        item.className = "mystyle";
+        item.classList.add("mystyle");
         item.style.backgroundColor = 'rgb(128, 128, 128)';
     } else {
-        item.className = "mystyle";
+        item.classList.add("mystyle");
         item.style.backgroundColor = 'rgb(128, 128, 128)';
     }
 }
@@ -36,12 +38,52 @@ taskList.addEventListener('click', () => {
 const taskList2 = document.getElementById('lista-tarefas');
 taskList2.addEventListener('dblclick', () => {
     let itemDblclick = event.target;
-    if (itemDblclick.style.textDecoration == 'line-through solid black') {
+    if (itemDblclick.style.textDecoration == 'line-through solid rgb(0, 0, 0)') {
         itemDblclick.style.textDecoration = 'none';
+        itemDblclick.classList.remove('completed');
     } else {
-        itemDblclick.className = 'mystyle completed';
-        itemDblclick.style.textDecoration = "line-through solid black";
+        itemDblclick.classList.add('completed');
+        itemDblclick.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
 
     }
 });
 
+////////////////////////////////////////////////////////////////////////
+
+let clear = document.querySelector('#apaga-tudo');
+let myList = document.querySelector('#lista-tarefas');
+
+function clearList(parametro) {
+    if (parametro !== '') {
+        myList.innerHTML = '';
+    }
+    else {
+        alert('A lista esta vazia!');
+    }
+}
+clear.addEventListener('click', () => {
+    clearList(myList.innerHTML);
+});
+
+////////////////////////////////////////////////////////////////////////
+
+let clearItem = document.querySelector('#remover-finalizados');
+let myList2 = document.querySelector('#lista-tarefas');
+
+function removeItem(fullList) {
+
+    let theList = document.getElementsByTagName('li');
+
+    if (theList.length == 0) {
+        alert('Lista vazia!');
+    }
+    if (document.getElementsByTagName('li')) {
+        while (document.querySelector('.completed')) {
+            document.querySelector('.completed').remove();
+        }
+    }
+
+}
+clearItem.addEventListener('click', () => {
+    removeItem(myList2);
+});
