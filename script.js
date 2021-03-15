@@ -6,6 +6,7 @@ const $finishedBtn = document.getElementById('remover-finalizados');
 const $saveTasks = document.getElementById('salvar-tarefas');
 const $moveUpBtn = document.getElementById('mover-cima');
 const $moveDownBtn = document.getElementById('mover-baixo');
+const $removeSelectedBtn = document.getElementById('remover-selecionado');
 
 function addTask() {
   if ($taskInput.value !== '') {
@@ -115,3 +116,10 @@ function moveDown() {
 }
 
 $moveDownBtn.addEventListener('click', moveDown);
+
+function removeSelected() {
+  const $itemSelected = document.querySelector('.selected');
+  $taskList.removeChild($itemSelected);
+}
+
+$removeSelectedBtn.addEventListener('click', removeSelected);
