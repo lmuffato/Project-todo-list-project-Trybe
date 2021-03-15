@@ -8,6 +8,7 @@ function creatTasks() {
     liElment.innerHTML = getText;
     const olElment = document.querySelector('#lista-tarefas');
     olElment.appendChild(liElment);
+    inputElement.value = '';
   });
 }
 creatTasks();
