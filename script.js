@@ -3,6 +3,9 @@ const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
 const btnApagarTarefas = document.getElementById('apaga-tudo');
 const btnRemoveTarefa = document.getElementById('remover-finalizados');
+const btnSalvarTarefas = document.getElementById('salvar-tarefas');
+const btnMoverCima = document.getElementById('mover-cima');
+const btnMoverBaixo = document.getElementById('mover-baixo');
 
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
@@ -18,6 +21,7 @@ function addListInput() {
     clearInput();
   });
 }
+addListInput();
 
 // Função responsavel por riscar um elemento da lista
 function listCompleted(list) {
@@ -60,14 +64,41 @@ function selectColor(list) {
   });
 }
 
+// Função para Salvar tarefas
+// function salvarTarefas() {
+//   btnSalvarTarefas.addEventListener('click', () => {
+//     localStorage.listTarefas = listOrdenada.innerHTML;
+//   });
+//   if (localStorage.listTarefas !== undefined) {
+//     listOrdenada.innerHTML = localStorage.listTarefas
+//   }
+// }
+
+// localStorage.listaTarefas = JSON.stringify()
+
+// Função para mover um elemento para a posição a cima;
+function moverCima() {
+  btnMoverCima.addEventListener('click', () => {
+    const arrayList = document.querySelectorAll('.list');
+    for (let index = 0; index < arrayList.length; index += 1) {
+      if (arrayList[index].classList.contains('colorList')) {
+        const listColorGray = arrayList[index];
+        console.log(listColorGray);
+      }
+    }
+    console.log(arrayList);
+  });
+}
+
 // Função responsavel para limpar o input;
 function clearInput() {
   inputText.value = '';
 }
 
-addListInput();
 
 window.onload = () => {
   apagaTarefas();
   clearTarefas();
+  // salvarTarefas();
+  moverCima();
 };

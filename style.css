@@ -27,6 +27,18 @@ header {
   background-color: red;
 }
 
+#salvar-tarefas {
+  background-color: brown;
+}
+
+#mover-cima {
+  background-color: #007910;
+}
+
+#mover-baixo {
+  background-color: #867900;
+}
+
 #remover-finalizados {
   background-color: blueviolet;
 }
