@@ -16,16 +16,17 @@ function main() {
         liItem.innerText = input.value;
         liItem.addEventListener('click', () => {
             clean();
-            liItem.className = 'color';
+            liItem.classList.add('color');
 
         });
         liItem.addEventListener('dblclick', () => {
             liItem.classList.toggle('completed')
-        })
+        });
 
         list.appendChild(liItem);
         input.value = '';
     });
 }
 main();
+
 
