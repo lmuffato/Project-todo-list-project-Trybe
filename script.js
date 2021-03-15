@@ -4,6 +4,8 @@ const $taskList = document.getElementById('lista-tarefas');
 const $clearBtn = document.getElementById('apaga-tudo');
 const $finishedBtn = document.getElementById('remover-finalizados');
 const $saveTasks = document.getElementById('salvar-tarefas');
+const $moveUpBtn = document.getElementById('mover-cima');
+const $moveDownBtn = document.getElementById('mover-baixo');
 
 function addTask() {
   if ($taskInput.value !== '') {
@@ -19,7 +21,6 @@ $addTaskBtn.addEventListener('click', addTask);
 
 function changebackgroundColorItemList(event) {
   const $target = event.target;
-  console.log($target);
   const $itemListSelected = document.querySelectorAll('.selected');
   $itemListSelected.forEach((element) => {
     if (element !== $target) {
@@ -88,3 +89,29 @@ const test = JSON.parse(localStorage.getItem('status'));
 if (test !== null) {
   restoreStatusItens();
 }
+
+function moveUp() {
+  const $itemSelected = document.querySelector('.selected');
+  if ($itemSelected !== null) {
+    const $items = document.querySelectorAll('li');
+    const list = Array.from($items);
+    if (list.indexOf($itemSelected) !== 0) {
+      $taskList.insertBefore($itemSelected, $itemSelected.previousElementSibling);
+    }
+  }
+}
+
+$moveUpBtn.addEventListener('click', moveUp);
+
+function moveDown() {
+  const $itemSelected = document.querySelector('.selected');
+  if ($itemSelected !== null) {
+    const $items = document.querySelectorAll('li');
+    const list = Array.from($items);
+    if (list.indexOf($itemSelected) !== list.length - 1) {
+      $taskList.insertBefore($itemSelected.nextElementSibling, $itemSelected);
+    }
+  }
+}
+
+$moveDownBtn.addEventListener('click', moveDown);
