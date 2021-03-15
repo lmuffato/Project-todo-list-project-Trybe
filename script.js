@@ -80,41 +80,21 @@ down.addEventListener('click' , () => {
 })
 
 
-
-window.addEventListener('load' , () => {
-
   save.addEventListener('click' , () => {
-    // const username = document.querySelector('#username').value;
-      // localStorage.userN = username;
+    const username = document.querySelector('#username').value;
+      localStorage.userN = username;
       localStorage.listLi = todoList.innerHTML;
   })
-  // let nome = prompt('Digite seu nome:')
-  // while(nome !== 'luan') {  
-  //  var nome = prompt('Digite seu nome:');
-  //   console.log(nome);
-  //   // localStorage.setItem('luan')
-  //   if( nome !== 'luan') {
-  //     alert('O nome digitado não consta em nosso banco de dados. Tente novamente!')
-  //   }
-  // } 
-  // alert(`Bem-Vindo ${nome}` )
-  
-    // const user = document.querySelector('#username').value;
-    
-    // user = localStorage.getItem(userN);
 
-    function criaLi2() {
-      const list = localStorage.getItem(listLi);
-      for (let l of list) {
-
-      const li = document.createElement('li');
-      li.innerText = l.value;
-      
-      todoList.appendChild(li);
+    function getLocalStorageContent() {
+      todoList.innerHTML = localStorage.getItem('listLi');
+      const userOfLocalStorage = localStorage.getItem('userN');
+      const welcome = document.querySelector('#welcome');
+      if(userOfLocalStorage === null || userOfLocalStorage === undefined){
+        welcome.style.display = 'none'
+      } else{
+        welcome.style.display = 'block'
+        welcome.innerHTML = `Seja bem-vindo ${userOfLocalStorage.getItem('userN')}`
       }
-
     }
-      
-    criaLi2();
-
-});
+    getLocalStorageContent();

@@ -16,6 +16,10 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
+#welcome {
+  color: blue;
+}
+
 #trybeLogo {
   width: 200px;
   margin-left: 10%;
