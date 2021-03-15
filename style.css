@@ -29,7 +29,7 @@ p {
 }
 
 #criar-tarefa {
-  background-color: rgb(26, 145, 218);
+  background-color: rgb(26 , 145 , 218);
   border-radius: 10px;
   color: white;
   border-style: none;
@@ -43,7 +43,7 @@ p {
 }
 
 #apaga-tudo {
-  background-color: rgb(188, 17, 17);
+  background-color: rgb(188 , 17 , 17);
   border-radius: 10px;
   color: white;
   border-style: none;

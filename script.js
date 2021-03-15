@@ -35,7 +35,11 @@ function completeUncompleteTasks(event) {
 
 taskList.addEventListener('dblclick', completeUncompleteTasks);
 
-function removeList(event) {
-  const eTarget = event.target;
-  eTarget
+function removeList() {
+  const allTasks = document.querySelectorAll('.task');
+  for (let i = 0; i < allTasks.length; i += 1) {
+    taskList.removeChild(allTasks[i]);
+  }
 }
+
+document.querySelector('#apaga-tudo').addEventListener('click', removeList);
