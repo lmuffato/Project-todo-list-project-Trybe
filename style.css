@@ -43,6 +43,13 @@ button {
   background-color: white;
   cursor: pointer;
   border-radius: 20px;
+  transition: all ease 1ms;
+}
+.buttons:hover {
+ 
+  background-color: rgb(85 , 210 , 132);
+  color: white;
+
 }
 
 .buttons {
