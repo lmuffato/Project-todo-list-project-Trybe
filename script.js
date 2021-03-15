@@ -6,7 +6,6 @@ const clearButton = document.getElementById('apaga-tudo');
 const clearFinished = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
 const upPosition = document.getElementById('mover-cima');
-const optionSelected = document.getElementsByClassName('selected')[0];
 const downPosition = document.getElementById('mover-baixo');
 
 function returnInformation() {
@@ -19,21 +18,21 @@ function returnInformation() {
   }
 }
 
-function elements(elementPosition, oldposition){
-  let elementProp = tarefa[elementPosition]
-  let newProp = tarefa[oldposition]
-  let oldHTML = elementProp.innerHTML
-  let oldBgStyle = elementProp.style.backgroundColor
-  let oldTextDec = elementProp.style.textDecoration
-  let oldClassNam = elementProp.className
-  elementProp.innerHTML = newProp.innerHTML
-  elementProp.style.backgroundColor = newProp.style.backgroundColor
-  elementProp.style.textDecoration = newProp.style.textDecoration
-  elementProp.className = newProp.className
-  newProp.innerHTML = oldHTML
-  newProp.style.backgroundColor = oldBgStyle 
-  newProp.style.textDecoration = oldTextDec
-  newProp.className = oldClassNam
+function elements(elementPosition, oldposition) {
+  const elementProp = tarefa[elementPosition];
+  const newProp = tarefa[oldposition];
+  const oldHTML = elementProp.innerHTML;
+  const oldBgStyle = elementProp.style.backgroundColor;
+  const oldTextDec = elementProp.style.textDecoration;
+  const oldClassNam = elementProp.className;
+  elementProp.innerHTML = newProp.innerHTML;
+  elementProp.style.backgroundColor = newProp.style.backgroundColor;
+  elementProp.style.textDecoration = newProp.style.textDecoration;
+  elementProp.className = newProp.className;
+  newProp.innerHTML = oldHTML;
+  newProp.style.backgroundColor = oldBgStyle;
+  newProp.style.textDecoration = oldTextDec;
+  newProp.className = oldClassNam;
 }
 
 returnInformation();
@@ -47,22 +46,21 @@ function criarTarefa() {
 }
 
 function classUnselectedErase() {
-
   for (let index = 0; index < tarefa.length; index += 1) {
     if (tarefa[index].className.indexOf('selected') > 0) {
-      tarefa[index].classList.remove('selected')
+      tarefa[index].classList.remove('selected');
+    }
   }
-}
 }
 
 function selectOption(listItem) {
-classUnselectedErase()
+  classUnselectedErase();
   const taskChosen = listItem.target;
   taskChosen.style.backgroundColor = 'rgb(128, 128, 128)';
-  if (taskChosen.className.indexOf('selected' > 0)){
-  taskChosen.classList.remove('selected');
- }
-taskChosen.classList.add('selected');
+  if (taskChosen.className.indexOf('selected' > 0)) {
+    taskChosen.classList.remove('selected');
+  }
+  taskChosen.classList.add('selected');
 }
 
 function unselectOptions() {
@@ -76,12 +74,12 @@ function finishedOption(listItem) {
   const taskClass = listItem.target;
   if (taskChosen.target.style.textDecoration === '') {
     taskChosen.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    taskClass.classList.remove('tarefa')
-    taskClass.classList.add('completed')
+    taskClass.classList.remove('tarefa');
+    taskClass.classList.add('completed');
   } else {
     taskChosen.target.style.textDecoration = '';
-    taskClass.classList.add('tarefa')
-    taskClass.classList.remove('completed')
+    taskClass.classList.add('tarefa');
+    taskClass.classList.remove('completed');
   }
 }
 
@@ -111,24 +109,27 @@ function saveInformation() {
   }
 }
 
-function moveUp(){
+function moveUp() {
   let choosePosition;
-  for (let indexChoose = 0; indexChoose < tarefa.length; indexChoose += 1){
-    if (tarefa[indexChoose].className.indexOf('selected') > 0){
+  for (let indexChoose = 1; indexChoose < tarefa.length; indexChoose += 1) {
+    if (tarefa[indexChoose].className.indexOf('selected') > 0) {
       choosePosition = indexChoose;
-      elements([choosePosition-1],[choosePosition])
-      break
+      elements([choosePosition - 1], [choosePosition]);
+      break;
     }
   }
 }
 
-function moveDown(){
+function moveDown() {
   let choosePosition;
-  for (let indexChoose = 0; indexChoose < tarefa.length; indexChoose += 1){
-    if (tarefa[indexChoose].className.indexOf('selected') > 0){
+  for (let indexChoose = 0; indexChoose < tarefa.length; indexChoose += 1) {
+    if (tarefa[indexChoose].className.indexOf('selected') > 0) {
       choosePosition = indexChoose;
-      elements([choosePosition +1],[choosePosition])
-      break
+      elements([choosePosition + 1], [choosePosition]);
+      break;
+    }
+    if (indexChoose === (tarefa.length - 2)) {
+      break;
     }
   }
 }
@@ -140,5 +141,5 @@ clearButton.addEventListener('click', clearAll);
 listaDeTarefas.addEventListener('dblclick', finishedOption);
 listaDeTarefas.addEventListener('click', unselectOptions);
 listaDeTarefas.addEventListener('click', selectOption);
-downPosition.addEventListener('click', moveDown)
-upPosition.addEventListener('click', moveUp)
+downPosition.addEventListener('click', moveDown);
+upPosition.addEventListener('click', moveUp);
