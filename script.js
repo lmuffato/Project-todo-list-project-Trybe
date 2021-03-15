@@ -1,12 +1,30 @@
 let input = document.querySelector('#texto-tarefa');
-let clickButton = document.querySelector('#criar-tarefa');
-let valueToList = document.querySelector('#lista-tarefas');
+let button = document.querySelector('#criar-tarefa');
+let list = document.querySelector('#lista-tarefas');
 
-clickButton.addEventListener('click', click);
+button.addEventListener('click', click);
 
 function click() {
     let listValue = document.createElement('li');
     listValue.innerText = input.value;
-    valueToList.appendChild(listValue);
+    list.appendChild(listValue);
     input.value = '';
 }
+
+//requisito 7
+ list.addEventListener('click', function clickItem(e) {
+    let listItem = list.childNodes;
+    for (let index = 0; index < listItem.length; index += 1) {
+        listItem[index].style.backgroundColor = 'white';
+    }
+    e.target.style.backgroundColor = 'red';
+}); 
+
+/* list.addEventListener('click', function clickItem(e) {
+    limpar(e);
+    e.target.style.backgroundColor = 'red';
+})
+
+function limpar(e) {
+    e.target.style.remove('backgroundColor');
+} */
