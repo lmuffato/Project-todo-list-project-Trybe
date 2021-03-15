@@ -4,10 +4,10 @@ function addTasktoList() {
     const taskList = document.getElementById('lista-tarefas');
     const input = document.getElementById('texto-tarefa');
     if (input.value !== '') {
-        const createListItem = document.createElement('li');
-        taskList.appendChild(createListItem);
-        createListItem.innerHTML = input.value;
-        input.value = '';
+      const createListItem = document.createElement('li');
+      taskList.appendChild(createListItem);
+      createListItem.innerHTML = input.value;
+      input.value = '';
     }
   });
 
@@ -15,4 +15,21 @@ function addTasktoList() {
 
 addTasktoList();
 
-// visita ao repositório: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/commits/99c02b6ca82a239c7e48bbfdef5d18efeaade068 para eventuais correções de sintaxe.
+function addColorToItems() {
+  const listItems = document.getElementsByTagName('ol')[0];
+  listItems.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.style.backgroundColor === '') {
+      listItems.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+});
+listItems.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.style.backgroundColor === 'rgb(128, 128, 128)') {
+          console.log(listItems.style.backgroundColor)
+          listItems.style.backgroundColor = '';
+      }
+  });
+}
+
+addColorToItems();
