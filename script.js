@@ -5,19 +5,11 @@ const input = document.querySelector('#texto-tarefa');
 const orderedList = document.querySelectorAll('ol');
 
 
-function createLis() {
+function createNewTodo() {
   var newLi = document.createElement('li');
-  var newToDo = document.createTextNode(orderedList, input);
-  newLi.appendChild(newToDo);
+  newLi.innerText = input.value;
   document.getElementById('lista-tarefas').appendChild(newLi);
+  input.value = '';
 }
 
-function textOnList (){
-  var list = document.querySelectorAll('li');
-  var textInInput = document.getElementById('texto-tarefa').nodeValue;
-  for (let index = 0; index < list.length; index += 1) {
-    list[index].innerText = textInInput;
-  }
-}
-
-buttonNewToDo.addEventListener('click',createLis,textOnList);
+buttonNewToDo.addEventListener('click',createNewTodo);
