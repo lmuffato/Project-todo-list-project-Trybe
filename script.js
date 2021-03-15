@@ -22,3 +22,12 @@ function createBgColor() {
   });
 }
 createBgColor();
+
+function clearList() {
+  const clearAllList = document.querySelector('#apaga-tudo');
+  clearAllList.addEventListener('click', () => {
+    const textContent = document.querySelector('#lista-tarefas');
+    textContent.innerHTML = '';
+  });
+}
+clearList();
