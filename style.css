@@ -21,7 +21,11 @@ p {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
+}
+
+#texto-tarefa {
+  padding: 3px 0;
 }
 
 #criar-tarefa {
@@ -29,11 +33,19 @@ p {
   border-radius: 10px;
   color: white;
   border-style: none;
-  padding: 4px 20px;
+  padding: 5px 20px;
 }
 
 #tasks-area {
   margin: 20px 0;
   font-weight: 400;
   font-size: 17px;
+}
+
+#apaga-tudo {
+  background-color:rgb(188, 17, 17);
+  border-radius: 10px;
+  color: white;
+  border-style: none;
+  padding: 5px 20px;
 }
