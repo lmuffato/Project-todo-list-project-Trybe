@@ -77,20 +77,24 @@ window.onload = () => {
 const upArrow = document.querySelector('#mover-cima');
 upArrow.addEventListener('click', () => {
   const toUp = document.querySelector('.bkGray');
-  if (toUp.previousElementSibling === null) {
-    alert('Esta tárefa já está no topo!');
-  } else {
-    theList.insertBefore(toUp, toUp.previousElementSibling);
+  if (toUp) {
+    if (toUp.previousElementSibling === null) {
+       alert('Esta tárefa já está no topo!');
+     } else {
+       theList.insertBefore(toUp, toUp.previousElementSibling);
+     }
   }
 });
 
 const downArrow = document.querySelector('#mover-baixo');
 downArrow.addEventListener('click', () => {
   const toDown = document.querySelector('.bkGray');
-  if (toDown.nextElementSibling === null) {
-    alert('Esta tárefa já está como ultima!');
-  } else {
-    theList.insertBefore(toDown.nextElementSibling, toDown);
+  if (toDown) {
+    if (toDown.nextElementSibling === null) {
+       alert('Esta tárefa já está como ultima!');
+    } else {
+      theList.insertBefore(toDown.nextElementSibling, toDown);
+    }
   }
 });
 
