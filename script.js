@@ -11,6 +11,8 @@ buttonClearCompleted.innerText = 'Remover Finalizados';
 const inputList = document.getElementById('texto-tarefa');
 const listClick = document.getElementsByTagName('ol')[0];
 const listItens = document.getElementsByTagName('li');
+const buttonSave = document.getElementById('salvar-tarefas');
+buttonSave.innerText = 'Salvar';
 
 buttonInsertItem.addEventListener('click', () => {
   if (inputList.value === '') {
@@ -66,3 +68,16 @@ function removeCompleted() {
   });
 }
 removeCompleted();
+
+// requisito 12
+function saveTasks() {
+  buttonSave.addEventListener('click', () => {
+    localStorage.setItem('listItens', listClick.innerHTML);
+  });
+}
+saveTasks();
+
+function getTasks() {
+  listClick.innerHTML = localStorage.getItem('listItens');
+}
+getTasks();
