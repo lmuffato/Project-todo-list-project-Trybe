@@ -1,6 +1,6 @@
 function addList() {
-  const btnForAdd = document.querySelector('#cria-tarefa');
-  btnForAdd.addEventListener('click' , () => {
+  const btnForAdd = document.querySelector('#criar-tarefa');
+  btnForAdd.addEventListener('click', () => {
     const list = document.querySelector('#lista-tarefas');
     const leList = document.querySelector('#texto-tarefa');
     const li = document.createElement('li');
