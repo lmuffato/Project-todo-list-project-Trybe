@@ -21,11 +21,18 @@ function createBgColor() {
   });
 }
 createBgColor();
+/* 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item Pontos importantes sobre este requisito:
 
+* Crie uma classe CSS com o nome "completed" e defina a propriedade "text-decoration" com o valor "line-through".
+
+* Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas.
+ */
+
+/* 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista */
 function clearList() {
   const clearAllList = document.querySelector('#apaga-tudo');
   clearAllList.addEventListener('click', () => {
-    const itensList = document.querySelector('#lista-tarefas');
+    const itensList = document.querySelector('#lista-tarefas li');
     itensList.innerHTML = '';
   });
 }
