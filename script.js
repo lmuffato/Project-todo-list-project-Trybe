@@ -1,4 +1,7 @@
 const listHeader = document.getElementById('lista-tarefas');
+const btnMoveDown = document.getElementById('mover-baixo');
+const btnMoveUp = document.getElementById('mover-cima');
+const btnSaveTask = document.getElementById('salvar-tarefas');
 
 function cleanCompletedTasks() {
   const listItems = document.getElementsByTagName('li');
@@ -74,81 +77,36 @@ function removeSelected() {
 }
 
 function moveUp() {
-  const buttonMvUp = document.getElementById('mover-cima');
-  const itemList = document.getElementsByTagName('li');
-  buttonMvUp.addEventListener('click', () => {
-    for (let index = 0; index < itemList.length; index += 1) {
-      if (itemList[index].classList.contains('selected')) {
-        if (index === 0) {
-          break;
-        }
-        listHeader.insertBefore(itemList[index], itemList[index - 1]);
-      }
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected != null) {
+    const taskPrevious = taskSelected.previousElementSibling;
+    if (listHeader.firstChild !== taskSelected) {
+      taskSelected.parentNode.insertBefore(taskSelected, taskPrevious);
     }
-  });
-}
-
-function makeCompleted(a, b) {
-  const itemList = document.getElementsByTagName('li');
-  const varCurrentCompleted = itemList[a].classList;
-  const varAfterCompleted = itemList[b].classList;
-  if (varAfterCompleted.contains('completed')) {
-    if (varCurrentCompleted.contains('completed')) {
-      return 0;
-    }
-    itemList[a].classList.add('completed');
-    itemList[b].classList.remove('completed');
-  }
-
-  if (varCurrentCompleted.contains('completed')) {
-    if (varAfterCompleted.contains('completed')) {
-      return 0;
-    }
-    itemList[a].classList.remove('completed');
-    itemList[b].classList.add('completed');
   }
 }
 
 function moveDown() {
-  const buttonMvDown = document.getElementById('mover-baixo');
-  const itemList = document.getElementsByTagName('li');
-
-  buttonMvDown.addEventListener('click', () => {
-    for (let index = 0; index < itemList.length; index += 1) {
-      if (itemList[index].classList.contains('selected')) {
-        if (index === (itemList.length - 1)) {
-          break;
-        }
-        if (itemList[index].classList.contains('completed')) {
-          makeCompleted(index, index + 1);
-        }
-        if (itemList[index + 1].classList.contains('completed')) {
-          makeCompleted(index, index + 1);
-        }
-        const aux = itemList[index].innerHTML;
-        itemList[index].innerHTML = itemList[index + 1].innerHTML;
-        itemList[index + 1].innerHTML = aux;
-        itemList[index].classList.remove('selected');
-        itemList[index + 1].classList.add('selected');
-        break;
-      }
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected != null) {
+    const taskNext = taskSelected.nextElementSibling;
+    if (listHeader.lastChild !== taskSelected) {
+      taskNext.parentNode.insertBefore(taskNext, taskSelected);
     }
-  });
+  }
 }
 
 function saveData() {
   localStorage.setItem('lista', listHeader.innerHTML);
 }
 
-const btnSaveTask = document.getElementById('salvar-tarefas');
-btnSaveTask.addEventListener('click', saveData);
-
 window.onload = () => {
   listHeader.innerHTML = localStorage.getItem('lista');
 };
 
-moveDown();
-moveUp();
+btnSaveTask.addEventListener('click', saveData);
+btnMoveUp.addEventListener('click', moveUp);
+btnMoveDown.addEventListener('click', moveDown);
 removeSelected();
 buttonCreateTaks();
 completedTasks();
