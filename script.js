@@ -17,7 +17,7 @@ function click() {
     for (let index = 0; index < listItem.length; index += 1) {
         listItem[index].style.backgroundColor = 'white';
     }
-    e.target.style.backgroundColor = 'red';
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }); 
 
 /* list.addEventListener('click', function clickItem(e) {
