@@ -4,11 +4,11 @@
 
 body {
   background-color: greenyellow;
-  font-family: 'Roboto';
+  font-family: Roboto, sans-serif;
 }
 
 p {
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0;
   font-weight: 300;
   font-style: italic;
 }
@@ -25,11 +25,11 @@ p {
   border-radius: 10px;
   color: white;
   border-style: none;
-  padding: 4px 20px 4px 20px;
+  padding: 4px 20px;
 }
 
 #tasks-area {
-  margin: 20px 0px 20px 0px;
+  margin: 20px 0;
   font-weight: 400;
   font-size: 17px;
 }
