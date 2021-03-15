@@ -7,6 +7,7 @@ function addTasktoList() {
         const createListItem = document.createElement('li');
         taskList.appendChild(createListItem);
         createListItem.innerHTML = input.value;
+        input.value = '';
     }
   });
 
