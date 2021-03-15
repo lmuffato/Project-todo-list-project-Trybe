@@ -79,10 +79,10 @@ upArrow.addEventListener('click', () => {
   const toUp = document.querySelector('.bkGray');
   if (toUp) {
     if (toUp.previousElementSibling === null) {
-       alert('Esta tárefa já está no topo!');
-     } else {
-       theList.insertBefore(toUp, toUp.previousElementSibling);
-     }
+      alert('Esta tárefa já está no topo!');
+    } else {
+      theList.insertBefore(toUp, toUp.previousElementSibling);
+    }
   }
 });
 
@@ -91,7 +91,7 @@ downArrow.addEventListener('click', () => {
   const toDown = document.querySelector('.bkGray');
   if (toDown) {
     if (toDown.nextElementSibling === null) {
-       alert('Esta tárefa já está como ultima!');
+      alert('Esta tárefa já está como ultima!');
     } else {
       theList.insertBefore(toDown.nextElementSibling, toDown);
     }
