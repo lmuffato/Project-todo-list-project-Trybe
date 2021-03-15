@@ -34,6 +34,7 @@ input {
 li {
   color: black;
   margin: 2px;
+  cursor: pointer;
 }
 
 button {
@@ -42,12 +43,12 @@ button {
   outline: none;
   background-color: white;
   cursor: pointer;
-  
 }
 
 .buttons {
   padding: 5px;
-  transition: all ease 1ms;
+  transition: all ease 100ms;
+  box-shadow: 1px 1px 1px 1px rgba(0 , 0 , 0 , 0.2);
 }
 
 .buttons:hover {
@@ -66,4 +67,3 @@ button {
   text-decoration: line-through solid black;
   opacity: 0.5;
 }
-
