@@ -15,12 +15,18 @@ function paragraphCreate () {
 }
 paragraphCreate();
 
+function inputSpace () {
+  const sectionMain = document.querySelector('#btn');
+  const createInput = document.createElement('input');
+  createInput.defaultValue = 'Sua tarefa aqui..';
+  createInput.id = 'texto-tarefa';
+  sectionMain.appendChild(createInput);
+}
 function button () {
   const sectionMain = document.querySelector('#btn');
   const createButton = document.createElement('button');
   createButton.innerHTML = 'Incluir';
-  createButton.id = 'texto-tarefa';
   sectionMain.appendChild(createButton);
 }
+inputSpace();
 button();
-
