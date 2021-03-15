@@ -84,7 +84,7 @@ function changePositionUp() {
   const elementB = elementA.previousElementSibling;
   const elementC = elementA;
   elementA.outerHTML = elementB.outerHTML;
-  elementB.outerHTML = elementC.outerHTML;  
+  elementB.outerHTML = elementC.outerHTML;
 }
 
 function changePositionDown() {
@@ -92,7 +92,7 @@ function changePositionDown() {
   const elementB = elementA.nextElementSibling;
   const elementC = elementA;
   elementA.outerHTML = elementB.outerHTML;
-  elementB.outerHTML = elementC.outerHTML;  
+  elementB.outerHTML = elementC.outerHTML;
 }
 
 buttonChangeUp.addEventListener('click', changePositionUp);
