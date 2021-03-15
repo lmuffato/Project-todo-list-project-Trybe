@@ -111,11 +111,11 @@ window.onload = function () {
   loadTasks();
 };
 
-//Para auxilio no entendimento da logica e alguns exemplos de código foi necessária
-//a busca por suporte com meus colegas no Slack e também ao consultar o código dos mesmos.
-//Guilherme Lira
-//Renzo
-//também foram realizadas consultas nos sites:
-//https://www.w3schools.com/jsref/prop_html_outerhtml.asp
-//https://youtu.be/Ttf3CEsEwMQ
-//https://youtu.be/ZGMJqxIkAb0
+// Para auxilio no entendimento da logica e alguns exemplos de código foi necessária
+// a busca por suporte com meus colegas no Slack e também ao consultar o código dos mesmos.
+// Guilherme Lira
+// Renzo
+// também foram realizadas consultas nos sites:
+// https://www.w3schools.com/jsref/prop_html_outerhtml.asp
+// https://youtu.be/Ttf3CEsEwMQ
+// https://youtu.be/ZGMJqxIkAb0
