@@ -4,8 +4,7 @@ body {
 }
 
 .bg {
-  background-color: rgb(128, 128, 128);
-  border: brown solid 1px;
+  background-color: rgb (128, 128, 128);
 }
 
 #apaga-tudo {
