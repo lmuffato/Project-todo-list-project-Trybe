@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: greenyellow;
+  font-family: 'Roboto';
+}
+
+p {
+  margin: 20px 0px 20px 0px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+#card {
+  margin: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+#criar-tarefa {
+  background-color: #1A91DA;
+  border-radius: 10px;
+  color: white;
+  border-style: none;
+  padding: 4px 20px 4px 20px;
+}
+
+#tasks-area {
+  margin: 20px 0px 20px 0px;
+  font-weight: 400;
+  font-size: 17px;
+}
