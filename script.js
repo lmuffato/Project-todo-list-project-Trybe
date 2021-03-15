@@ -7,7 +7,7 @@ function tasks(recebeTarefa) {
     varPai.appendChild(varSon);
 }
 
-botao.addEventListener('click', function () {
+botao.addEventListener('click', () => {
     let recebeTarefa = document.querySelector('#texto-tarefa').value;
     tasks(recebeTarefa);
     document.querySelector('#texto-tarefa').value = '';
@@ -75,7 +75,7 @@ function removeItem(fullList) {
     let theList = document.getElementsByTagName('li');
 
     if (theList.length == 0) {
-        alert('Lista vazia!');
+        alert('Nenhum item marcado como finalizado!');
     }
     if (document.getElementsByTagName('li')) {
         while (document.querySelector('.completed')) {
