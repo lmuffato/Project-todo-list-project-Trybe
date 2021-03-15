@@ -17,7 +17,13 @@ function getInputHtml() {
 }
 // Requisito 7
 // 7. Clicar em um item da lista de alterar o bgColor para rgb(128, 128, 128)
+// Requisito 8
+// não pode ser possivel selecionar mais de um elemento da list
 function changeBackgroundColor(event) {
+  const removeBgColor = document.querySelectorAll('li');
+  for (let index = 0; index < removeBgColor.length; index += 1) {
+    removeBgColor[index].style.backgroundColor = 'white';
+  }
   if (event.target.className === 'list') {
     const selectedLi = event.target;
     selectedLi.style.backgroundColor = 'rgb(128, 128, 128)';
