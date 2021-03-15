@@ -2,3 +2,8 @@ body {
   width: 1366px;
   height: 768px;
 }
+
+.bg {
+  background-color: rgb(128, 128, 128);
+  border: brown solid 1px;
+}

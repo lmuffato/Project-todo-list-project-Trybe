@@ -12,3 +12,13 @@ function creatTasks() {
   });
 }
 creatTasks();
+/* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
+function createBgColor() {
+  const textContent = document.querySelector('#lista-tarefas');
+  textContent.addEventListener('click', (e) => {
+    const elementClicked = e;
+    elementClicked.target.className = 'bg';
+    console.log(elementClicked);
+  });
+}
+createBgColor();
