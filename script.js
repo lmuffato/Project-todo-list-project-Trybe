@@ -5,6 +5,9 @@ const tarefa = document.getElementsByTagName('li');
 const clearButton = document.getElementById('apaga-tudo');
 const clearFinished = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
+const upPosition = document.getElementById('mover-cima');
+const optionSelected = document.getElementsByClassName('selected')[0];
+const downPosition = document.getElementById('mover-baixo');
 
 function returnInformation() {
   for (let index = 0; index < (localStorage.length / 3); index += 1) {
@@ -14,6 +17,23 @@ function returnInformation() {
     listaDeTarefas.appendChild(tarefas);
     listaDeTarefas.children[index].style.textDecoration = localStorage.getItem(`${index} style`);
   }
+}
+
+function elements(elementPosition, oldposition){
+  let elementProp = tarefa[elementPosition]
+  let newProp = tarefa[oldposition]
+  let oldHTML = elementProp.innerHTML
+  let oldBgStyle = elementProp.style.backgroundColor
+  let oldTextDec = elementProp.style.textDecoration
+  let oldClassNam = elementProp.className
+  elementProp.innerHTML = newProp.innerHTML
+  elementProp.style.backgroundColor = newProp.style.backgroundColor
+  elementProp.style.textDecoration = newProp.style.textDecoration
+  elementProp.className = newProp.className
+  newProp.innerHTML = oldHTML
+  newProp.style.backgroundColor = oldBgStyle 
+  newProp.style.textDecoration = oldTextDec
+  newProp.className = oldClassNam
 }
 
 returnInformation();
@@ -26,9 +46,23 @@ function criarTarefa() {
   textoTarefa.value = '';
 }
 
+function classUnselectedErase() {
+
+  for (let index = 0; index < tarefa.length; index += 1) {
+    if (tarefa[index].className.indexOf('selected') > 0) {
+      tarefa[index].classList.remove('selected')
+  }
+}
+}
+
 function selectOption(listItem) {
+classUnselectedErase()
   const taskChosen = listItem.target;
   taskChosen.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (taskChosen.className.indexOf('selected' > 0)){
+  taskChosen.classList.remove('selected');
+ }
+taskChosen.classList.add('selected');
 }
 
 function unselectOptions() {
@@ -42,10 +76,12 @@ function finishedOption(listItem) {
   const taskClass = listItem.target;
   if (taskChosen.target.style.textDecoration === '') {
     taskChosen.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    taskClass.className = 'completed';
+    taskClass.classList.remove('tarefa')
+    taskClass.classList.add('completed')
   } else {
     taskChosen.target.style.textDecoration = '';
-    taskClass.className = 'tarefa';
+    taskClass.classList.add('tarefa')
+    taskClass.classList.remove('completed')
   }
 }
 
@@ -75,6 +111,28 @@ function saveInformation() {
   }
 }
 
+function moveUp(){
+  let choosePosition;
+  for (let indexChoose = 0; indexChoose < tarefa.length; indexChoose += 1){
+    if (tarefa[indexChoose].className.indexOf('selected') > 0){
+      choosePosition = indexChoose;
+      elements([choosePosition-1],[choosePosition])
+      break
+    }
+  }
+}
+
+function moveDown(){
+  let choosePosition;
+  for (let indexChoose = 0; indexChoose < tarefa.length; indexChoose += 1){
+    if (tarefa[indexChoose].className.indexOf('selected') > 0){
+      choosePosition = indexChoose;
+      elements([choosePosition +1],[choosePosition])
+      break
+    }
+  }
+}
+
 buttonCriar.addEventListener('click', criarTarefa);
 saveTasks.addEventListener('click', saveInformation);
 clearFinished.addEventListener('click', clearSelected);
@@ -82,3 +140,5 @@ clearButton.addEventListener('click', clearAll);
 listaDeTarefas.addEventListener('dblclick', finishedOption);
 listaDeTarefas.addEventListener('click', unselectOptions);
 listaDeTarefas.addEventListener('click', selectOption);
+downPosition.addEventListener('click', moveDown)
+upPosition.addEventListener('click', moveUp)
