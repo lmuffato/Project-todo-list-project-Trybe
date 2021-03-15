@@ -20,3 +20,10 @@ createH1.appendChild(createP);
 const createInput = document.createElement('input');
 createInput.id = 'texto-tarefa';
 document.body.appendChild(createInput);
+
+//Requirement 4
+
+const createOrderedList = document.createElement('ol');
+createOrderedList.id = 'lista-tarefas';
+document.body.appendChild(createOrderedList);
+
