@@ -5,26 +5,29 @@ let list = document.querySelector('#lista-tarefas');
 button.addEventListener('click', click);
 
 function click() {
-    let listValue = document.createElement('li');
-    listValue.innerText = input.value;
-    list.appendChild(listValue);
+    let listLi = document.createElement('li');
+    listLi.innerText = input.value;
+    list.appendChild(listLi);
     input.value = '';
 }
 
-//requisito 7
+//requisito 7 e 8
  list.addEventListener('click', function clickItem(e) {
     let listItem = list.childNodes;
     for (let index = 0; index < listItem.length; index += 1) {
         listItem[index].style.backgroundColor = 'white';
     }
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
-}); 
+});
 
-/* list.addEventListener('click', function clickItem(e) {
-    limpar(e);
-    e.target.style.backgroundColor = 'red';
-})
-
-function limpar(e) {
-    e.target.style.remove('backgroundColor');
-} */
+//requisito 9
+list.addEventListener('dblclick', function clickItem(e) {
+    //let listLi = document.createElement('li');
+    let listItem = list.childNodes;
+    for (let index2 = 0; index2 < listItem.length; index2 += 1) {
+        listItem[index2].classList.remove('completed');
+        listItem[index2].style.textDecoration = 'none';
+    }
+    e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    e.target.classList.add('completed');
+});
