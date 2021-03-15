@@ -74,26 +74,46 @@ function removeSelected() {
 }
 
 function moveUp() {
-  let buttonMvUp = document.getElementById('mover-cima');
+  const buttonMvUp = document.getElementById('mover-cima');
   const itemList = document.getElementsByTagName('li');
-
-  buttonMvUp.addEventListener('click', ()=>{
-      for (let index = 0; index < itemList.length; index += 1) {
-        if (itemList[index].classList.contains('selected')) {
-          if (index === 0) {
-            break;
-          }
-          listHeader.insertBefore(itemList[index], itemList[index - 1]);
+  buttonMvUp.addEventListener('click', () => {
+    for (let index = 0; index < itemList.length; index += 1) {
+      if (itemList[index].classList.contains('selected')) {
+        if (index === 0) {
+          break;
         }
+        listHeader.insertBefore(itemList[index], itemList[index - 1]);
       }
+    }
   });
 }
 
+function makeCompleted(a, b) {
+  const itemList = document.getElementsByTagName('li');
+  const varCurrentCompleted = itemList[a].classList;
+  const varAfterCompleted = itemList[b].classList;
+  if (varAfterCompleted.contains('completed')) {
+    if (varCurrentCompleted.contains('completed')) {
+      return 0;
+    }
+    itemList[a].classList.add('completed');
+    itemList[b].classList.remove('completed');
+  }
+
+  if (varCurrentCompleted.contains('completed')) {
+    if (varAfterCompleted.contains('completed')) {
+      return 0;
+    }
+    itemList[a].classList.remove('completed');
+    itemList[b].classList.add('completed');
+  }
+}
+
 function moveDown() {
-  let buttonMvDown = document.getElementById('mover-baixo');
+  const buttonMvDown = document.getElementById('mover-baixo');
   const itemList = document.getElementsByTagName('li');
 
-  buttonMvDown.addEventListener('click', ()=>{
+  buttonMvDown.addEventListener('click', () => {
     for (let index = 0; index < itemList.length; index += 1) {
       if (itemList[index].classList.contains('selected')) {
         if (index === (itemList.length - 1)) {
@@ -105,41 +125,29 @@ function moveDown() {
         if (itemList[index + 1].classList.contains('completed')) {
           makeCompleted(index, index + 1);
         }
-        let aux = itemList[index].innerHTML;
+        const aux = itemList[index].innerHTML;
         itemList[index].innerHTML = itemList[index + 1].innerHTML;
         itemList[index + 1].innerHTML = aux;
         itemList[index].classList.remove('selected');
         itemList[index + 1].classList.add('selected');
         break;
-        }
-        
-      }    
+      }
+    }
   });
 }
 
-function makeCompleted(a, b) {
-  const itemList = document.getElementsByTagName('li');
-  let varCurrentCompleted = itemList[a].classList;
-  let varAfterCompleted = itemList[b].classList;
-  if (varAfterCompleted.contains('completed')){
-    if (varCurrentCompleted.contains('completed')) {
-      return 0;
-    }
-    itemList[a].classList.add('completed');
-    itemList[b].classList.remove('completed');
-  }
-  
-  if (varCurrentCompleted.contains('completed')){
-    if (varAfterCompleted.contains('completed')) {
-      return 0;
-    }
-    itemList[a].classList.remove('completed');
-    itemList[b].classList.add('completed');
-  } 
-  
+function saveData() {
+  localStorage.setItem('lista', listHeader.innerHTML);
 }
 
-moveDown()
+const btnSaveTask = document.getElementById('salvar-tarefas');
+btnSaveTask.addEventListener('click', saveData);
+
+window.onload = () => {
+  listHeader.innerHTML = localStorage.getItem('lista');
+};
+
+moveDown();
 moveUp();
 removeSelected();
 buttonCreateTaks();
