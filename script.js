@@ -86,6 +86,7 @@ down.addEventListener('click' , () => {
       localStorage.listLi = todoList.innerHTML;
   })
 
+  //linhas e 90 e 91 fiz baseadas no code review do pull Resquest do Anderson Silva (Andy)
     function getLocalStorageContent() {
       todoList.innerHTML = localStorage.getItem('listLi');
       const userOfLocalStorage = localStorage.getItem('userN');
