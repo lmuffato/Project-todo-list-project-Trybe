@@ -2,6 +2,7 @@ const taskList = document.querySelector('#lista-tarefas');
 
 function addTask() {
   const eachTask = document.createElement('li');
+  eachTask.className = 'task';
   eachTask.innerText = document.querySelector('#texto-tarefa').value;
   document.querySelector('#texto-tarefa').value = '';
   taskList.appendChild(eachTask);
@@ -33,3 +34,8 @@ function completeUncompleteTasks(event) {
 }
 
 taskList.addEventListener('dblclick', completeUncompleteTasks);
+
+function removeList(event) {
+  const eTarget = event.target;
+  eTarget
+}
