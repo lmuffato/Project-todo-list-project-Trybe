@@ -60,3 +60,10 @@ button {
   padding: 4px;
   margin: 2px;
 }
+
+#mover-cima, #mover-baixo {
+  background-color: rgb(247, 146, 14);
+  border-radius: 5px;
+  color: white;
+  font-weight: 800;
+}

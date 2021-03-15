@@ -3,6 +3,8 @@ const buttonClearList = document.getElementById('apaga-tudo');
 const buttonRemoveCompleteTask = document.getElementById('remover-finalizados');
 const buttonRemoveTask = document.getElementById('remover-selecionado');
 const buttonSaveTask = document.getElementById('salvar-tarefas');
+const buttonChangeUp = document.getElementById('mover-cima');
+const buttonChangeDown = document.getElementById('mover-baixo');
 
 function createTask() {
   const taskList = document.getElementById('lista-tarefas');
@@ -77,12 +79,24 @@ function saveList() {
   localStorage.setItem('listSaved', arrayList.outerHTML);
 }
 
-/* function changePositionUp() {
-  let taskSelect = document.querySelector('.li-color').outerHTML;
-  const arrayList = taskSelect.previousElementSibling.outerHTML;
+function changePositionUp() {
+  const elementA = document.querySelector('.li-color');
+  const elementB = elementA.previousElementSibling;
+  const elementC = elementA;
+  elementA.outerHTML = elementB.outerHTML;
+  elementB.outerHTML = elementC.outerHTML;  
+}
 
-  taskSelect = arrayList;
-} */
+function changePositionDown() {
+  const elementA = document.querySelector('.li-color');
+  const elementB = elementA.nextElementSibling;
+  const elementC = elementA;
+  elementA.outerHTML = elementB.outerHTML;
+  elementB.outerHTML = elementC.outerHTML;  
+}
+
+buttonChangeUp.addEventListener('click', changePositionUp);
+buttonChangeDown.addEventListener('click', changePositionDown);
 
 buttonSaveTask.addEventListener('click', saveList);
 
