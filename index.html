@@ -15,15 +15,17 @@
     <p id="funcionamento" class="header__paragraph">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
 
-  <div class="task-add">
-    <input class="task-add__input" type="text" name="tarefa" id="texto-tarefa">
-    <button class="task-add__button" id="criar-tarefa">Adicionar</button>
+  <div class="tasks-container">
+    <div class="task-add">
+      <input class="task-add__input" type="text" name="tarefa" id="texto-tarefa">
+      <button class="task-add__button" id="criar-tarefa">Adicionar</button>
+    </div>
+    
+    <div class="tasks">
+      <ol class="tasks__list" id="lista-tarefas"></ol>
+    </div>
   </div>
   
-  <div class="tasks">
-    <ol class="tasks__list" id="lista-tarefas"></ol>
-  </div>
-
   <div class="action">
     <button class="action__clean btn" id="apaga-tudo">Limpar Lista</button>
     <button class="action__finishedRemove btn" id="remover-finalizados">Limpar Completos</button>
