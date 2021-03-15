@@ -9,7 +9,17 @@ titleCreate();
 function paragraphCreate () {
   const headerMain = document.querySelector('header');
   const createP = document.createElement('p');
-  createP.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo'
+  createP.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
+  createP.id = 'funcionamento';  
   headerMain.appendChild(createP);
 }
 paragraphCreate();
+
+function button () {
+  const sectionMain = document.querySelector('#btn');
+  const createButton = document.createElement('button');
+  createButton.innerHTML = 'Incluir';
+  createButton.id = 'texto-tarefa';
+  sectionMain.appendChild(createButton);
+}
+button();
