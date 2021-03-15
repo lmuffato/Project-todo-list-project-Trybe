@@ -5,3 +5,11 @@ function titleCreate () {
   tit.appendChild(createH1);
 }
 titleCreate();
+
+function paragraphCreate () {
+  const headerMain = document.querySelector('header');
+  const createP = document.createElement('p');
+  createP.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo'
+  headerMain.appendChild(createP);
+}
+paragraphCreate();
