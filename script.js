@@ -15,11 +15,12 @@ function main() {
     button.addEventListener('click', () => {
         let liItem = document.createElement('li');
         liItem.innerText = input.value;
+
         liItem.addEventListener('click', () => {
             clean();
             liItem.classList.add('color');
-
         });
+
         liItem.addEventListener('dblclick', () => {
             liItem.classList.toggle('completed')
         });
@@ -32,8 +33,22 @@ main();
 
 let clear = document.getElementById('apaga-tudo');
 clear.addEventListener('click', () => {
-    let clearList = document.querySelectorAll('li')
+    const clearList = document.querySelectorAll('li')
     for (let i = 0; i < clearList.length; i += 1) {
         list.removeChild(clearList[i])
     }
+
 });
+
+let finishTasks = document.querySelector('#remover-selecionado')
+finishTasks.addEventListener('click', () => {
+    const finalized = document.querySelectorAll('.completed')
+    for (let i = 0; i < finalized.length; i += 1) {
+        finalized[i].remove()
+    }
+});
+
+
+
+
+
