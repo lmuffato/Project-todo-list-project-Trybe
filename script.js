@@ -10,6 +10,7 @@ function clean() {
         classColor[i].classList.remove('color');
     }
 }
+
 function main() {
     button.addEventListener('click', () => {
         let liItem = document.createElement('li');
@@ -29,4 +30,10 @@ function main() {
 }
 main();
 
-
+let clear = document.getElementById('apaga-tudo');
+clear.addEventListener('click', () => {
+    let clearList = document.querySelectorAll('li')
+    for (let i = 0; i < clearList.length; i += 1) {
+        list.removeChild(clearList[i])
+    }
+});
