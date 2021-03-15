@@ -1,8 +1,3 @@
-window.onload = () => {
-  apagaTarefas();
-  clearTarefas();
-};
-
 const btnAdicionarTarefa = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
@@ -11,7 +6,7 @@ const btnRemoveTarefa = document.getElementById('remover-finalizados');
 
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
-  btnAdicionarTarefa.addEventListener('click' , () => {  
+  btnAdicionarTarefa.addEventListener('click', () => {
     const list = document.createElement('li');
     if (inputText.value !== '') {
       list.innerHTML = inputText.value;
@@ -19,26 +14,25 @@ function addListInput() {
       list.classList.add('list');
       selectColor(list);
       listCompleted(list);
-    }      
+    }
     clearInput();
   });
 }
-addListInput();
 
 // Função responsavel por riscar um elemento da lista
 function listCompleted(list) {
   list.addEventListener('dblclick', (event) => {
-    if(event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed')
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
     }
-  })
+  });
 }
 
 // Função responsavel para apagar todas tarefas da lista
 function clearTarefas() {
-  btnApagarTarefas.addEventListener('click' , () => {
+  btnApagarTarefas.addEventListener('click', () => {
     listOrdenada.innerHTML = '';
   });
 }
@@ -49,9 +43,9 @@ function apagaTarefas() {
     const listCompleted = document.querySelectorAll('.completed');
     for (let index = 0; index < listCompleted.length; index += 1) {
       listOrdenada.removeChild(listCompleted[index]);
-      // Ajuda do Murilo, me ajuda a saber a diferença de Node e HTMLcolection 
+      // Ajuda do Murilo, me ajuda a saber a diferença de Node e HTMLcolection
       // para percorer com o <for>
-    }    
+    }
   });
 }
 
@@ -70,3 +64,10 @@ function selectColor(list) {
 function clearInput() {
   inputText.value = '';
 }
+
+addListInput();
+
+window.onload = () => {
+  apagaTarefas();
+  clearTarefas();
+};
