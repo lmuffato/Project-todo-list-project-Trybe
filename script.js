@@ -3,9 +3,9 @@ const tasksList = document.querySelector('#lista-tarefas');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
 const saveTasks = document.querySelector('#salvar-tarefas');
-const moveUp = document.querySelector('#mover-cima')
-const moveDown = document.querySelector('#mover-baixo')
-const deleteSelected = document.querySelector('#remover-selecionado')
+const moveUp = document.querySelector('#mover-cima');
+const moveDown = document.querySelector('#mover-baixo');
+const deleteSelected = document.querySelector('#remover-selecionado');
 
 btnTask.addEventListener('click', function () {
   const textTask = document.getElementById('texto-tarefa').value;
@@ -110,3 +110,12 @@ deleteSelected.addEventListener('click', function () {
 window.onload = function () {
   loadTasks();
 };
+
+//Para auxilio no entendimento da logica e alguns exemplos de código foi necessária
+//a busca por suporte com meus colegas no Slack e também ao consultar o código dos mesmos.
+//Guilherme Lira
+//Renzo
+//também foram realizadas consultas nos sites:
+//https://www.w3schools.com/jsref/prop_html_outerhtml.asp
+//https://youtu.be/Ttf3CEsEwMQ
+//https://youtu.be/ZGMJqxIkAb0
