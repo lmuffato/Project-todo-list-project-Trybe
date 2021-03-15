@@ -20,8 +20,12 @@ p {
   border-radius: 20px;
 }
 
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
 #criar-tarefa {
-  background-color: #1a91da;
+  background-color:rgb(26, 145, 218);
   border-radius: 10px;
   color: white;
   border-style: none;

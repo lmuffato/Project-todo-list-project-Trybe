@@ -24,3 +24,12 @@ function addBackground(event) {
 }
 
 taskList.addEventListener('click', addBackground);
+
+function completeUncompleteTasks(event) {
+  const eTarget = event.target;
+  if (eTarget.classList.contains('completed')) {
+    eTarget.classList.remove('completed');
+  } else eTarget.classList.add('completed');
+}
+
+taskList.addEventListener('dblclick', completeUncompleteTasks);
