@@ -1,6 +1,9 @@
-//Criação das Funções:
+//Pegando a Lista e Classe
 
 const getOl = document.getElementById('lista-tarefas');
+const getClass = document.getElementsByClassName('listClass');
+
+//Criação das Funções / Estas funções adicionam ou removem filhos da lista acima: 
 
 function completedTask(event) {
   if (event.target.className === 'listClass') {
@@ -35,26 +38,40 @@ function createTask() {
 }
 
 function clearList() {
-  const getClass = document.getElementsByClassName('listClass');
   while (getClass.length !== 0) {
     for (let index = 0; index < getClass.length; index += 1) {
       getOl.removeChild(getClass[index]);
     }
   }
 }
+
 function clearFinalized() {
-  const getClass = document.getElementsByClassName('listClass completed');
-  while (getClass.length !== 0) {
-    for (let index = 0; index < getClass.length; index += 1) {
-      getOl.removeChild(getClass[index]);
+  const getClassSel = document.getElementsByClassName('listClass completed');
+  while (getClassSel.length !== 0) {
+    for (let index = 0; index < getClassSel.length; index += 1) {
+      getOl.removeChild(getClassSel[index]);
     }
   }
 }
+
+function saveTasks() {
+  localStorage.setItem('Tarefa', getClass);
+}
+
+function removeCache() {
+  localStorage.clear();
+}
+
+// function moveUp(event) {
+  
+
+// }
 
 //Programação dos Botões
 
 const taskButton = document.getElementById('criar-tarefa');
 taskButton.addEventListener('click', createTask);
+
 taskButton.addEventListener('click', () => {
   document.getElementById('texto-tarefa').value = '';
 });
@@ -64,3 +81,12 @@ clearButton.addEventListener('click', clearList);
 
 const clearFinalizedButton = document.getElementById('remover-finalizados');
 clearFinalizedButton.addEventListener('click', clearFinalized);
+
+const saveButton = document.getElementById('salvar-tarefas');
+saveButton.addEventListener('click', saveTasks);
+
+const removeCacheButton = document.getElementById('remover-tarefas');
+removeCacheButton.addEventListener('click', removeCache);
+
+// const moveUpButton = document.getElementById('mover-cima');
+// moveUpButton.addEventListener('click', moveUp);
