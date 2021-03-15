@@ -87,15 +87,17 @@ down.addEventListener('click' , () => {
   })
 
   //linhas e 90 e 91 fiz baseadas no code review do pull Resquest do Anderson Silva (Andy)
-    function getLocalStorageContent() {
-      todoList.innerHTML = localStorage.getItem('listLi');
-      const userOfLocalStorage = localStorage.getItem('userN');
-      const welcome = document.querySelector('#welcome');
-      if(userOfLocalStorage === null || userOfLocalStorage === undefined){
-        welcome.style.display = 'none'
-      } else{
-        welcome.style.display = 'block'
-        welcome.innerHTML = `Seja bem-vindo ${userOfLocalStorage.getItem('userN')}`
-      }
+function getLocalStorageContent() {
+  todoList.innerHTML = localStorage.getItem('listLi');
+  const userOfLocalStorage = localStorage.getItem('userN');
+  const welcome = document.querySelector('#welcome');
+  if(userOfLocalStorage === '' || userOfLocalStorage === undefined){
+    welcome.style.display = 'none'
+  } else{
+    welcome.style.display = 'block'
+    welcome.innerHTML = `Seja bem-vindo ${userOfLocalStorage}`
+
+      
     }
-    getLocalStorageContent();
+}
+getLocalStorageContent();
