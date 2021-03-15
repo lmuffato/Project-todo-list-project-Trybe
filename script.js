@@ -32,7 +32,7 @@ createBgColor();
 function clearList() {
   const clearAllList = document.querySelector('#apaga-tudo');
   clearAllList.addEventListener('click', () => {
-    const itensList = document.querySelector('#lista-tarefas li');
+    const itensList = document.querySelector('#lista-tarefas');
     itensList.innerHTML = '';
   });
 }
