@@ -8,15 +8,18 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  <link rel="shortcut icon" href="/trybe-Logo.jpg" type="image/x-icon">
 </head>
 <body>
+  <a href=""><img id="trybeLogo" src="Trybe.png" alt="logo da Trybe"></a>
     <section id="todo-list">
     <header>
+      <input placeholder="Digite seu nome" type="text" name="name" id="username">
       <h1>Minha Lista de Tarefas</h1>
       <h2 id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</h2>
     </header>
     <article>
-      <input id="texto-tarefa" type="text">
+      <input id="texto-tarefa" placeholder="Digite um conteúdo do curso" type="text">
       <button id="criar-tarefa">Adicionar</button>
       <ol id="lista-tarefas"></ol>
     </article>
@@ -30,7 +33,7 @@
         </span></button>
         <button id="remover-finalizados">Limpar Completos</button>
         <button id="apaga-tudo">Limpar Lista</button>
-        <button id="save">Salvar</button>
+        <button id="salvar-tarefas">Salvar</button>
     </footer>
   </section>
 
