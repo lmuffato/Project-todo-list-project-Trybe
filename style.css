@@ -20,7 +20,7 @@ header , h2 , section {
 
 h2 {
   font-size: 16px;
-  margin: 10px;
+  margin: 10px 0;
   padding: 5px;
 }
 
@@ -28,7 +28,7 @@ input {
   border: none;
   outline: none;
   padding: 5px;
-  margin: 10px;
+  margin: 10px 0;
 }
 
 li {
@@ -42,18 +42,17 @@ button {
   outline: none;
   background-color: white;
   cursor: pointer;
-  border-radius: 20px;
-  transition: all ease 1ms;
-}
-.buttons:hover {
- 
-  background-color: rgb(85 , 210 , 132);
-  color: white;
-
+  
 }
 
 .buttons {
-  padding: 10px;
+  padding: 5px;
+  transition: all ease 1ms;
+}
+
+.buttons:hover {
+  background-color: rgb(85 , 210 , 132);
+  color: white;
 }
 
 .fa-plus , .fa-arrow-up , .fa-arrow-down , .fa-minus-circle {
@@ -67,3 +66,4 @@ button {
   text-decoration: line-through solid black;
   opacity: 0.5;
 }
+
