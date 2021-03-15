@@ -17,9 +17,9 @@ function getInputHtml() {
 }
 // Requisito 7
 // 7. Clicar em um item da lista de alterar o bgColor para rgb(128, 128, 128)
-// Requisito 8
-// não pode ser possivel selecionar mais de um elemento da list
 function changeBackgroundColor(event) {
+  // Requisito 8
+  // não pode ser possivel selecionar mais de um elemento da list
   const removeBgColor = document.querySelectorAll('li');
   for (let index = 0; index < removeBgColor.length; index += 1) {
     removeBgColor[index].style.backgroundColor = 'white';
@@ -29,12 +29,34 @@ function changeBackgroundColor(event) {
     selectedLi.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
+// Requisito 9
+// 9. clicar 2x faz com que seja riscado, indicar que foi conpleto
+function changeTextDecoration() {
+  console.log('test');
+  // for (let index = 0; index < listItem.length; index += 1) {
+  //   listItem[index].classList.add('completed');
+  // }
+}
+// deve ser possivel defazer clicando novamente 2x no item
+// Requisito 10
+function removeListItem() {
+  const elementOl = document.querySelector('ol');
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    elementOl.removeChild(listItem[index]);
+  }
+}
 
 function managerEvents() {
-// Gerencia os eventos
-// 7. Recuperar o pai dos meus itens de lista
+  // Gerencia os eventos
+  // 7. Recuperar o pai dos meus itens de lista
   const taskList = document.querySelector('#lista-tarefas');
   taskList.addEventListener('click', changeBackgroundColor);
+  // 9. clicar 2x faz com que seja riscado, indicar que foi conpleto
+  taskList.addEventListener('dblclick', changeTextDecoration);
+  // 10. ao clicar no botão com id apaga-tudo, apagar todos os itens da lista
+  const buttonApagaTudo = document.querySelector('#apaga-tudo');
+  buttonApagaTudo.addEventListener('click', removeListItem);
 }
 window.onload = function start() {
 // Chama as funções

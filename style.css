@@ -5,3 +5,10 @@ ol {
 li {
   background-color: white;
 }
+
+/* 9. Cria class completed com as seguintes prioridades definidas: Text-decoration: line-through solid rgb(0, 0, 0) */
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
