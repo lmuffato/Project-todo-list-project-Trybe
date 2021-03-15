@@ -23,13 +23,13 @@ function addColorToItems() {
       listItems.style.backgroundColor = 'rgb(128, 128, 128)';
     }
 });
-listItems.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.style.backgroundColor === 'rgb(128, 128, 128)') {
-          console.log(listItems.style.backgroundColor)
-          listItems.style.backgroundColor = '';
-      }
-  });
+// listItems.addEventListener('click', (e) => {
+//     const target = e.target;
+//     if (target.style.backgroundColor === 'rgb(128, 128, 128)') {
+//           console.log(listItems.style.backgroundColor)
+//           listItems.style.backgroundColor = '';
+//       }
+//   });
 }
 
 addColorToItems();
