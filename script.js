@@ -40,7 +40,7 @@ clear.addEventListener('click', () => {
 
 });
 
-let finishTasks = document.querySelector('#remover-selecionado')
+let finishTasks = document.querySelector('#remover-finalizados')
 finishTasks.addEventListener('click', () => {
     const finalized = document.querySelectorAll('.completed')
     for (let i = 0; i < finalized.length; i += 1) {
