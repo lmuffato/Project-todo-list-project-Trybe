@@ -10,10 +10,6 @@ button {
 header {
   font-size: 30px;
 }
-/* 
-#lista-tarefas {
-  min-height: 350px;
-} */
 
 #funcionamento {
   margin-bottom: 20px;
@@ -28,7 +24,7 @@ header {
 }
 
 #apaga-tudo {
-  background-color: #8b0303;
+  background-color: rgb(139, 3, 3);
 }
 
 #remover-finalizados {

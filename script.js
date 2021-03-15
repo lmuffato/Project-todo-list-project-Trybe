@@ -7,6 +7,7 @@ const btnAdicionarTarefa = document.getElementById('criar-tarefa');
 const inputText = document.getElementById('texto-tarefa');
 const listOrdenada = document.getElementById('lista-tarefas');
 const btnApagarTarefas = document.getElementById('apaga-tudo');
+const btnRemoveTarefa = document.getElementById('remover-finalizados');
 
 // Função responsavel para adicionar um elemento na lista;
 function addListInput() {
@@ -44,13 +45,13 @@ function clearTarefas() {
 
 // Função responsavel para apagar tarefas selecionadas;
 function apagaTarefas() {
-  const btnRemoveTarefa = document.getElementById('remover-finalizados');
-  const listCompleted = document.getElementsByClassName('completed')
   btnRemoveTarefa.addEventListener('click', () => {
+    const listCompleted = document.querySelectorAll('.completed');
     for (let index = 0; index < listCompleted.length; index += 1) {
-      console.log(listCompleted);
-      listCompleted[index].remove();
-    }
+      listOrdenada.removeChild(listCompleted[index]);
+      // Ajuda do Murilo, me ajuda a saber a diferença de Node e HTMLcolection 
+      // para percorer com o <for>
+    }    
   });
 }
 
