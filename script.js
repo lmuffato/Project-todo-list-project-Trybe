@@ -3,8 +3,19 @@ window.onload = function (){
     function clearInput () {
         document.getElementById('texto-tarefa').value = '';
     }
-
-        
+    // Função que apaga o conteúdo todo
+    function apagaConteudo() {
+        let apagaTudo = document.getElementById('apaga-tudo');
+        console.log(apagaTudo);
+        let itemPai = document.querySelector('ol');
+        let itemApagar = document.getElementsByTagName('li');
+            apagaTudo.addEventListener('click', () => {
+                for (let i = 0; i < itemApagar.length; i += 1) {
+                    itemPai.removeChild(itemPai.childNodes[i]);
+                }
+            })
+    }
+    // Função que define o BG ao clicar num item 
     function mostra () {
         let item = document.getElementsByTagName('li');
         for (let index = 0; index < item.length; index += 1) {
@@ -14,27 +25,24 @@ window.onload = function (){
             })
         }
     }
-
+    // Função que risca um item e remove (remove ainda não rolou)
     function line () {
         let selected = document.querySelectorAll('li');
         for (let index = 0; index < selected.length; index += 1) {
                let varIndex = selected[index];
-            varIndex.addEventListener('dblclick', (a) => {
+            varIndex.addEventListener('dblclick', () => {
                 let stilo = window.getComputedStyle(varIndex);
                 if (stilo.textDecoration === 'line-through solid rgb(0, 0, 0)') {
-                    a.target.classList.remove('completed')
+                    varIndex.classList.remove('completed')
                 }
                 else {
-                    a.target.classList.add('completed')
+                    varIndex.classList.add('completed')
                 }
-                console.log(a.classList)
+                console.log(varIndex)
             })
         }
     }
     
-    
-    
-
     let addList = [];
     // Pega o clique do botão 
     let btn = document.getElementById("criar-tarefa");
@@ -55,12 +63,14 @@ window.onload = function (){
         
         cont += 1;
         // Pinta 29
-        mostra();
+        mostra();    
         // Limpa o campo input
         clearInput();
         line();
        // lineRemove();
+       apagaConteudo();
     });
+    
     
 } 
 
