@@ -93,7 +93,7 @@ function clearAll() {
 
 function clearSelected() {
   for (let index = tarefa.length - 1; index >= 0; index -= 1) {
-    if ((listaDeTarefas.children[index].className.indexOf('completed')) === 0) {
+    if ((listaDeTarefas.children[index].className.indexOf('completed')) > 0) {
       listaDeTarefas.removeChild(tarefa[index]);
       localStorage.removeItem(index);
       localStorage.removeItem(`${index} class`);
