@@ -5,6 +5,7 @@ const killCompletedButton = document.getElementById('remover-finalizados');
 const saveTaskListButton = document.getElementById('salvar-tarefas');
 const moveUpButton = document.getElementById('mover-cima');
 const moveDownButton = document.getElementById('mover-baixo')
+const removeSelectedButton = document.getElementById('remover-selecionado')
 let addTaskButton = document.getElementById('criar-tarefa');
 addTaskButton.addEventListener('click', addTask);
 window.onload=getList();
@@ -27,6 +28,7 @@ killCompletedButton.addEventListener('click', killCompleted);
 saveTaskListButton.addEventListener('click', saveList);
 moveUpButton.addEventListener('click',moveUp);
 moveDownButton.addEventListener('click',moveDown);
+removeSelectedButton.addEventListener('click',removeSelected);
 
 function clickSelected(e) {
   let hasAnotherSelect = classRepeatChecker(tasks);
@@ -142,6 +144,7 @@ function moveUp() {
     }
   }  
 }
+
 function moveDown() {
   if(document.getElementsByClassName('selected')[0]!=undefined && document.getElementsByClassName('selected').length > 0){ 
     let count = 0;
@@ -153,7 +156,7 @@ function moveDown() {
           tasks[index+1].innerHTML=f_element_content;
           tasks[index].classList.remove('selected');
           tasks[index+1].classList.add('selected'); 
-          if(classes.includes("completed")==true&&tasks[index+1].className.includes('completed')==false){
+          if(classes.includes("completed")==true&&tasks[index1].className.includes('completed')==false){
             tasks[index+1].classList.add('completed');
             tasks[index].classList.remove('completed');
           }
@@ -161,4 +164,9 @@ function moveDown() {
       }    
     }
   }  
+}
+
+function removeSelected() {
+  let selected = document.getElementsByClassName('selected')[0];
+  taskList.removeChild(selected);
 }
