@@ -16,6 +16,10 @@ clearTasksDone.innerText = 'Clear Tasks Done';
 
 const saveTasksBtn = document.getElementById('salvar-tarefas');
 
+const moveDownBtn = document.getElementById('mover-baixo');
+
+const moveUpBtn = document.getElementById('mover-cima');
+
 function deleteSelectClass() {
   for (let index = 0; index < listItens.length; index += 1) {
     listItens[index].classList.remove('selected');
@@ -51,6 +55,7 @@ function clearListTask() {
   for (let index = 0; index < listItens.length; index) {
     toDoList.removeChild(toDoList.firstElementChild);
   }
+  localStorage.clear();
 }
 
 function addTaskToList() {
@@ -82,7 +87,7 @@ clearTasksDone.addEventListener('click', clearingTasksDone);
 
 function saveAllTasks() {
   const tasks = document.getElementsByTagName('li');
-  const savedTasks = [];
+  let savedTasks = [];
   for (let index = 0; index < tasks.length; index += 1) {
     const objTasks = {
       innerText: tasks[index].innerText,
@@ -105,3 +110,17 @@ if (listStored !== null && listStored.length !== 0) {
     toDoList.appendChild(task);
   }
 }
+/* Consultei o repositorio de Rogerio Lambert para resolver essa questao:
+https://github.com/tryber/sd-010-a-project-todo-list/pull/75/files 
+Nao sabia da existencia do .insertBefore */
+function moveFindSelectedDown() {
+  const tasks = document.getElementsByTagName('li');
+  for (let index = (tasks.length - 2); index >= 0; index -= 1) {
+    if
+    (tasks[index].hasAttribute('class', 'selected') && tasks[index].nextElementSibling !== null) {
+      toDoList.insertBefore(tasks[index + 1], tasks[index]);
+    }
+  }
+}
+
+moveDownBtn.addEventListener('click', moveFindSelectedDown);
