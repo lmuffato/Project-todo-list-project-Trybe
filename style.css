@@ -1,3 +1,7 @@
 #senha {
     display: inline-block;
 }
+
+.list-item {
+  background-color: rgb(128,128,128);
+}
