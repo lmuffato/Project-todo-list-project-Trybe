@@ -77,7 +77,7 @@ function excludingAllList() {
   }
 }
 
-// Requisito 11 
+// Requisito 11
 function eventExcludingAllList() {
   const getApagaTudo = document.getElementById('apaga-tudo');
   getApagaTudo.addEventListener('click', excludingAllList);
@@ -109,7 +109,7 @@ function SavingList() {
 }
 
 function eventSavingList() {
-  const btnSaveList = document.querySelector('#salvar-tarefas'); 
+  const btnSaveList = document.querySelector('#salvar-tarefas');
   btnSaveList.addEventListener('click', SavingList);
 }
 eventSavingList();
@@ -117,4 +117,4 @@ eventSavingList();
 window.onload = () => {
   const itemList = document.querySelector('#lista-tarefas');
   itemList.innerHTML = localStorage.getItem('Listas');
-}
+};
