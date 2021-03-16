@@ -11,16 +11,18 @@ function addNewTask() {
     newList.addEventListener('click', function () {
       clearBgColor();
       newList.classList.add('color');
-      newList.addEventListener('dblclick', function () {
-        newList.classList.toggle('completed'); // Toggle - habilita e desabilita o parâmetro atribuído.   
     });
+    newList.addEventListener('dblclick', function () {
+      console.log('duploclick aconteceu')
+        newList.classList.toggle('completed');    
     });
+
     function clearAll () {
       document.location.reload();
     }
     const clearBtn = document.querySelector('#apaga-tudo');
     clearBtn.addEventListener('click', clearAll);
-  }
+    }
 }
 const addBtn = document.querySelector('#criar-tarefa');
 addBtn.addEventListener('click', addNewTask);
