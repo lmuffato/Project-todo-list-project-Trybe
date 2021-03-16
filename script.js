@@ -66,13 +66,12 @@ botaoApagarFinalizadas.addEventListener('click',function(){
     }       
 });
 
-//requisito 12 salva  https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+//requisito 12 salva  Wanderson Sales - Turma 10 - Tribo A me ajudou a entender esse requisito
 let botaoSalvar = document.querySelector('#salvar-tarefas');
 
 botaoSalvar.addEventListener('click',function(){
-    let ListaTarefas = document.querySelector('#lista-tarefas').innerHTML;
-    console.log(ListaTarefas);
-    localStorage.setItem('lista', ListaTarefas);
+    let ListaTarefas = document.querySelector('#lista-tarefas').innerHTML; // pego o conteudo do ol
+    localStorage.setItem('lista', ListaTarefas); // salvo no storage toda a ol
 }); 
 
 window.onload = function (){
@@ -80,13 +79,6 @@ window.onload = function (){
     ListaTarefas.innerHTML = localStorage.getItem('lista');
 }
 
-// for (index = 0; index < ListaTarefas.length; index += 1){
-//     let itemLista = ListaTarefas[index].innerHTML;
-//     console.log(itemLista);
-//     localStorage.setItem(index, JSON.stringify(itemLista));
-//     localStorage.getItem(JSON.stringify(itemLista));
-// } 
-// //ListaTarefas.push(localStorage.getItem(JSON.stringify(itemLista)));
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
