@@ -4,3 +4,12 @@
   margin-right: 10px;
 }
 
+.ordened-list {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.selected {
+  background-color: blue;
+}

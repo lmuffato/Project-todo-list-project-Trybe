@@ -49,9 +49,21 @@ function inputList () {
   buttonInput.addEventListener('click', function() {
     const createOrdList = document.createElement('li');
     createOrdList.innerHTML = txt.value;
+    createOrdList.className = 'ordened-list';
     olMain.appendChild(createOrdList);
     txt.value = '';
-    console.log(allLi.length);
   })
 }
 inputList();
+
+function changeBGColor () {
+  const getLi = document.querySelectorAll('li');
+  for (let i = 0; i < getLi.length; i += 1) {
+    getLi[i].addEventListener('click', function(event) {
+      event.target.class = 'selected';
+    })
+  }
+  
+  
+}
+changeBGColor();
