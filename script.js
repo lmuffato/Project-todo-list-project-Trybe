@@ -12,7 +12,6 @@ document.getElementsByTagName('form')[0].appendChild(myButton);
 e assim colorir o targey para grey */
 // ta aqui por causa do chato do lint
 const listItens = document.getElementById('lista-tarefas').children;
-console.log(listItens);
 function allToWhite() {
   for (let i = 0; i < listItens.length; i += 1) {
     listItens[i].style.backgroundColor = 'white';
@@ -23,6 +22,29 @@ function changeToGrey(selectedItem) {
   allToWhite();
   toGrey.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+// requesito 9
+/* utilização da propriedade contains ( vista na documentação) do classList
+1 - add ou remover a class completed dos elementos
+2 - add o line-through nos que estão contidos na class completed
+*/
+function taskDone() {
+  const theTask = document.getElementsByClassName('completed');
+  for (let i = 0; i < listItens.length; i += 1) {
+    listItens[i].style.textDecoration = 'none';
+  }
+  for (let i = 0; i < theTask.length; i += 1) {
+    theTask[i].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+  }
+}
+function completedTask(task) {
+  const doneTask = task.target;
+  if (doneTask.classList.contains('completed')) {
+    doneTask.classList.remove('completed');
+  } else {
+    doneTask.classList.add('completed');
+  }
+  taskDone();
+}
 // após criação do myButton e atribuir input ao ol
 /* utilização da propriedade value do input
 fonte : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text */
@@ -31,5 +53,6 @@ function receiveTask() {
   taskToDo.innerText = document.getElementById('texto-tarefa').value;
   document.getElementById('lista-tarefas').appendChild(taskToDo);
   taskToDo.addEventListener('click', changeToGrey);
+  taskToDo.addEventListener('dblclick', completedTask);
 }
 myButton.addEventListener('click', receiveTask);
