@@ -97,3 +97,24 @@ function eventExcludingSelected() {
   btnRemove.addEventListener('click', excludingSelected);
 }
 eventExcludingSelected();
+
+// Requitos Bônus
+
+// Requisito 12
+// Exercício feito com ajuda do código do Gabriel Ferreira
+// Link: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/commits/1dcaed3dace7fd443757bdfc1d434cf5756e5776
+function SavingList() {
+  const itemList = document.querySelector('#lista-tarefas');
+  localStorage.setItem('Listas', itemList.innerHTML);
+}
+
+function eventSavingList() {
+  const btnSaveList = document.querySelector('#salvar-tarefas'); 
+  btnSaveList.addEventListener('click', SavingList);
+}
+eventSavingList();
+
+window.onload = () => {
+  const itemList = document.querySelector('#lista-tarefas');
+  itemList.innerHTML = localStorage.getItem('Listas');
+}
