@@ -18,7 +18,8 @@ paragraphCreate();
 function inputSpace () {
   const sectionMain = document.querySelector('#btn');
   const createInput = document.createElement('input');
-  createInput.defaultValue = 'Sua tarefa aqui..';
+  createInput.type = 'text';
+  createInput.placeholder = 'Sua tarefa aqui...';
   createInput.id = 'texto-tarefa';
   sectionMain.appendChild(createInput);
 }
@@ -26,7 +27,42 @@ function button () {
   const sectionMain = document.querySelector('#btn');
   const createButton = document.createElement('button');
   createButton.innerHTML = 'Incluir';
+  createButton.id = 'criar-tarefa';
   sectionMain.appendChild(createButton);
 }
 inputSpace();
 button();
+
+function ordenedList () {
+  const sectionMain = document.querySelector('#list');
+  const createList = document.createElement('ol');
+  createList.id = 'lista-tarefas';
+  sectionMain.appendChild(createList);
+}
+ordenedList();
+
+function inputList () {
+  const olMain = document.querySelector('ol');
+  const buttonInput = document.querySelector('button');
+  const txt = document.querySelector('input');
+  const allLi = document.getElementsByTagName('li');
+  buttonInput.addEventListener('click', function() {
+    if (allLi.length > 1) {
+      for (let i = 0; i < allLi.length; i += 1) {
+        const createOrdList = document.createElement('li');
+        if (allLi[i].innerText === '') {
+          createOrdList[i].innerHTML = txt.value;
+          olMain.appendChild(createOrdList);
+          txt.value = '';
+        }
+      }
+    } else {
+      const createOrdList = document.createElement('li');
+      createOrdList.innerHTML = txt.value;
+      olMain.appendChild(createOrdList);
+      txt.value = '';
+    }
+    
+  })
+}
+inputList();
