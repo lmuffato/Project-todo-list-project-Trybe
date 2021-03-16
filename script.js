@@ -45,12 +45,31 @@ function botaoApagaTudo(){
   const localizacaoButton = document.querySelector('section');
   
   localizacaoButton.appendChild(clearButton);
-  clearButton.addEventListener('click', function(){
+
+  clearButton.addEventListener('click', function(event){
   const listaDeTarefas = document.querySelectorAll('li');
     for(let index =0; index < listaDeTarefas.length; index += 1){
-      listaDeTarefas[index].remove();
+      listaDeTarefas[index].remove();  
     }
   });
 }
 
 botaoApagaTudo();
+
+function riscarItemDaLista(){
+  const listaTarefa = document.querySelector('#lista-tarefas');
+  listaTarefa.addEventListener('dblclick', function(event){
+  const pegaLinha = document.querySelectorAll('li');
+  for (let index = 0; index < pegaLinha.length; index += 1) {
+    if(pegaLinha[index] === event.target){
+      if(pegaLinha[index].classList.contains('completed')){
+      pegaLinha[index].classList.remove('completed');
+     }else{
+      pegaLinha[index].classList.add('completed');
+     }
+    }
+  } 
+  });
+}
+
+riscarItemDaLista();
