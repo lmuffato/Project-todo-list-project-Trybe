@@ -34,8 +34,9 @@ inputSpace();
 button();
 
 function ordenedList() {
-  const sectionMain = document.querySelector('#list');
+  const sectionMain = document.querySelectorAll('section')[1];
   const createList = document.createElement('ol');
+  sectionMain.id = 'lista-tarefas';
   createList.id = 'lista-tarefas';
   sectionMain.appendChild(createList);
 }
@@ -82,3 +83,14 @@ function accessChangeBGColor () {
   })
 }
 accessChangeBGColor();
+
+function dbclickFunction () {
+  const getLiSelected = document.querySelectorAll('label');
+  for (let i = 0; i < getLiSelected.length; i += 1) {
+    getLiSelected[i].addEventListener('dblclick', function (eventLT) {
+      console.log('duplo click')
+      getLiSelected[i].target.classList('completed');
+    })
+  }
+}
+dbclickFunction();
