@@ -1,15 +1,19 @@
 const button = document.querySelector('#criar-tarefa');
 const elementOl = document.querySelector('#lista-tarefas');
 
-function pressButton() {  
+button.addEventListener('click', () => {
   const divLi = document.createElement('li');
-  let inputText = document.querySelector('#texto-tarefa');
+  const inputText = document.querySelector('#texto-tarefa');
   divLi.innerText = inputText.value;
   elementOl.appendChild(divLi);
   inputText.value = '';
-}
+});
 
-button.addEventListener('click', pressButton);
+elementOl.addEventListener('click', (event) => {
+  const classSelected = document.querySelector('.selectLi');
+  event.target.classList.add('selectLi');
+  classSelected.classList.remove('selectLi');
+});
 
 // referencias: https://cursos.alura.com.br/forum/topico-pegar-valor-do-input-com-javascript-62528
 // http://devfuria.com.br/javascript/dom-create-element/#:~:text=A%20fun%C3%A7%C3%A3o%20createElement()%20ir%C3%A1,createElement(tagName)%3B

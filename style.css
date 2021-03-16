@@ -5,3 +5,7 @@ body {
 li {
   margin-top: 5px;
 }
+
+.selectLi {
+  background-color: gray;
+}
