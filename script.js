@@ -14,7 +14,7 @@ function criarTarefa(){
     document.querySelector('input').value = ''; //não pude usar a variavel textodigitado 
 
     // crio o requisito 7 e 8 aqui, pois esse evento só acontece depois que clicamos a li e criamos a li foi criada e está dentro da função criarTarefa
-    //primeiro eu fiz um array para retirar a classe cor lista caso exista em algum lugar da lista, se não existe eu posso adicionar a classe
+    //primeiro eu fiz um array para retirar a classe cor-lista caso exista em algum lugar da lista, se não existe eu posso adicionar a classe
     li.addEventListener('click', function(event){
     let tarefa = event.target; 
     
@@ -46,10 +46,10 @@ function criarTarefa(){
 let botaoApagar = document.querySelector('#apaga-tudo');
 
 botaoApagar.addEventListener('click', function(){
-    let ListaTarefas = document.querySelector('#lista-tarefas');
-    let tarefas = document.querySelectorAll('li');
+    let ListaTarefas = document.querySelector('#lista-tarefas');  //chamo o ol
+    let tarefas = document.querySelectorAll('li'); //chamo array de li
     for (index = 0; index < tarefas.length; index += 1){
-        ListaTarefas.removeChild(tarefas[index]); 
+        ListaTarefas.removeChild(tarefas[index]); //removo cada li filho da ol
     } 
     //let ListaTarefas = document.querySelector('#lista-tarefas');
     //ListaTarefas.innerHTML =''; // coloco a ol com o conteudo vazio ---> dica do Marcus Cesar tumarma 10-A
@@ -64,4 +64,57 @@ botaoApagarFinalizadas.addEventListener('click',function(){
     for (index = 0; index < ListaTarefasFinalizadas.length; index += 1){
         ListaTarefas.removeChild(ListaTarefasFinalizadas[index]);
     }       
+});
+
+//requisito 12 salva  https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
+/*let botaoSalvar = document.querySelector('#salvar-tarefas');
+
+botaoSalvar.addEventListener('click',function(){
+    let ListaTarefas = document.querySelectorAll('#lista-tarefas li');
+    console.log(ListaTarefas);
+    for (index = 0; index < ListaTarefas.length; index += 1){
+        console.log('beatriz');
+        let itemLista = ListaTarefas[index].outerHTML;
+        console.log(itemLista);
+        localStorage.setItem('lista tarefas', itemLista);
+        localStorage.getItem(itemLista);
+    } 
+    
+});*/
+
+//requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+
+/*let botaoMoverCima = document.querySelector('#mover-cima');
+
+botaoMoverCima.addEventListener('click',function(){
+    let ListaTarefas = document.querySelector('#lista-tarefas li');
+    let selecionado = document.querySelector('.cor-lista');
+
+    for(index = 0; index < ListaTarefas.length; index += 1){
+        selecionadoAntes = ListaTarefas
+    }
+    let movendoSelecionado = ListaTarefas.insertBefore(  ,selecionado)
+
+    if (selecionado.contains('.cor-lista')){
+        selecionado.insertBefore;
+    } else {
+    rarefa.classList.add('completed');
+    }
+    
+});
+
+let botaoMoverBaixo = document.querySelector('#mover-baixo');
+
+botaoMoverBaixo.addEventListener('click',function(){
+    let selecionado = document.querySelector('.cor-lista');
+    selecionado.nextSibling     
+}); */
+
+
+//requisito 14 remove seleção (.cor-lista)
+let botaoRemoveSeleção = document.querySelector('#remover-selecionado');
+
+botaoRemoveSeleção.addEventListener('click',function(){
+    let selecionado = document.querySelector('.cor-lista');
+    selecionado.classList.remove('cor-lista')       
 });
