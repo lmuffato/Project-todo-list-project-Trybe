@@ -1,4 +1,4 @@
-function titleCreate () {
+function titleCreate() {
   const tit = document.querySelector('header');
   const createH1 = document.createElement('h1');
   createH1.innerHTML = 'Minha Lista de Tarefas';
@@ -6,16 +6,16 @@ function titleCreate () {
 }
 titleCreate();
 
-function paragraphCreate () {
+function paragraphCreate() {
   const headerMain = document.querySelector('header');
   const createP = document.createElement('p');
   createP.innerHTML = 'Clique duas vezes em um item para marcá-lo como completo';
-  createP.id = 'funcionamento';  
+  createP.id = 'funcionamento';
   headerMain.appendChild(createP);
 }
 paragraphCreate();
 
-function inputSpace () {
+function inputSpace() {
   const sectionMain = document.querySelector('#btn');
   const createInput = document.createElement('input');
   createInput.type = 'text';
@@ -23,7 +23,7 @@ function inputSpace () {
   createInput.id = 'texto-tarefa';
   sectionMain.appendChild(createInput);
 }
-function button () {
+function button() {
   const sectionMain = document.querySelector('#btn');
   const createButton = document.createElement('button');
   createButton.innerHTML = 'Incluir';
@@ -33,7 +33,7 @@ function button () {
 inputSpace();
 button();
 
-function ordenedList () {
+function ordenedList() {
   const sectionMain = document.querySelector('#list');
   const createList = document.createElement('ol');
   createList.id = 'lista-tarefas';
@@ -41,29 +41,26 @@ function ordenedList () {
 }
 ordenedList();
 
-function inputList () {
+function inputList() {
   const olMain = document.querySelector('ol');
   const buttonInput = document.querySelector('button');
   const txt = document.querySelector('input');
-  const allLi = document.getElementsByTagName('li');
-  buttonInput.addEventListener('click', function() {
+  buttonInput.addEventListener('click', function () {
     const createOrdList = document.createElement('li');
     createOrdList.innerHTML = txt.value;
     createOrdList.className = 'ordened-list';
     olMain.appendChild(createOrdList);
     txt.value = '';
-  })
+  });
 }
 inputList();
 
-function changeBGColor () {
+function changeBGColor() {
   const getLi = document.querySelectorAll('li');
   for (let i = 0; i < getLi.length; i += 1) {
-    getLi[i].addEventListener('click', function(event) {
-      event.target.class = 'selected';
-    })
+    getLi[i].addEventListener('click', function (eventN) {
+      eventN.target.className = 'selected';
+    });
   }
-  
-  
 }
 changeBGColor();
