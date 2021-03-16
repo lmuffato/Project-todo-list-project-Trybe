@@ -3,6 +3,19 @@ window.onload = function() {
   const list = document.querySelector('#lista-tarefas');
   const addButton = document.querySelector('#criar-tarefa');
   const rmvButton = document.querySelector('#remover-finalizados');
+  const rmvAllButton = document.querySelector('#apaga-tudo');
+
+  rmvAllButton.addEventListener('click', function(event){
+    let allLi = document.querySelectorAll('li');
+    console.log(allLi)
+    if (allLi.length === 0){
+      alert('Não ha tarefas');
+    }else{
+      for(index = 0; index < allLi.length; index += 1){
+        allLi[index].remove()
+      }
+    }
+  });
 
   rmvButton.addEventListener('click', function(event){
     let completed = document.querySelectorAll('.completed');
@@ -16,11 +29,16 @@ window.onload = function() {
   });
 
   addButton.addEventListener('click', function(event){
-    let ls = document.createElement('li');
     let info = document.querySelector('#texto-tarefa');
-    ls.innerText = info.value;
-    list.appendChild(ls);
-    info.value = '';
+    let ls = document.createElement('li');
+    if(info.value === ''){
+      alert('Nenhuma tarefa digitada')
+    }else{
+      ls.innerText = info.value;
+      list.appendChild(ls);
+      info.value = '';
+    }
+    
   });
 
   list.addEventListener('dblclick', function(event){
