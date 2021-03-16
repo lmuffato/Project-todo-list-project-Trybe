@@ -1,20 +1,7 @@
 main {
-    background-color: white;
+  background-color: white;
 }
 
-/* li {
-    background-color: rgb(167, 194, 154);
-} */
-
-/* ol {
-    background-color: rgb(167, 194, 154);
-} */
-
-/* #selecionado {
-    background-color: red;
-} */
-
 .completed {
-    text-decoration: line-through;
-
+  text-decoration: line-through;
 }
