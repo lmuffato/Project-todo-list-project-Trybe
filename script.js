@@ -18,13 +18,22 @@ window.onload = function (){
     function line () {
         let selected = document.querySelectorAll('li');
         for (let index = 0; index < selected.length; index += 1) {
-            let varIndex = selected[index];
-            varIndex.addEventListener('dblclick', () => {
-                varIndex.classList.add('completed');
+               let varIndex = selected[index];
+            varIndex.addEventListener('dblclick', (a) => {
+                let stilo = window.getComputedStyle(varIndex);
+                if (stilo.textDecoration === 'line-through solid rgb(0, 0, 0)') {
+                    a.target.classList.remove('completed')
+                }
+                else {
+                    a.target.classList.add('completed')
+                }
+                console.log(a.classList)
             })
         }
-        
     }
+    
+    
+    
 
     let addList = [];
     // Pega o clique do botão 
@@ -45,10 +54,12 @@ window.onload = function (){
         addList[cont].innerText = pushInput;
         
         cont += 1;
+        // Pinta 29
         mostra();
         // Limpa o campo input
         clearInput();
         line();
+       // lineRemove();
     });
     
 } 
