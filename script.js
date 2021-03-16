@@ -15,6 +15,8 @@ creatTasks();
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
 function createBgColor() {
   olElment.addEventListener('click', (e) => {
+    const elList = document.querySelector('.bg');
+    if (elList !== null) elList.classList.remove('bg');
     const elementClicked = e;
     elementClicked.target.classList.add('bg');
   });
