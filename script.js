@@ -98,7 +98,6 @@ function getTasks() {
 }
 
 function checkIndex(array, element) {
-
   for (let index = 0; index < array.length; index += 1) {
     if (array[index] === element) {
       return index;
@@ -111,24 +110,24 @@ function moveUp() {
   const btn = document.getElementById('mover-cima');
   btn.addEventListener('click', () => {
     const selected = document.getElementsByClassName('selected')[0];
-      if (selected === list[0]) {
-        const classe = list[0].className;
-        const text = list[0].innerText;
-        for (let index = 0; index < list.length - 1; index += 1) {
-          list[index].innerText = list[index + 1].innerText;
-          list[index].className = list[index + 1].className;
-        }
-        list[list.length - 1].innerText = text;
-        list[list.length - 1].className = classe;
-      } else {
-        const indexOfSelected = checkIndex(list, selected);
-        const text = list[indexOfSelected].innerText;
-        const classe = list[indexOfSelected].className;
-        list[indexOfSelected].className = list[indexOfSelected - 1].className;
-        list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
-        list[(indexOfSelected - 1)].innerText = text;
-        list[indexOfSelected - 1].className = classe;
+    if (selected === list[0]) {
+      const classe = list[0].className;
+      const text = list[0].innerText;
+      for (let index = 0; index < list.length - 1; index += 1) {
+        list[index].innerText = list[index + 1].innerText;
+        list[index].className = list[index + 1].className;
       }
+      list[list.length - 1].innerText = text;
+      list[list.length - 1].className = classe;
+    } else {
+      const indexOfSelected = checkIndex(list, selected);
+      const text = list[indexOfSelected].innerText;
+      const classe = list[indexOfSelected].className;
+      list[indexOfSelected].className = list[indexOfSelected - 1].className;
+      list[indexOfSelected].innerText = list[(indexOfSelected - 1)].innerText;
+      list[(indexOfSelected - 1)].innerText = text;
+      list[indexOfSelected - 1].className = classe;
+    }
   });
 }
 
