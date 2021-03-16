@@ -90,3 +90,9 @@ function downFunction() {
 
 moveUp.addEventListener('click', upFunction);
 moveDown.addEventListener('click', downFunction);
+
+function deleteSelected() {
+  document.querySelector('.selected').remove();
+}
+const removeButton = document.getElementById('remover-selecionado');
+removeButton.addEventListener('click', deleteSelected);
