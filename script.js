@@ -2,7 +2,7 @@
 /* Ref.: https://www.w3schools.com/js/js_events.asp */
 const orderedList = document.getElementById('lista-tarefas');
 
-const updateLocalStorage = () => { localStorage.setItem('lists', orderedList.innerHTML); };  
+const updateLocalStorage = () => { localStorage.setItem('lists', orderedList.innerHTML); };
 
 const addTask = () => {
   document.getElementById('criar-tarefa').addEventListener('click', () => {
@@ -15,8 +15,8 @@ const addTask = () => {
   });
 };
 
-updateLocalStorage()
-addTask()
+updateLocalStorage();
+addTask();
 
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
 /* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo */
