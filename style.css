@@ -43,3 +43,16 @@ header {
   padding-top: 10px;
 }
 
+.label {
+  margin-left: 30px;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+#texto-tarefa {
+  margin-top: 120px;
+  margin-left: 5px;
+  width: 450px;
+  padding: 10px;
+}
+
