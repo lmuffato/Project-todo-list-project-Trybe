@@ -98,6 +98,7 @@ function getTasks() {
 }
 
 function checkIndex(array, element) {
+
   for (let index = 0; index < array.length; index += 1) {
     if (array[index] === element) {
       return index;
@@ -106,11 +107,10 @@ function checkIndex(array, element) {
 }
 
 function moveUp() {
-  const selected = document.getElementsByClassName('selected');
   const list = document.querySelectorAll('.task');
   const btn = document.getElementById('mover-cima');
   btn.addEventListener('click', () => {
-    if (selected.length !== 0) {
+    const selected = document.getElementsByClassName('selected')[0];
       if (selected === list[0]) {
         const classe = list[0].className;
         const text = list[0].innerText;
@@ -129,15 +129,14 @@ function moveUp() {
         list[(indexOfSelected - 1)].innerText = text;
         list[indexOfSelected - 1].className = classe;
       }
-    }
   });
 }
 
 function moveDown() {
-  const selected = document.getElementsByClassName('selected');
   const list = document.getElementsByClassName('task');
   const btn = document.getElementById('mover-baixo');
   btn.addEventListener('click', () => {
+    const selected = document.getElementsByClassName('selected')[0];
     if (selected.length !== 0) {
       if (selected === list[list.length - 1]) {
         const classe = list[list.length - 1].className;
