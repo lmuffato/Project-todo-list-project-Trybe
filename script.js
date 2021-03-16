@@ -45,3 +45,48 @@ function clearCompleted() {
 }
 
 document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
+
+// Requisitos bônus
+
+const saveMeButton = document.getElementById('salvar-tarefas');
+function storageList() {
+  localStorage.setItem('savedTasks', document.getElementById('lista-tarefas').innerHTML);
+}
+
+saveMeButton.addEventListener('click', storageList);
+
+window.onload = () => {
+  const storagedSaves = localStorage.getItem('savedTasks');
+  document.getElementById('lista-tarefas').innerHTML = storagedSaves;
+};
+
+const moveUp = document.getElementById('mover-cima');
+const moveDown = document.getElementById('mover-baixo');
+
+function upFunction() {
+  const selectedItem = document.querySelector('.selected');
+  const listItens = document.querySelectorAll('ol li');
+  // const taskList = selectedItem.parentNode;
+  const taskList = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    if (listItens[index].classList.contains('selected') && index !== 0) {
+      taskList.insertBefore(selectedItem, listItens[index - 1]);
+    }
+  }
+}
+
+function downFunction() {
+  const selectedItem = document.querySelector('.selected');
+  const listItens = document.querySelectorAll('ol li');
+  const taskList = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < listItens.length; index += 1) {
+    if (listItens[index].classList.contains('selected') && index !== listItens.length - 1) {
+      taskList.insertBefore(listItens[index + 1], selectedItem);
+    }
+  }
+}
+
+moveUp.addEventListener('click', upFunction);
+moveDown.addEventListener('click', downFunction);
