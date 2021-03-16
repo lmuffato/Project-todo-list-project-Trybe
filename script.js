@@ -25,4 +25,14 @@ function selecionaTarefa () {
     });
 }
 selecionaTarefa ();
-// console.log()
+
+function completaTarefa () {
+    listaDeTarefas.addEventListener('dblclick', (element) => {
+       if (element.target.className === 'completed') {
+           element.target.className = '';
+       } else {
+           element.target.className = 'completed';
+       }
+    })
+}
+completaTarefa ()
