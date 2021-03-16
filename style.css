@@ -13,13 +13,13 @@
 }
 
 #apaga-tudo {
-  background-color: #00956f;
+  background-color: rgb(0 , 149 , 111);
   border-radius: 5px;
   color: white;
 }
 
 #remover-finalizados {
-  background-color: #e8eb39;
+  background-color: rgb(232 , 235 , 57);
   border-radius: 5px;
   color: black;
 }
@@ -38,7 +38,7 @@
 
 #titulo {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 800;
   color: orangered;
 }
 
@@ -61,8 +61,8 @@ button {
   margin: 2px;
 }
 
-#mover-cima, #mover-baixo {
-  background-color: rgb(247, 146, 14);
+#mover-cima , #mover-baixo {
+  background-color: rgb(247 , 146 , 14);
   border-radius: 5px;
   color: white;
   font-weight: 800;
