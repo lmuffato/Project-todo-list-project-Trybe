@@ -27,25 +27,46 @@ function clickButton (){
             }
             evt.id = 'gray'; 
         });
-        //let liColor = document.getElementsByTagName('li');
-        // add evento
-        // ferificar se algum tem a cor cinza, se tiver remove e se não tiver adiciona
+        li.addEventListener('dblclick', function (event){
+            let click = event.target;
+            if (click.className === 'completed'){
+            click.className = '';
+            }
+            else {
+                click.className = 'completed';
+            }
+     });  
         text.value = '';
         addLi.appendChild(li);
     })
 }
 clickButton ();
 
-function lineThrough(){
-    let list = document.getElementById('lista-tarefas');
-    list.addEventListener('dblclick', function (event){
-            let click = event.target;
-            click.classList.add('completed');     
-     });    
-}
-lineThrough();
+// function lineThrough(){
+//     let list = document.querySelector('#lista-tarefas');
+//     list.addEventListener('dblclick', function (event){
+//             let click = event.target;
+//             if (click.className === 'completed'){
+//             click.className = '';
+//             }
+//             else {
+//                 click.className = 'completed';
+//             }
 
+//      });    
+// }
+// lineThrough();
 
+// function lineOff(){
+//     let list = document.querySelector('#lista-tarefas');
+//     list.addEventListener('dblclick', function (event){
+//         let click = event.target;
+//             if (click.className === 'completed'){
+//                 click.className = '';    
+//             }
+//      });    
+// }
+// lineOff();
 
 
 
