@@ -2,6 +2,7 @@ const list = {
   data: [''],
   lengthData: 0,
 };
+const makelist = document.getElementById('lista-tarefas');
 
 function clickRemove() {
   for (let index = 0; index < list.data.length; index += 1) {
@@ -24,7 +25,6 @@ function doubleClick(e) {
 }
 
 function listText() {
-  const makelist = document.getElementById('lista-tarefas');
   const pushList = document.createElement('li');
   for (let index = 0; index < list.data.length; index += 1) {
     pushList.innerHTML = list.data[index];
@@ -44,7 +44,6 @@ function pullText() {
 }
 
 function removeList() {
-  const makelist = document.getElementById('lista-tarefas');
   const removeText = document.querySelectorAll('.text-list');
   for (let index = 0; index < removeText.length; index += 1) {
     makelist.removeChild(removeText[index]);
@@ -54,10 +53,9 @@ function removeList() {
 }
 
 function removeListCompleted() {
-  const makelist = document.getElementById('lista-tarefas');
   const removeText = document.querySelectorAll('.text-list');
   for (let index = 0; index < removeText.length; index += 1) {
-    if(removeText[index].classList.contains('completed')) {
+    if (removeText[index].classList.contains('completed')) {
       makelist.removeChild(removeText[index]);
       list.data.splice(index, 1);
       list.lengthData -= 1;
