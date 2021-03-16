@@ -15,13 +15,28 @@ listaOrdenada();
 function button(){
   const elemento = document.querySelector('button')
   elemento.id = 'criar-tarefa';
-  elemento.addEventListener('click', () => {
-  const pai = document.querySelector('ol');
-  const filhoDePai = document.createElement('li');
-  pai.appendChild(filhoDePai);
   const achandoInput = document.querySelector('#texto-tarefa')
+  const pai = document.querySelector('ol');
+
+  elemento.addEventListener('click', () => {
+  const filhoDePai = document.createElement('li');
   filhoDePai.innerText = achandoInput.value;
+  pai.appendChild(filhoDePai);
   achandoInput.value = ''
   })
 }
 button();
+
+function corItenLista(){
+const lista = document.getElementsByTagName('li')
+const paiLista = document.getElementById('lista-tarefas')
+paiLista.addEventListener('click', (e) => {
+const target1 = e.target
+for ( let index = 0; index < lista.length; index += 1){
+   if(target1.localName ===  'li'){
+      target1.style.backgroundColor = 'rgb(128,128,128)' 
+   }
+}
+})
+}
+corItenLista();
