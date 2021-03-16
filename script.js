@@ -7,6 +7,7 @@ const clearFinished = document.getElementById('remover-finalizados');
 const saveTasks = document.getElementById('salvar-tarefas');
 const upPosition = document.getElementById('mover-cima');
 const downPosition = document.getElementById('mover-baixo');
+const removeSelected = document.getElementById('remover-selecionado');
 
 function returnInformation() {
   for (let index = 0; index < (localStorage.length / 3); index += 1) {
@@ -134,6 +135,18 @@ function moveDown() {
   }
 }
 
+function removeSel() {
+  for (let index = 0; index < tarefa.length; index += 1) {
+    if ((listaDeTarefas.children[index].className.indexOf('selected')) > 0) {
+      listaDeTarefas.removeChild(tarefa[index]);
+      localStorage.removeItem(index);
+      localStorage.removeItem(`${index} class`);
+      localStorage.removeItem(`${index} style`);
+    }
+  }
+}
+
+removeSelected.addEventListener('click', removeSel);
 buttonCriar.addEventListener('click', criarTarefa);
 saveTasks.addEventListener('click', saveInformation);
 clearFinished.addEventListener('click', clearSelected);
