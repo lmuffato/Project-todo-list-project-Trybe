@@ -9,3 +9,8 @@ li {
 .selectLi {
   background-color: rgb(128, 128, 128);
 }
+
+#lista-tarefas {
+  width: fit-content;
+  background-color: rgb(247 , 244 , 244);
+}
