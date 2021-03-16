@@ -4,9 +4,17 @@ body {
 }
 
 .bg {
-  background-color: rgb (128, 128, 128);
+  background-color: rgb(128, 128, 128);
 }
 
 #apaga-tudo {
   margin-top: 10px;
+}
+
+#lista-tarefas{
+  user-select: none;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
 }

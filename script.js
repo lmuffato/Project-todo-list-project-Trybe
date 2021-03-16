@@ -16,8 +16,7 @@ creatTasks();
 function createBgColor() {
   olElment.addEventListener('click', (e) => {
     const elementClicked = e;
-    elementClicked.target.className = 'bg';
-    console.log(elementClicked);
+    elementClicked.target.classList.add('bg');
   });
 }
 createBgColor();
@@ -27,7 +26,15 @@ createBgColor();
 
 * Utilize a classe CSS "completed" para adicionar o efeito de letra tachada (riscada) às tarefas finalizadas.
  */
+function checkedItem() {
+  const olList = document.querySelector('#lista-tarefas');
+  olList.addEventListener('dblclick', (e) => {
+    const elSelected = e;
+    elSelected.target.classList.toggle('completed');
+  });
+}
 
+checkedItem();
 /* 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista */
 function clearList() {
   const clearAllList = document.querySelector('#apaga-tudo');
