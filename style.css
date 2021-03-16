@@ -11,6 +11,14 @@ button {
   border-radius: 50px;
 }
 
+li {
+  text-align: left;
+  margin: 2px;
+  padding: 10px;
+  border: solid 1px;
+  border-radius: 50px;
+}
+
 .flex-center{
   display: flex;
   align-items: center;
