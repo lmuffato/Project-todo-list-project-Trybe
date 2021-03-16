@@ -27,20 +27,30 @@ const createOrderedList = document.createElement('ol');
 createOrderedList.id = 'lista-tarefas';
 document.body.appendChild(createOrderedList);
 
-// Requirement 5
+// Requirement 5 - 6
 
-const createButton = document.createElement('button')
+const createButton = document.createElement('button');
 document.body.appendChild(createButton);
 createButton.innerText = 'Adicionar';
 createButton.id = 'criar-tarefa';
 
-createButton.addEventListener('click', add);
+createButton.addEventListener('click', createList);
 
-function add() {
-    const createLi = document.createElement('li');
-    createLi.innerHTML = createInput.value;
-    createOrderedList.appendChild(createLi);
-    createInput.value = '';
+function createList() {
+  const createLi = document.createElement('li');
+  createLi.innerHTML = createInput.value;
+  createOrderedList.appendChild(createLi);
+  createInput.value = '';
 }
 
-// Requirement 6
+// Requirement 7 - 8
+
+createOrderedList.addEventListener('click', paint);
+
+function paint (e) {
+  const listItem = createOrderedList.childNodes;
+  for (let index = 0; index < listItem.length; index += 1) {
+      listItem[index].style.backgroundColor = '';
+  }
+  e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
