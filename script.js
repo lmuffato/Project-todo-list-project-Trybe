@@ -17,17 +17,25 @@ function click() {
     for (let index = 0; index < listItem.length; index += 1) {
         listItem[index].style.backgroundColor = 'white';
     }
+    if (e.target.localName === 'li')
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 });
 
 //requisito 9
 list.addEventListener('dblclick', function clickItem(e) {
-    //let listLi = document.createElement('li');
-    let listItem = list.childNodes;
-    for (let index2 = 0; index2 < listItem.length; index2 += 1) {
-        listItem[index2].classList.remove('completed');
-        listItem[index2].style.textDecoration = 'none';
-    }
-    e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    e.target.classList.add('completed');
+    //let listItem = list.childNodes;
+    //for (let index2 = 0; index2 < listItem.length; index2 += 1) {
+        //listItem[index2].classList.remove('completed');
+        //listItem[index2].style.textDecoration = 'none';
+    //}
+    //e.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    if (e.target.localName === 'li')
+    e.target.classList.toggle('completed');
 });
+/* list.addEventListener('dblclick', function clickItem(e) {
+    let listItem = list.childNodes;
+    for (let index3 = 0; index3 < listItem.length; index3 += 1) {
+        listItem[index3].classList.remove('completed');
+        listItem[index3].style.textDecoration = 'none';
+    }
+}); */
