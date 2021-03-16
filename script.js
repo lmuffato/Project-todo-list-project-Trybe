@@ -156,7 +156,7 @@ function moveDown() {
           tasks[index+1].innerHTML=f_element_content;
           tasks[index].classList.remove('selected');
           tasks[index+1].classList.add('selected'); 
-          if(classes.includes("completed")==true&&tasks[index1].className.includes('completed')==false){
+          if(classes.includes("completed")==true&&tasks[index+1].className.includes('completed')==false){
             tasks[index+1].classList.add('completed');
             tasks[index].classList.remove('completed');
           }
