@@ -3,11 +3,18 @@ const listaTarefas = document.getElementById('lista-tarefas'); // Variaveis Gera
 const textoTarefa = document.getElementById('texto-tarefa');
 
 // criar botão
-button.innerText = 'criar tarefa'
 function click() {
-  let buttonAction = document.createElement('li')
+  const buttonAction = document.createElement('li')
   buttonAction.innerText = textoTarefa.value;
   listaTarefas.appendChild(buttonAction);
   textoTarefa.value = '';
+  buttonAction.className = 'list'
 }
 button.addEventListener('click', click);
+
+const list = document.querySelector('.list')
+function listColor(event) {
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+}
+
+listaTarefas.addEventListener('click', listColor)
