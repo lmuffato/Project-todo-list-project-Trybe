@@ -13,9 +13,9 @@ function listaOrdenada(){
 listaOrdenada();
 
 function button(){
-  const elementoButton = document.querySelector('button')
-  elementoButton.id = 'criar-tarefa';
-  elementoButton.addEventListener('click', () => {
+  const elemento = document.querySelector('button')
+  elemento.id = 'criar-tarefa';
+  elemento.addEventListener('click', () => {
   const pai = document.querySelector('ol');
   const filhoDePai = document.createElement('li');
   pai.appendChild(filhoDePai);
