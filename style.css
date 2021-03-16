@@ -4,12 +4,16 @@
   margin-right: 10px;
 }
 
-.ordened-list {
+#ordened-list {
   background-color: white;
   border: 1px solid black;
   border-radius: 2px;
+  width: 40%;
 }
 
-.selected {
+#selected-list {
   background-color: blue;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 40%;
 }

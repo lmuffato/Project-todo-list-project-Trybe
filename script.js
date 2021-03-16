@@ -47,20 +47,30 @@ function inputList() {
   const txt = document.querySelector('input');
   buttonInput.addEventListener('click', function () {
     const createOrdList = document.createElement('li');
+    const createLabel = document.createElement('label');
     createOrdList.innerHTML = txt.value;
-    createOrdList.className = 'ordened-list';
-    olMain.appendChild(createOrdList);
+    createOrdList.id = 'ordened-list';
+    createLabel.appendChild(createOrdList);
+    olMain.appendChild(createLabel);
     txt.value = '';
+    changeBGColor();
   });
 }
 inputList();
 
 function changeBGColor() {
-  const getLi = document.querySelectorAll('li');
-  for (let i = 0; i < getLi.length; i += 1) {
-    getLi[i].addEventListener('click', function (eventN) {
-      eventN.target.className = 'selected';
-    });
-  }
+  const getLi = document.querySelectorAll('#ordened-list');
+  console.log('não iniciou');
+  if (getLi.length >= 1) {
+    console.log('iniciou');
+    for (let i = 0; i < getLi.length; i += 1) {
+      console.log(getLi[i]);
+      getLi[i].addEventListener('click', function(eventNN) {
+        for (let j = 0; j < getLi.length; j += 1) {
+          getLi[j].id = 'ordened-list';
+        }
+        eventNN.target.id = 'selected-list';
+      })
+    }
+  }  
 }
-changeBGColor();
