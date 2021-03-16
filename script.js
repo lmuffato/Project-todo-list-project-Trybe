@@ -1,14 +1,13 @@
-// Variaveis Gerais
 const button = document.getElementById('criar-tarefa')
-const listaTarefas = document.getElementById('lista-tarefas');
+const listaTarefas = document.getElementById('lista-tarefas'); // Variaveis Gerais
 const textoTarefa = document.getElementById('texto-tarefa');
 
 // criar botão
-button.innerText = 'Adicionar'
+button.innerText = 'criar tarefa'
 function click() {
   let buttonAction = document.createElement('li')
   buttonAction.innerText = textoTarefa.value;
   listaTarefas.appendChild(buttonAction);
-  textoTarefa = '';
+  textoTarefa.value = '';
 }
 button.addEventListener('click', click);
