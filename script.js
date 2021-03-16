@@ -47,22 +47,11 @@ function inputList () {
   const txt = document.querySelector('input');
   const allLi = document.getElementsByTagName('li');
   buttonInput.addEventListener('click', function() {
-    if (allLi.length > 1) {
-      for (let i = 0; i < allLi.length; i += 1) {
-        const createOrdList = document.createElement('li');
-        if (allLi[i].innerText === '') {
-          createOrdList[i].innerHTML = txt.value;
-          olMain.appendChild(createOrdList);
-          txt.value = '';
-        }
-      }
-    } else {
-      const createOrdList = document.createElement('li');
-      createOrdList.innerHTML = txt.value;
-      olMain.appendChild(createOrdList);
-      txt.value = '';
-    }
-    
+    const createOrdList = document.createElement('li');
+    createOrdList.innerHTML = txt.value;
+    olMain.appendChild(createOrdList);
+    txt.value = '';
+    console.log(allLi.length);
   })
 }
 inputList();
