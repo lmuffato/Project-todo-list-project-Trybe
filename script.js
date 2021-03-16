@@ -68,6 +68,7 @@ function changeBGColor() {
       getLi[i].addEventListener('click', function(eventNN) {
         for (let j = 0; j < getLi.length; j += 1) {
           getLi[j].id = 'ordened-list';
+          console.log('limpou '+getLi[i].innerHTML);
         }
         eventNN.target.id = 'selected-list';
       })
