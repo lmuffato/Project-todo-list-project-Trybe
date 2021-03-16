@@ -67,36 +67,44 @@ botaoApagarFinalizadas.addEventListener('click',function(){
 });
 
 //requisito 12 salva  https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
-/*let botaoSalvar = document.querySelector('#salvar-tarefas');
+let botaoSalvar = document.querySelector('#salvar-tarefas');
 
 botaoSalvar.addEventListener('click',function(){
-    let ListaTarefas = document.querySelectorAll('#lista-tarefas li');
+    let ListaTarefas = document.querySelector('#lista-tarefas').innerHTML;
     console.log(ListaTarefas);
-    for (index = 0; index < ListaTarefas.length; index += 1){
-        let itemLista = ListaTarefas[index].innerHTML;
-        localStorage.setItem(index, JSON.stringify(itemLista));
-        localStorage.getItem(JSON.stringify(itemLista));
-    } 
-    ListaTarefas.push(localStorage.getItem(JSON.stringify(itemLista)));
-}); */
+    localStorage.setItem('lista', ListaTarefas);
+}); 
+
+window.onload = function (){
+    let ListaTarefas = document.querySelector('#lista-tarefas');
+    ListaTarefas.innerHTML = localStorage.getItem('lista');
+}
+
+// for (index = 0; index < ListaTarefas.length; index += 1){
+//     let itemLista = ListaTarefas[index].innerHTML;
+//     console.log(itemLista);
+//     localStorage.setItem(index, JSON.stringify(itemLista));
+//     localStorage.getItem(JSON.stringify(itemLista));
+// } 
+// //ListaTarefas.push(localStorage.getItem(JSON.stringify(itemLista)));
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
-/*let botaoMoverCima = document.querySelector('#mover-cima');
+let botaoMoverCima = document.querySelector('#mover-cima');
 
 botaoMoverCima.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas li');
     let selecionado = document.querySelector('.cor-lista');
 
     for(index = 0; index < ListaTarefas.length; index += 1){
-        selecionadoAntes = ListaTarefas
+        selecionadoAntes = ListaTarefas[index];
     }
-    let movendoSelecionado = ListaTarefas.insertBefore(  ,selecionado)
+    let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes);
 
     if (selecionado.contains('.cor-lista')){
-        selecionado.insertBefore;
+        moveSelecionado;
     } else {
-    rarefa.classList.add('completed');
+         tarefa.classList.add('completed');
     }
     
 });
@@ -104,9 +112,8 @@ botaoMoverCima.addEventListener('click',function(){
 let botaoMoverBaixo = document.querySelector('#mover-baixo');
 
 botaoMoverBaixo.addEventListener('click',function(){
-    let selecionado = document.querySelector('.cor-lista');
-    selecionado.nextSibling     
-}); */
+        
+}); 
 
 
 //requisito 14 remove seleção (.cor-lista)
