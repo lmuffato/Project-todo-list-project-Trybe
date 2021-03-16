@@ -4,7 +4,16 @@ window.onload = function() {
   const addButton = document.querySelector('#criar-tarefa');
   const rmvButton = document.querySelector('#remover-finalizados');
 
-  
+  rmvButton.addEventListener('click', function(event){
+    let completed = document.querySelectorAll('.completed');
+    if (completed.length === 0){
+      alert('Não ha tarefas finalizadas');
+    }else{
+      for(index = 0; index < completed.length; index += 1){
+        completed[index].remove()
+      }
+    }
+  });
 
   addButton.addEventListener('click', function(event){
     let ls = document.createElement('li');
