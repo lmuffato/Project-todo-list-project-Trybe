@@ -54,3 +54,15 @@ function paint (e) {
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
+// Requirement 9
+
+createOrderedList.addEventListener('dblclick', riskItem);
+
+function riskItem (e){
+  if (e.target.classList.contains('completed')) {
+        e.target.classList.remove('completed');
+    } else e.target.classList.add('completed');
+}
+
+// Informações sobre classList retiradas no link: https://www.w3schools.com/jsref/prop_element_classlist.asp
