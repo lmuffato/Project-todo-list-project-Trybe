@@ -36,3 +36,26 @@ function completaTarefa () {
     })
 }
 completaTarefa ()
+
+
+
+function apagaTudo () {
+    const botaoApagaTarefa = document.querySelector('#apaga-tudo');
+    botaoApagaTarefa.addEventListener('click',() => {
+        listaDeTarefas.innerHTML = '';
+    })
+}
+apagaTudo();
+
+function apagaCompleto () {
+    const botaoApagaTarefa = document.querySelector('#remover-finalizados');
+    botaoApagaTarefa.addEventListener('click',() => {
+        const lista = document.querySelectorAll('#lista-tarefas li')
+        for (let index = 0; index < lista.length; index += 1) {
+            if (lista[index].className === 'completed') {
+                listaDeTarefas.removeChild(lista[index]);
+            }
+        }
+    })
+}
+apagaCompleto();
