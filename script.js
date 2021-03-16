@@ -53,7 +53,6 @@ function inputList() {
     createLabel.appendChild(createOrdList);
     olMain.appendChild(createLabel);
     txt.value = '';
-    changeBGColor();
   });
 }
 inputList();
@@ -66,12 +65,9 @@ function changeBGColor() {
     for (let i = 0; i < getLi.length; i += 1) {
       console.log(getLi[i]);
       getLi[i].addEventListener('click', function(eventNN) {
-        for (let j = 0; j < getLi.length; j += 1) {
-          getLi[j].id = 'ordened-list';
-          console.log('limpou '+getLi[i].innerHTML);
-        }
         eventNN.target.id = 'selected-list';
       })
     }
-  }  
+  }
 }
+changeBGColor();
