@@ -9,7 +9,22 @@ function createTask() {
     taskList.appendChild(li);
     li.innerHTML = input.value;
     input.value = '';
+    li.classList.add('list-item');
   }
 }
 
 createTaskBtn.addEventListener('click', createTask);
+
+// Requisito 7
+function paintSelected() {
+  const selectTask = document.getElementById('lista-tarefas');
+  
+  selectTask.addEventListener('click', function(e) {
+    let listItem = document.querySelectorAll('.list-item');
+    for (let index = 0; index < listItem.length; index += 1){
+      e.target.classList.add('selected');
+    }
+})
+}
+createTask();
+paintSelected();
