@@ -1,4 +1,6 @@
 body { 
     width: 1366px; height: 768px; 
 }
-#lista-tarefa li {background-color: #ffffff;}
+
+.completed {text-decoration: line-through solid rgb(0, 0, 0);}
+
