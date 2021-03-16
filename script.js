@@ -66,21 +66,19 @@ botaoApagarFinalizadas.addEventListener('click',function(){
     }       
 });
 
-//requisito 12 salva  https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
+//requisito 12 salva  https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 /*let botaoSalvar = document.querySelector('#salvar-tarefas');
 
 botaoSalvar.addEventListener('click',function(){
     let ListaTarefas = document.querySelectorAll('#lista-tarefas li');
     console.log(ListaTarefas);
     for (index = 0; index < ListaTarefas.length; index += 1){
-        console.log('beatriz');
-        let itemLista = ListaTarefas[index].outerHTML;
-        console.log(itemLista);
-        localStorage.setItem('lista tarefas', itemLista);
-        localStorage.getItem(itemLista);
+        let itemLista = ListaTarefas[index].innerHTML;
+        localStorage.setItem(index, JSON.stringify(itemLista));
+        localStorage.getItem(JSON.stringify(itemLista));
     } 
-    
-});*/
+    ListaTarefas.push(localStorage.getItem(JSON.stringify(itemLista)));
+}); */
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 
@@ -115,6 +113,9 @@ botaoMoverBaixo.addEventListener('click',function(){
 let botaoRemoveSeleção = document.querySelector('#remover-selecionado');
 
 botaoRemoveSeleção.addEventListener('click',function(){
+    /*let selecionado = document.querySelector('.cor-lista');
+    selecionado.classList.remove('cor-lista');   */
     let selecionado = document.querySelector('.cor-lista');
-    selecionado.classList.remove('cor-lista')       
+    let ListaTarefas = document.querySelector('#lista-tarefas');
+    ListaTarefas.removeChild(selecionado);
 });
