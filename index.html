@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do List xD</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To do List xD</title>
+<link rel="stylesheet" href="style.css">
+</head>
   <body>
-    <header>
-      <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">
-          Clique duas vezes em um item para marcá-lo como completo
-        </p>
-    </header>
-      <form>
-        <input id="texto-tarefa" type="text" size="50">
-        <button type="submit">Enviar</button>
-      </form>
-      <ol id="lista-tarefas"></ol>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">
+        Clique duas vezes em um item para marcá-lo como completo
+      </p>
+  </header>
+  
+  <form name="formTasks">
+    <input id="texto-tarefa" type="text" size="25" name="task">
+    <button id="criar-tarefa" name="addTask">Enviar</button>
+  </form>
 
-  </body>
+  <ol id="lista-tarefas"></ol>
+  <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
