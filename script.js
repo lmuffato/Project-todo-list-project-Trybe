@@ -19,12 +19,12 @@ createTaskBtn.addEventListener('click', createTask);
 function paintSelected() {
   const selectTask = document.getElementById('lista-tarefas');
   
-  selectTask.addEventListener('click', function(e) {
-    let listItem = document.querySelectorAll('.list-item');
-    for (let index = 0; index < listItem.length; index += 1){
-      e.target.classList.add('selected');
+  selectTask.addEventListener('click', function (selectEvent) {
+    const listItem = document.querySelectorAll('.list-item');
+    for (let index = 0; index < listItem.length; index += 1) {
+      selectEvent.target.classList.add('selected');
     }
-})
+  });
 }
 createTask();
 paintSelected();
