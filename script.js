@@ -10,8 +10,7 @@ window.onload = function (){
         for (let index = 0; index < item.length; index += 1) {
             let control = item[index];
             control.addEventListener('click', (a) => {
-                a.target.style.backgroundColor = "black";
-                console.log(a)
+                a.target.style.backgroundColor = 'rgb(128, 128, 128)';
             })
         }
     }

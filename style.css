@@ -1,3 +1,4 @@
 body { 
     width: 1366px; height: 768px; 
 }
+#lista-tarefa li {background-color: #ffffff;}
