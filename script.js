@@ -4,7 +4,6 @@ const buttonRemoveFinished = document.querySelector('#remover-finalizados');
 const input = document.querySelector('#texto-tarefa');
 const orderedList = document.querySelectorAll('ol');
 
-
 function createNewTodo() {
   var newLi = document.createElement('li');
   newLi.innerText = input.value;
@@ -13,3 +12,4 @@ function createNewTodo() {
 }
 
 buttonNewToDo.addEventListener('click',createNewTodo);
+
