@@ -28,7 +28,8 @@ function changebackgroundColorItemList(event) {
       element.classList.remove('selected');
     }
   });
-  $target.classList.toggle('selected');
+  // $target.classList.toggle('selected');
+  $target.classList.add('selected');
 }
 
 $taskList.addEventListener('click', changebackgroundColorItemList);
@@ -92,6 +93,7 @@ if (test !== null) {
 }
 
 function moveUp() {
+  // const $listItems = document.querySelectorAll('li');
   const $itemSelected = document.querySelector('.selected');
   if ($itemSelected !== null) {
     const $items = document.querySelectorAll('li');
@@ -101,6 +103,13 @@ function moveUp() {
     }
   }
 }
+
+// $listItems.forEach((item) => {
+//   if (item.classList.contains('selected')) {
+//     const parent = item.parentElement;
+//     parent.insertBefore(item, item.previousElementSibling);
+//   }
+// });
 
 $moveUpBtn.addEventListener('click', moveUp);
 
