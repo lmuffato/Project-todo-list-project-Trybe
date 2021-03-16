@@ -7,12 +7,11 @@ window.onload = function() {
 
   rmvAllButton.addEventListener('click', function(event){
     let allLi = document.querySelectorAll('li');
-    console.log(allLi)
     if (allLi.length === 0){
       alert('Não ha tarefas');
     }else{
       for(index = 0; index < allLi.length; index += 1){
-        allLi[index].remove()
+        allLi[index].remove();
       }
     }
   });
@@ -23,7 +22,7 @@ window.onload = function() {
       alert('Não ha tarefas finalizadas');
     }else{
       for(index = 0; index < completed.length; index += 1){
-        completed[index].remove()
+        completed[index].remove();
       }
     }
   });
@@ -32,7 +31,7 @@ window.onload = function() {
     let info = document.querySelector('#texto-tarefa');
     let ls = document.createElement('li');
     if(info.value === ''){
-      alert('Nenhuma tarefa digitada')
+      alert('Nenhuma tarefa digitada');
     }else{
       ls.innerText = info.value;
       list.appendChild(ls);
@@ -42,9 +41,8 @@ window.onload = function() {
   });
 
   list.addEventListener('dblclick', function(event){
-    let targetText = event.target
-    let TextWithRisk = document.querySelector('.completed')
-    console.log(targetText.classList.value)
+    let targetText = event.target;
+    let TextWithRisk = document.querySelector('.completed');
     if(targetText.classList.value === 'completed selected'){
       targetText.classList.remove('completed');
     }else{
