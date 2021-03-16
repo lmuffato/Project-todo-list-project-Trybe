@@ -19,12 +19,13 @@ updateLocalStorage()
 addTask()
 
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
+/* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo */
 const list = document.querySelector('#lista-tarefas');
-const lines = document.querySelectorAll('li');
 
 function selectTask() {
   list.addEventListener('click', function (event) {
     event.target.classList.add('selected');
+    const lines = document.querySelectorAll('li');
     for (let index = 0; index < lines.length; index += 1) {
       if (lines[index] !== event.target) {
         lines[index].classList.remove('selected');
@@ -33,3 +34,14 @@ function selectTask() {
   });
 }
 selectTask();
+
+/* 9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item */
+function doubleClick(event) {
+  const itemDoubleClicked = event.target;
+  if (itemDoubleClicked.classList.contains('completed')) {
+    itemDoubleClicked.classList.remove('completed');
+  } else {
+    itemDoubleClicked.classList.add('completed');
+  }
+}
+orderedList.addEventListener('dblclick', doubleClick);
