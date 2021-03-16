@@ -15,21 +15,20 @@ function addTasktoList() {
 
 addTasktoList();
 
-function addColorToItems() {
-  const listItems = document.getElementsByTagName('ol')[0];
-  listItems.addEventListener('click', (e) => {
-    const target = e.target;
-    if (target.style.backgroundColor === '') {
-      listItems.style.backgroundColor = 'rgb(128, 128, 128)';
+function selectItem() {
+  const list = document.getElementsByTagName('ol')[0];
+  const item = document.getElementsByTagName('li');
+  list.addEventListener('click', (e) => {
+    const targetEvent = e.target;
+    for (let index = 0; index < item.length; index += 1) {
+      item[index].style.backgroundColor = document.body.style.backgroundColor;
+      if (targetEvent.localName === 'li') {
+        targetEvent.style.backgroundColor = 'rgb(128, 128, 128)';
+      }
     }
-});
-// listItems.addEventListener('click', (e) => {
-//     const target = e.target;
-//     if (target.style.backgroundColor === 'rgb(128, 128, 128)') {
-//           console.log(listItems.style.backgroundColor)
-//           listItems.style.backgroundColor = '';
-//       }
-//   });
+  });
 }
 
-addColorToItems();
+selectItem();
+
+//Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/85/commits/4499f46b86215b3f5a4167a75d7735f07b144b72 -- consulta ao repositório do Anderson Silva 
