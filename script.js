@@ -33,6 +33,7 @@ const paiLista = document.getElementById('lista-tarefas')
 paiLista.addEventListener('click', (e) => {
 const target1 = e.target
 for ( let index = 0; index < lista.length; index += 1){
+  lista[index].style.backgroundColor = document.body.style.backgroundColor /* restaura a cor da minha lista para a cor padrão do body... */
    if(target1.localName ===  'li'){
       target1.style.backgroundColor = 'rgb(128,128,128)' 
    }
