@@ -1,8 +1,9 @@
 const inputText = document.getElementById('texto-tarefa');
 const buttonTarefa = document.getElementById('criar-tarefa');
 const olTarefas = document.getElementById('lista-tarefas');
-const clear = document.getElementById("apaga-tudo");
+const clear = document.getElementById('apaga-tudo');
 
+//req 5 e 6 
 function criar() {
   const lista = document.createElement('li');
   const node = document.createTextNode(inputText.value);
@@ -24,8 +25,16 @@ function changeBg(event) {
 }
 olTarefas.addEventListener('click', changeBg);
 
+//req 9 
+function doubleClick(e) {
+  const itemLi = e.target;
+  itemLi.classList.add('completed');
+}
+olTarefas.addEventListener('dblclick', doubleClick);
+
+    
 // req 10
-function remChild () {
+function remChild() {
   while (olTarefas.firstChild) {
     olTarefas.removeChild(olTarefas.firstChild);
   }
