@@ -88,6 +88,7 @@ function dbclickFunction() {
     getLiSelected.addEventListener('dblclick', function (eventLiN) {
       console.log('duplo click');
       eventLiN.target.classList.toggle('completed');
+      removeFinalized();
     })
 }
 dbclickFunction();
@@ -111,3 +112,24 @@ function cleanAll() {
 }
 cleanAll();
 
+function removeFinalized() {
+  const completedId = document.querySelectorAll('.completed');
+  console.log(completedId.length);
+  if (completedId.length < 1) {
+    const btnMainSec = document.querySelector('#btn');
+    const createButtonCleanFinal = document.createElement('button');
+    createButtonCleanFinal.id = 'remover-finalizados';
+    createButtonCleanFinal.innerHTML = 'Apaga Finalizados';
+    btnMainSec.appendChild(createButtonCleanFinal);
+  } else {
+    const buttonCleanFinal = document.querySelector('#remover-finalizados');
+    buttonCleanFinal.addEventListener('click', function() {
+      for (let i = 0; i < completedId.length; i += 0) {
+        completedId[i].remove();
+      }
+    })
+  }
+  
+  
+}
+removeFinalized();
