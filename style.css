@@ -2,6 +2,14 @@
   display: inline-block;
 }
 
+#forms {
+  display: inline-block;
+}
+
+#criar-tarefa {
+  display: inline-block;
+}
+
 .list-item {
   background-color: rgb(128,128,128);
 }
@@ -9,3 +17,4 @@
 .completed {
   text-decoration: line-through;
 }
+
