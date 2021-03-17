@@ -15,6 +15,8 @@ function criaLI() {
 }
 criaLI();
 
+
+
 // Requisito 7 - Pinta tarefas de cinza
 
 function pintaTarefa (){
