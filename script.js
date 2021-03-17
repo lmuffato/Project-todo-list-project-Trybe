@@ -71,7 +71,7 @@ function riskItem (e){
 
 const createButton2 = document.createElement('button');
 document.body.appendChild(createButton2);
-createButton2.innerText = 'Apagar';
+createButton2.innerText = 'Apagar tudo';
 createButton2.id = 'apaga-tudo';
 
 
@@ -84,5 +84,23 @@ for (let index = 0; index < listItem2.length; index += 1) {
 
 } 
 }
+// Função realizada com a ajuda de thread do Slack, link: https://trybecourse.slack.com/archives/C01L16B9XC7/p1615823212003700
 
-// Função realizada com a ajuda de thread do slack, link: https://trybecourse.slack.com/archives/C01L16B9XC7/p1615823212003700
+// Requirement 11
+
+const createButton3 = document.createElement('button');
+document.body.appendChild(createButton3);
+createButton3.innerText = 'Remover finalizadas';
+createButton3.id = 'remover-finalizados';
+
+
+createButton3.addEventListener('click', remove);
+
+function remove () {
+const listItem3 = document.querySelectorAll('.completed');
+for (let index = 0; index < listItem3.length; index += 1) {
+  listItem3[index].parentElement.removeChild(listItem3[index]);
+
+} 
+}
+// Dica do parentElement tirada da thread do Slack, link: https://trybecourse.slack.com/archives/C01L16B9XC7/p1616003000083500
