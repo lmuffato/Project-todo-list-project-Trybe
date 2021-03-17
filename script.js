@@ -15,9 +15,9 @@ function createTask() {
 
 createTaskBtn.addEventListener('click', createTask);
 
-// Requisito 7
+// Requisito 7 e 8
 function paintSelected() {
-  const selectTask = document.getElementById('lista-tarefas');
+  const selectTask = taskList;
   selectTask.addEventListener('click', (selectEvent) => {
     const listItem = document.querySelectorAll('.list-item');
     for (let index = 0; index < listItem.length; index += 1) {
@@ -29,9 +29,10 @@ function paintSelected() {
     }
   });
 }
-// Requisito 8
+
+// Requisito 9
 function lineThrough() {
-  const selectTask = document.getElementById('lista-tarefas');
+  const selectTask = taskList;
 
   selectTask.addEventListener('dblclick', (e) => {
     const listItem = document.querySelectorAll('.list-item');
