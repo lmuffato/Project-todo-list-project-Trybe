@@ -35,7 +35,7 @@ function lineThrough() {
   const selectTask = taskList;
 
   selectTask.addEventListener('dblclick', (e) => {
-    const listItem = document.querySelectorAll('.list-item');
+    const listItem = document.querySelectorAll('.selected');
     for (let index = 0; index < listItem.length; index += 1) {
       e.target.classList.toggle('completed');
     }
