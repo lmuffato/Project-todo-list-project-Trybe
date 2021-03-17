@@ -22,3 +22,7 @@ button {
   font-size: 25px;
   background-color: rgb(252, 108, 132);
 }
+
+.list-item {
+  background-color: rgb(128, 128, 128);
+}
