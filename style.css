@@ -10,4 +10,18 @@
 
 #texto-tarefa{
     border: solid black 1px;
+    display: inline-block;
 }
+
+.select{
+    background-color: rgb(128, 128, 128)
+}
+
+#criar-tarefa{
+    display: inline-block
+}
+
+.list-class{
+    width:fit-content
+}
+
