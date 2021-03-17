@@ -18,11 +18,14 @@ createTaskBtn.addEventListener('click', createTask);
 // Requisito 7
 function paintSelected() {
   const selectTask = document.getElementById('lista-tarefas');
-  
-  selectTask.addEventListener('click', function (selectEvent) {
+  selectTask.addEventListener('click', (selectEvent) => {
     const listItem = document.querySelectorAll('.list-item');
     for (let index = 0; index < listItem.length; index += 1) {
-      selectEvent.target.classList.add('selected');
+      if (listItem[index] === selectEvent.target) {
+        selectEvent.target.classList.add('selected');
+      } else {
+        listItem[index].classList.remove('selected');
+      }
     }
   });
 }
