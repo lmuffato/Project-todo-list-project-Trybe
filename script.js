@@ -17,28 +17,13 @@ function addToList() {
 }
 
 function eventsListener() {
-    //Gerencia os eventos
-    //7. Recuperar o pai dos meus itens de lista
     const list = document.querySelector('#lista-tarefas');
     list.addEventListener('click', modifyBackground);
-    //9. clicar 2x faz com que seja riscado, indicar que foi conpleto
-    list.addEventListener('dblclick', itemCompleted);
-    //10. ao clicar no botão com id apaga-tudo, apagar todos os itens da lista
+    // list.addEventListener('dblclick', itemCompleted);
     const resetBt = document.querySelector('#apaga-tudo');
-    resetBt.addEventListener('click', resetAllList);
+    // resetBt.addEventListener('click', resetAllList);
 }
 
-// function itemCompleted {
-
-// }
-
-// function resetAllList() {
-//     const tasks = document.querySelector('ol');
-//     const item = document.querySelectorAll('li');
-//     for (let index = 0; index < item.length; index += 1) {
-//       tasks.removeChild(item[index]);
-//     }
-// }
 
 function modifyBackground(event) {
     const backgroundRemove = document.querySelectorAll('li');
