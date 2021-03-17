@@ -84,9 +84,7 @@ accessChangeBGColor();
 
 function dbclickFunction() {
   const getLiSelected = document.querySelector('#lista-tarefas');
-  console.log('Começou duplo click')
-    getLiSelected.addEventListener('dblclick', function (eventLiN) {
-      console.log('duplo click');
+    getLiSelected.addEventListener('dblclick', (eventLiN) => {
       eventLiN.target.classList.toggle('completed');
       removeFinalized();
     })
@@ -123,13 +121,14 @@ function removeFinalized() {
     btnMainSec.appendChild(createButtonCleanFinal);
   } else {
     const buttonCleanFinal = document.querySelector('#remover-finalizados');
+    const liMainSec = document.querySelectorAll('li');
     buttonCleanFinal.addEventListener('click', function() {
-      for (let i = 0; i < completedId.length; i += 0) {
-        completedId[i].remove();
+      for (let i = 0; i < liMainSec.length; i += 0) {
+        if (liMainSec[i].className === 'completed') {
+          liMainSec[i].parentElement.removeChild(liMainSec[i]);
+        }
       }
     })
   }
-  
-  
 }
 removeFinalized();
