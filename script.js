@@ -20,7 +20,7 @@ function selectedTask() {
     allTasks[index].addEventListener('click', (event) => {
       const selected = event.target;
       selected.className += ' selected';
-  });
+    });
   }
 }
 
