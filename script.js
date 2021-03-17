@@ -2,8 +2,8 @@ const inputText = document.getElementById('texto-tarefa');
 const buttonTarefa = document.getElementById('criar-tarefa');
 const olTarefas = document.getElementById('lista-tarefas');
 const clear = document.getElementById('apaga-tudo');
+const workDone = document.getElementById('remover-finalizados')
 
-//req 5 e 6 
 function criar() {
   const lista = document.createElement('li');
   const node = document.createTextNode(inputText.value);
@@ -14,7 +14,6 @@ function criar() {
 }
 buttonTarefa.addEventListener('click', criar);
 
-// req 7 e 8
 function changeBg(event) {
   const liItem = document.getElementsByTagName('li');
   for (let i = 0; i < liItem.length; i += 1) {
@@ -25,22 +24,30 @@ function changeBg(event) {
 }
 olTarefas.addEventListener('click', changeBg);
 
-//req 9 
 function doubleClick(e) {
   const itemLi = e.target;
   if (itemLi.className === 'listItem') {
-  itemLi.className = 'listItem completed';
+    itemLi.className = 'listItem completed';
   } else {
     itemLi.className = 'listItem';
   }
 }
 olTarefas.addEventListener('dblclick', doubleClick);
 
-    
-// req 10
 function remChild() {
   while (olTarefas.firstChild) {
     olTarefas.removeChild(olTarefas.firstChild);
   }
 }
 clear.addEventListener('click', remChild);
+
+function endRemove() {
+  const listRemove = document.getElementsByClassName('completed');
+
+  for (let i = 0; i <= listRemove.length; i += 0) {
+      console.log(listRemove[i]);
+      listRemove[i].parentElement.removeChild(listRemove[i]); 
+  }
+}
+workDone.addEventListener('click', endRemove); 
+
