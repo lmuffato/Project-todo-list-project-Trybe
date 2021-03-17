@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">    
 </head>
 <body>
     <!-- Desenvolvi um cabeçalho similar ao que fiz durante o projeto do Bloco 3.5 -->
@@ -17,13 +17,16 @@
             <img class="display-inline" id="logo-trybe" alt="Logo da Tribe" src="https://uploads-ssl.webflow.com/5fba98ad987231cf0efa3d58/5fba9c9a93a2e77624258d49_Logo.svg">
         </a>
     </header>
-    <form action="" method="GET">
-        <label class="label" for="texto-tarefa">Tarefa:</label>
-        <input id="texto-tarefa" type="text" name="item-da-lista" placeholder="Digite aqui a tarefa a ser realizada" required>
-    </form>
-    <ol id="lista-tarefas">
-        <li></li>
-    </ol>
+    <label class="label" for="texto-tarefa">Tarefa:</label>
+    <input id="texto-tarefa" type="text" name="item-da-lista" placeholder="Digite aqui a tarefa a ser realizada" required autofocus>
+    <button id="criar-tarefa" name="adicionar-tarefa">Adicionar</button>
+    <div>
+        <ol id="lista-tarefas">
 
+
+        </ol>
+        
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
