@@ -29,5 +29,18 @@ function paintSelected() {
     }
   });
 }
+// Requisito 8
+function lineThrough() {
+  const selectTask = document.getElementById('lista-tarefas');
+
+  selectTask.addEventListener('dblclick', (e) => {
+    const listItem = document.querySelectorAll('.list-item');
+    for (let index = 0; index < listItem.length; index += 1) {
+      e.target.classList.toggle('completed');
+    }
+  });
+}
+
+lineThrough();
 createTask();
 paintSelected();
