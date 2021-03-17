@@ -11,12 +11,25 @@ function addButtomListener() {
 
 function selectItem(eventOrigin) {
   const selected = document.querySelector('.list-item');
-  
+
   if (selected != null) {
     selected.classList.remove('list-item');
   }
   listItem = eventOrigin.target;
-  listItem.className = 'list-item';
+  listItem.classList.add('list-item');
+}
+
+function throughItem(eventOrigin) {
+  const elementClasses = eventOrigin.target.classList.value;// Recupera uma string com o nome das classes do elemeto
+  const listItem = eventOrigin.target;
+  console.log(elementClasses);
+
+  if (elementClasses.indexOf('completed') > -1) {// Verifica se o elemento clicado possui a classe 'completed'
+    listItem.classList.remove('completed');
+  } else {
+    const listItem = eventOrigin.target;
+    listItem.classList.add('completed');
+  }
 }
 
 function pullTasks() {
@@ -26,6 +39,7 @@ function pullTasks() {
     const taskList = document.getElementById('lista-tarefas');
     const newTask = document.createElement('li');
     newTask.addEventListener('click', selectItem);
+    newTask.addEventListener('dblclick', throughItem);
     newTask.innerText = localStorage.getItem('task' + i);
     taskList.appendChild(newTask);
   }
