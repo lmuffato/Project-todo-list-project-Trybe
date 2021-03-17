@@ -9,7 +9,7 @@ function inputTarefa() {
     listaDeTarefas.appendChild(criaLi);
     document.getElementById('texto-tarefa').value = '';
   });
-};
+}
 inputTarefa();
 
 function selecionaTarefa() {
@@ -19,41 +19,41 @@ function selecionaTarefa() {
       document.querySelector('#selecionado').style.backgroundColor = 'white';
       document.querySelector('#selecionado').id = '';
     } else {
-        element.target.id = 'selecionado';
-        document.querySelector('#selecionado').style.backgroundColor = 'rgb(128, 128, 128)';
-        }
-    });
-};
+      element.target.id = 'selecionado';
+      document.querySelector('#selecionado').style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  });
+}
 selecionaTarefa();
 
 function completaTarefa() {
   listaDeTarefas.addEventListener('dblclick', (element) => {
     if (element.target.className === 'completed') {
-       element.target.className = '';
+      element.target.className = '';
     } else {
-       element.target.className = 'completed';
+      element.target.className = 'completed';
     }
-    })
-};
+  });
+}
 completaTarefa();
 
 function apagaTudo() {
   const botaoApagaTarefa = document.querySelector('#apaga-tudo');
-  botaoApagaTarefa.addEventListener('click',() => {
+  botaoApagaTarefa.addEventListener('click', () => {
     listaDeTarefas.innerHTML = '';
-  })
+  });
 }
 apagaTudo();
 
 function apagaCompleto() {
   const botaoApagaTarefa = document.querySelector('#remover-finalizados');
-  botaoApagaTarefa.addEventListener('click',() => {
-    const lista = document.querySelectorAll('#lista-tarefas li')
+  botaoApagaTarefa.addEventListener('click', () => {
+    const lista = document.querySelectorAll('#lista-tarefas li');
     for (let index = 0; index < lista.length; index += 1) {
-        if (lista[index].className === 'completed') {
-            listaDeTarefas.removeChild(lista[index]);
-        }
+      if (lista[index].className === 'completed') {
+        listaDeTarefas.removeChild(lista[index]);
+      }
     }
-    })
+  });
 }
 apagaCompleto();
