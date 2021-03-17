@@ -29,7 +29,7 @@ itemListSelect();
 function selectItem() {
   ol.addEventListener('click', (event) => {
     const color = event.target;
-    li;
+    const li = document.querySelectorAll('li');
     for (let index = 0; index < li.length; index += 1) {
       li[index].style.backgroundColor = document.body.style.backgroundColor;
       if (color.localName === 'li') {
