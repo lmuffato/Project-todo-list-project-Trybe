@@ -28,7 +28,11 @@ olTarefas.addEventListener('click', changeBg);
 //req 9 
 function doubleClick(e) {
   const itemLi = e.target;
-  itemLi.classList.add('completed');
+  if (itemLi.className === 'listItem') {
+  itemLi.className = 'listItem completed';
+  } else {
+    itemLi.className = 'listItem';
+  }
 }
 olTarefas.addEventListener('dblclick', doubleClick);
 
