@@ -50,6 +50,16 @@ function doubleClick (event) {
 
     function erase () {
         let eraseNoList = document.getElementById('lista-tarefas');
-        let eraseList = document.getElementsByClassName('color-change')
         eraseNoList.innerText = '';
     }
+
+    //11 requisito
+    let finishedRemove = document.getElementById('remover-finalizados');
+    finishedRemove.addEventListener('click', deletFinish);
+
+    function deletFinish () {
+        let removeItemFinish = document.getElementsByClassName('completed');
+        for(let index = 0; index <removeItemFinish.length; index +=1){
+        removeItemFinish[index].remove();
+    }
+}
