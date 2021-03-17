@@ -1,7 +1,10 @@
 function changesColor(event) {
   const { target } = event;
+  const listItems = document.getElementsByTagName('li');
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].style.backgroundColor = 'white';
+  }
   target.style.backgroundColor = 'rgb(128,128,128)';
-  console.log(event.target);
 }
 
 function receiveClick() {
