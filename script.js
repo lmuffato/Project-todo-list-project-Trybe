@@ -45,7 +45,7 @@ function endRemove() {
   const listRemove = document.querySelectorAll('li');
 
   for (let i = 0; i < listRemove.length; i += 1) {
-    if (listRemove[i].classList.contains('completed')){
+    if (listRemove[i].classList.contains('completed')) {
       listRemove[i].parentElement.removeChild(listRemove[i]);
     }
   }
