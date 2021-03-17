@@ -57,7 +57,7 @@ function receiveTask() {
 }
 myButton.addEventListener('click', receiveTask);
 
-// apaga tudo requi 9
+// apaga tudo requi 10
 
 function cleanAll() {
   for (let i = 0; i < listItens.length; i += 0) {
@@ -69,3 +69,16 @@ cleanButton.innerText = 'apagar tudo';
 cleanButton.id = 'apaga-tudo';
 cleanButton.addEventListener('click', cleanAll);
 document.getElementsByTagName('body')[0].appendChild(cleanButton);
+
+// remover finalizados requi 11
+const completedIntens = document.getElementsByClassName('completed');
+function cleanCompleted() {
+  for (let i = 0; i < completedIntens.length; i += 0) {
+    document.getElementById('lista-tarefas').removeChild(completedIntens[i]);
+  }
+}
+const cleanCompletedButton = document.createElement('button');
+cleanCompletedButton.innerText = 'apagar os feitos';
+cleanCompletedButton.id = 'remover-finalizados';
+cleanCompletedButton.addEventListener('click', cleanCompleted);
+document.getElementsByTagName('body')[0].appendChild(cleanCompletedButton);
