@@ -46,8 +46,6 @@ function doubleClick(event) {
 }
 orderedList.addEventListener('dblclick', doubleClick);
 
-document.getElementById('apaga-tudo').addEventListener('click', clearList);
-
 /* Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista */
 const Erase = document.querySelector('#apaga-tudo');
 
