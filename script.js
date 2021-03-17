@@ -25,8 +25,24 @@ function marcar(event) {
     reset(); 
     for (let index = 0; index < array.length; index++) {
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-        /* console.log(event.target);
-        console.log(array[index]); */
     }
 }
 lista.addEventListener('click', marcar);
+
+function riscar(event){
+    const array = document.querySelectorAll('#lista-tarefas');
+    let classe = event.target.className ;
+
+    
+   for (let index = 0; index < array.length; index++) {
+        const element = array[index]; 
+        if (classe == ''){
+            event.target.classList.add('completed');
+        }
+        if (classe == 'completed'){
+            event.target.classList.remove('completed');
+        }
+    }
+}
+lista.addEventListener('dblclick', riscar);
+
