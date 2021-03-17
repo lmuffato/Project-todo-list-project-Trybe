@@ -53,3 +53,10 @@ function toDoDone () {
   });
 }
 toDoDone();
+
+function clearAll () {
+  buttonCleanAll.addEventListener('click',() => {
+    ol.innerText = '';
+  });
+}
+clearAll();
