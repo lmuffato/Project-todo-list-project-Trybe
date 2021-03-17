@@ -123,7 +123,7 @@ function removeFinalized() {
     const buttonCleanFinal = document.querySelector('#remover-finalizados');
     const liMainSec = document.querySelectorAll('li');
     buttonCleanFinal.addEventListener('click', function() {
-      for (let i = 0; i < liMainSec.length; i += 0) {
+      for (let i = 0; i < liMainSec.length; i += 1) {
         if (liMainSec[i].className === 'completed') {
           liMainSec[i].parentElement.removeChild(liMainSec[i]);
         }
