@@ -1,13 +1,37 @@
 // Requisito 5 - Botão cria tarefa
-function criaTarefa () {
-    //const input = document.getElementById ('texto-tarefa');
-    const botao = document.getElementById ('criar-tarefa');
-    //const lista = document.getElementById ('lista-tarefas');
-    //for (let index = 0; index < input.lenght; index + 1) {
-        botao.addEventListener('click', () => {
-            document.getElementById('lista-tarefas').appendChild(document.getElementById('texto-tarefa'))
-        })
-        criaTarefa()
+let lista = document.querySelector('#lista-tarefas')
+let input = document.querySelector('#texto-tarefa');
+const botao = document.querySelector('.botao');
+
+function criaTarefa() {
+let li = document.createElement('li');
+let tarefa = document.createTextNode(input);
+
+botao.addEventListener('click', ()=> {
+lista.appendChild(li);
+li.innerHTML = input.value;
+input.value = '';
+})
 }
-    
+
+criaTarefa ();
+
+
+
+
+ 
+
+
+
+// Requisito 7 - Pinta tarefas de cinza
+
+function pintaTarefa (){
+let lista = document.querySelectAll('.listaDeTarefas');
+for(lista[i] = 0; lista[i] < i; lista[i] +=1){
+tarefa.addEventListener('click', () => {
+  tarefa.style.backgroundColor = 'grey';
+})
+}
+}
+
 
