@@ -77,6 +77,7 @@ function accessChangeBGColor () {
   buttonNew.addEventListener('click', function (eventLi) {
     console.log('nova funçao');
     changeBGColor();
+    cleanAll();
   })
 }
 accessChangeBGColor();
@@ -90,3 +91,23 @@ function dbclickFunction() {
     })
 }
 dbclickFunction();
+
+function cleanAll() {
+  const liMain = document.querySelectorAll('#ordened-list');
+  if (liMain.length < 1) {
+    const createButtonClean = document.createElement('button');
+    const btnMain = document.querySelector('#btn');
+    createButtonClean.id = 'apaga-tudo';
+    createButtonClean.innerHTML = 'Apaga';
+    btnMain.appendChild(createButtonClean);
+  } else {
+    const buttonClean = document.querySelector('#apaga-tudo');
+    buttonClean.addEventListener('click', function () {
+    for (let i = 0; i < liMain.length; i += 1) {
+      liMain[i].remove();
+      }
+    });
+  }
+}
+cleanAll();
+
