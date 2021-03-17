@@ -1,5 +1,5 @@
-    // 5 REQUISITO
-    //criar clique para o botão
+// 5 REQUISITO
+//criar clique para o botão
 
 let incluseTask = document.getElementById('criar-tarefa');
 incluseTask.addEventListener('click', taskAdd);
@@ -58,7 +58,7 @@ function doubleClick (event) {
     finishedRemove.addEventListener('click', deletFinish);
 
     function deletFinish () {
-        let removeItemFinish = document.getElementsByClassName('completed');
+        let removeItemFinish = document.querySelectorAll('.completed');
         for(let index = 0; index <removeItemFinish.length; index +=1){
         removeItemFinish[index].remove();
     }
