@@ -56,3 +56,16 @@ function receiveTask() {
   taskToDo.addEventListener('dblclick', completedTask);
 }
 myButton.addEventListener('click', receiveTask);
+
+// apaga tudo requi 9
+
+function cleanAll() {
+  for (let i = 0; i < listItens.length; i += 0) {
+    document.getElementById('lista-tarefas').removeChild(listItens[i]);
+  }
+}
+const cleanButton = document.createElement('button');
+cleanButton.innerText = 'apagar tudo';
+cleanButton.id = 'apaga-tudo';
+cleanButton.addEventListener('click', cleanAll);
+document.getElementsByTagName('body')[0].appendChild(cleanButton);
