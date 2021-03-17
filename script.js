@@ -4,7 +4,7 @@ const createTaskBtn = document.getElementById('criar-tarefa');
 
 createTaskBtn.innerText = 'AdicionarTarefa';
 
-let toDoList = document.getElementById('lista-tarefas');
+const toDoList = document.getElementById('lista-tarefas');
 
 const listItens = document.getElementsByTagName('li');
 
