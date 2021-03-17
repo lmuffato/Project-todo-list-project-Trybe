@@ -1,0 +1,13 @@
+.buttons-list {
+  border-radius: 10%;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
