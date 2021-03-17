@@ -56,6 +56,8 @@ window.onload = function (){
     let pushInput = ''
     // cria um contador para adicionar mais elementos na lista
     let cont = 0;
+    // Cria botão remove selecionados
+    let removeSelecionados = document.getElementById('remover-finalizados');
 
     
     btn.addEventListener('click', function (){
@@ -88,13 +90,13 @@ window.onload = function (){
         
         for (let index = 0; index < addList.length; index += 1) {
             let control = addList[index];
-            control.classList.add('control');
             control.addEventListener('click', (a) => {                
                 a.target.style.backgroundColor = 'rgb(128, 128, 128)';
                console.log(control)
             })
             
         }
+
         //adiciona a lista e acrescenta 1 números 
         cont += 1;
         // Pinta 29
