@@ -1,14 +1,14 @@
-// 5 REQUISITO
-//criar clique para o botão
+    // 5 REQUISITO
+    //criar clique para o botão
 
 let incluseTask = document.getElementById('criar-tarefa');
 incluseTask.addEventListener('click', taskAdd);
 
 function taskAdd () {
 
-//recupera o input em uma variavel
+    //recupera o input em uma variavel
     let valueInput = document.createTextNode(document.getElementById('texto-tarefa').value);
-//incluir no html
+    //incluir no html
     let originaList = document.getElementById('lista-tarefas')
     let listAdd = document.createElement('li');
     
@@ -17,13 +17,14 @@ function taskAdd () {
     listAdd.appendChild(valueInput);
     listAdd.classList.add('color-change');
     listAdd.addEventListener('click', newColor);
-//apagar input
+    listAdd.addEventListener('dblclick', doubleClick)
+    //apagar input
     document.getElementById('texto-tarefa').value = '';
 }
 
-// 7 REQUISITO
+    // 7 REQUISITO
    
-// função para troca de cor
+    // função para troca de cor
 function newColor (event) {
 
     let selectedItem = event.target;    
@@ -35,3 +36,9 @@ function newColor (event) {
 } selectedItem.classList.add('elementSelected');
     
 }   
+
+    // 9 REQUISITO
+function doubleClick (event) {
+    let completItem = event.target;
+    completItem.classList.toggle('completed');    
+}
