@@ -13,15 +13,11 @@
     display: inline-block;
 }
 
-.select{
+.selected{
     background-color: rgb(128, 128, 128)
 }
 
 #criar-tarefa{
     display: inline-block
-}
-
-.list-class{
-    width:fit-content
 }
 

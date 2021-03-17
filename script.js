@@ -11,23 +11,30 @@ function liCreation (){
 }
 liCreation()
 
-function grayChange (colorClick){
-    colorClick.target.style.backgroundColor = 'rgb(128, 128, 128)';
+function grayChange (){
+    let liClass = document.querySelector('ol');
+    liClass.addEventListener("click", function(gray){
+    let selectedLi = document.querySelector(".selected")
+        if (selectedLi != null){
+            document.querySelector(".selected").classList.remove("selected")
+        }
+        gray.target.classList.add("selected")
+  })
 }
 
-function eraseColor () {
- let button = document.querySelector(".list-class");
- button.addEventListener("click", function() {
-    for (index in button) {
-    if (button[index].style.backgroundColor == 'rgb(128, 128, 128)') {
-        button[index].style.backgroundColor = 'white';
-    }
-   }
-  });
-}
+grayChange();
 
 
-
-
-
-
+/*function grayChange() {
+    let olList = document.querySelector('ol')
+    olList.addEventListener('click', (gray) => {
+      const targetOl = gray.target;
+      const selectedLi = document.querySelector('.selected');
+      if (selectedLi !== null) {
+        selectedLi.classList.remove('selected');
+      }
+      targetOl.classList.add('selected');
+    });
+  }
+grayChange()
+*/
