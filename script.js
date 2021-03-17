@@ -1,7 +1,6 @@
 const createTaskButton = document.getElementById('criar-tarefa');
 const addTaskInput = document.getElementById('texto-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
-const allTasks = document.getElementsByClassName('all-tasks');
 
 function createTask() {
   if (addTaskInput.value !== '') {
@@ -16,16 +15,38 @@ function createTask() {
 createTaskButton.addEventListener('click', createTask);
 
 function selectedTask() {
+  const allTasks = document.getElementsByClassName('all-tasks');
   for (let index = 0; index < allTasks.length; index += 1) {
     allTasks[index].addEventListener('click', (event) => {
       const selected = event.target;
-      const selecionaCor = getComputedStyle(document.querySelector('.selected'));
-      selected.style.backgroundColor = selecionaCor.backgroundColor;
-    });
+      selected.className += ' selected';
+  });
   }
 }
+
+selectedTask();
+
+// window.onload = () => {
+//   selectedTask();
+// };
+
+// function changeBackground(event) {
+//   const selected = event.target;
+//   const selectedTask = document.querySelectorAll('.selected');
+//   selectedTask.forEach((element) => {
+//       if (element !== target) {
+//           target.classList.remove('selected');
+//       }
+//   });
+//   target.classList.add('selected');
+// }
+
 // tasksList.addEventListener('click', changeBackground);
 
-window.onload = () => {
-  selectedTask();
-};
+//   for (let index = 0; index < allTasks.length; index += 1) {
+//     allTasks[index].addEventListener('click', (event) => {
+//       const selected = event.target;
+//       const selecionaCor = getComputedStyle(document.querySelector('.selected'));
+//       selected.style.backgroundColor = selecionaCor.backgroundColor;
+//     });
+//   }
