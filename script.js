@@ -77,25 +77,16 @@ function accessChangeBGColor () {
   buttonNew.addEventListener('click', function (eventLi) {
     console.log('nova funçao');
     changeBGColor();
-    dbclickFunction();
   })
 }
 accessChangeBGColor();
 
 function dbclickFunction() {
-  const getLiSelected = document.getElementsByTagName('li');
+  const getLiSelected = document.querySelector('#lista-tarefas');
   console.log('Começou duplo click')
-  for (let i = 0; i < getLiSelected.length; i += 1) {
-    getLiSelected[i].addEventListener('dblclick', function (eventLiN) {
+    getLiSelected.addEventListener('dblclick', function (eventLiN) {
       console.log('duplo click');
-      if (getLiSelected[i].className === 'completed') {
-        console.log('com completed')
-        eventLiN.target.classList.remove('completed');
-      } else {
-        console.log('sem completed')
-        eventLiN.target.classList.add('completed');
-      }
+      eventLiN.target.classList.toggle('completed');
     })
-  }
 }
 dbclickFunction();
