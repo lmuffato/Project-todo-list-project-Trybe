@@ -57,7 +57,7 @@ window.onload = function (){
     // cria um contador para adicionar mais elementos na lista
     let cont = 0;
     // Cria botão remove selecionados
-    let removeSelecionados = document.getElementById('remover-finalizados');
+     removeSelecionados = document.getElementById('remover-finalizados');
 
     
     btn.addEventListener('click', function (){
@@ -81,13 +81,10 @@ window.onload = function (){
              
              else {
                  a.target.classList.add('completed');
-                 
-             }  
+                 }  
 
             })
-        
 
-        
         for (let index = 0; index < addList.length; index += 1) {
             let control = addList[index];
             control.addEventListener('click', (a) => {                
@@ -96,6 +93,15 @@ window.onload = function (){
             })
             
         }
+
+        removeSelecionados.addEventListener('click', () => {
+            for (let i = 0; i < addList.length; i += 1) {
+                let checkItem = addList[i]; 
+                if (checkItem.classList.contains('completed')) {
+                    checkItem.remove()
+                }
+            }
+        })
 
         //adiciona a lista e acrescenta 1 números 
         cont += 1;
