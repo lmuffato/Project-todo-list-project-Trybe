@@ -66,3 +66,23 @@ function riskItem (e){
 }
 
 // Informações sobre classList retiradas no link: https://www.w3schools.com/jsref/prop_element_classlist.asp
+
+// Requirement 10
+
+const createButton2 = document.createElement('button');
+document.body.appendChild(createButton2);
+createButton2.innerText = 'Apagar';
+createButton2.id = 'apaga-tudo';
+
+
+createButton2.addEventListener('click', erase);
+
+function erase () {
+let listItem2 = document.querySelectorAll('li');
+for (let index = 0; index < listItem2.length; index += 1) {
+  createOrderedList.removeChild(listItem2[index]);
+
+} 
+}
+
+// Função realizada com a ajuda de thread do slack, link: https://trybecourse.slack.com/archives/C01L16B9XC7/p1615823212003700
