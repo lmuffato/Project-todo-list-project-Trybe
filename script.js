@@ -37,11 +37,25 @@ function clearTasks() {
   taskList.innerHTML = '';
 }
 
+function removeFinnished() {
+  let taskList = document.getElementById('lista-tarefas');
+  let completedTasks = document.getElementsByClassName('completed');
+
+  if (completedTasks.length > 0) {
+    for (let i = 0; i , completedTasks.length; i += 1) {
+      taskList.removeChild(completedTasks[0]);
+    }
+  }
+}
+
 function addButtomListener() {
   const button1 = document.getElementById('criar-tarefa');
   const button2 = document.getElementById('apaga-tudo');
+  const button3 = document.getElementById('remover-finalizados');
+
   button1.addEventListener('click', submitTask);
   button2.addEventListener('click', clearTasks);
+  button3.addEventListener('click', removeFinnished);
 }
 
 // function pullTasks() {
