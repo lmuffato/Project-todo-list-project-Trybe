@@ -8,8 +8,8 @@ function createTask() {
     newTask.classList.add('all-tasks');
     newTask.textContent = addTaskInput.value;
     tasksList.appendChild(newTask);
-    addTaskInput.value = ''; 
-    }
+    addTaskInput.value = '';
+  }
 }
 
 createTaskButton.addEventListener('click', createTask);
