@@ -26,27 +26,8 @@ function selectedTask() {
 
 selectedTask();
 
-// window.onload = () => {
-//   selectedTask();
-// };
+function completedTask(event) {
+  event.target.classList.toggle('completed');
+}
 
-// function changeBackground(event) {
-//   const selected = event.target;
-//   const selectedTask = document.querySelectorAll('.selected');
-//   selectedTask.forEach((element) => {
-//       if (element !== target) {
-//           target.classList.remove('selected');
-//       }
-//   });
-//   target.classList.add('selected');
-// }
-
-// tasksList.addEventListener('click', changeBackground);
-
-//   for (let index = 0; index < allTasks.length; index += 1) {
-//     allTasks[index].addEventListener('click', (event) => {
-//       const selected = event.target;
-//       const selecionaCor = getComputedStyle(document.querySelector('.selected'));
-//       selected.style.backgroundColor = selecionaCor.backgroundColor;
-//     });
-//   }
+tasksList.addEventListener('dblclick', completedTask);
