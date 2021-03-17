@@ -21,9 +21,15 @@ function eventsListener() {
     list.addEventListener('click', modifyBackground);
     // list.addEventListener('dblclick', itemCompleted);
     const resetBt = document.querySelector('#apaga-tudo');
-    // resetBt.addEventListener('click', resetAllList);
+    resetBt.addEventListener('click', resetAllList);
 }
 
+function resetAllList() {
+    let itens = document.querySelectorAll('li');
+    for(let index = 0; index < itens.length; index += 1){
+        document.querySelector('ol').removeChild(itens[index]);
+    }
+}
 
 function modifyBackground(event) {
     const backgroundRemove = document.querySelectorAll('li');
