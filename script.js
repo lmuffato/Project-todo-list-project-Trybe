@@ -31,4 +31,22 @@ function selectItem() {
 
 selectItem();
 
-//Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/85/commits/4499f46b86215b3f5a4167a75d7735f07b144b72 -- consulta ao repositório do Anderson Silva 
+//Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/85/commits/4499f46b86215b3f5a4167a75d7735f07b144b72 
+// consulta ao repositório do Anderson Silva 
+
+function checkItem() {
+  const list = document.getElementsByTagName('ol')[0];
+  list.addEventListener('dblclick', (e) => {
+    const targetEvent = e.target;
+      if (targetEvent.classList.contains('completed')) {
+        targetEvent.classList.remove('completed');
+      } else {
+        targetEvent.classList.add('completed');
+      }
+  });
+}
+
+checkItem();
+
+// Consulta ao repositório do Anderson Silva para eventuais correções no código.
+// Source: https://github.com/tryber/sd-010-a-project-todo-list/pull/85/
