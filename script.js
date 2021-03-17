@@ -110,25 +110,23 @@ function cleanAll() {
 }
 cleanAll();
 
-function removeFinalized() {
-  const completedId = document.querySelectorAll('.completed');
-  console.log(completedId.length);
-  if (completedId.length < 1) {
-    const btnMainSec = document.querySelector('#btn');
-    const createButtonCleanFinal = document.createElement('button');
-    createButtonCleanFinal.id = 'remover-finalizados';
-    createButtonCleanFinal.innerHTML = 'Apaga Finalizados';
-    btnMainSec.appendChild(createButtonCleanFinal);
-  } else {
-    const buttonCleanFinal = document.querySelector('#remover-finalizados');
-    const liMainSec = document.querySelectorAll('li');
-    buttonCleanFinal.addEventListener('click', function() {
-      for (let i = 0; i < liMainSec.length; i += 1) {
-        if (liMainSec[i].className === 'completed') {
-          liMainSec[i].parentElement.removeChild(liMainSec[i]);
-        }
-      }
-    })
-  }
+function buttonCleanFinalized() {
+  const btnMainSec = document.querySelector('#btn');
+  const createButtonCleanFinal = document.createElement('button');
+  createButtonCleanFinal.id = 'remover-finalizados';
+  createButtonCleanFinal.innerHTML = 'Apaga Finalizados';
+  btnMainSec.appendChild(createButtonCleanFinal);
 }
-removeFinalized();
+buttonCleanFinalized();
+
+function removeFinalized() {
+  const buttonCleanFinal = document.querySelector('#remover-finalizados');
+  buttonCleanFinal.addEventListener('click', function() {
+    const liMainSec = document.getElementsByClassName('completed');
+    console.log(liMainSec.length);
+    for (let i = 0; i < liMainSec.length; i += 1) {
+      console.log(liMainSec[i].value);
+      liMainSec[i].parentElement.removeChild(liMainSec[i]);
+    }
+  });
+}
