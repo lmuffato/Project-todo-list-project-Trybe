@@ -20,12 +20,12 @@ function selectedTask() {
     allTasks[index].addEventListener('click', (event) => {
       const selected = event.target;
       const selecionaCor = getComputedStyle(document.querySelector('.selected'));
-      selectedTask.style.backgroundColor = selecionaCor.backgroundColor;
+      selected.style.backgroundColor = selecionaCor.backgroundColor;
     });
   }
 }
 // tasksList.addEventListener('click', changeBackground);
 
 window.onload = () => {
-    selectedTask();
+  selectedTask();
 };
