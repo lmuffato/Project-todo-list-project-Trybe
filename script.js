@@ -22,4 +22,16 @@ function getGray() {
 }
 getGray();
 
+function completaTarefa() {
+  list.addEventListener('dblclick', (event) => {
+    const eventItem = event.target;
+    if (eventItem.classList.contains('completed')) {
+      eventItem.classList.remove('completed');
+    } else {
+      eventItem.classList.add('completed');
+    }
+  });
+}
+completaTarefa();
+
 /* agradeço a Pollyana Oliveira por me ajudar a sanar o requisito 8 */
