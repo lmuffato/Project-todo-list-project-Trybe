@@ -1,24 +1,16 @@
-const listStored = localStorage.getItem('list');
-
 const textBox = document.getElementById('texto-tarefa');
 
 const createTaskBtn = document.getElementById('criar-tarefa');
 
 createTaskBtn.innerText = 'AdicionarTarefa';
 
-const toDoList = document.getElementById('lista-tarefas');
+let toDoList = document.getElementById('lista-tarefas');
 
 const listItens = document.getElementsByTagName('li');
 
 const clearTasksDone = document.getElementById('remover-finalizados');
 
 clearTasksDone.innerText = 'Clear Tasks Done';
-
-const saveTasksBtn = document.getElementById('salvar-tarefas');
-
-const moveDownBtn = document.getElementById('mover-baixo');
-
-const moveUpBtn = document.getElementById('mover-cima');
 
 function deleteSelectClass() {
   for (let index = 0; index < listItens.length; index += 1) {
@@ -84,43 +76,3 @@ function clearingTasksDone() {
 }
 
 clearTasksDone.addEventListener('click', clearingTasksDone);
-
-function saveAllTasks() {
-  const tasks = document.getElementsByTagName('li');
-  let savedTasks = [];
-  for (let index = 0; index < tasks.length; index += 1) {
-    const objTasks = {
-      innerText: tasks[index].innerText,
-      classList: tasks[index].classList,
-      id: tasks[index].id,
-    };
-    savedTasks.push(objTasks);
-  }
-  localStorage.setItem('list', savedTasks);
-}
-
-saveTasksBtn.addEventListener('click', saveAllTasks);
-
-if (listStored !== null && listStored.length !== 0) {
-  for (let index = 0; index < listStored.length; index += 1) {
-    const task = document.createElement('li');
-    task.innerHTML = listStored[index].innerText;
-    task.classList = listStored[index].classList;
-    task.id = listStored[index].id;
-    toDoList.appendChild(task);
-  }
-}
-/* Consultei o repositorio de Rogerio Lambert para resolver essa questao:
-https://github.com/tryber/sd-010-a-project-todo-list/pull/75/files 
-Nao sabia da existencia do .insertBefore */
-function moveFindSelectedDown() {
-  const tasks = document.getElementsByTagName('li');
-  for (let index = (tasks.length - 2); index >= 0; index -= 1) {
-    if
-    (tasks[index].hasAttribute('class', 'selected') && tasks[index].nextElementSibling !== null) {
-      toDoList.insertBefore(tasks[index + 1], tasks[index]);
-    }
-  }
-}
-
-moveDownBtn.addEventListener('click', moveFindSelectedDown);
