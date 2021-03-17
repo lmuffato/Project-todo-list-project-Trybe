@@ -2,7 +2,7 @@ const inputText = document.getElementById('texto-tarefa');
 const buttonTarefa = document.getElementById('criar-tarefa');
 const olTarefas = document.getElementById('lista-tarefas');
 const clear = document.getElementById('apaga-tudo');
-const workDone = document.getElementById('remover-finalizados')
+const workDone = document.getElementById('remover-finalizados');
 
 function criar() {
   const lista = document.createElement('li');
@@ -42,12 +42,12 @@ function remChild() {
 clear.addEventListener('click', remChild);
 
 function endRemove() {
-  const listRemove = document.getElementsByClassName('completed');
+  const listRemove = document.querySelectorAll('li');
 
-  for (let i = 0; i <= listRemove.length; i += 0) {
-      console.log(listRemove[i]);
-      listRemove[i].parentElement.removeChild(listRemove[i]); 
+  for (let i = 0; i < listRemove.length; i += 1) {
+    if (listRemove[i].classList.contains('completed')){
+      listRemove[i].parentElement.removeChild(listRemove[i]);
+    }
   }
 }
-workDone.addEventListener('click', endRemove); 
-
+workDone.addEventListener('click', endRemove);

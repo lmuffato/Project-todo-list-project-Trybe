@@ -13,24 +13,27 @@
    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
 
-  <div>
-    <form action="#" method="get"></form>
-    <input type="text" name="texto" id="texto-tarefa">
-    <button id="criar-tarefa">Adicionar</button>
-  </div>
+  <main>
+    <div id="forms">
+      <form action="#" method="get"></form>
+      <input type="text" name="texto" id="texto-tarefa">
+      <button id="criar-tarefa">Adicionar</button>
+    </div>
 
-  <div id="divOl">
-    <ol id="lista-tarefas"></ol>      
-  </div>
+    <div id="divOl">
+      <ol id="lista-tarefas"></ol>      
+    </div>
 
-  <div>
-    <button id="apaga-tudo" type="reset">Limpar Lista</button>
-  </div>
+    <div id="buttons">
+      <div id="button-apagar">
+        <button id="apaga-tudo" type="reset">Limpar Lista</button>
+      </div>
 
-  <div>
-    <button id="remover-finalizados">Limpar Completos</button>
-  </div>
-
+      <div id="button-remover">
+        <button id="remover-finalizados">Limpar Completos</button>
+      </div>
+    </div>
+  </main>
 <script src="script.js"></script>
 </body>
 </html>
