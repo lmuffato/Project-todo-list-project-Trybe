@@ -82,7 +82,7 @@ function accessChangeBGColor () {
 }
 accessChangeBGColor();
 
-function dbclickFunction () {
+function dbclickFunction() {
   const getLiSelected = document.getElementsByTagName('li');
   console.log('Começou duplo click')
   for (let i = 0; i < getLiSelected.length; i += 1) {
@@ -90,7 +90,7 @@ function dbclickFunction () {
       console.log('duplo click');
       if (getLiSelected[i].className === 'completed') {
         console.log('com completed')
-        eventLiN.target.classList.remove();
+        eventLiN.target.classList.remove('completed');
       } else {
         console.log('sem completed')
         eventLiN.target.classList.add('completed');
