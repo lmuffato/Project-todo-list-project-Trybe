@@ -15,3 +15,23 @@ function adicionaTarefa() {
   
 }
   
+adicionaTarefa();
+
+
+function itemSelecionado() {
+    const lista = document.getElementsByTagName('ol')[0];
+    const item = document.getElementsByTagName('li');
+    lista.addEventListener('click', (e) => {
+        const targetEvent = e.target;
+        for (let index = 0; index < item.length; index += 1) {
+            item[index].style.backgroundColor = document.body.style.backgroundColor;
+            if (targetEvent.localName === 'li') {
+                targetEvent.style.backgroundColor = 'rgb(128, 128, 128)';
+            }
+        }
+    });
+}
+  
+itemSelecionado();
+  
+    
