@@ -1,4 +1,5 @@
 function inputElement(){
+    
     const tagInput = document.querySelector('#texto-tarefa');
     const tagLi = document.createElement('li');
     tagLi.innerText = tagInput.value;
@@ -14,14 +15,24 @@ function createAssignment() {
 }
 
 createAssignment();
-
-function selectBackgroundColor (event) {
-    const clickAct = event.target;
-    clickAct.style.backgroundColor = 'rgb(128, 128, 128)'
-  }
+ 
+function handleColorsInLine(event){
   
-  function changeBackgroundColor () {
-    const olElement = document.getElementById('lista-tarefas');
-    olElement.addEventListener('click',selectBackgroundColor);
-  }
-  changeBackgroundColor();
+   const liTag = document.getElementsByTagName('li');
+   const evento = event.target;
+   
+   for (let index = 0; index < liTag.length; index ++) {
+       liTag[index].style.backgroundColor = document.body.style.backgroundColor;
+   if (evento.localName == 'li') {
+        evento.style.backgroundColor = 'rgb(128, 128, 128)';
+  };
+ };
+};
+
+ function selectAssignment() {
+    
+  const olTag = document.getElementsByTagName('ol')[0];
+    olTag.addEventListener('click', handleColorsInLine)
+};
+  
+  selectAssignment();
