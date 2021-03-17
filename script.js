@@ -6,39 +6,44 @@ window.onload = function (){
     // Função que apaga o conteúdo todo
     function apagaConteudo() {
         let apagaTudo = document.getElementById('apaga-tudo');
-        console.log(apagaTudo);
-        let itemPai = document.querySelector('ol');
         let itemApagar = document.getElementsByTagName('li');
             apagaTudo.addEventListener('click', () => {
                 for (let i = 0; i < itemApagar.length; i += 1) {
-                    itemPai.removeChild(itemPai.childNodes[i]);
+                    itemApagar[i].remove();
                 }
             })
     }
     // Função que define o BG ao clicar num item 
     function mostra () {
+
         let item = document.getElementsByTagName('li');
         for (let index = 0; index < item.length; index += 1) {
             let control = item[index];
-            control.addEventListener('click', (a) => {                
-                a.target.style.backgroundColor = 'rgb(128, 128, 128)';
+            control.addEventListener('click', () => {                
+                control.style.backgroundColor = 'rgb(128, 128, 128)';
+               console.log(control)
             })
+            
         }
+        
     }
+
+            
     // Função que risca um item e remove (remove ainda não rolou)
     function line () {
         let selected = document.querySelectorAll('li');
         for (let index = 0; index < selected.length; index += 1) {
                let varIndex = selected[index];
-            varIndex.addEventListener('dblclick', () => {
-                let stilo = window.getComputedStyle(varIndex);
-                if (stilo.textDecoration === 'line-through solid rgb(0, 0, 0)') {
-                    varIndex.classList.remove('completed')
-                }
+            varIndex.addEventListener('dblclick', (a) => {
+                if (a.target.classList.contains('completed')){
+                a.target.classList.remove('completed');
+                console.log(a.target.classList);}
+                
                 else {
-                    varIndex.classList.add('completed')
-                }
-                console.log(varIndex)
+                    a.target.classList.add('completed');
+                    console.log(a.target.classList);
+                }  
+
             })
         }
     }
@@ -51,7 +56,9 @@ window.onload = function (){
     // cria um contador para adicionar mais elementos na lista
     let cont = 0;
 
+    
     btn.addEventListener('click', function (){
+       
         pushInput = document.getElementById('texto-tarefa').value;
         addList = document.getElementsByTagName('li');
         // Cria os elementos 'li'
@@ -60,7 +67,7 @@ window.onload = function (){
         pushOl.appendChild(creatLi);
         //adiciona a lista e acrescenta 1 números        
         addList[cont].innerText = pushInput;
-        
+         
         cont += 1;
         // Pinta 29
         mostra();    
@@ -70,10 +77,5 @@ window.onload = function (){
        // lineRemove();
        apagaConteudo();
     });
-    
-    
-} 
-
-
-
-
+       
+}
