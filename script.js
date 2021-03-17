@@ -16,13 +16,16 @@ function createTask() {
 createTaskButton.addEventListener('click', createTask);
 
 function selectedTask() {
-    for (let index = 0; index < allTasks.length; index += 1) {
-      allTasks[index].addEventListener('click', (event) => {
-        const selectedTask = event.target;
-        const selecionaCor = getComputedStyle(document.querySelector('.selected'));
-        selectedTask.style.backgroundColor = selecionaCor.backgroundColor;
-      });
-    }
+  for (let index = 0; index < allTasks.length; index += 1) {
+    allTasks[index].addEventListener('click', (event) => {
+      const selected = event.target;
+      const selecionaCor = getComputedStyle(document.querySelector('.selected'));
+      selectedTask.style.backgroundColor = selecionaCor.backgroundColor;
+    });
   }
-
+}
 // tasksList.addEventListener('click', changeBackground);
+
+window.onload = () => {
+    selectedTask();
+};
