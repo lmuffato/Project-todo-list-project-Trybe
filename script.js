@@ -34,4 +34,13 @@ function completaTarefa() {
 }
 completaTarefa();
 
+function deleteAll() {
+  const btnDelete = document.querySelector('#apaga-tudo');
+  btnDelete.addEventListener('click', () =>{
+    list.innerHTML = '';
+  });
+}
+deleteAll();
+
 /* agradeço a Pollyana Oliveira por me ajudar a sanar o requisito 8 */
+/* agradeço a Anderson Silva, consegui progregir atraves dos códigos dele */
