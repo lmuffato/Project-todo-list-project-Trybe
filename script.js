@@ -12,9 +12,9 @@ function addInputToList() {
 
 addInputToList();
 
-function changeBackgroundColor() {
+function itemListEvents() {
   const getList = document.getElementById('lista-tarefas');
-  getList.addEventListener('click', function (event) {
+  getList.addEventListener('click', function selectItemList(event) {
     const getListItem = document.getElementsByTagName('li');
     for (let index = 0; index < getListItem.length; index += 1) {
       getListItem[index].classList.remove('selected');
@@ -25,6 +25,13 @@ function changeBackgroundColor() {
       event.target.classList.add('selected');
     }
   });
+  getList.addEventListener('dblclick', function completeItemList(event) {
+    if (event.target.className === 'completed selected') {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
 }
 
-changeBackgroundColor();
+itemListEvents();
