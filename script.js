@@ -48,11 +48,9 @@ function inputList() {
   const txt = document.querySelector('input');
   buttonInput.addEventListener('click', function () {
     const createOrdList = document.createElement('li');
-    const createLabel = document.createElement('label');
     createOrdList.innerHTML = txt.value;
     createOrdList.id = 'ordened-list';
-    createLabel.appendChild(createOrdList);
-    olMain.appendChild(createLabel);
+    olMain.appendChild(createOrdList);
     txt.value = '';
   });
 }
