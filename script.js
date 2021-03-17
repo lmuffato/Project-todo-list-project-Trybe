@@ -20,7 +20,6 @@ function handleColorsInLine(event){
   
    const liTag = document.getElementsByTagName('li');
    const evento = event.target;
-   
    for (let index = 0; index < liTag.length; index ++) {
        liTag[index].style.backgroundColor = document.body.style.backgroundColor;
    if (evento.localName == 'li') {
@@ -30,9 +29,19 @@ function handleColorsInLine(event){
 };
 
  function selectAssignment() {
-    
   const olTag = document.getElementsByTagName('ol')[0];
-    olTag.addEventListener('click', handleColorsInLine)
+  olTag.addEventListener('click', handleColorsInLine)
 };
   
   selectAssignment();
+  
+  function clearList(){
+    const textContent = document.querySelector('#lista-tarefas');
+    textContent.innerHTML = null;
+  }
+
+  function clearListEvent() {
+    const clearAllList = document.querySelector('#apaga-tudo');
+    clearAllList.addEventListener('click', clearList);
+  }
+  clearListEvent();
