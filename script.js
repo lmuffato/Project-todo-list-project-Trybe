@@ -13,7 +13,7 @@ function createNewTodo() {
 }
 
 buttonNewToDo.addEventListener('click',createNewTodo);
-// as funções para os requisitos 7 e 8 foram feitas com base no código do colega Lucas Godoi;
+// as funções para os requisitos foram feitas com base no código do colega Lucas Godoi;
 function itemListSelect() {
   ol.addEventListener('click', () => {
     const li = document.querySelectorAll('li');
@@ -39,3 +39,17 @@ function selectItem() {
   });
 }
 selectItem();
+
+function toDoDone () {
+  ol.addEventListener('dblclick', (event) => {
+    const target = event.target;
+    if(target.classList.contains('completed')){
+      target.classList.remove('completed');
+      target.style.textDecoration = '';
+    } else {
+      target.classList.add('completed');
+      target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    }
+  });
+}
+toDoDone();

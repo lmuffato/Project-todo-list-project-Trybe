@@ -14,7 +14,7 @@ p {
 
 input {
   font-family: Reenie Beanie, cursive;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 button {
@@ -23,6 +23,6 @@ button {
   background-color: rgb(252, 108, 132);
 }
 
-.list-item {
-  background-color: rgb(128, 128, 128);
+ol {
+  font-size: 35px;
 }
