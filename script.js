@@ -16,8 +16,7 @@ function selectItem(eventOrigin) {
   if (selected != null) {
     selected.classList.remove('list-item');
   }
-  listItem = eventOrigin.target;
-  listItem.classList.add('list-item');
+  listItem.classList.add('list-item');// Adiciona a classe list-item ao elemento clicado
 }
 
 function throughItem(eventOrigin) {
@@ -27,7 +26,6 @@ function throughItem(eventOrigin) {
   if (elementClasses.indexOf('completed') > -1) {// Verifica se o elemento clicado possui a classe 'completed'
     listItem.classList.remove('completed');
   } else {
-    listItem = eventOrigin.target;
     listItem.classList.add('completed');
   }
 }
