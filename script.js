@@ -10,6 +10,7 @@ window.onload = function (){
             apagaTudo.addEventListener('click', () => {
                 for (let i = 0; i < itemApagar.length; i += 1) {
                     itemApagar[i].remove();
+                    cont = 0;
                 }
             })
     }
@@ -71,34 +72,31 @@ window.onload = function (){
         
         addList = document.getElementsByTagName('li');
         
-        addList[cont].innerText = pushInput;
+         addList[cont].innerText = pushInput;
         
             let varIndex = document.querySelector('ol');
             varIndex.addEventListener('dblclick', (a) => {
-             if (a.target.classList.contains('completed')){
-             a.target.classList.remove('completed');
-             }
-             
-             else {
-                 a.target.classList.add('completed');
-                 }  
-
+                a.target.classList.toggle("completed");
+                
             })
 
-        for (let index = 0; index < addList.length; index += 1) {
-            let control = addList[index];
-            control.addEventListener('click', (a) => {                
-                a.target.style.backgroundColor = 'rgb(128, 128, 128)';
-               console.log(control)
+        
+            let bgClick = document.querySelector('ol')
+            bgClick.addEventListener('click', (a) => {                
+                for (let i = 0; i < addList.length; i += 1) {
+                   addList[i].style.backgroundColor = 'rgb(225, 225, 225)';
+               }
+               a.target.style.backgroundColor = 'rgb(128, 128, 128)';
             })
             
-        }
+        
 
         removeSelecionados.addEventListener('click', () => {
             for (let i = 0; i < addList.length; i += 1) {
                 let checkItem = addList[i]; 
                 if (checkItem.classList.contains('completed')) {
-                    checkItem.remove()
+                    checkItem.remove();
+                    cont = 0;
                 }
             }
         })
