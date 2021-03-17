@@ -5,6 +5,7 @@ function addTask() {
         const itenList = document.createElement('li');
         if (input !== '') {
             document.getElementById('lista-tarefas').appendChild(itenList).innerText = input;
+            document.getElementById('texto-tarefa').value = '';
         }
     })
 }
