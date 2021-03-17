@@ -1,3 +1,91 @@
 .completed { text-decoration: line-through solid black;
   list-style-type: none;
+  font-weight: 700;
 }
+
+body , button , input {
+  font-family: Raleway, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: linear-gradient(to right , white , paleturquoise);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: paleturquoise;
+  width: fit-content;
+  block-size: fit-content;
+  justify-content: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2%;
+  padding: 5%;
+  margin: 6%;
+  border: solid 3px;
+}
+
+#texto-tarefa {
+  border-radius: 10px;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+}
+
+section div {
+  margin-right: 5px;
+}
+
+button {
+  background-color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+}
+
+main p {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  border: white;
+}
+
+/* Imagem criada com o Canva */
+#logo {
+  display: flex;
+  align-content: flex-end;
+  width: 40%;
+  height: auto;
+}
+
+footer {
+  border-top: 1px solid grey;
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 3%;
+}
+
+footer p {
+  font-size: 12px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+

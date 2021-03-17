@@ -60,7 +60,7 @@ function changeBgColorSelectedItem(e) {
   if (e.target.style.backgroundColor !== bgColor) {
     e.target.style.backgroundColor = bgColor;
   } else {
-    e.target.style.backgroundColor = 'white';
+    e.target.style.backgroundColor = 'paleturquoise';
   }
 }
 myListOfTasks.addEventListener('click', changeBgColorSelectedItem);

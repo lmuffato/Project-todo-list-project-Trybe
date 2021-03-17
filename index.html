@@ -6,23 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Lista de Tarefas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;800&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <header><h1>Minha Lista de Tarefas</h1></header>
+    <div class="header"><h1>Minha Lista de Tarefas</h1></div>
     <main>
       <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-      <input id="texto-tarefa" type="text" value='' placeholder="minha tarefa" onfocus="this.value='';">
-      <button id="criar-tarefa">Adicionar à lista</button>
+      <div>
+        <input id="texto-tarefa" type="text" value='' placeholder="minha tarefa" onfocus="this.value='';">
+        <button id="criar-tarefa">Adicionar à lista</button>
+      </div>
       <ol id="lista-tarefas"></ol>
       <section>
-          <button id="apaga-tudo">Limpar Lista</button>
-          <button id="remover-finalizados">Limpar Completos</button>
-          <button id="salvar-tarefas">Salvar Lista</button>
-          <button id="mover-cima"></button>
-          <button id="mover-baixo"></button>
-          <button id="remover-selecionado"></button>
+          <div>
+            <button id="apaga-tudo">Limpar Lista</button>
+          </div>
+          <div>
+            <button id="remover-finalizados">Limpar Completos</button>
+          </div>
+          <div>
+            <button id="salvar-tarefas">Salvar Lista</button>
+          </div>
+          <div>
+            <button id="mover-cima"></button>
+          </div>
+          <div>
+            <button id="mover-baixo"></button>
+          </div>
+          <div>
+            <button id="remover-selecionado">
+           </button>
+          </div>
       </section>
   </main>
+  <img id="logo" src="Logo-TodoList.png" alt="">
+  <br>
+  <footer>
+    <p>&copy Ana Ventura. Projeto To Do List. Estudante de Desenvolvimento Web na Trybe | Turma 10 | Tribo A. 2021. </p>
+  </footer>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
