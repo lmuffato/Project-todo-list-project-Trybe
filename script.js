@@ -38,7 +38,18 @@ function newColor (event) {
 }   
 
     // 9 REQUISITO
+    // usado metodo toggle https://developer.mozilla.org/pt-BR/docs/Web/API/Element/classList
 function doubleClick (event) {
     let completItem = event.target;
     completItem.classList.toggle('completed');    
 }
+
+    //10 REQUISITO
+    let deleteTask = document.getElementById('apaga-tudo');
+    deleteTask.addEventListener('click', erase);
+
+    function erase () {
+        let eraseNoList = document.getElementById('lista-tarefas');
+        let eraseList = document.getElementsByClassName('color-change')
+        eraseNoList.innerText = '';
+    }
