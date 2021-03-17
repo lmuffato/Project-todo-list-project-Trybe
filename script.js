@@ -1,6 +1,7 @@
 const button = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas'); // Variaveis Gerais
 const textoTarefa = document.getElementById('texto-tarefa');
+const removeItems = document.getElementById('apaga-tudo');
 
 // criar botão
 function click() {
@@ -31,3 +32,11 @@ listaTarefas.addEventListener('dblclick', function (e){
     e.target.className = '';
   }
 });
+removeItems.addEventListener('click', apagar);
+
+function apagar () {
+  const list = document.getElementsByTagName('li')
+  for (let index = 0; index < list.length; index += 0){
+    list[index].remove();
+  }
+};
