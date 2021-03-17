@@ -35,3 +35,16 @@ function itemSelecionado() {
 itemSelecionado();
   
     
+function checkItem() {
+    const list = document.getElementsByTagName('ol')[0];
+    list.addEventListener('dblclick', (e) => {
+        const targetEvent = e.target;
+        if (targetEvent.classList.contains('completed')) {
+            targetEvent.classList.remove('completed');
+        } else {
+            targetEvent.classList.add('completed');
+        }
+    });
+}
+  
+checkItem();
