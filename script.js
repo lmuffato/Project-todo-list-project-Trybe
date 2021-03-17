@@ -6,4 +6,9 @@ function adiciona() {
   elemento.innerText = input.value;
   lista.appendChild(elemento);
   input.value = null;
+
+  elemento.addEventListener('dblclick', function pintar(event) {
+    let elementAcionado = event.target;
+    elementAcionado.style.backgroundColor = 'rgb(128, 128, 128)'
+  });
 }
