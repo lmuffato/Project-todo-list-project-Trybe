@@ -36,7 +36,6 @@ button();
 function ordenedList() {
   const sectionMain = document.querySelectorAll('section')[1];
   const createList = document.createElement('ol');
-  sectionMain.id = 'lista-tarefas';
   createList.id = 'lista-tarefas';
   sectionMain.appendChild(createList);
 }
@@ -78,16 +77,24 @@ function accessChangeBGColor () {
   buttonNew.addEventListener('click', function (eventLi) {
     console.log('nova funçao');
     changeBGColor();
+    dbclickFunction();
   })
 }
 accessChangeBGColor();
 
 function dbclickFunction () {
-  const getLiSelected = document.querySelectorAll('label');
+  const getLiSelected = document.getElementsByTagName('li');
+  console.log('Começou duplo click')
   for (let i = 0; i < getLiSelected.length; i += 1) {
-    getLiSelected[i].addEventListener('dblclick', function (eventLT) {
-      console.log('duplo click')
-      getLiSelected[i].target.classList('completed');
+    getLiSelected[i].addEventListener('dblclick', function (eventLiN) {
+      console.log('duplo click');
+      if (getLiSelected[i].className === 'completed') {
+        console.log('com completed')
+        eventLiN.target.classList.remove();
+      } else {
+        console.log('sem completed')
+        eventLiN.target.classList.add('completed');
+      }
     })
   }
 }
