@@ -8,18 +8,50 @@ function addToList() {
         addListItem.classList.add('list');
         addListItem.appendChild(document.createTextNode(value));
         list.appendChild(addListItem);
-        button.value = '';
+        input.value = '';
     }
     button.onclick = function() {
         saveInput();
     };
+    
 }
 
+function eventsListener() {
+    //Gerencia os eventos
+    //7. Recuperar o pai dos meus itens de lista
+    const list = document.querySelector('#lista-tarefas');
+    list.addEventListener('click', modifyBackground);
+    //9. clicar 2x faz com que seja riscado, indicar que foi conpleto
+    list.addEventListener('dblclick', itemCompleted);
+    //10. ao clicar no botão com id apaga-tudo, apagar todos os itens da lista
+    const resetBt = document.querySelector('#apaga-tudo');
+    resetBt.addEventListener('click', resetAllList);
+}
 
+// function itemCompleted {
 
+// }
 
+// function resetAllList() {
+//     const tasks = document.querySelector('ol');
+//     const item = document.querySelectorAll('li');
+//     for (let index = 0; index < item.length; index += 1) {
+//       tasks.removeChild(item[index]);
+//     }
+// }
+
+function modifyBackground(event) {
+    const backgroundRemove = document.querySelectorAll('li');
+    for(let index = 0; index < backgroundRemove.length; index += 1){
+        backgroundRemove[index].style.backgroundColor = 'white';
+    }
+    if (event.target.className === 'list') {
+        const item = event.target;
+        item.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+}
 
 window.onload = function controlFunctions() {
     addToList();
-    
+    eventsListener();   
 }
