@@ -14,23 +14,24 @@ window.onload = function (){
             })
     }
     // Função que define o BG ao clicar num item 
-    function mostra () {
+   /* function mostra () {
 
         let item = document.getElementsByTagName('li');
         for (let index = 0; index < item.length; index += 1) {
             let control = item[index];
-            control.addEventListener('click', () => {                
-                control.style.backgroundColor = 'rgb(128, 128, 128)';
+            control.classList.add('control');
+            control.addEventListener('click', (a) => {                
+                a.target.style.backgroundColor = 'rgb(128, 128, 128)';
                console.log(control)
             })
             
         }
         
-    }
+    }*/
 
             
     // Função que risca um item e remove (remove ainda não rolou)
-    function line () {
+   /*function line () {
         let selected = document.querySelectorAll('li');
         for (let index = 0; index < selected.length; index += 1) {
                let varIndex = selected[index];
@@ -46,7 +47,7 @@ window.onload = function (){
 
             })
         }
-    }
+    }*/
     
     let addList = [];
     // Pega o clique do botão 
@@ -60,20 +61,47 @@ window.onload = function (){
     btn.addEventListener('click', function (){
        
         pushInput = document.getElementById('texto-tarefa').value;
-        addList = document.getElementsByTagName('li');
+        
         // Cria os elementos 'li'
         let pushOl = document.getElementById('lista-tarefas');
         let creatLi = document.createElement('li');
         pushOl.appendChild(creatLi);
-        //adiciona a lista e acrescenta 1 números        
+        
+        addList = document.getElementsByTagName('li');
+        
         addList[cont].innerText = pushInput;
-         
+        
+            let varIndex = document.querySelector('ol');
+            varIndex.addEventListener('dblclick', (a) => {
+             if (a.target.classList.contains('completed')){
+             a.target.classList.remove('completed');
+             }
+             
+             else {
+                 a.target.classList.add('completed');
+                 
+             }  
+
+            })
+        
+
+        
+        for (let index = 0; index < addList.length; index += 1) {
+            let control = addList[index];
+            control.classList.add('control');
+            control.addEventListener('click', (a) => {                
+                a.target.style.backgroundColor = 'rgb(128, 128, 128)';
+               console.log(control)
+            })
+            
+        }
+        //adiciona a lista e acrescenta 1 números 
         cont += 1;
         // Pinta 29
-        mostra();    
+        //mostra();    
         // Limpa o campo input
         clearInput();
-        line();
+        //line();
        // lineRemove();
        apagaConteudo();
     });
