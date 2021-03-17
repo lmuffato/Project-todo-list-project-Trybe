@@ -14,3 +14,7 @@ li {
   width: fit-content;
   background-color: rgb(247 , 244 , 244);
 }
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
