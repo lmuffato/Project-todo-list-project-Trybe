@@ -27,3 +27,15 @@ function backColor() {
     });
 }
 backColor();
+
+function doubleClick() {
+    orderedList.addEventListener('dblclick', (event) => {
+        const dClick = event.target;
+        if (dClick.classList.contains('completed')) {
+            dClick.classList.remove('completed')
+        } else {
+            dClick.classList.add('completed');
+        }
+    });
+}
+doubleClick ();
