@@ -40,3 +40,12 @@ function apagar () {
     list[index].remove();
   }
 };
+
+const removeFinalizados = document.getElementById('remover-finalizados')
+
+removeFinalizados.addEventListener('click', function() {
+  const completed = document.querySelectorAll('.completed')
+  for (let index = 0; index < completed.length; index  += 1) {
+    completed[index].remove()
+  }
+});
