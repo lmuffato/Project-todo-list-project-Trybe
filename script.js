@@ -1,5 +1,14 @@
+// Cria uma função que seleciona um elemento da lista 'ol' e pinta o 
+// Background com a cor 'rgb(128,128,128)'
+
+function selectTask(taskLine) {
+  const taskItem = taskLine;
+  taskItem.style.backgroundColor = 'rgb(128,128,128)';
+}
+
 // Cria uma função que adiciona um elemento 'li' ao 'ol', e faz com que o .innerHTML
 // Seja o valor do input com a ID 'texto-tarefa'
+// v2.0: taskName.value = ''; Define o valor do input como vazio
 
 function createTask() {
   const taskAdd = document.getElementById('criar-tarefa');
@@ -10,7 +19,10 @@ function createTask() {
     const taskItem = document.createElement('li');
     taskItem.innerHTML = taskName.value;
     taskList.appendChild(taskItem);
+    taskName.value = '';
+    taskItem.onclick = () => selectTask(taskItem);
   };
 }
 
 createTask();
+selectTask();
