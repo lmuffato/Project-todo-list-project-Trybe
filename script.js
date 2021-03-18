@@ -27,9 +27,6 @@ function submitTask() {
   newTask.innerText = taskText;
   taskList.appendChild(newTask);
   document.formTasks.task.value = '';
-  // const index = parseInt(localStorage.getItem('index'), 10);
-  // localStorage.setItem('task' + index, document.formTasks.task.value);// Salva no localStorage a nova tarefa 
-  // localStorage.setItem('index', index + 1);// Incrementa o index no localStorage
 }
 
 function clearTasks() {
@@ -48,33 +45,21 @@ function removeFinnished() {
   }
 }
 
+function pushTasks() {
+
+}
+
 function addButtomListener() {
   const button1 = document.getElementById('criar-tarefa');
   const button2 = document.getElementById('apaga-tudo');
   const button3 = document.getElementById('remover-finalizados');
+  const button4 = document.getElementById('salvar-tarefas');
 
   button1.addEventListener('click', submitTask);
   button2.addEventListener('click', clearTasks);
   button3.addEventListener('click', removeFinnished);
+  button4.addEventListener('click', pushTasks); 
 }
 
-// function pullTasks() {
-//   const index = parseInt(localStorage.getItem('index'), 10);
-
-//   for (let i = 1; i < index; i += 1) {
-//     const taskList = document.getElementById('lista-tarefas');
-//     const newTask = document.createElement('li');
-//     newTask.innerText = localStorage.getItem('task' + i);
-//     taskList.appendChild(newTask);
-//   }
-// }
-
-// function firstTime() {
-//   if (localStorage.getItem('index') == null) {
-//     localStorage.setItem('index', 1);
-//   } else {
-//     pullTasks();
-//   }
-// }
-
+// Arrows ↑ ⬆ ↓ ⬇
 addButtomListener();

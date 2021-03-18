@@ -7,21 +7,28 @@
 <link rel="stylesheet" href="style.css">
 </head>
   <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-      <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-      </p>
-  </header>
-  
-  <form name="formTasks" id="forms">
-    <input id="texto-tarefa" type="text" size="25" name="task">
-  </form>
-  <button id="criar-tarefa">Enviar</button>
-  <button id="apaga-tudo">Limpar</button>
-  <button id="remover-finalizados">Remover</button>
-
-  <ol id="lista-tarefas"></ol>
+    <main>
+      <div id="div-main">
+        <header>
+          <h1>Minha Lista de Tarefas</h1>
+            <p id="funcionamento">
+              Clique duas vezes em um item para marcá-lo como completo
+            </p>
+        </header>
+        
+        <form name="formTasks" id="forms">
+          <input id="texto-tarefa" type="text" size="25" name="task">
+        </form>
+        
+        <div id="buttons">
+          <button id="criar-tarefa">Enviar</button>
+          <button id="apaga-tudo">Limpar</button>
+          <button id="remover-finalizados">Remover</button>
+          <button id="salvar-tarefas">Salvar</button>
+        </div>
+        <ol id="lista-tarefas"></ol>
+      </div>
+    </main>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
