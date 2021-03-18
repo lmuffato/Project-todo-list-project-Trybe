@@ -11,7 +11,7 @@ function getInputHtml() {
     getOl.appendChild(createLi);
     getInput.value = '';
   }
-  getButton.onclick = function() {
+  getButton.onclick = function click() {
     add();
   };
 }
@@ -46,6 +46,15 @@ function removeListItem() {
     elementOl.removeChild(listItem[index]);
   }
 }
+// Requisito 11
+function removeItemCompleted() {
+  const elementOl = document.querySelector('ol');
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    const itemCompleted = listItem[index].className === 'list completed';
+    elementOl.removeChild(itemCompleted);
+  }
+}
 
 function managerEvents() {
   // Gerencia os eventos
@@ -57,6 +66,9 @@ function managerEvents() {
   // 10. ao clicar no botão com id apaga-tudo, apagar todos os itens da lista
   const buttonApagaTudo = document.querySelector('#apaga-tudo');
   buttonApagaTudo.addEventListener('click', removeListItem);
+  // 11. ao clicar no botãp com id remover-finalizados, apagar todos os itens concluidos
+  const buttonRemoveFinalizados = document.querySelector('#remover-finalizados');
+  buttonRemoveFinalizados.addEventListener('click', removeItemCompleted);
 }
 window.onload = function start() {
 // Chama as funções
