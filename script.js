@@ -1,6 +1,7 @@
 //FUNÇÃO LIGADA AO BOTÃO DE CRIAR TAREFAS
 function adicionarElemento() {
   criarElemento('ol' ,'li',document.querySelector('#texto-tarefa').value , 'tarefa');
+  document.querySelector('#texto-tarefa').value='';
 }
 
 //CRIAR ELEMENTOS COM BASE NA CAIXA DE TEXTO
@@ -8,7 +9,7 @@ function criarElemento (lugarPraOndeOElementoVai ,tipoDoElemento, texto, classeD
   let elementoCriado;
   variavelDolugarPraOndeOElementoVai = document.querySelector(lugarPraOndeOElementoVai)
   elementoCriado = document.createElement(tipoDoElemento);
-  elementoCriado.classList.add(classeDoElemento, 'notCompleted', 'notSelected');
+  elementoCriado.classList.add(classeDoElemento);
   elementoCriado.innerText = texto;
   variavelDolugarPraOndeOElementoVai.appendChild(elementoCriado);
   console.log('criado');
@@ -19,9 +20,9 @@ function criarElemento (lugarPraOndeOElementoVai ,tipoDoElemento, texto, classeD
 //FUNÇÃO PRA SELECÃO DO ELEMENTO
 this.selecao = function funcaoDeSelecao(evento) {
   let e = this
-  document.querySelectorAll('.tarefa').forEach(elementos => elementos.classList.replace("selected", "notSelected"));
+  document.querySelectorAll('.tarefa').forEach(elementos => elementos.classList.remove('selected'));
   document.querySelectorAll('.tarefa').forEach(elementos => elementos.style.backgroundColor = 'white');
-  e.classList.replace("notSelected", "selected");
+  e.classList.add("selected");
   e.style.backgroundColor = 'rgb(128, 128, 128)';
   console.log('selecionado');
   }
@@ -29,11 +30,12 @@ this.selecao = function funcaoDeSelecao(evento) {
 //FUNÇÃO PRA O ELEMENTO COMPLETADO
   this.completed = function funcaoDeCompletado(evento) {
     let e = this
-        if (e.classList.contains('notCompleted')) {
-          e.classList.replace("notCompleted", "completed");
-          console.log('concluído');e.style.textDecoration ='line-through solid rgb(0, 0, 0)';
-          } else {e.classList.replace("completed", "notCompleted");console.log('não concluido');
+        if (e.classList.contains('completed')) {
+          e.classList.remove('completed');
+          console.log('não concluido');e.style.textDecoration='none';
+          } else {e.classList.add('completed');console.log('não concluido');
           e.style.textDecoration='none';
+          e.style.textDecoration ='line-through solid rgb(0, 0, 0)';
         }
   }
 
