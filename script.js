@@ -46,7 +46,18 @@ function removeFinnished() {
 }
 
 function pushTasks() {
-
+  const listItems = document.getElementsByTagName('li');
+  let item = {};
+  let itemPropeties = [];
+  
+  for (let i = 0; i < listItems.length; i +=1) {
+    item = {
+      text: listItems[i].innerText,
+      classes: listItems[i].classList.value
+    }
+    itemPropeties.push(item);
+  }
+  localStorage.setItem('savedItems', JSON.stringify(itemPropeties));
 }
 
 function addButtomListener() {
@@ -61,5 +72,22 @@ function addButtomListener() {
   button4.addEventListener('click', pushTasks); 
 }
 
+function pullTasks() {
+  const saved = localStorage.getItem('savedItems');
+  if (saved != null) {
+    const itemProperties = JSON.parse(saved);
+    const taskList = document.getElementById('lista-tarefas');
+    let newItem;
+
+    for (i = 0; i < itemProperties.length; i += 1) {
+      newItem = document.createElement('li');
+      newItem.innerText = itemProperties[i].text;
+      newItem.classList.value = itemProperties[i].classes;
+      taskList.appendChild(newItem);
+    }
+  }
+}
+
 // Arrows ↑ ⬆ ↓ ⬇
+pullTasks();
 addButtomListener();
