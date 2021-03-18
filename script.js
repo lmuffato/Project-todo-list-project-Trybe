@@ -2,6 +2,7 @@ const button = document.getElementById('criar-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas'); // Variaveis Gerais
 const textoTarefa = document.getElementById('texto-tarefa');
 const removeItems = document.getElementById('apaga-tudo');
+const removeSelecionado = document.getElementById('remover-selecionado')
 
 // criar botão
 function click() {
@@ -13,6 +14,7 @@ function click() {
 button.addEventListener('click', click);
 
 function colorList(e){
+  
   const list = document.getElementsByTagName('li');
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   e.target.id = 'isSelected'
@@ -48,4 +50,9 @@ removeFinalizados.addEventListener('click', function() {
   for (let index = 0; index < completed.length; index  += 1) {
     completed[index].remove()
   }
+});
+
+removeSelecionado.addEventListener('click', function() {
+  const test = document.getElementById('isSelected') // exercicio 14
+  test.remove()
 });
