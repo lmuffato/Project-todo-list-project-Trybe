@@ -1,7 +1,23 @@
+function removeFinalized() {
+  const listItems = document.getElementsByTagName('li');
+  const listItemsFinalized = document.getElementsByTagName('li');
+  for (let index = listItems.length - 1; index >= 0; index -= 1) {
+    const listItem = listItems[index];
+    const listItemFinalized = listItemsFinalized[index];
+    if (listItemFinalized.classList.contains('completed')) {
+      listItem.parentNode.removeChild(listItem);
+    }
+  }
+}
+
+const buttonRemoveFinalized = document.getElementById('remover-finalizados');
+buttonRemoveFinalized.addEventListener('click', removeFinalized);
+
 function clearList() {
   const listItems = document.getElementsByTagName('li');
-  for (let index = listItems.length - 1; index > 0; index -= 1) {
+  for (let index = listItems.length - 1; index >= 0; index -= 1) {
     const listItem = listItems[index];
+    // Como pegar o elemento pai (ol) e remover os elementos filhos (li): https://stackoverflow.com/questions/18795028/javascript-remove-li-without-removing-ul/18795074
     listItem.parentNode.removeChild(listItem);
   }
 }
