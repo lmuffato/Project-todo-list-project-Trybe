@@ -2,7 +2,6 @@ const createTaskButton = document.getElementById('criar-tarefa');
 const addTaskInput = document.getElementById('texto-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
 const allTasks = document.getElementsByClassName('all-tasks');
-const clearAllButton = document.querySelector('#apaga-tudo');
 
 function createTask() {
   if (addTaskInput.value !== '') {
