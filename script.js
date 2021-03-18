@@ -25,3 +25,10 @@ function riscar(event) {
   let element = event.target;
   element.classList.toggle('completed');
 }
+
+let botaoLimpar = document.querySelector('#apaga-tudo');
+botaoLimpar.addEventListener('click', limpar)
+
+function limpar() {
+  lista.innerHTML = null;
+}
