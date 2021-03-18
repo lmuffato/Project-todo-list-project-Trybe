@@ -10,3 +10,5 @@ function addTask() {
     document.querySelector('input').value = null;
   });
 }
+
+addTask()
