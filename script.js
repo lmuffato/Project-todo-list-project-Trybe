@@ -23,5 +23,5 @@ lista.addEventListener('dblclick', riscar);
 
 function riscar(event) {
   let element = event.target;
-  element.classList.toggle('risco');
+  element.classList.toggle('completed');
 }
