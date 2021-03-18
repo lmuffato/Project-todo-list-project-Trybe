@@ -1,23 +1,18 @@
 body {
-  background-color: rgb(217, 224, 224);
-  font-family: 'Courier New', Courier, monospace;
-}
-ol {
-  width: 300px;
+  background-color: rgb(217,224,224);
+  font-family: Courier, monospace;
 }
 
 /* 9. Cria class completed com as seguintes prioridades definidas: 
 Text-decoration: line-through solid rgb(0, 0, 0) */
+
 .completed {
-  text-decoration: line-through solid rgb(0,0,0);
+  text-decoration: line-through solid black;
 }
 
 header {
-  background-color: rgb(255, 255, 255);
+  background-color: white ;
   color: slategrey;
   margin: 20px 0;
   text-align: center;
 }
-
-
-

@@ -2,14 +2,17 @@ function getInputHtml() {
   const getOl = document.querySelector('#lista-tarefas');
   const getInput = document.querySelector('#texto-tarefa');
   const getButton = document.querySelector('#criar-tarefa');
-
   function add() {
     const valueLi = getInput.value;
     const createLi = document.createElement('li');
     createLi.classList.add('list');
-    createLi.appendChild(document.createTextNode(valueLi));
-    getOl.appendChild(createLi);
-    getInput.value = '';
+    if (valueLi === '') {
+      alert('Informe a tarefa que deseja adicionar');
+    } else {
+      createLi.appendChild(document.createTextNode(valueLi));
+      getOl.appendChild(createLi);
+      getInput.value = '';
+    }
   }
   getButton.onclick = function click() {
     add();
