@@ -1,3 +1,11 @@
-#texto-tarefa {
-  margin: auto;
+.title {
+  color: blue;
+}
+
+#apaga-tudo {
+  padding: 10px;
+}
+
+#criar-tarefa {
+  padding: 10px;
 }
