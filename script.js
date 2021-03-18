@@ -1,5 +1,6 @@
 const button = document.querySelector('#criar-tarefa');
 const elementOl = document.querySelector('#lista-tarefas');
+const buttonClear = document.querySelector('#apaga-tudo');
 
 button.addEventListener('click', () => {
   const divLi = document.createElement('li');
@@ -29,18 +30,17 @@ function addCompleted () {
     }
   });
 }
-
 addCompleted();
 
+function clearActive() {
+  const lis = document.querySelectorAll('li');
+  for(let index = 0; index < lis.length; index += 1) {
+    elementOl.removeChild(lis[index]);
+  }
+}
 
-// elementOl.addEventListener('dblclick', (event) => {
-//   event.target.classList.add('completed');
-//   elementOl.addEventListener('dblclick', (event) => {
-//     if(event.target.classList.contains('completed')) {
-//       event.target.classList.remove('completed');
-//     }
-//   });
-// });
+buttonClear.addEventListener('click', clearActive);
+
 
 // referencias: https://cursos.alura.com.br/forum/topico-pegar-valor-do-input-com-javascript-62528
 // http://devfuria.com.br/javascript/dom-create-element/#:~:text=A%20fun%C3%A7%C3%A3o%20createElement()%20ir%C3%A1,createElement(tagName)%3B
