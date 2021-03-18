@@ -12,12 +12,10 @@ function createNewTodo() {
 }
 
 buttonNewToDo.addEventListener('click', createNewTodo);
-
-const li = document.querySelectorAll('li');
-
 // as funções para os requisitos foram feitas com base no código do colega Lucas Godoi;
 function itemListSelect() {
   ol.addEventListener('click', () => {
+    li = document.querySelectorAll('li')
     for (let index = 0; index < li.length; index += 1) {
       li[index].style.backgroundColor = 'rgb(128, 128, 128)';
       const color = 'rgb(128, 128, 128)';
@@ -30,6 +28,7 @@ itemListSelect();
 function selectItem() {
   ol.addEventListener('click', (event) => {
     const color = event.target;
+    const li = document.querySelectorAll('li');
     for (let index = 0; index < li.length; index += 1) {
       li[index].style.backgroundColor = document.body.style.backgroundColor;
       if (color.localName === 'li') {
@@ -63,9 +62,9 @@ clearAll();
 
 function clearToDoDone() {
   buttonRemoveFinished.addEventListener('click', () => {
-    const classDone = document.querySelectorAll('.completed');
-    for (let index = 0; index < classDone.length; index += 1) {
-      ol.removeChild(classDone[index]);
+  const classDone = document.querySelectorAll('.completed');
+  for (let index = 0; index < classDone.length; index += 1) {
+    ol.removeChild(classDone[index]);
     }
   });
 }
