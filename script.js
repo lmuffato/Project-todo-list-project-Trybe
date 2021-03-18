@@ -14,15 +14,19 @@ function criarTarefa() {
   criarTarefa();
 
 
-  let lista = document.querySelector('#lista-tarefas')
 
-  
-  lista.addEventListener('click', recebeClick)
 
-  function recebeClick (eventoDeOrigem) {
-    evento.target.style.backgroundColor = 'rgb(128,128,128)'
-        
+
+  let click = document.getElementById('lista-tarefas')
   
+
+  //Adicionar evento ao click
+  click.addEventListener('click', recebeClick)
+    
+  function recebeClick (evento) {
+       //recupera o elemento
+    console.log(evento.target.style.backgroundColor = 'blue')
+    console.log(evento.type)
+    // informa o tipo do evento
     }
-      
-   
+    
