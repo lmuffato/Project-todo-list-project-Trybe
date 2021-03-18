@@ -10,6 +10,7 @@ function newTask() {
     const li = document.createElement('li');
     ol.appendChild(li);
     li.innerText = inputText.value;
+    inputText.value='';
 
     li.addEventListener('click', () => {
       const lis = document.querySelectorAll('li');
