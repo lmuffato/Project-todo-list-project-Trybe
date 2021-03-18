@@ -27,8 +27,16 @@ function riscar(event) {
 }
 
 let botaoLimpar = document.querySelector('#apaga-tudo');
-botaoLimpar.addEventListener('click', limpar)
+botaoLimpar.addEventListener('click', limpar);
 
 function limpar() {
   lista.innerHTML = null;
+}
+
+let removFinalizados = document.querySelector('#remover-finalizados');
+removFinalizados.addEventListener('click', remover);
+
+function remover() {
+  let itensSelect = document.querySelectorAll('.completed');
+  itensSelect.forEach((removeitem) => removeitem.remove());
 }
