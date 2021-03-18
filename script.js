@@ -74,10 +74,10 @@ botaoSalvar.addEventListener('click',function(){
     localStorage.setItem('lista', ListaTarefas); // salvo no storage toda a ol
 }); 
 
-window.onload = function (){
-    let ListaTarefas = document.querySelector('#lista-tarefas');
-    ListaTarefas.innerHTML = localStorage.getItem('lista');
-}
+// window.onload = function (){
+//     let ListaTarefas = document.querySelector('#lista-tarefas');
+//     ListaTarefas.innerHTML = localStorage.getItem('lista');
+// }
 
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
@@ -85,26 +85,21 @@ window.onload = function (){
 let botaoMoverCima = document.querySelector('#mover-cima');
 
 botaoMoverCima.addEventListener('click',function(){
-    let ListaTarefas = document.querySelector('#lista-tarefas li');
-    let selecionado = document.querySelector('.cor-lista');
-
-    for(index = 0; index < ListaTarefas.length; index += 1){
-        selecionadoAntes = ListaTarefas[index];
-    }
-    let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes);
-
-    if (selecionado.contains('.cor-lista')){
-        moveSelecionado;
-    } else {
-         tarefa.classList.add('completed');
-    }
-    
+    let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
+    let selecionado = document.querySelector('.cor-lista'); 
+    let selecionadoAntes = selecionado.previousSibling;
+    let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes);   
+    return moveSelecionado;
 });
 
 let botaoMoverBaixo = document.querySelector('#mover-baixo');
 
 botaoMoverBaixo.addEventListener('click',function(){
-        
+    let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
+    let selecionado = document.querySelector('.cor-lista'); 
+    let selecionadoDepois = selecionado.nextSibling;
+    let moveSelecionado = ListaTarefas.insertBefore(selecionadoDepois, selecionado);
+    return moveSelecionado;
 }); 
 
 
