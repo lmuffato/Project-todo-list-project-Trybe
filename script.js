@@ -3,7 +3,7 @@ const addTaskInput = document.getElementById('texto-tarefa');
 const tasksList = document.getElementById('lista-tarefas');
 const allTasks = document.getElementsByClassName('all-tasks');
 const clearAllButton = document.querySelector('#apaga-tudo');
-const clearCompletedButton = document.querySelector('#remover-finalizados');
+// const clearCompletedButton = document.querySelector('#remover-finalizados');
 
 function createTask() {
   if (addTaskInput.value !== '') {
