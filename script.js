@@ -3,6 +3,8 @@ const inputButton = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const liList = document.getElementsByClassName('list-order');
 const clearButton = document.getElementById('apaga-tudo');
+const removeTaskDone = document.getElementById('remover-finalizados');
+
 
 function mainButton() {
   taskButton.addEventListener('click', () => {
@@ -47,3 +49,13 @@ function cleanLi() {
     });
 }
 cleanLi();
+
+function removeDone() {
+    removeTaskDone.addEventListener('click', () => {
+        const classCompleted = document.querySelectorAll('.completed');
+        for( let index = 0; index < classCompleted.length; index += 1) {
+        orderedList.removeChild(classCompleted[index]);
+    }
+});
+}
+removeDone();
