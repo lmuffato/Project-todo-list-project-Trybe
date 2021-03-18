@@ -61,7 +61,7 @@ function removeCheckItem() {
   for (let index = 0; index < selectedItens.length; index += 1) {
     if (selectedItens[index].classList.contains('completed')) {
       list.removeChild(selectedItens[index]);
+    }
   }
 }
-
 removeCheck.addEventListener('click', removeCheckItem);
