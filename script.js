@@ -74,10 +74,10 @@ botaoSalvar.addEventListener('click',function(){
     localStorage.setItem('lista', ListaTarefas); // salvo no storage toda a ol
 }); 
 
-// window.onload = function (){
-//     let ListaTarefas = document.querySelector('#lista-tarefas');
-//     ListaTarefas.innerHTML = localStorage.getItem('lista');
-// }
+window.onload = function (){
+    let ListaTarefas = document.querySelector('#lista-tarefas');
+    ListaTarefas.innerHTML = localStorage.getItem('lista');
+}
 
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
