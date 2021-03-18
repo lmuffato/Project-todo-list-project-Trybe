@@ -32,7 +32,7 @@ function completedTask(event) {
 
 tasksList.addEventListener('dblclick', completedTask);
 
-function clearTaksList() {
+function clearAll() {
   const clearAllButton = document.getElementById('apaga-tudo');
   clearAllButton.addEventListener('click', () => {
     const listItens = document.querySelectorAll('li');
@@ -41,3 +41,5 @@ function clearTaksList() {
     }
   });
 }
+
+clearAll();
