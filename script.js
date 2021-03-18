@@ -11,10 +11,20 @@ function removeBackground() {
   });
 }
 
+function cleanFinished() {
+  const clearFinishedTasksButton = document.getElementById('remover-finalizados');
+  const list = document.querySelector('ol');
+  clearFinishedTasksButton.addEventListener('click', () => {
+    const tasks = document.querySelectorAll('.completed');
+    for (const task of tasks) {
+      list.removeChild(task);
+    }
+  });
+}
+
 function cleanList() {
   const clearButton = document.getElementById('apaga-tudo');
   const list = document.querySelector('ol');
-  console.log(clearButton);
   clearButton.addEventListener('click', () => {
     list.innerHTML = '';
   });
@@ -59,4 +69,5 @@ function clickButtonAddTask() {
 window.onload = function startSession() {
   clickButtonAddTask();
   cleanList();
+  cleanFinished();
 };
