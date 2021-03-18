@@ -8,6 +8,8 @@ function criarTarefa () {
    var texto = document.createTextNode(tarefa);
    li.appendChild(texto);
    ol.appendChild(li);
+   criar.value = "";
+
 }
 
 var btAdicionar = document.getElementById("criar-tarefa");
@@ -17,9 +19,10 @@ function apagar () {
     var ol = document.getElementById("lista-tarefas");
     let li = document.getElementsByClassName("listaDinamica");
     if(ol.childElementCount > 0) { 
-       for (let index = 0; index < li.length; index++) {   
-           ol.removeChild(li[index]);
-       }
+    //    for (let index = 0; index < li.length; index++) {   
+    //        ol.removeChild(li[index]);
+    //    }
+    ol.innerHTML = "";
     }
 }
 var btnApagar = document.getElementById("apaga-tudo");
