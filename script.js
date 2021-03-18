@@ -72,17 +72,12 @@ let botaoSalvar = document.querySelector('#salvar-tarefas');
 botaoSalvar.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas').innerHTML; // pego o conteudo do ol
     localStorage.setItem('lista', ListaTarefas); // salvo no storage toda a ol
-
-    window.onload = function (){
-        let ListaTarefas = document.querySelector('#lista-tarefas');
-        ListaTarefas.innerHTML = localStorage.getItem('lista');
-    }
 }); 
 
-// window.onload = function (){
-//     let ListaTarefas = document.querySelector('#lista-tarefas');
-//     ListaTarefas.innerHTML = localStorage.getItem('lista');
-// }
+window.onload = function (){
+    let ListaTarefas = document.querySelector('#lista-tarefas');
+    ListaTarefas.innerHTML = localStorage.getItem('lista');
+}
 
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
@@ -95,7 +90,7 @@ botaoMoverCima.addEventListener('click',function(){
     let arrayLista = document.querySelectorAll('#lista-tarefas li'); //array li
     let selecionadoAntes = selecionado.previousElementSibling; // li antes da li selecionada
     
-    if (selecionado !== arrayLista[0]){
+    if (selecionado !== arrayLista[0]){ //se o selecionado for diferente da primeira li eu movimento a lista
         let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes); 
     }
 
