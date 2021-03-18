@@ -88,11 +88,14 @@ botaoMoverCima.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
     let selecionado = document.querySelector('.cor-lista'); //li selecionada no momento
     let arrayLista = document.querySelectorAll('#lista-tarefas li'); //array li
-    let selecionadoAntes = selecionado.previousElementSibling; // li antes da li selecionada
     
-    if (selecionado !== arrayLista[0]){ //se o selecionado for diferente da primeira li eu movimento a lista
-        /*let moveSelecionado =*/ ListaTarefas.insertBefore(selecionado, selecionadoAntes); 
+    for (index = 0; index < arrayLista.length; index += 1){
+        if (selecionado !== arrayLista[0] && arrayLista[index].classList.contains('cor-lista')){ //se o selecionado for diferente da primeira li eu e se tem a classe cor lista, movimento a lista
+            let selecionadoAntes = selecionado.previousSibling; // li antes da li selecionada
+            ListaTarefas.insertBefore(selecionado, selecionadoAntes); 
+        }
     }
+    
 });
 
 let botaoMoverBaixo = document.querySelector('#mover-baixo');
@@ -101,12 +104,15 @@ botaoMoverBaixo.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
     let selecionado = document.querySelector('.cor-lista');  //li selecionando no momento
     let arrayLista = document.querySelectorAll('#lista-tarefas li'); //array li
-    let selecionadoDepois = selecionado.nextElementSibling; //li depois da li selecionada
-    //let moveSelecionado = ListaTarefas.insertBefore(selecionadoDepois, selecionado);
-    
-    if (selecionado !== arrayLista[arrayLista.length - 1]){ //se o selecionado for diferente da ultima li eu movimento a lista
-        /*let moveSelecionado =*/ ListaTarefas.insertBefore(selecionadoDepois, selecionado); 
+     //li depois da li selecionada
+
+    for (index = 0; index < arrayLista.length; index += 1){
+        if (selecionado !== arrayLista[arrayLista.length - 1] && arrayLista[index].classList.contains('cor-lista') /*selecionado !== null*/){ //se o selecionado for diferente da primeira li eu movimento a lista
+            let selecionadoDepois = selecionado.nextSibling;// li antes da li selecionada
+            ListaTarefas.insertBefore(selecionadoDepois, selecionado); 
+        }
     }
+    
 }); 
 
 
