@@ -21,20 +21,24 @@ function grayChange (){
         gray.target.classList.add("selected")
   })
 }
-
 grayChange();
 
+function completedLine (){
+    let olLine = document.querySelector('#lista-tarefas')
+    olLine.addEventListener('dblclick', function (lineEvent) {
+       lineEvent.target.classList.toggle('completed')
+    })
+}
+completedLine()
 
-/*function grayChange() {
-    let olList = document.querySelector('ol')
-    olList.addEventListener('click', (gray) => {
-      const targetOl = gray.target;
-      const selectedLi = document.querySelector('.selected');
-      if (selectedLi !== null) {
-        selectedLi.classList.remove('selected');
-      }
-      targetOl.classList.add('selected');
-    });
-  }
-grayChange()
-*/
+function eraseChild (){
+    let eraseButton = document.querySelector('#apaga-tudo')
+    eraseButton.addEventListener('click', function(){
+        let eChild = document.querySelectorAll('#lista-tarefas>li')
+        for (let index = 0; index < eChild.length; index += 1) {
+            let liChild = eChild[index];
+            liChild.parentNode.removeChild(liChild)
+        }
+    })
+}
+eraseChild()
