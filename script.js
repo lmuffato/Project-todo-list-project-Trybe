@@ -1,4 +1,4 @@
-const ol = document.querySelector("#lista-tarefa");
+const ol = document.querySelector("#lista-tarefas");
 const inputText = document.getElementById('texto-tarefa');
 
 
