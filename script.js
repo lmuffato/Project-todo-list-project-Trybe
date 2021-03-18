@@ -9,7 +9,7 @@ function liCreation (){
         document.getElementById('texto-tarefa').value = '';
     })
 }
-liCreation()
+liCreation();
 
 function grayChange (){
     let liClass = document.querySelector('ol');
@@ -29,7 +29,7 @@ function completedLine (){
        lineEvent.target.classList.toggle('completed')
     })
 }
-completedLine()
+completedLine();
 
 function eraseChild (){
     let eraseButton = document.querySelector('#apaga-tudo')
@@ -41,4 +41,18 @@ function eraseChild (){
         }
     })
 }
-eraseChild()
+eraseChild();
+
+function eraseCompleted (){
+    let eraseC = document.querySelector('#remover-finalizados');
+    eraseC.addEventListener('click', function(){
+        let eChild = document.querySelectorAll('#lista-tarefas>li');
+        for (let index = 0; index < eChild.length; index += 1) {
+            let liChild = eChild[index];
+            if ((liChild.className === 'selected completed') || (liChild.className === 'completed selected') || (liChild.className === 'completed')){
+              liChild.parentNode.removeChild(liChild);
+            }
+        }
+    })
+}
+eraseCompleted();
