@@ -5,11 +5,3 @@
 .completed {
   text-decoration: line-through solid rgb(0 , 0 , 0);
 }
-
-#apaga-tudo {
-  visibility: hidden;
-}
-
-#remover-finalizados {
-  visibility: hidden;
-}

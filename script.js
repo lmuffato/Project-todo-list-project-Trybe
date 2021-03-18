@@ -1,11 +1,11 @@
-// Criar uma função para poder adicionar novas tarefas a lista e limpar o input
+const list = document.querySelector('#lista-tarefas');
+
 function clearInput() {
   const input = document.querySelector('#texto-tarefa');
   input.value = '';
 }
 
 function deleteAll(event) {
-  const list = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('li');
   const removeButton = document.querySelector('#remover-finalizados');
   const deleteButton = event.target;
@@ -13,27 +13,29 @@ function deleteAll(event) {
   for (let index = 0; index < tasks.length; index += 1) {
     list.removeChild(tasks[index]);
   }
-  deleteButton.style.visibility = 'hidden';
-  removeButton.style.visibility = 'hidden';
+  deleteButton.classList.add('disabled');
+  deleteButton.disabled = true;
+  removeButton.classList.add('disabled');
+  removeButton.disabled = true;
 }
 
-function completedRemove(event) {
-  const list = document.querySelector('#lista-tarefas');
+function removeCompleted(event) {
   const completedList = document.querySelectorAll('.completed');
   const removeButton = event.target;
 
   for (let index = 0; index < completedList.length; index += 1) {
     list.removeChild(completedList[index]);
   }
-  removeButton.style.visibility = 'hidden';
+  removeButton.classList.add('disabled');
 }
 
 function completedTask(event) {
   const task = event.target;
   const removeButton = document.querySelector('#remover-finalizados');
 
-  removeButton.style.visibility = 'visible';
-  removeButton.addEventListener('click', completedRemove);
+  removeButton.classList.remove('disabled');
+  removeButton.disabled = false;
+  removeButton.addEventListener('click', removeCompleted);
 
   // https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
   if (task.classList.contains('completed')) {
@@ -47,30 +49,64 @@ function backgroundDeselected() {
   if (selectedElement !== null) {
     selectedElement.classList.remove('selected');
   }
+  return selectedElement;
 }
 
 function backgroundSelected(event) {
-  backgroundDeselected();
-  event.target.classList.add('selected');
+  const itemToSelect = event.target;
+  const selectedItem = backgroundDeselected();
+
+  if (itemToSelect === selectedItem) {
+    return;
+  }
+  itemToSelect.classList.add('selected');
+}
+
+function saveList() {
+  const store = window.localStorage;
+  const tasks = list.childNodes;
+
+  for (let index = 0; index < tasks.length; index += 1) {
+    store.setItem(index + 1, tasks[index].textContent);
+  }
 }
 
 function addTask() {
-  const list = document.querySelector('#lista-tarefas');
   const task = document.createElement('li');
   const inputValue = document.querySelector('#texto-tarefa').value;
   const deleteButton = document.querySelector('#apaga-tudo');
+  const saveButton = document.querySelector('#salvar-tarefas');
 
   task.innerText = inputValue;
   task.addEventListener('click', backgroundSelected);
   task.addEventListener('dblclick', completedTask);
   list.appendChild(task);
-  deleteButton.style.visibility = 'visible';
+  deleteButton.classList.remove('disabled');
+  deleteButton.disabled = false;
   deleteButton.addEventListener('click', deleteAll);
+  saveButton.classList.remove('disabled');
+  saveButton.disabled = false;
+  saveButton.addEventListener('click', saveList);
   clearInput();
 }
 
-function buttonEvent() {
+function buttonsEvent() {
   const button = document.querySelector('#criar-tarefa');
   button.addEventListener('click', addTask);
 }
-buttonEvent();
+
+function getSavedList() {
+  const store = window.localStorage;
+
+  for (let key = 1; key <= store.length; key += 1) {
+    const task = document.createElement('li');
+
+    task.innerText = store[key];
+    list.appendChild(task);
+  }
+}
+
+window.onload = () => {
+  buttonsEvent();
+  getSavedList();
+};

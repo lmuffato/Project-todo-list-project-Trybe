@@ -14,14 +14,15 @@
   </header>
 
   <main>
-    <section>
+    <section id="buttons-field">
       <input type="text" id="texto-tarefa" placeholder="New task">
       <button id="criar-tarefa">Adicionar</button>
-      <button id="apaga-tudo">Apagar tudo</button>
-      <button id="remover-finalizados">Remover finalizados</button>
+      <button id="apaga-tudo" disabled>Apagar tudo</button>
+      <button id="remover-finalizados" disabled>Remover finalizados</button>
+      <button id="salvar-tarefas" disabled>Salvar Tarefas</button>
     </section>
 
-    <section>
+    <section id="list-field">
       <ol id="lista-tarefas"></ol>
     </section>
   </main>
