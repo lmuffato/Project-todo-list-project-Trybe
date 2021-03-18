@@ -25,7 +25,7 @@ function newItem () {
   }
 
   //Requesito 9
-  let listCompleted = document.querySelector('ol');
+  let listCompleted = document.querySelector('#lista-tarefas');
   listCompleted.addEventListener('dblclick', lineThrough);
   
   function lineThrough(a){
@@ -37,14 +37,26 @@ function newItem () {
   }
 
   //Requesito 10
-  let btnReset = document.getElementById('apaga-tudo');
+  let btnReset = document.getElementById('apaga-tudo'); 
   btnReset.addEventListener('click', resit);
 
   function resit () {
     for (let index = 0; index < listTask.length; index += 1) {
       const element = listTask[index];
       element.remove();
-      
+    }
+  }
+
+  //Requesito 11
+  let btnRemove = document.getElementById('remover-finalizados');
+  btnRemove.addEventListener('click', removeFinish);
+
+  function removeFinish () {
+    for (let index = 0; index < listTask.length; index += 1) {
+      const itemFinish = listTask[index];
+      if (itemFinish.classList.contains('completed')) {
+        itemFinish.remove();
+      }
     }
   }
 }
