@@ -1,3 +1,4 @@
-.tarefa {background-color: rgb(62, 189, 72);}
+body {background-color: white;}
+.tarefa {background-color: white;}
 .selected {background-color: rgb(128, 128, 128)}
 .completed {text-decoration: line-through solid black;}

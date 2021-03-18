@@ -20,16 +20,21 @@ function criarElemento (lugarPraOndeOElementoVai ,tipoDoElemento, texto, classeD
 this.selecao = function funcaoDeSelecao(evento) {
   let e = this
   document.querySelectorAll('.tarefa').forEach(elementos => elementos.classList.replace("selected", "notSelected"));
+  document.querySelectorAll('.tarefa').forEach(elementos => elementos.style.backgroundColor = 'white');
   e.classList.replace("notSelected", "selected");
-  console.log('selecionado')
+  e.style.backgroundColor = 'rgb(128, 128, 128)';
+  console.log('selecionado');
   }
 
 //FUNÇÃO PRA O ELEMENTO COMPLETADO
   this.completed = function funcaoDeCompletado(evento) {
     let e = this
         if (e.classList.contains('notCompleted')) {
-          e.classList.replace("notCompleted", "completed");console.log('concluído');
-          } else {e.classList.replace("completed", "notCompleted");console.log('não concluido');}
+          e.classList.replace("notCompleted", "completed");
+          console.log('concluído');e.style.textDecoration ='line-through solid rgb(0, 0, 0)';
+          } else {e.classList.replace("completed", "notCompleted");console.log('não concluido');
+          e.style.textDecoration='none';
+        }
   }
 
 //EXCLUIR TODOS OS ELMENTOS DE DE UMA CLASSE OU ID
