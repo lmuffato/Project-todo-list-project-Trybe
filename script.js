@@ -57,3 +57,11 @@ function check() {
   });
 }
 check();
+
+function buttonClear(){
+  const button = document.getElementById('apaga-tudo')
+  button.addEventListener('click', () => {
+  document.querySelectorAll('ol')[0].innerHTML = ''
+  })
+}
+buttonClear();
