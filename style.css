@@ -1,6 +1,14 @@
 
+body {
+  border: 0;
+  margin: 0;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
 header {
-  color: yellow;
+  color:blacksss;
   text-align: center;
   font-size: 30px;
   font-weight: bolder; 
@@ -9,30 +17,18 @@ header {
 }
 
 #texto-tarefa {
-  width: 300px;
-  text-align: center;
+  width: 425px;
+  justify-content: center;
 }
 
 .conteiner-pai {
-  background-color: rgb(255, 115, 122);
-  width: 500px;
-  height: 500px;
+  background-color: blanchedalmond;
+  margin-top: 50px;
   justify-content: center;
-  border: black solid 1px;
   display: flex;
-  margin-left: 280px;
-}
-
-.conteiner2 {
-  margin-top: auto;
-}
-
-ul li {
-  list-style: none;
-}
-
-ul {
-  float: right;
+  width: 700px;
+  height: 500px;
+  border: solid 1px black;
 }
 
 #funcionamento {
@@ -46,13 +42,14 @@ button:hover {
 }
 
 button {
-  width: 70px;
-  height: 50px;
-  margin-bottom: 5px;
-  font-size: 10px;
-  font-weight: bolder;
+  font-size: 15px;
+  margin-top: 20px;
 }
 
 .completed {
-  text-decoration:line-through ;
+  text-decoration:line-through;
+}
+
+.backgroudLista {
+  background-color: rgb(128, 128, 128);
 }
