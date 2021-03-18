@@ -25,7 +25,7 @@ function criarTarefa() {
     
   function recebeClick (evento) {
        //recupera o elemento
-    console.log(evento.target.style.backgroundColor = 'blue')
+    console.log(evento.target.style.backgroundColor = 'rgb(128, 128, 128)')
     console.log(evento.type)
     // informa o tipo do evento
     }
