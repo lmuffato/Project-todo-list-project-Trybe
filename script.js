@@ -11,7 +11,6 @@ function newTask() {
     ol.appendChild(li);
     li.innerText=inputText.value;
 
-
   })
 }
 newTask();
