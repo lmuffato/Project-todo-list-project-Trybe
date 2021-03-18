@@ -1,4 +1,4 @@
-//Requesito 5, 6, 7, 8 e 9
+//Requesito 5 e 6
 let button = document.getElementById('criar-tarefa');
 button.addEventListener('click', newItem);
 
@@ -8,6 +8,7 @@ function newItem () {
   addList.innerHTML = textTask.value;
   textTask.value = '';
 
+  //Requesito 7 e 8
   let listTask = document.getElementsByTagName('li');
 
   for (let index = 0; index < listTask.length; index += 1) {
@@ -23,14 +24,27 @@ function newItem () {
     e.target.classList.add('add-background');
   }
 
+  //Requesito 9
   let listCompleted = document.querySelector('ol');
-  listCompleted.addEventListener('dblclick', lineThrough) 
+  listCompleted.addEventListener('dblclick', lineThrough);
   
   function lineThrough(a){
     if (a.target.classList.contains('completed')) {
       a.target.classList.remove('completed');
     } else {
       a.target.classList.add('completed');
+    }
+  }
+
+  //Requesito 10
+  let btnReset = document.getElementById('apaga-tudo');
+  btnReset.addEventListener('click', resit);
+
+  function resit () {
+    for (let index = 0; index < listTask.length; index += 1) {
+      const element = listTask[index];
+      element.remove();
+      
     }
   }
 }
