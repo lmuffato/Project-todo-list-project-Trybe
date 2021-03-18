@@ -6,9 +6,15 @@ function adiciona() {
   elemento.innerText = input.value;
   lista.appendChild(elemento);
   input.value = null;
+}
 
-  elemento.addEventListener('dblclick', function pintar(event) {
-    let elementAcionado = event.target;
-    elementAcionado.style.backgroundColor = 'rgb(128, 128, 128)'
-  });
+lista.addEventListener('click', pintar);
+
+function pintar(event) {
+  let elementAcionado = event.target;
+  let itens = document.querySelectorAll('li');
+  for (let index = 0; index < itens.length; index += 1) {
+    itens[index].classList.remove('selected');
+  }
+  elementAcionado.classList.add('selected');
 }
