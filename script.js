@@ -15,6 +15,7 @@ function selectTask(taskLine) {
 // Cria uma função que adiciona um elemento 'li' ao 'ol', e faz com que o .innerHTML
 // Seja o valor do input com a ID 'texto-tarefa'
 // v2.0: taskName.value = ''; Define o valor do input como vazio
+// v3.0: 'taskItem.classname' Define a classe de taskItem como 'tarefa'
 
 function createTask() {
   const taskAdd = document.getElementById('criar-tarefa');
@@ -31,4 +32,17 @@ function createTask() {
   };
 }
 
+// Cria uma função que ao pressionar o botão de apagar tarefas,
+// Faz com que o innerHTML do tasklist seja vazio.
+
+function clearTasks() {
+  const clearButton = document.getElementById('apaga-tudo');
+
+  clearButton.onclick = () => {
+    const taskList = document.getElementById('lista-tarefas');
+    taskList.innerHTML = '';
+  };
+}
+
 createTask();
+clearTasks();
