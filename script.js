@@ -1,5 +1,6 @@
 const list = document.querySelector('#lista-tarefas');
 const btnDelete = document.querySelector('#apaga-tudo');
+const btnDeleteCompleted = document.querySelector('#remover-finalizados');
 
 function addList() {
   const btnForAdd = document.querySelector('#criar-tarefa');
@@ -43,13 +44,14 @@ function deleteAll() {
 deleteAll();
 
 function deleteAllCOmpleted() {
-  const btnDeleteCompleted = document.querySelector('#remover-finalizados');
-  const completas = document.querySelector('.completed');
+  const completas = document.querySelectorAll('.completed');
   btnDeleteCompleted.addEventListener('click', () => {
-    for(let index = 0; index < completas.length; index += 1){
-      list.removeChild(completas[index]);
+    for (let index = 0; index < completas.length; index += 1) {
+        list.removeChild(completas[index]);
     }
-  }
+  });
+}
+deleteAllCOmpleted();
 
 /* agradeço a Pollyana Oliveira por me ajudar a sanar o requisito 8 */
 /* agradeço a Anderson Silva, consegui progregir atraves dos códigos dele */
