@@ -1,3 +1,14 @@
+function clearList() {
+  const listItems = document.getElementsByTagName('li');
+  for (let index = listItems.length - 1; index > 0; index -= 1) {
+    const listItem = listItems[index];
+    listItem.parentNode.removeChild(listItem);
+  }
+}
+
+const buttonClearList = document.getElementById('apaga-tudo');
+buttonClearList.addEventListener('click', clearList);
+
 function overwriteText(event) {
   const { target } = event;
   // Verificando se já tenho a classe dentro dos elementos da lista:  https://pt.stackoverflow.com/questions/9605/detectar-se-um-elemento-cont%C3%A9m-uma-classe-com-javascript-puro
