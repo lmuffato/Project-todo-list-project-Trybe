@@ -2,6 +2,7 @@ const taskButton = document.getElementById('criar-tarefa');
 const inputButton = document.getElementById('texto-tarefa');
 const orderedList = document.getElementById('lista-tarefas');
 const liList = document.getElementsByClassName('list-order');
+const clearButton = document.getElementById('apaga-tudo');
 
 function mainButton() {
   taskButton.addEventListener('click', () => {
@@ -39,3 +40,10 @@ function doubleClick() {
     });
 }
 doubleClick ();
+
+function cleanLi() {
+    clearButton.addEventListener('click', () => {
+        orderedList.innerHTML = "";
+    });
+}
+cleanLi();
