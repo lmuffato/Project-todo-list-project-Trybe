@@ -28,3 +28,9 @@ function newTask() {
   })
 }
 newTask();
+
+function apagaTudo (){
+  ol.innerHTML='';
+}
+const buttonEraser = document.getElementById('apaga-tudo');
+buttonEraser.addEventListener('click',apagaTudo);
