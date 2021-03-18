@@ -1,37 +1,36 @@
-//Cria essa variável que será utilizada por diversas funções.
-let elementoCriado = '';
+//FUNÇÃO LIGADA AO BOTÃO DE CRIAR TAREFAS
+function adicionarElemento() {
+  criarElemento('ol' ,'li',document.querySelector('#texto-tarefa').value , 'tarefa');
+}
 
-//ADICIONAR EVENTO NA SELEÇÃO DE UM CLICK
-//Função para selecionar as cores da paleta
-document.querySelectorAll('.tarefa').forEach(elementoSelecionado => {
-    elementoSelecionado.addEventListener('click', clickParaSelecionar);
-    function clickParaSelecionar(eventoDeOrigem){
-      //TESTE: Apenas para verificar no console se a cor está realmente sendo selecionada
-      console.log(eventoDeOrigem.target);
-      //Atribuia classe padrão a todos os elementos
-      document.querySelectorAll('.tarefa').forEach(elementos => elementos.classList.replace("selected", "notSelected"));
-      // Altera a classe do objeto seleiconado com a classe de seleção
-      elementoSelecionado.classList.replace("notSelected", "selected")
-      // Pinta cor de a cordo com a classe
-      //Texto tachado
-      //document.querySelector('.SELECIONADO').style.textDecorationLine = "line-through";
-    } 
-  }
-  )
+//CRIAR ELEMENTOS COM BASE NA CAIXA DE TEXTO
+function criarElemento (lugarPraOndeOElementoVai ,tipoDoElemento, texto, classeDoElemento){
+  let elementoCriado;
+  variavelDolugarPraOndeOElementoVai = document.querySelector(lugarPraOndeOElementoVai)
+  elementoCriado = document.createElement(tipoDoElemento);
+  elementoCriado.classList.add(classeDoElemento, 'notCompleted', 'notSelected');
+  elementoCriado.innerText = texto;
+  variavelDolugarPraOndeOElementoVai.appendChild(elementoCriado);
+  console.log('criado');
+  document.querySelector('.tarefa').parentElement.lastElementChild.addEventListener('click', this.selecao);
+  document.querySelector('.tarefa').parentElement.lastElementChild.addEventListener('dblclick', this.completed);
+}
 
-  //EVENTO COM DOUBLE CLICK COM PARA MARCAR COMO CONCLUÍDO
-  document.querySelectorAll('.tarefa').forEach(elementoClicadoDuasVezes => {
-    elementoClicadoDuasVezes.addEventListener('dblclick', doubleClickParaConcluir);
-    function doubleClickParaConcluir(eventoDeOrigem){
-      //TESTE: Apenas para verificar no console se a cor está realmente sendo selecionada
-      console.log(eventoDeOrigem.target);
-      //Se o elemento clicado duas vezes possui a classe 'noCompleted' em sua lista de classe, a classe muda para 'completed'.
-      if (elementoClicadoDuasVezes.classList.contains('notCompleted')==true){
-        elementoClicadoDuasVezes.classList.replace("notCompleted", "completed");
-        } else {elementoClicadoDuasVezes.classList.replace("completed", "notCompleted");}
-    } 
+//FUNÇÃO PRA SELECÃO DO ELEMENTO
+this.selecao = function funcaoDeSelecao(evento) {
+  let e = this
+  document.querySelectorAll('.tarefa').forEach(elementos => elementos.classList.replace("selected", "notSelected"));
+  e.classList.replace("notSelected", "selected");
+  console.log('selecionado')
   }
-)
+
+//FUNÇÃO PRA O ELEMENTO COMPLETADO
+  this.completed = function funcaoDeCompletado(evento) {
+    let e = this
+        if (e.classList.contains('notCompleted')) {
+          e.classList.replace("notCompleted", "completed");console.log('concluído');
+          } else {e.classList.replace("completed", "notCompleted");console.log('não concluido');}
+  }
 
 //EXCLUIR TODOS OS ELMENTOS DE DE UMA CLASSE OU ID
 function excluirTodosElementosDaMesmaClasseOuId (classOuId) {
@@ -40,3 +39,10 @@ function excluirTodosElementosDaMesmaClasseOuId (classOuId) {
         document.querySelectorAll(classOuId)[0].remove()
     }
 }
+
+//CRIA A FUNÇÃO PARA EXTRAIR O CONTEUDO DA CAIXA DE TEXTO
+  function funcaoDaCaixaDeTexto (evento) {
+      let valorDaCaixaDeTexto = document.querySelector('#texto-tarefa').value
+      console.log(valorDaCaixaDeTexto);
+      console.log(evento.target);
+  }

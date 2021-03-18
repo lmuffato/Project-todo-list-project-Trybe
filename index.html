@@ -9,33 +9,17 @@
 <header><h2>Minha Lista de Tarefas</h2></header>
 <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
 <br>
-<input id='texto-tarefa' type='text' tarefa='texto' placeholder="Digite a sua tarefa">
+<input id='texto-tarefa' type='text' name='tarefa' placeholder="Digite a sua tarefa">
 <ol id='lista-tarefas'>
-    <li class='tarefa notCompleted notSelected'>Tarefa 01</li>
-    <li class='tarefa notCompleted notSelected'>Tarefa 02</li>
-    <li class='tarefa notCompleted notSelected'>Tarefa 03</li>
 </ol>
-<button >Enviar</button>
-<br>
+<button id='criar-tarefa' onclick="adicionarElemento();">Criar tarefa</button>
 <button id='apaga-tudo' onclick="excluirTodosElementosDaMesmaClasseOuId ('.tarefa')">Apaga tudo</button>
-<br>
-<br>
 <button id='remover-finalizados' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Remover finalizados</button>
-<br>
-<br>
-<button id='salvar-tarefas' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Salvar tarefas</button>
-<br>
-<button id='mover-cima' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Mover para cima</button>
-<br>
-<button id='mover-baixo' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Mover para baixo</button>
-<br>
 <button id='remover-selecionado' onclick="excluirTodosElementosDaMesmaClasseOuId ('.selected')">Remover selecionado</button>
-<br>
-<form action='' method='GET'>
-<br>
-<label for='meuFormulario'>Digite seu nome </label>
-<br>
-</form>
+<button id='salvar-tarefas' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Salvar tarefas</button>
+<button id='mover-cima' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Mover para cima</button>
+<button id='mover-baixo' onclick="excluirTodosElementosDaMesmaClasseOuId ('.completed')">Mover para baixo</button>
+<h2>Cor do elemento pai</h2>
 <script src='script.js'> </script>
 </body>
 </html>
