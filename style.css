@@ -1,3 +1,7 @@
 .selected {
     background-color: rgb(128, 128, 128);
 }
+
+.risco {
+    text-decoration: line-through solid black;
+}
