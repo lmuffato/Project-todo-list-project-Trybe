@@ -5,6 +5,7 @@ body {
   width: 100%;
   justify-content: center;
   display: flex;
+  background-color: cadetblue;
 }
 
 header {
@@ -22,7 +23,7 @@ header {
 }
 
 .conteiner-pai {
-  background-color: blanchedalmond;
+  background-color: rgb(245, 187, 197);
   margin-top: 50px;
   justify-content: center;
   display: flex;
