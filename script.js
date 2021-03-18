@@ -20,7 +20,7 @@ function addList() {
 addBtn.addEventListener('click', addList);
 
 function check(event) {
-  let eventTarget = event.target;
+  const eventTarget = event.target;
   if (eventTarget.classList.contains('completed')) {
     eventTarget.classList.remove('completed');
   } else {
