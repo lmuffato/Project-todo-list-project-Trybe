@@ -27,3 +27,18 @@ function taskSelection() {
 }
 
 taskSelection();
+
+function completeTask() {
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('task')) {
+      if (event.target.classList.contains('completed')) {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
+    }
+  });
+}
+
+completeTask();
