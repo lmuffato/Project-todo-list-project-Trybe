@@ -1,5 +1,5 @@
 const ol = document.querySelector("#lista-tarefa");
-const inputText = document.getElementById('texto-tarefa');
+const inputText = document.getElementById('texto-tarefas');
 
 
 
@@ -10,7 +10,15 @@ function newTask() {
     const li = document.createElement('li');
     ol.appendChild(li);
     li.innerText=inputText.value;
-
+    li.addEventListener('click', () =>{
+      const lis = document.querySelectorAll('li');
+      for (index=0; index < lis.length; index+=1) {
+        if (lis[index].style.backgroundColor = 'rgb(128, 128, 128)') {
+          lis[index].style.backgroundColor = '';
+        }
+      }
+      li.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
   })
 }
 newTask();
