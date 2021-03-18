@@ -1,4 +1,4 @@
-//Requesito 5, 6, 7 e 8
+//Requesito 5, 6, 7, 8 e 9
 let button = document.getElementById('criar-tarefa');
 button.addEventListener('click', newItem);
 
@@ -21,5 +21,16 @@ function newItem () {
       removeClass.classList.remove('add-background');
     }
     e.target.classList.add('add-background');
+  }
+
+  let listCompleted = document.querySelector('ol');
+  listCompleted.addEventListener('dblclick', lineThrough) 
+  
+  function lineThrough(a){
+    if (a.target.classList.contains('completed')) {
+      a.target.classList.remove('completed');
+    } else {
+      a.target.classList.add('completed');
+    }
   }
 }
