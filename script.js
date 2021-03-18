@@ -20,12 +20,18 @@ criaLI();
 // Requisito 7 - Pinta tarefas de cinza
 
 function pintaTarefa (){
-let lista = document.querySelectAll('.listaDeTarefas');
-for(lista[i] = 0; lista[i] < i; lista[i] +=1){
-tarefa.addEventListener('click', () => {
-  tarefa.style.backgroundColor = 'grey';
-})
-}
+  const lista = document.getElementsByTagName('ol')[0];
+  const tarefa = document.getElementsByTagName('li');
+    lista.addEventListener('click', (event) => {
+        const targetEvent = event.target;
+        for (let index = 0; index < tarefa.length; index += 1) {
+            tarefa[index].style.backgroundColor = document.body.style.backgroundColor;
+            if (targetEvent.localName === 'li') {
+                targetEvent.style.backgroundColor = 'rgb(128, 128, 128)';
+            }
+        }
+    });
 }
 
+pintaTarefa();
 
