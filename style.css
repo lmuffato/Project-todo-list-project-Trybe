@@ -53,3 +53,6 @@ button {
   font-weight: bolder;
 }
 
+.completed {
+  text-decoration:line-through ;
+}

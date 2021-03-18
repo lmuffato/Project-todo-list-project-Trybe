@@ -6,6 +6,9 @@ function criarTarefa () {
    var li = document.createElement("li");
    li.classList.add("listaDinamica");
    var texto = document.createTextNode(tarefa);
+   li.addEventListener("dblclick", function(e){
+         riscarLista(e);
+   });
    li.appendChild(texto);
    ol.appendChild(li);
    criar.value = "";
@@ -17,13 +20,21 @@ btAdicionar.addEventListener("click", criarTarefa);
 
 function apagar () {
     var ol = document.getElementById("lista-tarefas");
-    let li = document.getElementsByClassName("listaDinamica");
+   
     if(ol.childElementCount > 0) { 
-    //    for (let index = 0; index < li.length; index++) {   
-    //        ol.removeChild(li[index]);
-    //    }
     ol.innerHTML = "";
     }
 }
 var btnApagar = document.getElementById("apaga-tudo");
 btnApagar.addEventListener("click", apagar);
+
+function riscarLista (li){
+  if(li.target.classList.contains("completed")){
+    li.target.classList.remove("completed");
+  }
+  else{
+    li.target.classList.add("completed"); 
+  }
+   
+}
+   
