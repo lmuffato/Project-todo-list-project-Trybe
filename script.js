@@ -77,13 +77,13 @@ function excludingAllList() {
   }
 }
 
-// Requisito 11
 function eventExcludingAllList() {
   const getApagaTudo = document.getElementById('apaga-tudo');
   getApagaTudo.addEventListener('click', excludingAllList);
 }
 eventExcludingAllList();
 
+// Requisito 11
 function excludingSelected() {
   const listTask = document.getElementById('lista-tarefas');
   const itemClass = document.querySelectorAll('.completed');
@@ -98,7 +98,7 @@ function eventExcludingSelected() {
 }
 eventExcludingSelected();
 
-// Requitos Bônus
+// Requisitos Bônus
 
 // Requisito 12
 // Exercício feito com ajuda do código do Gabriel Ferreira
@@ -118,3 +118,20 @@ window.onload = () => {
   const itemList = document.querySelector('#lista-tarefas');
   itemList.innerHTML = localStorage.getItem('Listas');
 };
+
+// Requisito 14
+function removeSelected() {
+  const listItem = document.querySelectorAll('.item');
+
+  for (let index = 0; index < listItem.length; index += 1) {
+    if (listItem[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+     listItem[index].remove();
+    }
+  }
+}
+
+function eventRemoveSelected() {
+  const btnRemoveSelected = document.querySelector('#remover-selecionado');
+  btnRemoveSelected.addEventListener('click',removeSelected);
+}
+eventRemoveSelected();
