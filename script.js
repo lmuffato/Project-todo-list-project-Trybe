@@ -72,12 +72,17 @@ let botaoSalvar = document.querySelector('#salvar-tarefas');
 botaoSalvar.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas').innerHTML; // pego o conteudo do ol
     localStorage.setItem('lista', ListaTarefas); // salvo no storage toda a ol
+
+    window.onload = function (){
+        let ListaTarefas = document.querySelector('#lista-tarefas');
+        ListaTarefas.innerHTML = localStorage.getItem('lista');
+    }
 }); 
 
-window.onload = function (){
-    let ListaTarefas = document.querySelector('#lista-tarefas');
-    ListaTarefas.innerHTML = localStorage.getItem('lista');
-}
+// window.onload = function (){
+//     let ListaTarefas = document.querySelector('#lista-tarefas');
+//     ListaTarefas.innerHTML = localStorage.getItem('lista');
+// }
 
 
 //requisito 13 seta pra cima e pra baixo https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
@@ -86,9 +91,14 @@ let botaoMoverCima = document.querySelector('#mover-cima');
 
 botaoMoverCima.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
-    let selecionado = document.querySelector('.cor-lista'); 
-    let selecionadoAntes = selecionado.previousSibling;
-    let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes);   
+    let selecionado = document.querySelector('.cor-lista'); //li selecionada no momento
+    let arrayLista = document.querySelectorAll('#lista-tarefas li'); //array li
+    let selecionadoAntes = selecionado.previousElementSibling; // li antes da li selecionada
+    
+    if (selecionado !== arrayLista[0]){
+        let moveSelecionado = ListaTarefas.insertBefore(selecionado, selecionadoAntes); 
+    }
+
     return moveSelecionado;
 });
 
@@ -97,7 +107,7 @@ let botaoMoverBaixo = document.querySelector('#mover-baixo');
 botaoMoverBaixo.addEventListener('click',function(){
     let ListaTarefas = document.querySelector('#lista-tarefas'); //ol
     let selecionado = document.querySelector('.cor-lista'); 
-    let selecionadoDepois = selecionado.nextSibling;
+    let selecionadoDepois = selecionado.nextElementSibling;
     let moveSelecionado = ListaTarefas.insertBefore(selecionadoDepois, selecionado);
     return moveSelecionado;
 }); 
