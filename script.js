@@ -8,7 +8,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', () => {
   inputText.value = '';
 });
 
-taskList.addEventListener('click', (newSelected) => {
+taskList.addEventListener('click', newSelected => {
   const selected = document.querySelector('.selected');
   if (selected) {
     selected.classList.remove('selected');
@@ -18,7 +18,7 @@ taskList.addEventListener('click', (newSelected) => {
   }
 });
 
-taskList.addEventListener('dblclick', (completed) => {
+taskList.addEventListener('dblclick', completed => {
   const completedClass = completed.target.classList;
   if (completedClass.contains('completed')) {
     completedClass.remove('completed');
