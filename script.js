@@ -34,3 +34,12 @@ function apagaTudo (){
 }
 const buttonEraser = document.getElementById('apaga-tudo');
 buttonEraser.addEventListener('click',apagaTudo);
+
+function getDoneButton (){
+  const doneButton = document.getElementsByClassName('completed');
+  for (let index=0; index<doneButton.length; index+=1){
+    ol.removeChild(doneButton[index]);
+  }
+}
+const removeDone = document.getElementById('remover-finalizados');
+removeDone.addEventListener('click', getDoneButton);
