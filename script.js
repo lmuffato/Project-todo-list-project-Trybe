@@ -60,16 +60,49 @@ function pushTasks() {
   localStorage.setItem('savedItems', JSON.stringify(itemPropeties));
 }
 
+function moveUp() {
+  const selected = document.querySelector('.list-item');
+  const previous = selected.previousElementSibling;
+
+  if (previous != null) {
+    const taskList = document.getElementById('lista-tarefas');
+    const task = document.createElement('li');
+    task.innerText = selected.innerText;
+    task.classList.value = selected.classList.value;
+    selected.classList.remove('list-item');
+    taskList.replaceChild(task, previous);
+    taskList.replaceChild(previous, selected);
+  }
+}
+
+function moveDown() {
+  const selected = document.querySelector('.list-item');
+  const next = selected.nextElementSibling;
+  
+  if (next != null) {
+    const taskList = document.getElementById('lista-tarefas');
+    const task = document.createElement('li');
+    task.innerText = selected.innerText;
+    task.classList.value = selected.classList.value;
+    selected.classList.remove('list-item');
+    taskList.replaceChild(task, next);
+    taskList.replaceChild(next, selected);
+  }
+}
+
 function addButtomListener() {
   const button1 = document.getElementById('criar-tarefa');
   const button2 = document.getElementById('apaga-tudo');
   const button3 = document.getElementById('remover-finalizados');
   const button4 = document.getElementById('salvar-tarefas');
-
+  const button5 = document.getElementById('mover-cima');
+  const button6 = document.getElementById('mover-baixo');
   button1.addEventListener('click', submitTask);
   button2.addEventListener('click', clearTasks);
   button3.addEventListener('click', removeFinnished);
-  button4.addEventListener('click', pushTasks); 
+  button4.addEventListener('click', pushTasks);
+  button5.addEventListener('click', moveUp);
+  button6.addEventListener('click', moveDown);
 }
 
 function pullTasks() {
@@ -79,10 +112,12 @@ function pullTasks() {
     const taskList = document.getElementById('lista-tarefas');
     let newItem;
 
-    for (i = 0; i < itemProperties.length; i += 1) {
+    for (let i = 0; i < itemProperties.length; i += 1) {
       newItem = document.createElement('li');
       newItem.innerText = itemProperties[i].text;
       newItem.classList.value = itemProperties[i].classes;
+      newItem.addEventListener('click', selectItem);
+      newItem.addEventListener('dblclick', throughItem);
       taskList.appendChild(newItem);
     }
   }
