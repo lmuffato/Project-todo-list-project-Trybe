@@ -6,4 +6,12 @@ button.addEventListener('click', () => { // cria um evento de botão p/ ligar o 
   const textList = document.createElement('li'); // cria o elemento <li>
   textList.innerText = insertText; // vincula o texto da <li> ao input     
   todoList.appendChild(textList); // add  a <li> com o texto do input a <ol> 
+  if (todoList.contains(textList)){
+    textList.addEventListener('click', () => {
+      textList.style.backgroundColor = 'rgb(128,128,128)';
+      });
+  } else {
+    textList.style.backgroundColor = '';
+  }
 });
+
