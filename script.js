@@ -1,4 +1,4 @@
-function criarTarefa() {
+
     let botao = document.getElementById('criar-tarefa');
 
     botao.addEventListener('click', (evento) => {
@@ -10,23 +10,17 @@ function criarTarefa() {
       document.getElementById('texto-tarefa').value;
       document.getElementById('texto-tarefa').value = '';
     });
-  }
-  criarTarefa();
-
-
-
-
-
-  let click = document.getElementById('lista-tarefas')
-  
-
-  //Adicionar evento ao click
-  click.addEventListener('click', recebeClick)
-    
-  function recebeClick (evento) {
-       //recupera o elemento
-    console.log(evento.target.style.backgroundColor = 'rgb(128, 128, 128)')
-    console.log(evento.type)
-    // informa o tipo do evento
-    }
-    
+    const ol = document.querySelector('#lista-tarefas')
+    const recuperaClass = document.getElementsByClassName('list')
+    function addBackgroundColor() {
+        ol.addEventListener('click', (event) => {
+          const backgroundColor = event.target;
+          for (let index = 0; index < recuperaClass.length; index += 1) {
+            if (recuperaClass[index].className.includes('selected')) {
+              recuperaClass[index].classList.remove('selected');
+            }
+          }
+          backgroundColor.classList.add('selected');
+        });
+      }
+      addBackgroundColor();
