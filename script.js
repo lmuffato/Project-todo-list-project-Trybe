@@ -47,3 +47,19 @@
           }
      
       botaoLimpa.addEventListener('click', limpa )
+
+
+      const removeFinalizados = document.getElementById('remover-finalizados')
+      function removeFinal() {
+          const completed = document.querySelectorAll('.completed')    
+        
+          for ( let index = 0; index < completed.length; index += 1) {
+
+              
+               ol.removeChild(completed[index])
+              
+          }
+      }
+      removeFinal();
+
+      removeFinalizados.addEventListener('click', removeFinal)
