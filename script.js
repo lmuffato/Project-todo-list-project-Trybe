@@ -41,3 +41,9 @@
         });
       }
       addcompleted();
+      const botaoLimpa = document.getElementById('apaga-tudo')
+      function limpa () {
+          ol.innerHTML = '';
+          }
+     
+      botaoLimpa.addEventListener('click', limpa )
