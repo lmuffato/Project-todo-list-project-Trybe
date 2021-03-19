@@ -63,3 +63,22 @@
       removeFinal();
 
       removeFinalizados.addEventListener('click', removeFinal)
+
+
+
+      const removerSelecionado = document.getElementById('remover-selecionado')
+      function removeSel() {
+             
+        
+          for ( let index = 0; index < recuperaClass.length; index += 1) {
+            if (recuperaClass[index].className.includes('selected'))  {
+
+                ol.removeChild(recuperaClass[index])
+            }
+              
+              
+          }
+      }
+      removeFinal();
+
+      removerSelecionado.addEventListener('click', removeSel)
