@@ -62,31 +62,37 @@ function pushTasks() {
 
 function moveUp() {
   const selected = document.querySelector('.list-item');
-  const previous = selected.previousElementSibling;
+  if (selected != null) {
+    const previous = selected.previousElementSibling;
 
-  if (previous != null) {
-    const taskList = document.getElementById('lista-tarefas');
-    const task = document.createElement('li');
-    task.innerText = selected.innerText;
-    task.classList.value = selected.classList.value;
-    selected.classList.remove('list-item');
-    taskList.replaceChild(task, previous);
-    taskList.replaceChild(previous, selected);
+    if (previous != null) {
+      const taskList = document.getElementById('lista-tarefas');
+      const task = document.createElement('li');
+      task.innerText = selected.innerText;
+      task.classList.value = selected.classList.value;
+      task.addEventListener('click', selectItem);
+      task.addEventListener('dblclick', throughItem);
+      taskList.replaceChild(task, previous);
+      taskList.replaceChild(previous, selected);
+    }
   }
 }
 
 function moveDown() {
   const selected = document.querySelector('.list-item');
-  const next = selected.nextElementSibling;
+  if (selected != null) {
+    const next = selected.nextElementSibling;
   
-  if (next != null) {
-    const taskList = document.getElementById('lista-tarefas');
-    const task = document.createElement('li');
-    task.innerText = selected.innerText;
-    task.classList.value = selected.classList.value;
-    selected.classList.remove('list-item');
-    taskList.replaceChild(task, next);
-    taskList.replaceChild(next, selected);
+    if (next != null) {
+      const taskList = document.getElementById('lista-tarefas');
+      const task = document.createElement('li');
+      task.innerText = selected.innerText;
+      task.classList.value = selected.classList.value;
+      task.addEventListener('click', selectItem);
+      task.addEventListener('dblclick', throughItem);
+      taskList.replaceChild(task, next);
+      taskList.replaceChild(next, selected);
+    }
   }
 }
 
