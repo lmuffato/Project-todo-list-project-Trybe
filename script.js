@@ -14,7 +14,7 @@ function selectedTask(eventOrigin) {
 function throughItem(eventOrigin) {
   const elementClasses = eventOrigin.target.classList.value;// Recupera uma string com o nome das classes do elemeto
   const listItem = eventOrigin.target;
-  if (elementClasses.indexOf('completed') > -1) {// Verifica se o elemento clicado possui a classe 'completed'
+  if (elementClasses.indexOf('completed') > -1) { // Verifica se o elemento clicado possui a classe 'completed'
     listItem.classList.remove('completed');
   } else {
     listItem.classList.add('completed');
@@ -41,21 +41,22 @@ function clearTasks() {
 
 // Funcao que remove apenas as tarefas completas que sao os itens com a classe 'completed'
 function removeFinnished() {
-  let taskList = document.getElementById('lista-tarefas');
-  let completedTasks = document.getElementsByClassName('completed');
-
-  if (completedTasks.length > 0) {
-    for (let i = 0; i , completedTasks.length; i += 1) {
-      taskList.removeChild(completedTasks[0]);
-    }
+  const taskList = document.getElementById('lista-tarefas');
+  let completedTask = document.querySelector('.completed');
+  while (completedTask != null) {
+    taskList.removeChild(completedTask);
+    completedTask = document.querySelector('.completed');
   }
 }
 
 // Funcao que remove apenas a tarefa selecionada
 function removeSelected() {
-  let taskList = document.getElementById('lista-tarefas');
-  let selectedTask = document.querySelector('.selected-task');
-  taskList.removeChild(selectedTask);
+  const taskList = document.getElementById('lista-tarefas');
+  const selectedTask = document.querySelector('.selected-task');
+
+  if (selectedTask != null) {
+    taskList.removeChild(selectedTask);
+  }
 }
 
 // Funcao que salva as propriedades dos li (texto e classes) no localStorage, utilizando um
@@ -63,12 +64,12 @@ function removeSelected() {
 function pushTasks() {
   const listItems = document.getElementsByTagName('li');
   let item = {};
-  let itemPropeties = [];
+  const itemPropeties = [];
   
-  for (let i = 0; i < listItems.length; i +=1) {
+  for (let i = 0; i < listItems.length; i +=1 ) {
     item = {
       text: listItems[i].innerText,
-      classes: listItems[i].classList.value
+      classes: listItems[i].classList.value;
     }
     itemPropeties.push(item);
   }
@@ -103,6 +104,7 @@ function pullTasks() {
 function moveUp() {
   const selected = document.querySelector('.selected-task');
   if (selected != null) {
+    
     const previous = selected.previousElementSibling;
 
     if (previous != null) {
@@ -121,6 +123,7 @@ function moveUp() {
 // Funcao quase identica a 'moveUp', so que agora o foco e o elemento abaixo do selecionado
 function moveDown() {
   const selected = document.querySelector('.selected-task');
+
   if (selected != null) {
     const next = selected.nextElementSibling;
   
