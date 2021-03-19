@@ -14,13 +14,30 @@
     const recuperaClass = document.getElementsByClassName('list')
     function addBackgroundColor() {
         ol.addEventListener('click', (event) => {
-          const backgroundColor = event.target;
+          const background = event.target;
           for (let index = 0; index < recuperaClass.length; index += 1) {
             if (recuperaClass[index].className.includes('selected')) {
               recuperaClass[index].classList.remove('selected');
             }
           }
-          backgroundColor.classList.add('selected');
+          background.classList.add('selected');
         });
       }
       addBackgroundColor();
+
+      function addcompleted() {
+        ol.addEventListener('dblclick', (event) => {
+          const riscar = event.target;
+          
+            if (riscar.className.includes('completed')) {
+              riscar.classList.remove('completed');
+              riscar.classList.remove('selected')
+            } else {
+                riscar.classList.add('completed')
+                riscar.classList.remove('selected')
+            }
+          
+         
+        });
+      }
+      addcompleted();
