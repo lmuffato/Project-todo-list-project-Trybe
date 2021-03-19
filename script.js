@@ -82,3 +82,10 @@
       removeFinal();
 
       removerSelecionado.addEventListener('click', removeSel)
+
+
+      const salvarTarefas = document.getElementById('salvar-tarefas')
+      salvarTarefas.addEventListener('click', function() {
+          localStorage.setItem('list', ol.innerHTML);
+      })
+      ol.innerHTML = localStorage.getItem('list')
