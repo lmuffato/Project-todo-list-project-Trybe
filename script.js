@@ -69,7 +69,7 @@ function pushTasks() {
   for (let i = 0; i < listItems.length; i +=1 ) {
     item = {
       text: listItems[i].innerText,
-      classes: listItems[i].classList.value;
+      classes: listItems[i].classList.value
     }
     itemPropeties.push(item);
   }
@@ -104,7 +104,7 @@ function pullTasks() {
 function moveUp() {
   const selected = document.querySelector('.selected-task');
   if (selected != null) {
-    
+
     const previous = selected.previousElementSibling;
 
     if (previous != null) {
