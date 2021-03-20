@@ -1,3 +1,4 @@
+const taskList = document.getElementById('lista-tarefas');
 // Funcao que aplica a classe que altera o background color para 'gray' ao item clicado e
 // verifica se há outro elemento com essa classe e se ouver remove dele
 function selectedTask(eventOrigin) {
@@ -23,7 +24,6 @@ function throughItem(eventOrigin) {
 
 // Funcao que serve para adicionar o texto do input como um item da lista de tarefas
 function submitTask() {
-  const taskList = document.getElementById('lista-tarefas');
   const newTask = document.createElement('li');
   const taskText = document.formTasks.task.value;// Recupera o texto dentro do input para colocar na nova li
   newTask.addEventListener('click', selectedTask);
@@ -35,13 +35,11 @@ function submitTask() {
 
 // Funcao que remove todos o conteudo do elemento que representa a lista
 function clearTasks() {
-  const taskList = document.getElementById('lista-tarefas');
   taskList.innerHTML = '';
 }
 
 // Funcao que remove apenas as tarefas completas que sao os itens com a classe 'completed'
 function removeFinnished() {
-  const taskList = document.getElementById('lista-tarefas');
   let completedTask = document.querySelector('.completed');
   while (completedTask != null) {
     taskList.removeChild(completedTask);
@@ -51,11 +49,10 @@ function removeFinnished() {
 
 // Funcao que remove apenas a tarefa selecionada
 function removeSelected() {
-  const taskList = document.getElementById('lista-tarefas');
-  const selectedTask = document.querySelector('.selected-task');
+  const task = document.querySelector('.selected-task');
 
-  if (selectedTask != null) {
-    taskList.removeChild(selectedTask);
+  if (task != null) {
+    taskList.removeChild(task);
   }
 }
 
@@ -65,12 +62,11 @@ function pushTasks() {
   const listItems = document.getElementsByTagName('li');
   let item = {};
   const itemPropeties = [];
-  
-  for (let i = 0; i < listItems.length; i +=1 ) {
+  for (let i = 0; i < listItems.length; i += 1) {
     item = {
       text: listItems[i].innerText,
-      classes: listItems[i].classList.value
-    }
+      classes: listItems[i].classList.value,
+    };
     itemPropeties.push(item);
   }
   localStorage.setItem('savedItems', JSON.stringify(itemPropeties));
@@ -82,7 +78,7 @@ function pullTasks() {
   const saved = localStorage.getItem('savedItems');
   if (saved != null) {
     const itemProperties = JSON.parse(saved);
-    const taskList = document.getElementById('lista-tarefas');
+
     let newItem;
 
     for (let i = 0; i < itemProperties.length; i += 1) {
@@ -104,11 +100,9 @@ function pullTasks() {
 function moveUp() {
   const selected = document.querySelector('.selected-task');
   if (selected != null) {
-
     const previous = selected.previousElementSibling;
-
     if (previous != null) {
-      const taskList = document.getElementById('lista-tarefas');
+  
       const task = document.createElement('li');
       task.innerText = selected.innerText;
       task.classList.value = selected.classList.value;
@@ -126,9 +120,8 @@ function moveDown() {
 
   if (selected != null) {
     const next = selected.nextElementSibling;
-  
     if (next != null) {
-      const taskList = document.getElementById('lista-tarefas');
+  
       const task = document.createElement('li');
       task.innerText = selected.innerText;
       task.classList.value = selected.classList.value;
