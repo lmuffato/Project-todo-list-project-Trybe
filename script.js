@@ -38,5 +38,9 @@ function deleteTask(){
   });
 }
 deleteTask();
+
+/* Venho aqui através desse comentário prestar meus agradecimento 
+ao aluno Renzo Sevilha, pela ajuda com os requitos 7 e 8 e refatoração 
+do código!!!! Muito obrigado!!!!!*/
  
  
