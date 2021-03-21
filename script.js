@@ -1,6 +1,7 @@
 const getButton = document.querySelector('.botao-tarefa');
 const getInput = document.getElementById('texto-tarefa');
 const getList = document.getElementById('lista-tarefas');
+const getClear = document.querySelector('#apaga-tudo');
 
 function clearSelecteds() {
   const items = document.querySelectorAll('li');
@@ -37,5 +38,14 @@ function clearInput() {
   getInput.value = '';
 }
 
+function clearList() {
+  const getItems = document.querySelectorAll('li');
+
+  for (let index = 0; index < getItems.length; index += 1) {
+    getList.removeChild(getList.lastChild);
+  }
+}
+
 getButton.addEventListener('click', insertTask);
 getButton.addEventListener('click', clearInput);
+getClear.addEventListener('click', clearList);
