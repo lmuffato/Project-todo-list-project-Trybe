@@ -2,9 +2,9 @@ const getButton = document.querySelector('.botao-tarefa');
 const getInput = document.getElementById('texto-tarefa');
 const getList = document.getElementById('lista-tarefas');
 
-function clearSelected () {
+function clearSelected() {
   const items = document.querySelectorAll('li');
-  for(let index = 0; index < items.length; index += 1) {
+  for (let index = 0; index < items.length; index += 1) {
     items[index].style.backgroundColor = 'transparent';
   }
 }
