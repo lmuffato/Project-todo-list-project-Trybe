@@ -11,7 +11,7 @@ function InsertTask() {
 }
 
 function clearInput() {
-  getInput.value =''
+  getInput.value = '';
 }
 
 getButton.addEventListener('click', InsertTask);
