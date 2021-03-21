@@ -21,8 +21,8 @@ header {
 }
 
 header h1 {
-    text-align: center;
-    font-size:xx-large;
+  text-align: center;
+  font-size: xx-large;
 }
 
 header p {
@@ -46,13 +46,12 @@ input {
 }
 
 button {
-  width: 10px;
   height: 20px;
-  background-color:darkslategrey;
+  background-color: darkslategrey;
   border: solid 1px white;
   width: 30%;
   padding: 15px;
   text-align: center;
   border-radius: 10px;
-  color: white;  
+  color: white;
 }
