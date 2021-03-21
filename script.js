@@ -10,19 +10,17 @@ function clearSelecteds() {
 }
 
 function riskItem() {
-  if (this.className == '') {
+  if (this.className === '') {
     this.className = 'completed';
   } else {
     this.className = '';
-  } 
+  }
 }
 
 function selectItem() {
   const painter = this.style;
   painter.backgroundColor = 'rgb(128, 128, 128)';
 }
-
-
 
 function insertTask() {
   if (getInput.value !== '') {
