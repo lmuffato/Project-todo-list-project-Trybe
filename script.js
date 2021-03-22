@@ -11,13 +11,17 @@ function criarNovaTarefa() {
 criarTarefa.addEventListener('click', criarNovaTarefa);
 
 function seletorItem() {
-  function seletor() {
+  function seletor(event) {
     const li = document.querySelectorAll('li');
-    for (let index = 0; index < li.length; index += 1) {
-      li[index].style.backgroundColor = 'rgb(128, 128, 128)';
-      const color = 'rgb(128, 128, 128)';
-      li[index].style.backgroundColor = color;
+    const color = 'rgb(128, 128, 128)';
+    /* event.target.style.backgroundColor = color; */
+    for (let index = 0; index < li.length; index++) {
+      if (li[index].style.backgroundColor === color) {
+        li[index].style.backgroundColor = '';
+      }
+      
     }
+    event.target.style.backgroundColor = color;
   }
   listaTarefas.addEventListener('click', seletor);
 }
