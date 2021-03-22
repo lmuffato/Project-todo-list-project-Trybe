@@ -45,3 +45,15 @@ function LimparTudo() {
   limparTudo.addEventListener('click', funçaoLimparTudo);
 }
 LimparTudo();
+
+function removerFinalizados() {
+  const butonRemoverFinalizados = document.querySelector('#remover-finalizados');
+  function butaoFinalizados() {
+    const completo = document.querySelectorAll('.completed');
+    for (let index = 0; index < completo.length; index += 1) {
+      listaTarefas.removeChild(completo[index]);
+    }
+  }
+  butonRemoverFinalizados.addEventListener('click', butaoFinalizados);
+}
+removerFinalizados();
