@@ -31,7 +31,7 @@ function completeTask() {
 }
 completeTask();
 
-function itemFinished() {
+/*function itemFinished() {
   const finishedItens = document.querySelectorAll('.completed');
     for (let index = 0; index < finishedItens.length; index +=1) {
     finishedItens[index].remove();
@@ -42,7 +42,7 @@ itemFinished();
 function removeFinished() {
   finishedTask.addEventListener('click', itemFinished);
 }
-removeFinished();
+removeFinished();*/
 
 function deleteTask() {
   deleteButton.addEventListener('click', () => {
