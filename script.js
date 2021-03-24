@@ -1,3 +1,4 @@
+const listaTarefas = 'lista-tarefas';
 function selectTask(item) {
   const taskItem = item;
   const tasksList = document.getElementsByClassName('task');
@@ -19,7 +20,7 @@ function clearTaskButton() {
   const clearButtonElement = document.getElementById('apaga-tudo');
 
   clearButtonElement.onclick = () => {
-    const taskList = document.getElementById('lista-tarefas');
+    const taskList = document.getElementById(listaTarefas);
     taskList.innerHTML = '';
   };
 }
@@ -27,7 +28,7 @@ function clearTaskButton() {
 function createTask() {
   const createTaskButton = document.getElementById('criar-tarefa');
   createTaskButton.onclick = () => {
-    const taskList = document.getElementById('lista-tarefas');
+    const taskList = document.getElementById(listaTarefas);
     const taskInputName = document.getElementById('texto-tarefa');
 
     const taskItem = document.createElement('li');
@@ -41,5 +42,22 @@ function createTask() {
   };
 }
 
-createTask();
-clearTaskButton();
+function removeDoneTask() {
+  const removeButtonElement = document.getElementById('remover-finalizados');
+
+  removeButtonElement.onclick = () => {
+    console.log('removeDoneTask');
+    const taskList = document.getElementById(listaTarefas);
+    const taskItems = document.querySelectorAll('.completed');
+    console.log(taskItems);
+    for (let index = 0; index < taskItems.length; index += 1) {
+      taskList.removeChild(taskItems[index]);
+    }
+  };
+}
+
+window.onload = () => {
+  createTask();
+  clearTaskButton();
+  removeDoneTask();
+};
