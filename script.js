@@ -20,6 +20,8 @@ function toggleDoneTask(item) {
 function clearTaskButton() {
   const taskList = document.getElementById(listaTarefas);
   taskList.innerHTML = '';
+
+  localStorage.removeItem('tasks');
 }
 
 function createTask() {
@@ -45,7 +47,38 @@ function removeDoneTask() {
 }
 
 function saveAllTasks() {
+  const tasks = document.querySelectorAll('.task');
+  const taskArray = [];
 
+  for (let index = 0; index < tasks.length; index += 1) {
+    const taskObj = {
+      name: tasks[index].innerHTML,
+      completed: tasks[index].classList.contains('completed'),
+    };
+    taskArray.push(taskObj);
+  }
+
+  localStorage.setItem('tasks', JSON.stringify(taskArray));
+}
+
+function getTasksFromStorage() {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  if (!tasks) return;
+  console.log(tasks);
+  const taskList = document.getElementById(listaTarefas);
+
+  for (let index = 0; index < tasks.length; index += 1) {
+    const taskItem = document.createElement('li');
+    taskItem.innerHTML = tasks[index].name;
+    taskItem.className = 'task';
+    if (tasks[index].completed) {
+      taskItem.classList.add('completed');
+    }
+    taskItem.onclick = () => selectTask(taskItem);
+    taskItem.ondblclick = () => toggleDoneTask(taskItem);
+
+    taskList.appendChild(taskItem);
+  }
 }
 
 window.onload = () => {
@@ -58,4 +91,6 @@ window.onload = () => {
   createTaskButton.onclick = createTask;
   clearButtonElement.onclick = clearTaskButton;
   saveTaskButtonElement.onclick = saveAllTasks;
+
+  getTasksFromStorage();
 };
