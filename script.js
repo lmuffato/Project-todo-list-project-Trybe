@@ -6,6 +6,10 @@ function addTask() {
     li.innerHTML = inputTask.value;
 
     li.addEventListener('click', function() {
+        const liArray = document.querySelectorAll('li');
+        for (let index = 0; index < liArray.length; index += 1) {
+            liArray[index].style.backgroundColor = '';
+        }
         addColor(li)
     })
 
