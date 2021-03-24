@@ -3,11 +3,6 @@
   margin-right: 60%;
 }
 
-.completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
-  margin-right: 60%;
-}
-
 .head {
   text-align: left;
   font-family: Arial;

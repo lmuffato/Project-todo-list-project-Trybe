@@ -27,6 +27,13 @@ changeColor();
 function completeTask() {
   todoList.addEventListener('dblclick', (e) => {
     e.target.classList.toggle('completed');
+    if (e.target.classList.contains('completed')){
+      e.target.style.textDecoration ='line-through solid rgb(0, 0, 0)';
+        console.log('oi');
+    } else {
+      e.target.style.textDecoration = 'none';
+      console.log('hello');
+    }
   });
 }
 completeTask();
