@@ -23,12 +23,24 @@ function apagaLista() {
   }
 }
 
+function removeFinalizados() {
+  for (let index = 0; index < listaTarefas.children.length; index += 1) {
+    
+  if (listaTarefas.children[index].className === 'item completed'){
+    console.log('ok');
+    listaTarefas.children[index].remove();
+   }
+  }
+}
+
 const bt = document.getElementById('criar-tarefa');
 const texto = document.getElementById('texto-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 const btal = document.getElementById('apaga-tudo');
+const btrf = document.getElementById('remover-finalizados');
 
 bt.addEventListener('click', addTarefa);
 listaTarefas.addEventListener('click', mudaCor);
 listaTarefas.addEventListener('dblclick', riscaTexto);
 btal.addEventListener('click', apagaLista);
+btrf.addEventListener('click', removeFinalizados);
