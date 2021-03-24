@@ -6,8 +6,10 @@ function selectTask(item) {
 
   for (let index = 0; index < tasksList.length; index += 1) {
     tasksList[index].style.backgroundColor = '';
+    tasksList[index].classList.remove('selected');
   }
 
+  taskItem.classList.add('selected');
   taskItem.style.backgroundColor = 'rgb(128,128,128)';
 }
 
@@ -81,16 +83,29 @@ function getTasksFromStorage() {
   }
 }
 
+// Referencia: https://github.com/tryber/sd-010-a-project-todo-list/pull/96
+function moveTaskUp() {
+  // const selectedItem = document.querySelector('.selected');
+}
+
+function moveTaskDown() {
+  // const selectedTask = getSelectedTask();
+}
+
 window.onload = () => {
   const createTaskButton = document.getElementById('criar-tarefa');
   const removeButtonElement = document.getElementById('remover-finalizados');
   const clearButtonElement = document.getElementById('apaga-tudo');
   const saveTaskButtonElement = document.getElementById('salvar-tarefas');
+  const moveUpButtonElement = document.getElementById('mover-cima');
+  const moveDownButtonElement = document.getElementById('mover-baixo');
 
   removeButtonElement.onclick = removeDoneTask;
   createTaskButton.onclick = createTask;
   clearButtonElement.onclick = clearTaskButton;
   saveTaskButtonElement.onclick = saveAllTasks;
+  moveUpButtonElement.onclick = moveTaskUp;
+  moveDownButtonElement.onclick = moveTaskDown;
 
   getTasksFromStorage();
 };
