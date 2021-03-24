@@ -1,3 +1,13 @@
-// No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
+// Item 5. Adiciona evento click no input texto, cria intem dentro da ol e apaga o texto do input
 
-// adicionar evento ao clicar no botão
+function addTask() {
+    const inputTask = document.querySelector('#texto-tarefa');
+    const li = document.createElement('li');
+    li.innerHTML = inputTask.value;
+    document.querySelector('#lista-tarefas').appendChild(li);
+    inputTask.value = '';
+}
+
+const task = document.querySelector('#criar-tarefa');
+task.addEventListener('click', addTask);
+
