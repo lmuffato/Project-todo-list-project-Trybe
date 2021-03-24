@@ -1,6 +1,7 @@
 const button = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
 const deleteButton = document.querySelector('#apaga-tudo');
+const finishedTask = document.querySelector('#remover-finalizados');
 function taskList() {
 button.addEventListener('click', () => {
   const insertText = document.getElementById('texto-tarefa').value;
@@ -30,6 +31,19 @@ function completeTask() {
   });
 }
 completeTask();
+
+function itemFinished(){
+  const finishedItens = document.querySelectorAll('.completed');
+    for(let index = 0; index < finishedItens.length; index +=1){
+      finishedItens[index].remove();
+    }     
+}
+itemFinished();
+
+function removeFinished(){
+  finishedTask.addEventListener('click', itemFinished);
+}
+removeFinished();
 
 function deleteTask(){
   deleteButton.addEventListener('click', (e) => {
