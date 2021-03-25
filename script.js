@@ -1,3 +1,4 @@
+const saveButton = document.querySelector('#salvar-tarefas');
 const finishedTask = document.querySelector('#remover-finalizados');
 const deleteButton = document.querySelector('#apaga-tudo');
 const button = document.querySelector('#criar-tarefa');
@@ -42,10 +43,26 @@ deleteTask();
 
 function itemFinished() {
   finishedTask.addEventListener('click', () => {
-  const finishedItens = document.querySelectorAll('.completed');
-    for (let index = 0; index < finishedItens.length; index +=1) {
-    finishedItens[index].remove();
-  }
-});
+    const finishedItens = document.querySelectorAll('.completed');
+    for (let index = 0; index < finishedItens.length; index += 1) {
+      finishedItens[index].remove();
+    }
+  });
 }
 itemFinished();
+
+function saveList() {
+saveButton.addEventListener('click', () => {
+  localStorage.setItem('savedList' , todoList.innerHTML);
+});
+}
+saveList();
+
+function getList(){
+  const recoveredList = localStorage.getItem('savedList');
+  todoList.innerHTML = recoveredList;
+}
+getList();
+
+
+
