@@ -2,6 +2,7 @@ const getButton = document.querySelector('.botao-tarefa');
 const getInput = document.getElementById('texto-tarefa');
 const getList = document.getElementById('lista-tarefas');
 const getClear = document.querySelector('#apaga-tudo');
+const getClearDone = document.getElementById('remover-finalizados');
 
 function clearSelecteds() {
   const items = document.querySelectorAll('li');
@@ -46,6 +47,17 @@ function clearList() {
   }
 }
 
+function clearDone() {
+  let done = document.querySelectorAll('li');
+ 
+  for (let index = 0; index < done.length; index += 1) {
+    if (done[index].className === 'completed') {
+      done[index].remove();
+    }
+  }
+}
+
 getButton.addEventListener('click', insertTask);
 getButton.addEventListener('click', clearInput);
 getClear.addEventListener('click', clearList);
+getClearDone.addEventListener('click', clearDone);
