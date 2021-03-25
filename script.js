@@ -1,83 +1,82 @@
-const $addTaskBtn = document.getElementById('criar-tarefa');
-const $taskInput = document.getElementById('texto-tarefa');
-const $taskList = document.getElementById('lista-tarefas');
-const $clearBtn = document.getElementById('apaga-tudo');
-const $finishedBtn = document.getElementById('remover-finalizados');
-const $saveTasks = document.getElementById('salvar-tarefas');
-const $moveUpBtn = document.getElementById('mover-cima');
-const $moveDownBtn = document.getElementById('mover-baixo');
-const $removeSelectedBtn = document.getElementById('remover-selecionado');
+const addTaskBtn = document.getElementById('criar-tarefa');
+const taskInput = document.getElementById('texto-tarefa');
+const taskList = document.getElementById('lista-tarefas');
+const clearBtn = document.getElementById('apaga-tudo');
+const finishedBtn = document.getElementById('remover-finalizados');
+const saveTasks = document.getElementById('salvar-tarefas');
+const moveUpBtn = document.getElementById('mover-cima');
+const moveDownBtn = document.getElementById('mover-baixo');
+const removeSelectedBtn = document.getElementById('remover-selecionado');
 
 function addTask() {
-  if ($taskInput.value !== '') {
-    const $newTaskItem = document.createElement('li');
-    $newTaskItem.classList.add('tasks__item');
-    $newTaskItem.textContent = $taskInput.value;
-    $taskList.appendChild($newTaskItem);
-    $taskInput.value = '';
+  if (taskInput.value !== '') {
+    const newTaskItem = document.createElement('li');
+    newTaskItem.classList.add('tasks__item');
+    newTaskItem.textContent = taskInput.value;
+    taskList.appendChild(newTaskItem);
+    taskInput.value = '';
   }
 }
 
-$addTaskBtn.addEventListener('click', addTask);
+addTaskBtn.addEventListener('click', addTask);
 
 function changebackgroundColorItemList(event) {
-  const $target = event.target;
-  const $itemListSelected = document.querySelectorAll('.selected');
-  $itemListSelected.forEach((element) => {
-    if (element !== $target) {
+  const { target } = event;
+  const itemListSelected = document.querySelectorAll('.selected');
+  itemListSelected.forEach((element) => {
+    if (element !== target) {
       element.classList.remove('selected');
     }
   });
-  // $target.classList.toggle('selected');
-  $target.classList.add('selected');
+  target.classList.add('selected');
 }
 
-$taskList.addEventListener('click', changebackgroundColorItemList);
+taskList.addEventListener('click', changebackgroundColorItemList);
 
 function scratchItemList(event) {
   event.target.classList.toggle('completed');
 }
 
-$taskList.addEventListener('dblclick', scratchItemList);
+taskList.addEventListener('dblclick', scratchItemList);
 
 function clearItensList() {
-  const $tasksItens = document.querySelectorAll('.tasks__item');
-  $tasksItens.forEach((taskItem) => taskItem.parentNode.removeChild(taskItem));
+  const tasksItens = document.querySelectorAll('.tasks__item');
+  tasksItens.forEach((taskItem) => taskItem.parentNode.removeChild(taskItem));
   localStorage.removeItem('status');
 }
 
-$clearBtn.addEventListener('click', clearItensList);
+clearBtn.addEventListener('click', clearItensList);
 
 function removeFinishedElement() {
-  const $finishedElements = document.querySelectorAll('.completed');
-  $finishedElements.forEach((element) => element.parentNode.removeChild(element));
+  const finishedElements = document.querySelectorAll('.completed');
+  finishedElements.forEach((element) => element.parentNode.removeChild(element));
 }
 
-$finishedBtn.addEventListener('click', removeFinishedElement);
+finishedBtn.addEventListener('click', removeFinishedElement);
 
-const $status = {
+const status = {
   added: [],
   completed: [],
 };
 
 function saveStatusItens() {
-  $status.added = [];
-  $status.completed = [];
-  const $itensList = document.querySelectorAll('.tasks__list  > li');
-  $itensList.forEach((item) => $status.added.push(item.textContent));
-  $itensList.forEach((item) => $status.completed.push(item.classList.contains('completed')));
-  localStorage.setItem('status', JSON.stringify($status));
+  status.added = [];
+  status.completed = [];
+  const itensList = document.querySelectorAll('.tasks__list  > li');
+  itensList.forEach((item) => status.added.push(item.textContent));
+  itensList.forEach((item) => status.completed.push(item.classList.contains('completed')));
+  localStorage.setItem('status', JSON.stringify(status));
 }
 
-$saveTasks.addEventListener('click', saveStatusItens);
+saveTasks.addEventListener('click', saveStatusItens);
 
 function restoreStatusItens() {
   const list = JSON.parse(localStorage.getItem('status'));
   list.added.forEach((item) => {
-    const $newTaskItem = document.createElement('li');
-    $newTaskItem.classList.add('tasks__item');
-    $newTaskItem.textContent = item;
-    $taskList.appendChild($newTaskItem);
+    const newTaskItem = document.createElement('li');
+    newTaskItem.classList.add('tasks__item');
+    newTaskItem.textContent = item;
+    taskList.appendChild(newTaskItem);
   });
   list.completed.forEach((item, index) => {
     const listItem = document.querySelectorAll('.tasks__item');
@@ -93,42 +92,34 @@ if (test !== null) {
 }
 
 function moveUp() {
-  // const $listItems = document.querySelectorAll('li');
-  const $itemSelected = document.querySelector('.selected');
-  if ($itemSelected !== null) {
-    const $items = document.querySelectorAll('li');
-    const list = Array.from($items);
-    if (list.indexOf($itemSelected) !== 0) {
-      $taskList.insertBefore($itemSelected, $itemSelected.previousElementSibling);
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected !== null) {
+    const items = document.querySelectorAll('li');
+    const list = Array.from(items);
+    if (list.indexOf(itemSelected) !== 0) {
+      taskList.insertBefore(itemSelected, itemSelected.previousElementSibling);
     }
   }
 }
 
-// $listItems.forEach((item) => {
-//   if (item.classList.contains('selected')) {
-//     const parent = item.parentElement;
-//     parent.insertBefore(item, item.previousElementSibling);
-//   }
-// });
-
-$moveUpBtn.addEventListener('click', moveUp);
+moveUpBtn.addEventListener('click', moveUp);
 
 function moveDown() {
-  const $itemSelected = document.querySelector('.selected');
-  if ($itemSelected !== null) {
-    const $items = document.querySelectorAll('li');
-    const list = Array.from($items);
-    if (list.indexOf($itemSelected) !== list.length - 1) {
-      $taskList.insertBefore($itemSelected.nextElementSibling, $itemSelected);
+  const itemSelected = document.querySelector('.selected');
+  if (itemSelected !== null) {
+    const items = document.querySelectorAll('li');
+    const list = Array.from(items);
+    if (list.indexOf(itemSelected) !== list.length - 1) {
+      taskList.insertBefore(itemSelected.nextElementSibling, itemSelected);
     }
   }
 }
 
-$moveDownBtn.addEventListener('click', moveDown);
+moveDownBtn.addEventListener('click', moveDown);
 
 function removeSelected() {
-  const $itemSelected = document.querySelector('.selected');
-  $taskList.removeChild($itemSelected);
+  const itemSelected = document.querySelector('.selected');
+  taskList.removeChild(itemSelected);
 }
 
-$removeSelectedBtn.addEventListener('click', removeSelected);
+removeSelectedBtn.addEventListener('click', removeSelected);
