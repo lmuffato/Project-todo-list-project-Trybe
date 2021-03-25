@@ -10,3 +10,15 @@ function taskList() {
   });
 }
 taskList();
+
+function changeColor() {
+  todoList.addEventListener('click', (e) => {
+    const itemList = e.target;
+    const liClass = document.getElementsByClassName('item')[0];
+    if (liClass !== undefined) {
+      liClass.classList.remove('item');
+    }
+    itemList.classList.add('item');
+  });
+}
+changeColor();
