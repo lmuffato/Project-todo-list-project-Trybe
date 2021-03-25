@@ -52,17 +52,14 @@ function itemFinished() {
 itemFinished();
 
 function saveList() {
-saveButton.addEventListener('click', () => {
-  localStorage.setItem('savedList' , todoList.innerHTML);
-});
+  saveButton.addEventListener('click', () => {
+    localStorage.setItem('savedList', todoList.innerHTML);
+  });
 }
 saveList();
 
-function getList(){
+function getList() {
   const recoveredList = localStorage.getItem('savedList');
   todoList.innerHTML = recoveredList;
 }
 getList();
-
-
-
