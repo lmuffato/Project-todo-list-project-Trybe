@@ -37,7 +37,7 @@ table {
 .header {
   margin: 0 auto;
   text-align: center;
-  padding: 100px 40px;
+  padding: 10vh 40px;
   background-color: rgb(35 , 67 , 97);
   margin-bottom: 10px;
   color: rgb(253 , 253 , 254);
@@ -79,6 +79,7 @@ table {
 
 .task-add__input {
   padding: 8px;
+  font-size: 1.2em;
 }
 
 .action {
@@ -88,6 +89,7 @@ table {
   gap: 10px;
   justify-content: center;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 
 .btn {
