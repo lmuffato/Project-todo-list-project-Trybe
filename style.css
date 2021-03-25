@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html , body , div , h1 , h2 , p , ol , ul , li , header , table , tr , td {
   margin: 0;
   padding: 0;
@@ -12,6 +16,7 @@ header {
 
 body {
   line-height: 1;
+  background-color: rgb(246, 247, 249);
 }
 
 table {
@@ -30,21 +35,22 @@ table {
 
 /* Header */
 .header {
-  max-width: 1220px;
   margin: 0 auto;
   text-align: center;
-  padding: 40px;
+  padding: 100px 40px;
+  background-color: rgb(35, 67, 97);
+  margin-bottom: 10px;
+  color: rgb(253, 253, 254);
 }
 
 .header__title {
-  font-size: 1.8em;
+  font-size: 3em;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.task-add {
-  margin: 0 auto;
-  margin-bottom: 10px;
+.header__paragraph {
+  font-weight: 600;
 }
 
 .tasks {
@@ -55,6 +61,24 @@ table {
   max-width: 400px;
   margin: 0 auto;
   display: grid;
+  padding-top: 60px;
+}
+
+.tasks__item {
+  color: rgb(37, 44, 75);
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.task-add {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.task-add__input {
+  padding: 8px;
 }
 
 .action {
@@ -64,4 +88,18 @@ table {
   gap: 10px;
   justify-content: center;
   margin: 0 auto;
+}
+
+.btn {
+  background-color: rgb(43, 127, 204);
+  color: rgb(253, 253, 254);
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.8;
 }
