@@ -37,7 +37,7 @@ function removeFinalizados() {
     }
   }
 }
-
+// Contribuição Renzo
 function moverCima() {
   let itemselec = document.getElementsByClassName('item selec')[0];
   const listali = document.getElementsByTagName('li');
@@ -51,7 +51,7 @@ function moverCima() {
     }
   }
 }
-
+// Contribuição Renzo
 function moverBaixo() {
   const itemselec = document.getElementsByClassName('item selec')[0];
   const listali = document.getElementsByTagName('li');
@@ -68,7 +68,7 @@ function removeSel() {
   const itemselec = document.getElementsByClassName('item selec');
   const listali = document.getElementsByTagName('li');
   for (let index = 0; index < listali.length; index += 1) {
-    if (itemselec == listali[index]) {
+    if (itemselec === listali[index]) {
       listaTarefas.children.remove(itemselec);
     }
   }
@@ -92,8 +92,8 @@ btrf.addEventListener('click', removeFinalizados);
 btup.addEventListener('click', moverCima);
 btdw.addEventListener('click', moverBaixo)
 
-/*btsv.addEventListener('click', () => {
-  localStorage.setItem('key', listaTarefas.outerHTML);
+btsv.addEventListener('click', () => {
+  localStorage.setItem('key', listaTarefas.innerHTML);
 });
 
 const pegarItens = () => {
@@ -102,6 +102,6 @@ const pegarItens = () => {
     listaTarefas.innerHTML = pegarItem;
   }
 };
-pegarItens(); */
+pegarItens(); 
 
 btrms.addEventListener('click', removeSel);
