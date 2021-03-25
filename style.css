@@ -16,7 +16,7 @@ header {
 
 body {
   line-height: 1;
-  background-color: rgb(246, 247, 249);
+  background-color: rgb(246 , 247 , 249);
 }
 
 table {
@@ -38,9 +38,9 @@ table {
   margin: 0 auto;
   text-align: center;
   padding: 100px 40px;
-  background-color: rgb(35, 67, 97);
+  background-color: rgb(35 , 67 , 97);
   margin-bottom: 10px;
-  color: rgb(253, 253, 254);
+  color: rgb(253 , 253 , 254);
 }
 
 .header__title {
@@ -65,7 +65,7 @@ table {
 }
 
 .tasks__item {
-  color: rgb(37, 44, 75);
+  color: rgb(37 , 44 , 75);
   font-size: 1.5em;
   margin-bottom: 5px;
   padding: 5px;
@@ -91,8 +91,8 @@ table {
 }
 
 .btn {
-  background-color: rgb(43, 127, 204);
-  color: rgb(253, 253, 254);
+  background-color: rgb(43 , 127 , 204);
+  color: rgb(253 , 253 , 254);
   border-radius: 4px;
   padding: 8px;
   border: none;
