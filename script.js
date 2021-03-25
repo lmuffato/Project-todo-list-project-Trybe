@@ -5,6 +5,7 @@ function addTarefa() {
   itemlist.innerText = texto.value;
   texto.value = '';
 }
+
 function mudaCor(evento) {
   for (let index = 0; index < listaTarefas.children.length; index += 1) {
     listaTarefas.children[index].style.backgroundColor = '';
@@ -38,9 +39,28 @@ function removeFinalizados() {
 }
 
 function moverCima() {
-  const itemselec = document.getElementsByClassName('item selec');
+  let itemselec = document.getElementsByClassName('item selec')[0];
   const listali = document.getElementsByTagName('li');
+  if (itemselec === listali[0]) {
+    return;
+  }
   for (let index = 0; index < listali.length; index += 1) {
+    if (itemselec === listali[index]) {
+      itemselec.outerHTML = listali[index - 1].outerHTML;
+      listali[index - 1].outerHTML = itemselec.outerHTML;
+    }
+  }
+}
+
+function moverBaixo() {
+  const itemselec = document.getElementsByClassName('item selec')[0];
+  const listali = document.getElementsByTagName('li');
+  if (itemselec === listali[listali.length - 1]) return;
+  for (let index = 0; index < listali.length; index += 1) {
+    if (itemselec === listali[index]) {
+      itemselec.outerHTML = listali[index + 1].outerHTML;
+      listali[index + 1].outerHTML = itemselec.outerHTML;
+    }
   }
 }
 
@@ -60,7 +80,7 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const btal = document.getElementById('apaga-tudo');
 const btrf = document.getElementById('remover-finalizados');
 const btup = document.getElementById('mover-cima');
-//const btdw = document.getElementById('mover-baixo');
+const btdw = document.getElementById('mover-baixo');
 const btsv = document.getElementById('salvar-tarefas');
 const btrms = document.getElementById('remover-selecionado');
 
@@ -70,7 +90,9 @@ listaTarefas.addEventListener('dblclick', riscaTexto);
 btal.addEventListener('click', apagaLista);
 btrf.addEventListener('click', removeFinalizados);
 btup.addEventListener('click', moverCima);
-btsv.addEventListener('click', () => {
+btdw.addEventListener('click', moverBaixo)
+
+/*btsv.addEventListener('click', () => {
   localStorage.setItem('key', listaTarefas.outerHTML);
 });
 
@@ -80,5 +102,6 @@ const pegarItens = () => {
     listaTarefas.innerHTML = pegarItem;
   }
 };
-pegarItens();
+pegarItens(); */
+
 btrms.addEventListener('click', removeSel);
