@@ -1,3 +1,4 @@
+const deleteButton = document.querySelector('#apaga-tudo');
 const button = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
 function taskList() {
@@ -29,3 +30,11 @@ function completeTask() {
   });
 }
 completeTask();
+
+function deleteTask() {
+  deleteButton.addEventListener('click', () => {
+    const taskItens = document.querySelector('#lista-tarefas');
+    taskItens.innerHTML = '';
+  });
+}
+deleteTask();
