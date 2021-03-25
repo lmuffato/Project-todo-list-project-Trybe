@@ -22,3 +22,10 @@ function changeColor() {
   });
 }
 changeColor();
+
+function completeTask() {
+  todoList.addEventListener('dblclick', (e) => {
+    e.target.classList.toggle('completed');
+  });
+}
+completeTask();
