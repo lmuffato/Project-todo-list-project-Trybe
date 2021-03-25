@@ -1,11 +1,14 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-h1, p{
+
+h1,
+p {
   text-align: center;
 }
+
 .form-header {
   text-align: center;
   background-color: rgb(246, 247, 248);
@@ -17,3 +20,4 @@ h1, p{
   margin-right: auto;
   margin-left: auto;
 }
+

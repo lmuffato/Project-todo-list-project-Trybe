@@ -15,11 +15,10 @@ function seletorItem() {
     const li = document.querySelectorAll('li');
     const color = 'rgb(128, 128, 128)';
     /* event.target.style.backgroundColor = color; */
-    for (let index = 0; index < li.length; index++) {
+    for (let index = 0; index < li.length; index += 1) {
       if (li[index].style.backgroundColor === color) {
         li[index].style.backgroundColor = '';
       }
-      
     }
     event.target.style.backgroundColor = color;
   }
@@ -61,3 +60,16 @@ function removerFinalizados() {
   butonRemoverFinalizados.addEventListener('click', butaoFinalizados);
 }
 removerFinalizados();
+
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+salvarTarefas.addEventListener('click', () => {
+  localStorage.setItem('key', listaTarefas.outerHTML);
+});
+
+const pegarListaLocalStorage = () => {
+  if (localStorage.getItem('key') !== undefined) {
+    const listaItens = localStorage.getItem('key');
+    listaTarefas.innerHTML = listaItens;
+  }
+};
+pegarListaLocalStorage();
