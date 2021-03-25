@@ -41,14 +41,11 @@ function deleteTask() {
 deleteTask();
 
 function itemFinished() {
+  finishedTask.addEventListener('click', () => {
   const finishedItens = document.querySelectorAll('.completed');
     for (let index = 0; index < finishedItens.length; index +=1) {
     finishedItens[index].remove();
   }
+});
 }
 itemFinished();
-
-function removeFinished() {
-  finishedTask.addEventListener('click', itemFinished);
-}
-removeFinished();
