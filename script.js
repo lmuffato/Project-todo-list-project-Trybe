@@ -5,7 +5,7 @@ const finishedTask = document.querySelector('#remover-finalizados');
 const deleteButton = document.querySelector('#apaga-tudo');
 const button = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
-const ol = document.querySelector('#lista-tarefas');
+const ol = document.querySelector('.lista');
 const li = document.querySelector('.item');
 
 function taskList() {
@@ -71,18 +71,14 @@ getList();
 
 function moveDownTasks() {
   buttonDown.addEventListener('click', () => {
-    const ol = document.querySelector('#lista-tarefas');
-    const li = document.querySelector('.item');
-      if(li === ol.lastChild) return;
-      else ol.insertBefore(li.nextSibling, li);
+    if(li === ol.lastChild) return;
+    else ol.insertBefore(li.nextSibling, li);
   });
 }
 moveDownTasks();
 
-function moveUpTasks(){
-  buttonUp.addEventListener('click', () =>{
-    const ol = document.querySelector('#lista-tarefas');
-    const li = document.querySelector('.item');
+function moveUpTasks() {
+  buttonUp.addEventListener('click', () => {
     if(li === ol.firstChild) return;
     else ol.insertBefore(li, li.previousSibling);    
   });
