@@ -8,6 +8,18 @@ const removeAllBtn = document.getElementById('apaga-tudo');
 
 const removeCheck = document.getElementById('remover-finalizados');
 
+const btnRemoveSelect = document.getElementById('remover-selecionado');
+
+function removeSelect() {
+  for (let index = 0; index < liElement.length; index += 1) {
+    if (liElement[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      list.removeChild(liElement[index]);
+    }
+  }
+}
+
+btnRemoveSelect.addEventListener('click', removeSelect);
+
 function addList() {
   const liList = document.createElement('li');
   const text = document.querySelector('#texto-tarefa');
@@ -16,7 +28,6 @@ function addList() {
   list.appendChild(liList);
   text.value = '';
 }
-console.log();
 
 addBtn.addEventListener('click', addList);
 
