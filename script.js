@@ -26,4 +26,16 @@ function addColor(li) {
     li.style.backgroundColor= 'rgb(128, 128, 128)';
 }
 
+// adiciona função que risca item e desfaz a ação tcomb
+
+const selectedItem = document.getElementById('lista-tarefas');
+selectedItem.addEventListener('dblclick', lineThrough);
+
+function lineThrough(event) {
+  if (event.target.className !== 'completed') {
+      event.target.classList.add('completed');
+  } else {
+      event.target.classList.remove('completed');
+  }
+}
 
