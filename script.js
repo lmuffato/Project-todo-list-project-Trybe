@@ -1,26 +1,28 @@
+const removerSelecionado = document.querySelector('#remover-selecionado');
 const criarTarefa = document.querySelector('#criar-tarefa');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
+const color = 'rgb(128, 128, 128)';
 
-function criarNovaTarefa() {
+criarTarefa.addEventListener('click', () => {
   const novaLi = document.createElement('li');
   novaLi.innerText = textoTarefa.value;
   listaTarefas.appendChild(novaLi);
   textoTarefa.value = '';
-}
-criarTarefa.addEventListener('click', criarNovaTarefa);
+});
 
 function seletorItem() {
   function seletor(event) {
     const li = document.querySelectorAll('li');
-    const color = 'rgb(128, 128, 128)';
     /* event.target.style.backgroundColor = color; */
     for (let index = 0; index < li.length; index += 1) {
       if (li[index].style.backgroundColor === color) {
         li[index].style.backgroundColor = '';
+        li[index].classList.remove('seletorColor');
       }
     }
     event.target.style.backgroundColor = color;
+    event.target.classList.add('seletorColor');
   }
   listaTarefas.addEventListener('click', seletor);
 }
@@ -61,15 +63,19 @@ function removerFinalizados() {
 }
 removerFinalizados();
 
-const salvarTarefas = document.querySelector('#salvar-tarefas');
-salvarTarefas.addEventListener('click', () => {
-  localStorage.setItem('key', listaTarefas.outerHTML);
-});
-
 const pegarListaLocalStorage = () => {
   if (localStorage.getItem('key') !== undefined) {
     const listaItens = localStorage.getItem('key');
     listaTarefas.innerHTML = listaItens;
   }
+  const salvarTarefas = document.querySelector('#salvar-tarefas');
+  salvarTarefas.addEventListener('click', () => {
+    localStorage.setItem('key', listaTarefas.innerHTML);
+  });
 };
 pegarListaLocalStorage();
+
+removerSelecionado.addEventListener('click', () => {
+  const classeSeletor = document.querySelector('.seletorColor');
+  classeSeletor.remove();
+});
