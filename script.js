@@ -12,8 +12,9 @@ function addTask() {
       }
       addColor(li);
   })
-
-  document.querySelector('#lista-tarefas').appendChild(li);
+  if (inputTask.value != '') {
+    document.querySelector('#lista-tarefas').appendChild(li);
+  }
   inputTask.value = '';
 }
 
@@ -50,3 +51,17 @@ function clearAll() {
 
   const clearItens = document.getElementById('apaga-tudo');
   clearItens.addEventListener('click', clearAll);
+
+  // Funcao que remove os itens Finalizados
+
+  function removeDone() {
+    const done = document.querySelectorAll('.completed');
+    for (let index = 0; index < done.length; index += 1) {
+        document.querySelector('#lista-tarefas').removeChild(done[index]);
+    }
+  }
+
+  removeDone();
+
+  const btnDone = document.getElementById('remover-finalizados');
+  btnDone.addEventListener('click', removeDone);
