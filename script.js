@@ -7,9 +7,6 @@ const removeButton = document.querySelector('#remover-selecionado');
 const button = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 
-
-
-
 function taskList() {
   button.addEventListener('click', () => {
     const insertText = document.getElementById('texto-tarefa').value;
@@ -82,7 +79,8 @@ getList();
 function moveDownTasks() {
   buttonDown.addEventListener('click', () => {
     const li = document.querySelector('.item');
-    if(li === ol.lastChild) return;
+    if (li === null) return;
+    if (li === ol.lastChild) return;
     else ol.insertBefore(li.nextSibling, li);
   });
 }
@@ -91,7 +89,8 @@ moveDownTasks();
 function moveUpTasks() {
   buttonUp.addEventListener('click', () => {
     const li = document.querySelector('.item');
-    if(li === ol.firstChild) return;
+    if (li === null) return;
+    if (li === ol.firstChild) return;
     else ol.insertBefore(li, li.previousSibling);    
   });
 }
