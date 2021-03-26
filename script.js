@@ -10,6 +10,20 @@ const removeCheck = document.getElementById('remover-finalizados');
 
 const btnRemoveSelect = document.getElementById('remover-selecionado');
 
+const btnSaveList = document.getElementById('salvar-tarefas');
+
+function loadSavedList() {
+  list.innerHTML = localStorage.getItem('saved');
+}
+
+loadSavedList();
+
+function saveList() {
+  localStorage.setItem('saved', list.innerHTML);
+}
+
+btnSaveList.addEventListener('click', saveList);
+
 function removeSelect() {
   for (let index = 0; index < liElement.length; index += 1) {
     if (liElement[index].style.backgroundColor === 'rgb(128, 128, 128)') {
