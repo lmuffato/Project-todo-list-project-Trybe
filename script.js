@@ -11,7 +11,7 @@ function addTask() {
           liArray[index].style.backgroundColor = '';
       }
       addColor(li);
-  }
+  })
 
   document.querySelector('#lista-tarefas').appendChild(li);
   inputTask.value = '';
