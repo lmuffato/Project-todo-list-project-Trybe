@@ -4,18 +4,17 @@ function addTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   const li = document.createElement('li');
   li.innerHTML = inputTask.value;
-
-  li.addEventListener('click', function() {
-      const liArray = document.querySelectorAll('li');
-      for (let index = 0; index < liArray.length; index += 1) {
-          liArray[index].style.backgroundColor = '';
-      }
-      addColor(li);
-  })
   if (inputTask.value != '') {
+    li.addEventListener('click', function() {
+        const liArray = document.querySelectorAll('li');
+        for (let index = 0; index < liArray.length; index += 1) {
+            liArray[index].style.backgroundColor = '';
+        }
+        addColor(li);
+    });
     document.querySelector('#lista-tarefas').appendChild(li);
+    inputTask.value = '';
   }
-  inputTask.value = '';
 }
 
 const task = document.querySelector('#criar-tarefa');
