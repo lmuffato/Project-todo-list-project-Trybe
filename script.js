@@ -1,8 +1,13 @@
+const buttonUp = document.querySelector('#mover-cima');
+const buttonDown = document.querySelector('#mover-baixo');
 const saveButton = document.querySelector('#salvar-tarefas');
 const finishedTask = document.querySelector('#remover-finalizados');
 const deleteButton = document.querySelector('#apaga-tudo');
 const button = document.querySelector('#criar-tarefa');
 const todoList = document.querySelector('#lista-tarefas');
+const ol = document.querySelector('#lista-tarefas');
+const li = document.querySelector('.item');
+
 function taskList() {
   button.addEventListener('click', () => {
     const insertText = document.getElementById('texto-tarefa').value;
@@ -63,3 +68,26 @@ function getList() {
   todoList.innerHTML = recoveredList;
 }
 getList();
+
+function moveDownTasks() {
+  buttonDown.addEventListener('click', () => {
+    const ol = document.querySelector('#lista-tarefas');
+    const li = document.querySelector('.item');
+      if(li === ol.lastChild) return;
+      else ol.insertBefore(li.nextSibling, li);
+  });
+}
+moveDownTasks();
+
+function moveUpTasks(){
+  buttonUp.addEventListener('click', () =>{
+    const ol = document.querySelector('#lista-tarefas');
+    const li = document.querySelector('.item');
+    if(li === ol.firstChild) return;
+    else ol.insertBefore(li, li.previousSibling);    
+  });
+}
+moveUpTasks();
+
+
+
