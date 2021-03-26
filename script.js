@@ -1,4 +1,4 @@
-const listaTarefas = 'lista-tarefas';
+const taskList = document.getElementById('lista-tarefas');
 
 function selectTask(item) {
   const taskItem = item;
@@ -20,14 +20,12 @@ function toggleDoneTask(item) {
 }
 
 function clearTaskButton() {
-  const taskList = document.getElementById(listaTarefas);
   taskList.innerHTML = '';
 
   localStorage.removeItem('tasks');
 }
 
 function createTask() {
-  const taskList = document.getElementById(listaTarefas);
   const taskInputName = document.getElementById('texto-tarefa');
 
   const taskItem = document.createElement('li');
@@ -41,7 +39,6 @@ function createTask() {
 }
 
 function removeDoneTask() {
-  const taskList = document.getElementById(listaTarefas);
   const taskItems = document.querySelectorAll('.completed');
   for (let index = 0; index < taskItems.length; index += 1) {
     taskList.removeChild(taskItems[index]);
@@ -66,7 +63,6 @@ function saveAllTasks() {
 function getTasksFromStorage() {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   if (!tasks) return;
-  const taskList = document.getElementById(listaTarefas);
 
   for (let index = 0; index < tasks.length; index += 1) {
     const taskItem = document.createElement('li');
@@ -84,7 +80,6 @@ function getTasksFromStorage() {
 
 // Referência: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files
 function moveTaskDown() {
-  const taskList = document.getElementById('lista-tarefas');
   const selectedTask = document.querySelector('.selected');
   if (selectedTask !== null) {
     const nextTask = selectedTask.nextElementSibling;
@@ -97,11 +92,10 @@ function moveTaskDown() {
 // Referência: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files
 function moveTaskUp() {
   const selectedTask = document.querySelector('.selected');
-  const taskList = document.getElementById('lista-tarefas');
-  if(!selectedTask){
+  if (!selectedTask) {
     return;
   }
-  if(taskList.firstChild.nextElementSibling !== selectedTask){
+  if (taskList.firstChild.nextElementSibling !== selectedTask) {
     const afterTask = selectedTask.previousElementSibling;
     afterTask.parentNode.insertBefore(selectedTask, afterTask);
   }
