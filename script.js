@@ -95,7 +95,7 @@ btdw.addEventListener('click', moverBaixo)
 btsv.addEventListener('click', () => {
   localStorage.setItem('key', listaTarefas.innerHTML);
 });
-
+// Requisito feito com ajuda do Thiago Souza
 const pegarItens = () => {
   if (localStorage.getItem('key') !== undefined) {
     const pegarItem = localStorage.getItem('key');
