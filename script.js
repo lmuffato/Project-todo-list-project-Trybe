@@ -95,3 +95,7 @@ function moveUpTasks() {
   });
 }
 moveUpTasks();
+
+/* Gostaria de deixar aqui meu agradecimento aos alunos Renzo Sevilha e André Barroso pela ajuda nos
+requisitos e na refatoração do código! Meu muito obrigado!*/
+//trechos de código retirados de https://www.w3schools.com/jsref/met_node_insertbefore.asp
