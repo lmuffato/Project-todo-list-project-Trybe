@@ -3,6 +3,7 @@ const buttonDown = document.querySelector('#mover-baixo');
 const saveButton = document.querySelector('#salvar-tarefas');
 const finishedTask = document.querySelector('#remover-finalizados');
 const deleteButton = document.querySelector('#apaga-tudo');
+const removeButton = document.querySelector('#remover-selecionado');
 const button = document.querySelector('#criar-tarefa');
 const ol = document.querySelector('#lista-tarefas');
 
@@ -56,6 +57,14 @@ function itemFinished() {
   });
 }
 itemFinished();
+
+function removeSelected(){
+  removeButton.addEventListener('click', () => {
+    const selected = document.querySelector('.item');
+    selected.remove();
+  });
+}
+removeSelected();
 
 function saveList() {
   saveButton.addEventListener('click', () => {
