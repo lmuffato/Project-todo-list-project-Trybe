@@ -4,7 +4,8 @@ const saveButton = document.querySelector('#salvar-tarefas');
 const finishedTask = document.querySelector('#remover-finalizados');
 const deleteButton = document.querySelector('#apaga-tudo');
 const button = document.querySelector('#criar-tarefa');
-const todoList = document.querySelector('#lista-tarefas');
+const ol = document.querySelector('#lista-tarefas');
+
 
 
 
@@ -14,13 +15,13 @@ function taskList() {
     document.getElementById('texto-tarefa').value = '';
     const textList = document.createElement('li');
     textList.innerText = insertText;
-    todoList.appendChild(textList);
+    ol.appendChild(textList);
   });
 }
 taskList();
 
 function changeColor() {
-  todoList.addEventListener('click', (e) => {
+  ol.addEventListener('click', (e) => {
     const itemList = e.target;
     const liClass = document.getElementsByClassName('item')[0];
     if (liClass !== undefined) {
@@ -32,7 +33,7 @@ function changeColor() {
 changeColor();
 
 function completeTask() {
-  todoList.addEventListener('dblclick', (e) => {
+  ol.addEventListener('dblclick', (e) => {
     e.target.classList.toggle('completed');
   });
 }
@@ -58,20 +59,19 @@ itemFinished();
 
 function saveList() {
   saveButton.addEventListener('click', () => {
-    localStorage.setItem('savedList', todoList.innerHTML);
+    localStorage.setItem('savedList', ol.innerHTML);
   });
 }
 saveList();
 
 function getList() {
   const recoveredList = localStorage.getItem('savedList');
-  todoList.innerHTML = recoveredList;
+  ol.innerHTML = recoveredList;
 }
 getList();
 
 function moveDownTasks() {
   buttonDown.addEventListener('click', () => {
-    const ol = document.querySelector('#lista-tarefas');
     const li = document.querySelector('.item');
     if(li === ol.lastChild) return;
     else ol.insertBefore(li.nextSibling, li);
@@ -81,10 +81,9 @@ moveDownTasks();
 
 function moveUpTasks() {
   buttonUp.addEventListener('click', () => {
-    const olList = document.querySelector('#lista-tarefas');
-    const liItem = document.querySelector('.item');
-    if(liItem === olList.firstChild) return;
-    else olList.insertBefore(liItem, liItem.previousSibling);    
+    const li = document.querySelector('.item');
+    if(li === ol.firstChild) return;
+    else ol.insertBefore(li, li.previousSibling);    
   });
 }
 moveUpTasks();
