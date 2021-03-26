@@ -101,6 +101,11 @@ function moveTaskUp() {
   }
 }
 
+function removeSelected() {
+  const selectedTask = document.querySelector('.selected');
+  taskList.removeChild(selectedTask);
+}
+
 window.onload = () => {
   const createTaskButton = document.getElementById('criar-tarefa');
   const removeButtonElement = document.getElementById('remover-finalizados');
@@ -108,6 +113,7 @@ window.onload = () => {
   const saveTaskButtonElement = document.getElementById('salvar-tarefas');
   const moveUpButtonElement = document.getElementById('mover-cima');
   const moveDownButtonElement = document.getElementById('mover-baixo');
+  const removeSelectedElement = document.getElementById('remover-selecionado');
 
   removeButtonElement.onclick = removeDoneTask;
   createTaskButton.onclick = createTask;
@@ -115,6 +121,7 @@ window.onload = () => {
   saveTaskButtonElement.onclick = saveAllTasks;
   moveUpButtonElement.onclick = moveTaskUp;
   moveDownButtonElement.onclick = moveTaskDown;
+  removeSelectedElement.onclick = removeSelected;
 
   getTasksFromStorage();
 };
