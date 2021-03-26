@@ -16,6 +16,7 @@ function addList() {
   list.appendChild(liList);
   text.value = '';
 }
+console.log();
 
 addBtn.addEventListener('click', addList);
 
