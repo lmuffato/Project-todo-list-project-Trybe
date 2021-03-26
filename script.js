@@ -66,7 +66,6 @@ function saveAllTasks() {
 function getTasksFromStorage() {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   if (!tasks) return;
-  console.log(tasks);
   const taskList = document.getElementById(listaTarefas);
 
   for (let index = 0; index < tasks.length; index += 1) {
@@ -83,13 +82,29 @@ function getTasksFromStorage() {
   }
 }
 
-// Referencia: https://github.com/tryber/sd-010-a-project-todo-list/pull/96
-function moveTaskUp() {
-  // const selectedItem = document.querySelector('.selected');
+// Referência: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files
+function moveTaskDown() {
+  const taskList = document.getElementById('lista-tarefas');
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask !== null) {
+    const nextTask = selectedTask.nextElementSibling;
+    if (taskList.lastChild !== selectedTask) {
+      nextTask.parentNode.insertBefore(nextTask, selectedTask);
+    }
+  }
 }
 
-function moveTaskDown() {
-  // const selectedTask = getSelectedTask();
+// Referência: https://github.com/tryber/sd-010-a-project-todo-list/pull/94/files
+function moveTaskUp() {
+  const selectedTask = document.querySelector('.selected');
+  const taskList = document.getElementById('lista-tarefas');
+  if(!selectedTask){
+    return;
+  }
+  if(taskList.firstChild.nextElementSibling !== selectedTask){
+    const afterTask = selectedTask.previousElementSibling;
+    afterTask.parentNode.insertBefore(selectedTask, afterTask);
+  }
 }
 
 window.onload = () => {
