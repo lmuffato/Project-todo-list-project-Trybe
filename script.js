@@ -28,9 +28,6 @@ function addColor(li) {
 
 // adiciona função que risca item e desfaz a ação tcomb
 
-const selectedItem = document.getElementById('lista-tarefas');
-selectedItem.addEventListener('dblclick', lineThrough);
-
 function lineThrough(event) {
   if (event.target.className !== 'completed') {
       event.target.classList.add('completed');
@@ -39,3 +36,17 @@ function lineThrough(event) {
   }
 }
 
+const taksList = document.getElementById('lista-tarefas');
+taksList.addEventListener('dblclick', lineThrough);
+
+// Apaga tudo 
+
+function clearAll() {
+    while (taksList.childElementCount > 0) {
+        taksList.firstElementChild.remove();
+      }
+  }
+  clearAll();
+
+  const clearItens = document.getElementById('apaga-tudo');
+  clearItens.addEventListener('click', clearAll);
