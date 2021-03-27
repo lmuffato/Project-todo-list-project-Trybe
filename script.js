@@ -40,16 +40,16 @@ function selected(event) {
 }
 
 // Cria funcao que limpa Selecionado
-/* 
-function removeSelectedItem() {
-  const itemParaRemover = document.querySelector('selected');
-  escutaTodaOl.removeChild(itemParaRemover);
-}
 
-removeSelectedItem();
+ function removeSelectedItem() {    
+    const itemSelecionado = document.querySelectorAll('.selected');
+    for (let index = 0; index < itemSelecionado.length; index += 1) {
+      document.querySelector('#lista-tarefas').removeChild(itemSelecionado[index]);
+    }
+  }
 
 const btnSelectedItem = document.querySelector('#remover-selecionado');
-btnSelectedItem.addEventListener('click', removeSelectedItem); */
+btnSelectedItem.addEventListener('click', removeSelectedItem);
 
 // adiciona função que risca item e desfaz a ação tbm
 
