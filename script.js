@@ -53,14 +53,18 @@ function clearAll() {
 
   // Funcao que remove os itens Finalizados
 
-  function removeDone() {
-    const done = document.querySelectorAll('.completed');
-    for (let index = 0; index < done.length; index += 1) {
-        document.querySelector('#lista-tarefas').removeChild(done[index]);
-    }
-  }
+  function removeSelectItem() {    
+    const listContainer = document.querySelectorAll('.completed');
+    for (let index = 0; index < listContainer.length; index += 1) {
+      if (listContainer[index].className === 'completed') {
+        document.querySelector('#lista-tarefas').removeChild(listContainer[index]);
+      }
+    }   
+  };
+  
+  removeSelectItem();
+  
+  const selected = document.querySelector('#remover-finalizados');
+  selected.addEventListener('click', removeSelectItem);
 
-  removeDone();
-
-  const btnDone = document.getElementById('remover-finalizados');
-  btnDone.addEventListener('click', removeDone);
+    // Funcao que remove os item selecionado
