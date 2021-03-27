@@ -27,7 +27,7 @@ function addColor(li) {
 }
 
 // cria funcao q tirar o selecionado dos itens e adiciona o novo
-const escutaTodaOl = document.getElementById('lista-tarefas');
+const escutaTodaOl = document.querySelector('#lista-tarefas');
 escutaTodaOl.addEventListener('click', selected);
 const todasLi = document.getElementsByTagName('li');
 
@@ -40,7 +40,7 @@ function selected(event) {
 }
 
 // Cria funcao que limpa Selecionado
-
+/* 
 function removeSelectedItem() {
   const itemParaRemover = document.querySelector('selected');
   escutaTodaOl.removeChild(itemParaRemover);
@@ -49,15 +49,16 @@ function removeSelectedItem() {
 removeSelectedItem();
 
 const btnSelectedItem = document.querySelector('#remover-selecionado');
-btnSelectedItem.addEventListener('click', removeSelectedItem);
+btnSelectedItem.addEventListener('click', removeSelectedItem); */
 
 // adiciona função que risca item e desfaz a ação tbm
 
 function lineThrough(event) {
-  if (event.target.className !== 'completed') {
-      event.target.classList.add('completed');
+  const armazenaEvento = event.target;
+  if (armazenaEvento.classList.contains('completed')) {
+    armazenaEvento.classList.remove('completed');
   } else {
-      event.target.classList.remove('completed');
+    armazenaEvento.classList.add('completed');
   }
 }
 
