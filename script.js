@@ -82,13 +82,10 @@ function clearAll() {
   function removeItemDone() {    
     const listContainer = document.querySelectorAll('.completed');
     for (let index = 0; index < listContainer.length; index += 1) {
-      if (listContainer[index].className === 'completed') {
-        document.querySelector('#lista-tarefas').removeChild(listContainer[index]);
-      }
-    }   
-  };
+      document.querySelector('#lista-tarefas').removeChild(listContainer[index]);
+    }
+  }   
   
-  removeItemDone();
   
   const selectedDone = document.querySelector('#remover-finalizados');
   selectedDone.addEventListener('click', removeItemDone);
