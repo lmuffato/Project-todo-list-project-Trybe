@@ -26,7 +26,32 @@ function addColor(li) {
     li.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-// adiciona função que risca item e desfaz a ação tcomb
+// cria funcao q tirar o selecionado dos itens e adiciona o novo
+const escutaTodaOl = document.getElementById('lista-tarefas');
+escutaTodaOl.addEventListener('click', selected);
+const todasLi = document.getElementsByTagName('li');
+
+function selected(event) {
+  for (let index = 0; index < todasLi.length; index += 1) {
+    todasLi[index].classList.remove('selected');
+    const getClassSelected = event.target;
+    getClassSelected.classList.add('selected');
+  }
+}
+
+// Cria funcao que limpa Selecionado
+
+function removeSelectedItem() {
+  const itemParaRemover = document.querySelector('selected');
+  escutaTodaOl.removeChild(itemParaRemover);
+}
+
+removeSelectedItem();
+
+const btnSelectedItem = document.querySelector('#remover-selecionado');
+btnSelectedItem.addEventListener('click', removeSelectedItem);
+
+// adiciona função que risca item e desfaz a ação tbm
 
 function lineThrough(event) {
   if (event.target.className !== 'completed') {
@@ -53,7 +78,7 @@ function clearAll() {
 
   // Funcao que remove os itens Finalizados
 
-  function removeSelectItem() {    
+  function removeItemDone() {    
     const listContainer = document.querySelectorAll('.completed');
     for (let index = 0; index < listContainer.length; index += 1) {
       if (listContainer[index].className === 'completed') {
@@ -62,9 +87,18 @@ function clearAll() {
     }   
   };
   
-  removeSelectItem();
+  removeItemDone();
   
-  const selected = document.querySelector('#remover-finalizados');
-  selected.addEventListener('click', removeSelectItem);
+  const selectedDone = document.querySelector('#remover-finalizados');
+  selectedDone.addEventListener('click', removeItemDone);
 
     // Funcao que remove os item selecionado
+
+ /*  function removeSelectedItem() {
+    const selectedItem = document.querySelectorAll('.selected')
+    removeChild(selectedList)
+  }
+
+  const btnSelectedItem = document.querySelector('#remover-selecionado');
+  btnSelectedItem.addEventListener('click', removeSelectedItem);
+ */
