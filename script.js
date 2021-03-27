@@ -90,13 +90,17 @@ function clearAll() {
   const selectedDone = document.querySelector('#remover-finalizados');
   selectedDone.addEventListener('click', removeItemDone);
 
-    // Funcao que remove os item selecionado
+    // Funcao que salva lista ... referencia da Ana Ventura
 
- /*  function removeSelectedItem() {
-    const selectedItem = document.querySelectorAll('.selected')
-    removeChild(selectedList)
-  }
-
-  const btnSelectedItem = document.querySelector('#remover-selecionado');
-  btnSelectedItem.addEventListener('click', removeSelectedItem);
- */
+    function saveMyTasks() {
+      localStorage.escutaTodaOl = escutaTodaOl.innerHTML;
+    }
+    const btnSaveMyTasks = document.getElementById('salvar-tarefas');
+    
+    if (typeof Storage !== 'undefined' && localStorage.escutaTodaOl) {
+      escutaTodaOl.innerHTML = localStorage.escutaTodaOl;
+    }
+    
+    window.onload = function initialize() {
+      btnSaveMyTasks.addEventListener('click', saveMyTasks);
+    };
