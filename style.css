@@ -3,10 +3,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 #lista-tarefas li {
   width: 100px;
   border-radius: 4px;

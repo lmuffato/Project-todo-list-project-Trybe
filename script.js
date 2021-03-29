@@ -12,17 +12,30 @@ const btnRemoveSelect = document.getElementById('remover-selecionado');
 
 const btnSaveList = document.getElementById('salvar-tarefas');
 
-function loadSavedList() {
-  list.innerHTML = localStorage.getItem('saved');
+// function loadSavedList() {
+//   list.innerHTML = localStorage.getItem('key');
+// }
+
+// loadSavedList();
+
+// function saveList() {
+//   localStorage.setItem('saved', list.innerHTML);
+// }
+
+// btnSaveList.addEventListener('click', saveList);
+
+btnSaveList.addEventListener('click', () => {
+  localStorage.setItem('key', list.innerHTML)
+})
+
+const savedList = () => {
+  if (localStorage.getItem('key') !== undefined) {
+    const listItens = localStorage.getItem('key')
+    list.innerHTML = listItens
+  }
 }
 
-loadSavedList();
-
-function saveList() {
-  localStorage.setItem('saved', list.innerHTML);
-}
-
-btnSaveList.addEventListener('click', saveList);
+savedList();
 
 function removeSelect() {
   for (let index = 0; index < liElement.length; index += 1) {
@@ -49,8 +62,10 @@ function check(event) {
   const eventTarget = event.target;
   if (eventTarget.classList.contains('completed')) {
     eventTarget.classList.remove('completed');
+    event.target.style.textDecoration = '';
   } else {
     event.target.classList.add('completed');
+    event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
   }
 }
 
