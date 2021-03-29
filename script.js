@@ -92,35 +92,15 @@ window.onload = function loadedPage() {
 
   loadedList.forEach((element, i) => {
     const taskStored = document.createElement('li');
-    taskStored.innerText = (loadedList[i].task)
+    taskStored.innerText = (loadedList[i].task);
     taskStored.style.backgroundColor = 'transparent';
     taskStored.addEventListener('click', clearSelecteds);
     taskStored.addEventListener('click', selectItem);
     taskStored.addEventListener('dblclick', riskItem);
-  
-    if(loadedList[i].done === true) {
-      taskStored.className = 'completed'
+
+    if (loadedList[i].done === true) {
+      taskStored.className = 'completed';
     }
     getList.appendChild(taskStored);
   });
-}
-
-
-// verificar exemplo course com JSON para objetos.
-
-
-
-// funcao do botao
-// que transforme os dados da lista (suas posições no nodeList) e seus respectivos
-// values (tarefas)
-// criar o botao html
-// adicionar o event listenner e o caminho para o botao
-// entao se preocupar em converter conteúdo da lista em um local storage
-// no onload esses items sao visitados
-// onload: converter o JSON em array novamente
-// percorrer e preencher a lista
-
-
-
-//  https://thecodingpie.com/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage
-
+};
