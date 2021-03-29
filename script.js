@@ -32,9 +32,8 @@ function completTask(e) {
 }
 
 function clearTasks() {
-  while (list.firstChild) {
-    list.firstChild.remove();
-  }
+  const reset = document.querySelector('#lista-tarefas');
+  reset.innerHTML = '';
 }
 
 creatTaskButton.addEventListener('click', creatList);
