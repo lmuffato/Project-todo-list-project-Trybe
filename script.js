@@ -1,4 +1,5 @@
 const list = document.querySelector('#lista-tarefas');
+// const listItens = document.querySelectorAll('.item-lista');
 const creatTaskButton = document.querySelector('#criar-tarefa');
 const clearTasksButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
@@ -8,9 +9,10 @@ function creatList() {
   const input = document.querySelector('#texto-tarefa');
   const inputTask = input.value;
   if (inputTask !== '') {
-    const newList = document.createElement('li');
-    newList.innerHTML = inputTask;
-    list.appendChild(newList);
+    const newItem = document.createElement('li');
+    newItem.innerHTML = inputTask;
+    newItem.classList.add('item-lista');
+    list.appendChild(newItem);
     input.value = '';
   }
 }
