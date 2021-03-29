@@ -1,19 +1,3 @@
-window.onload = function loadedPage() {
-  loadedList.forEach((element, i, loadedList) => {
-    const taskStored = document.createElement('li');
-    taskStored.innerText = (loadedList[i].task);
-    taskStored.style.backgroundColor = 'transparent';
-    taskStored.addEventListener('click', clearSelecteds);
-    taskStored.addEventListener('click', selectItem);
-    taskStored.addEventListener('dblclick', riskItem);
-
-    if (loadedList[i].done === true) {
-      taskStored.className = 'completed';
-    }
-    getList.appendChild(taskStored);
-  });
-};
-
 const getButton = document.querySelector('.botao-tarefa');
 const getInput = document.getElementById('texto-tarefa');
 const getList = document.getElementById('lista-tarefas');
@@ -102,5 +86,25 @@ getClear.addEventListener('click', clearList);
 getClearDone.addEventListener('click', clearDone);
 getSave.addEventListener('click', saveItems);
 
-const savedBefore = localStorage.getItem('savedList');
-const loadedList = JSON.parse(savedBefore);
+window.onload = function loadedPage() {
+  const savedBefore = localStorage.getItem('savedList');
+  let loadedList = [];
+  loadedList = JSON.parse(savedBefore);
+
+
+  if(loadedList) {
+    loadedList.forEach((element, i, loadedList) => {
+      const taskStored = document.createElement('li');
+      taskStored.innerText = (loadedList[i].task);
+      taskStored.style.backgroundColor = 'transparent';
+      taskStored.addEventListener('click', clearSelecteds);
+      taskStored.addEventListener('click', selectItem);
+      taskStored.addEventListener('dblclick', riskItem);
+
+      if (loadedList[i].done === true) {
+        taskStored.className = 'completed';
+      }
+      getList.appendChild(taskStored);
+    });
+  }
+};
