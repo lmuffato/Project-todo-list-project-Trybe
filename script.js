@@ -90,7 +90,7 @@ const savedBefore = localStorage.getItem('savedList');
 const loadedList = JSON.parse(savedBefore);
 
 window.onload = function loadedPage() {
-  loadedList.forEach((element, i) => {
+  loadedList.forEach((element, i, loadedList) => {
     const taskStored = document.createElement('li');
     taskStored.innerText = (loadedList[i].task);
     taskStored.style.backgroundColor = 'transparent';
