@@ -27,13 +27,13 @@ header {
 header h1 {
   text-align: center;
   font-size: xx-large;
-  color: rgb(37,42, 56);
+  color: rgb(37 42 56);
 }
 
 header p {
   text-align: center;
   padding: 15px 0;
-  color: rgb(92,92,92);
+  color: rgb(92 92 92);
   font-size: large;
   font-style: oblique;
 }
@@ -47,7 +47,7 @@ form {
 
 input {
   border: solid 2px darkslategrey;
-  background-color: rgb(204, 200, 200);
+  background-color: rgb(204 200 200);
   color: white;
   width: 60%;
 }
@@ -73,5 +73,5 @@ button {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid black;
 }
