@@ -11,17 +11,21 @@ function clearSelecteds() {
     items[index].style.backgroundColor = 'transparent';
   }
 }
+
 function riskItem() {
-  if (this.className === '') {
-    this.className = 'completed';
+  const target = this
+  if (target.className === '') {
+    target.className = 'completed';
   } else {
-    this.className = '';
+    target.className = '';
   }
 }
+
 function selectItem() {
   const painter = this.style;
   painter.backgroundColor = 'rgb(128, 128, 128)';
 }
+
 function insertTask() {
   if (getInput.value !== '') {
     const task = document.createElement('li');
@@ -32,9 +36,11 @@ function insertTask() {
     task.addEventListener('dblclick', riskItem);
   }
 }
+
 function clearInput() {
   getInput.value = '';
 }
+
 function clearList() {
   const getItems = document.querySelectorAll('li');
   for (let index = 0; index < getItems.length; index += 1) {
