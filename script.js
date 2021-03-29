@@ -3,6 +3,7 @@ const getInput = document.getElementById('texto-tarefa');
 const getList = document.getElementById('lista-tarefas');
 const getClear = document.querySelector('#apaga-tudo');
 const getClearDone = document.getElementById('remover-finalizados');
+const getSave = document.getElementById('salvar-tarefas');
 
 function clearSelecteds() {
   const items = document.querySelectorAll('li');
@@ -48,8 +49,8 @@ function clearList() {
 }
 
 function clearDone() {
-  let done = document.querySelectorAll('li');
- 
+  const done = document.querySelectorAll('li');
+
   for (let index = 0; index < done.length; index += 1) {
     if (done[index].className === 'completed') {
       done[index].remove();
@@ -57,7 +58,69 @@ function clearDone() {
   }
 }
 
+const savedList = [];
+
+function storageItems() {
+  localStorage.removeItem('savedList');
+  localStorage.setItem('savedList', JSON.stringify(savedList));
+}
+
+function saveItems() {
+  savedList.splice(0);
+  const listItems = document.querySelectorAll('li');
+
+  listItems.forEach((element) => {
+    if (element.className === 'completed') {
+      savedList.push({ task: element.innerText, done: true });
+    } else {
+      savedList.push({ task: element.innerText, done: false });
+    }
+  });
+
+  storageItems();
+}
+
 getButton.addEventListener('click', insertTask);
 getButton.addEventListener('click', clearInput);
 getClear.addEventListener('click', clearList);
 getClearDone.addEventListener('click', clearDone);
+getSave.addEventListener('click', saveItems);
+
+window.onload = function loadedPage() {
+  const savedBefore = localStorage.getItem('savedList');
+  const loadedList = JSON.parse(savedBefore);
+
+  loadedList.forEach((element, i) => {
+    const taskStored = document.createElement('li');
+    taskStored.innerText = (loadedList[i].task)
+    taskStored.style.backgroundColor = 'transparent';
+    taskStored.addEventListener('click', clearSelecteds);
+    taskStored.addEventListener('click', selectItem);
+    taskStored.addEventListener('dblclick', riskItem);
+  
+    if(loadedList[i].done === true) {
+      taskStored.className = 'completed'
+    }
+    getList.appendChild(taskStored);
+  });
+}
+
+
+// verificar exemplo course com JSON para objetos.
+
+
+
+// funcao do botao
+// que transforme os dados da lista (suas posições no nodeList) e seus respectivos
+// values (tarefas)
+// criar o botao html
+// adicionar o event listenner e o caminho para o botao
+// entao se preocupar em converter conteúdo da lista em um local storage
+// no onload esses items sao visitados
+// onload: converter o JSON em array novamente
+// percorrer e preencher a lista
+
+
+
+//  https://thecodingpie.com/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage
+

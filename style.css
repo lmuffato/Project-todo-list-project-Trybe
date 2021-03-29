@@ -27,13 +27,13 @@ header {
 header h1 {
   text-align: center;
   font-size: xx-large;
-  color: rgb( 37, 42 , 56);
+  color: rgb(37,42, 56);
 }
 
 header p {
   text-align: center;
   padding: 15px 0;
-  color: rgb(92, 92, 92);
+  color: rgb(92,92,92);
   font-size: large;
   font-style: oblique;
 }
