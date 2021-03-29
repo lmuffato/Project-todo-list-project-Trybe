@@ -4,6 +4,8 @@ const getList = document.getElementById('lista-tarefas');
 const getClear = document.querySelector('#apaga-tudo');
 const getClearDone = document.getElementById('remover-finalizados');
 const getSave = document.getElementById('salvar-tarefas');
+const getSelector = document.getElementById('remover-selecionado');
+
 
 function clearSelecteds() {
   const items = document.querySelectorAll('li');
@@ -13,7 +15,7 @@ function clearSelecteds() {
 }
 
 function riskItem() {
-  const target = this
+  const target = this;
   if (target.className === '') {
     target.className = 'completed';
   } else {
@@ -80,19 +82,30 @@ function saveItems() {
   storageItems();
 }
 
+function removeSelected() {
+  const listItems = document.querySelectorAll('li');
+
+  for (let i = 0; i < listItems.length; i += 1) {
+    let styleItem = listItems[i].style;
+    if(styleItem.backgroundColor === 'rgb(128, 128, 128)') {
+      listItems[i].remove();
+    }
+  }
+}
+
 getButton.addEventListener('click', insertTask);
 getButton.addEventListener('click', clearInput);
 getClear.addEventListener('click', clearList);
 getClearDone.addEventListener('click', clearDone);
 getSave.addEventListener('click', saveItems);
+getSelector.addEventListener('click', removeSelected)
 
 window.onload = function loadedPage() {
   const savedBefore = localStorage.getItem('savedList');
   let loadedList = [];
   loadedList = JSON.parse(savedBefore);
 
-
-  if(loadedList) {
+  if (loadedList) {
     loadedList.forEach((element, i, loadedList) => {
       const taskStored = document.createElement('li');
       taskStored.innerText = (loadedList[i].task);
@@ -100,11 +113,10 @@ window.onload = function loadedPage() {
       taskStored.addEventListener('click', clearSelecteds);
       taskStored.addEventListener('click', selectItem);
       taskStored.addEventListener('dblclick', riskItem);
-
       if (loadedList[i].done === true) {
         taskStored.className = 'completed';
       }
       getList.appendChild(taskStored);
     });
   }
-};
+}
