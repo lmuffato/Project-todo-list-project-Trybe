@@ -62,10 +62,10 @@ function check(event) {
   const eventTarget = event.target;
   if (eventTarget.classList.contains('completed')) {
     eventTarget.classList.remove('completed');
-    event.target.style.textDecoration = '';
+    eventTarget.style.textDecoration = '';
   } else {
-    event.target.classList.add('completed');
-    event.target.style.textDecoration = 'line-through solid rgb(0,0,0)';
+    eventTarget.classList.add('completed');
+    eventTarget.style.textDecoration = 'line-through solid rgb(0,0,0)';
   }
 }
 
@@ -82,14 +82,6 @@ function paintGrey(event) {
 }
 
 list.addEventListener('click', paintGrey);
-
-function addClassCompleted() {
-  for (let index = 0; index < liElement.length; index += 1) {
-    liElement[index].classList.toggle('completed');
-  }
-}
-
-addClassCompleted();
 
 function removeAll() {
   list.innerHTML = '';
