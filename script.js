@@ -80,10 +80,10 @@ getClear.addEventListener('click', clearList);
 getClearDone.addEventListener('click', clearDone);
 getSave.addEventListener('click', saveItems);
 
-window.onload = function loadedPage() {
-  const savedBefore = localStorage.getItem('savedList');
-  const loadedList = JSON.parse(savedBefore);
+const savedBefore = localStorage.getItem('savedList');
+const loadedList = JSON.parse(savedBefore);
 
+window.onload = function loadedPage() {
   loadedList.forEach((element, i) => {
     const taskStored = document.createElement('li');
     taskStored.innerText = (loadedList[i].task);
