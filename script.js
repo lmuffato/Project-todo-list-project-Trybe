@@ -6,7 +6,6 @@ const getClearDone = document.getElementById('remover-finalizados');
 const getSave = document.getElementById('salvar-tarefas');
 const getSelector = document.getElementById('remover-selecionado');
 
-
 function clearSelecteds() {
   const items = document.querySelectorAll('li');
   for (let index = 0; index < items.length; index += 1) {
@@ -86,8 +85,8 @@ function removeSelected() {
   const listItems = document.querySelectorAll('li');
 
   for (let i = 0; i < listItems.length; i += 1) {
-    let styleItem = listItems[i].style;
-    if(styleItem.backgroundColor === 'rgb(128, 128, 128)') {
+    const styleItem = listItems[i].style;
+    if (styleItem.backgroundColor === 'rgb(128, 128, 128)') {
       listItems[i].remove();
     }
   }
@@ -98,15 +97,14 @@ getButton.addEventListener('click', clearInput);
 getClear.addEventListener('click', clearList);
 getClearDone.addEventListener('click', clearDone);
 getSave.addEventListener('click', saveItems);
-getSelector.addEventListener('click', removeSelected)
+getSelector.addEventListener('click', removeSelected);
 
 window.onload = function loadedPage() {
   const savedBefore = localStorage.getItem('savedList');
-  let loadedList = [];
-  loadedList = JSON.parse(savedBefore);
+  const loadedList = JSON.parse(savedBefore);
 
   if (loadedList) {
-    loadedList.forEach((element, i, loadedList) => {
+    loadedList.forEach((element, i) => {
       const taskStored = document.createElement('li');
       taskStored.innerText = (loadedList[i].task);
       taskStored.style.backgroundColor = 'transparent';
@@ -119,4 +117,4 @@ window.onload = function loadedPage() {
       getList.appendChild(taskStored);
     });
   }
-}
+};
