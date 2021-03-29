@@ -1,5 +1,6 @@
 const list = document.querySelector('#lista-tarefas');
 const creatTaskButton = document.querySelector('#criar-tarefa');
+const clearTasksButton = document.querySelector('#apaga-tudo');
 
 function creatList() {
   const input = document.querySelector('#texto-tarefa');
@@ -21,7 +22,7 @@ function selectList(e) {
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function completedTask(e) {
+function completTask(e) {
   const targetTask = e.target;
   if (targetTask.className !== 'completed') {
     targetTask.className = 'completed';
@@ -30,6 +31,13 @@ function completedTask(e) {
   }
 }
 
+function clearTasks() {
+  while (list.firstChild) {
+    list.firstChild.remove();
+  }
+}
+
 creatTaskButton.addEventListener('click', creatList);
 list.addEventListener('click', selectList);
-list.addEventListener('dblclick', completedTask);
+list.addEventListener('dblclick', completTask);
+clearTasksButton.addEventListener('click', clearTasks);
