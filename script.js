@@ -101,6 +101,6 @@ window.onload = function loadedPage() {
     if (loadedList[i].done === true) {
       taskStored.className = 'completed';
     }
-    getList.appendChild(taskStored);
+    getList.appendChild(taskStored)
   });
 };
