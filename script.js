@@ -43,7 +43,6 @@ function clearTasks() {
 function clearComplet() {
   const completed = document.querySelectorAll('.completed');
   for (let i = 0; i < completed.length; i += 1) {
-    console.log (i)
     completed[i].remove();
   }
 }
