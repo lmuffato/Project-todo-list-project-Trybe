@@ -25,15 +25,15 @@ const btnSaveList = document.getElementById('salvar-tarefas');
 // btnSaveList.addEventListener('click', saveList);
 
 btnSaveList.addEventListener('click', () => {
-  localStorage.setItem('key', list.innerHTML)
-})
+  localStorage.setItem('key', list.innerHTML);
+});
 
 const savedList = () => {
   if (localStorage.getItem('key') !== undefined) {
-    const listItens = localStorage.getItem('key')
-    list.innerHTML = listItens
+    const listItens = localStorage.getItem('key');
+    list.innerHTML = listItens;
   }
-}
+};
 
 savedList();
 
