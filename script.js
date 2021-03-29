@@ -86,15 +86,15 @@ window.onload = function loadedPage() {
 
   loadedList.forEach((element, i) => {
     const taskStored = document.createElement('li');
-    taskStored.innerText = (loadedList[i].task)
+    taskStored.innerText = (loadedList[i].task);
     taskStored.style.backgroundColor = 'transparent';
     taskStored.addEventListener('click', clearSelecteds);
     taskStored.addEventListener('click', selectItem);
     taskStored.addEventListener('dblclick', riskItem);
 
-    if(loadedList[i].done === true) {
-      taskStored.className = 'completed'
+    if (loadedList[i].done === true) {
+      taskStored.className = 'completed';
     }
     getList.appendChild(taskStored);
   });
-}
+};
