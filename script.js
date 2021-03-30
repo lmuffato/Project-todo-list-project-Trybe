@@ -17,6 +17,10 @@ const createTasks = () => {
     }
     task.style.backgroundColor = 'rgb(128, 128, 128)';
   });
+
+  task.addEventListener('dblclick', () => {
+    task.classList.toggle('completed');
+  });
 };
 
 buttonCreateTasks.addEventListener('click', createTasks);
