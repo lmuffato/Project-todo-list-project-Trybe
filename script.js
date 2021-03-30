@@ -3,6 +3,7 @@ const olTasks = document.getElementById('lista-tarefas');
 const buttonCreateTasks = document.getElementById('criar-tarefa');
 const buttonClearAll = document.getElementById('apaga-tudo');
 const buttonRemoveFinish = document.getElementById('remover-finalizados');
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 
 const createTasks = () => {
   const task = document.createElement('li');
@@ -41,3 +42,15 @@ function removeFinish() {
 }
 
 buttonRemoveFinish.addEventListener('click', removeFinish);
+
+function removeSelected() {
+  const list = document.querySelectorAll('li');
+    for (let indexList = 0; indexList < list.length; indexList += 1) {
+      const styleList = list[indexList].style.backgroundColor;
+      if (styleList === 'rgb(128, 128, 128)') {
+        list[indexList].remove();
+      }
+    }
+}
+
+buttonRemoveSelected.addEventListener('click', removeSelected);
