@@ -96,17 +96,18 @@ btnSave.addEventListener('click', salvamento);
 // }
 
 // deleteSelected();
-const tasks = document.getElementsByTagName('li');
 
-function deleteSelected() {
-  for (let i = 0; i < tasks.length; i += 1) {
-    list.removeChild(tasks[i]);
-    if (selected != null) {
-      document.querySelector(gray).classList.remove(gray);
-    }
-    list.removeChild(selected);
-  }
-}
+// const tasks = document.getElementsByTagName('li');
 
-const btnDeleteSelected = document.getElementById('remover-selecionado');
-btnDeleteSelected.addEventListener('click', deleteSelected);
+// function deleteSelected() {
+//   for (let i = 0; i < tasks.length; i += 1) {
+//     list.removeChild(tasks[i]);
+//     if (selected != null) {
+//       document.querySelector(gray).classList.remove(gray);
+//     }
+//     list.removeChild(selected);
+//   }
+// }
+
+// const btnDeleteSelected = document.getElementById('remover-selecionado');
+// btnDeleteSelected.addEventListener('click', deleteSelected);
