@@ -15,8 +15,8 @@ const createTasks = () => {
         list[indexList].style.backgroundColor = '';
       }
     }
-    task.style.backgroundColor = 'rgb(128, 128, 128)'
+    task.style.backgroundColor = 'rgb(128, 128, 128)';
   });
-}
+};
 
 buttonCreateTasks.addEventListener('click', createTasks);
