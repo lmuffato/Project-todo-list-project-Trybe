@@ -9,3 +9,36 @@
 .completed {
   text-decoration: line-through solid rgb(0,0,0);
 }
+
+.cabecalho {
+  width: 600px;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  flex-direction: column;
+  background: #746b81;
+  border-radius: 2%;
+}
+
+#buttons {
+  width: 600px;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #746b81
+}
+
+main {
+  width: 600px;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  flex-direction: column;
+}
+
+#funcionamento {
+  text-transform: ;
+}

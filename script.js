@@ -1,6 +1,5 @@
 const taskbutton = document.getElementById('criar-tarefa');
 const inputTarefa = document.getElementById('texto-tarefa');
-const listaTarefas = document.querySelectorAll('lista-tarefas');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 const eraseAll = document.getElementById('apaga-tudo');
 const eraseCompleted = document.getElementById('remover-finalizados');
@@ -11,6 +10,7 @@ taskbutton.addEventListener('click', function() {
   listaDeTarefas.appendChild(newtask);
   newtask.addEventListener('click', paintBackground);
   newtask.addEventListener('dblclick', completedTAsk);
+  let tarefas = document.getElementsByTagName('li');
   inputTarefa.value = null;
 });
 
@@ -33,8 +33,10 @@ eraseAll.addEventListener('click', function() {
 })
 
 eraseCompleted.addEventListener('click', function() {
-  for(let index = 0; index < listaTarefas.length; index += 1){
-    if(listaTarefas[index].className = 'selected'){
+const tarefasCompletas = document.querySelectorAll('.completed');
+  for(let index = 0; index < tarefasCompletas.length; index += 1 ) {
+    if(tarefasCompletas[index].className === 'completed') {
+      listaDeTarefas.removeChild(tarefasCompletas[index])
     }
   }
 })
