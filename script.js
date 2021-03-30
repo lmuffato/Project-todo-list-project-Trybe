@@ -19,16 +19,14 @@ addNewTask();
 // Requisitos 7 e 8
 // Modelo de código do Vitor Dias Gonçalves
 // https://github.com/tryber/sd-010-b-project-todo-list/pull/133/commits/810caf8d499b7f8d731535b81c77e3f0b153449c
-const selected = document.querySelector('.fundo-cinza');
-const gray = 'fundo-cinza';
-
 function paintGrey() {
   list.addEventListener('click', (event) => {
-    if (selected != null) {
-      selected.classList.remove(gray);
-    }
+    const selected = document.querySelector('.fundo-cinza');
 
-    event.target.classList.add(gray);
+    if (selected != null) {
+      selected.classList.remove('fundo-cinza');
+    }
+    event.target.classList.add('fundo-cinza');
   });
 }
 
@@ -88,26 +86,15 @@ const btnSave = document.getElementById('salvar-tarefas');
 btnSave.addEventListener('click', salvamento);
 
 // Requisito 14
-// function deleteSelected() {
-//   const btnDeleteSelected = document.getElementById('remover-selecionado');
-//   btnDeleteSelected.addEventListener('click', () => {
+const tasks = document.getElementsByTagName('li');
 
-//   });
-// }
+function deleteSelected() {
+  const selected = document.querySelector('.fundo-cinza');
 
-// deleteSelected();
+  for (let index = 0; index < tasks.length; index += 1) {
+    list.removeChild(selected);
+  }
+}
 
-// const tasks = document.getElementsByTagName('li');
-
-// function deleteSelected() {
-//   for (let i = 0; i < tasks.length; i += 1) {
-//     list.removeChild(tasks[i]);
-//     if (selected != null) {
-//       document.querySelector(gray).classList.remove(gray);
-//     }
-//     list.removeChild(selected);
-//   }
-// }
-
-// const btnDeleteSelected = document.getElementById('remover-selecionado');
-// btnDeleteSelected.addEventListener('click', deleteSelected);
+const btnDeleteSelected = document.getElementById('remover-selecionado');
+btnDeleteSelected.addEventListener('click', deleteSelected);
