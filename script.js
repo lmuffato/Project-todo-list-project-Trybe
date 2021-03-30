@@ -44,16 +44,27 @@ function textLine() {
 
 textLine();
 
-// Requisito 10
-function deleteAllTasks() {
-  while (list.firstChild) {
-    list.removeChild(list.firstChild);
-  }
-}
-
 function clearAll() {
   const btnClear = document.getElementById('apaga-tudo');
-  btnClear.addEventListener('click', deleteAllTasks);
+  btnClear.addEventListener('click', () => {
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+  });
 }
 
 clearAll();
+
+// Requisito 11
+function deleteFinished() {
+  const btnDeleteFinished = document.getElementById('remover-finalizados');
+  btnDeleteFinished.addEventListener('click', () => {
+    const finished = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < finished.length; index += 1) {
+      list.removeChild(finished[index]);
+    }
+  });
+}
+
+deleteFinished();
