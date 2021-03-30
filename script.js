@@ -68,3 +68,20 @@ function deleteFinished() {
 }
 
 deleteFinished();
+
+// Requisito 12
+function salvamento() {
+  const salvarLI = list.innerHTML;
+  localStorage.listaSalva = salvarLI;
+}
+
+function carregarListaSalva() {
+  if (localStorage.listaSalva) {
+    list.innerHTML = localStorage.listaSalva;
+  }
+}
+
+carregarListaSalva();
+
+const btnSave = document.getElementById('salvar-tarefas');
+btnSave.addEventListener('click', salvamento);
