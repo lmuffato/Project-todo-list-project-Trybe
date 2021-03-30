@@ -7,23 +7,16 @@ const createTasks = () => {
   olTasks.appendChild(task);
   task.innerText = inputTask.value;
   inputTask.value = '';
-}
-
-function deselect() {
-  const selected = document.querySelector('.color-gray');
-  selected.classList.remove('color-gray');
+  task.addEventListener('click', () => {
+    const list = document.querySelectorAll('li');
+    for (let indexList = 0; indexList < list.length; indexList += 1) {
+      const styleList = list[indexList].style.backgroundColor;
+      if (styleList === 'rgb(128, 128, 128)') {
+        list[indexList].style.backgroundColor = '';
+      }
+    }
+    task.style.backgroundColor = 'rgb(128, 128, 128)'
+  });
 }
 
 buttonCreateTasks.addEventListener('click', createTasks);
-
-function select() {
-  const list = document.getElementsByTagName('li');
-  for (let indexGray = 0; indexGray < list.length; indexGray += 1) {
-    list[indexGray].addEventListener('click', () => {
-      deselect();
-      list[indexGray].classList.add('color-gray');
-    });
-  }
-}
-
-select();
