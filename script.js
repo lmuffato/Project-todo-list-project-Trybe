@@ -42,3 +42,17 @@ const tarefasCompletas = document.querySelectorAll('.completed');
     }
   }
 })
+
+// a função eraseCompleted e saveTasks foram baseadas no código da Ana Ventura
+function saveTasks() {
+  localStorage.listaDeTarefas = listaDeTarefas.innerHTML;
+}
+
+const btnSalvarLista = document.getElementById('salvar-tarefas');
+if(typeof Storage !== 'undefined' && localStorage.listaDeTarefas) {
+  listaDeTarefas.innerHTML = localStorage.listaDeTarefas
+}
+
+window.onload = function initial() {
+  btnSalvarLista.addEventListener('click', saveTasks);
+}
