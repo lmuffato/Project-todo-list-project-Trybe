@@ -34,6 +34,8 @@ function paintGrey() {
 paintGrey();
 
 // Requisito 9
+// Modelo de código do Vitor Dias Gonçalves
+// https://github.com/tryber/sd-010-b-project-todo-list/pull/133/commits/810caf8d499b7f8d731535b81c77e3f0b153449c
 function textLine() {
   list.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
@@ -41,3 +43,17 @@ function textLine() {
 }
 
 textLine();
+
+// Requisito 10
+function deleteAllTasks() {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+}
+
+function clearAll() {
+  const btnClear = document.getElementById('apaga-tudo');
+  btnClear.addEventListener('click', deleteAllTasks);
+}
+
+clearAll();
