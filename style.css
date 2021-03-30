@@ -2,3 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
+.fundo-cinza { 
+  background-color: rgb(128, 128,128);
+}
