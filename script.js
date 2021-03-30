@@ -16,7 +16,9 @@ const addNewTask = () => {
 
 addNewTask();
 
-// Requisito 7
+// Requisitos 7 e 8
+// Modelo de código do Vitor Dias Gonçalves
+// https://github.com/tryber/sd-010-b-project-todo-list/pull/133/commits/810caf8d499b7f8d731535b81c77e3f0b153449c
 function paintGrey() {
   list.addEventListener('click', (event) => {
     const selected = document.querySelector('.fundo-cinza');
@@ -30,3 +32,12 @@ function paintGrey() {
 }
 
 paintGrey();
+
+// Requisito 9
+function textLine() {
+  list.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
+textLine();

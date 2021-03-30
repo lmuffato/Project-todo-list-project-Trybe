@@ -3,6 +3,10 @@
   padding: 0;
 }
 
-.fundo-cinza { 
-  background-color: rgb(128, 128,128);
+.fundo-cinza {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
 }
