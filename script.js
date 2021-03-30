@@ -1,9 +1,9 @@
-const list = document.querySelector('#lista-tarefas');
-// const listItens = document.querySelectorAll('.item-lista');
+const list = document.getElementById('lista-tarefas');
 const creatTaskButton = document.querySelector('#criar-tarefa');
 const clearTasksButton = document.querySelector('#apaga-tudo');
 const clearCompletedButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+const removeSelectedButton = document.querySelector('#remover-selecionado');
 
 function creatList() {
   const input = document.querySelector('#texto-tarefa');
@@ -11,7 +11,6 @@ function creatList() {
   if (inputTask !== '') {
     const newItem = document.createElement('li');
     newItem.innerHTML = inputTask;
-    newItem.classList.add('item-lista');
     list.appendChild(newItem);
     input.value = '';
   }
@@ -24,6 +23,17 @@ function selectList(e) {
     }
   }
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+
+function addClassSelected(e) {
+  const { target } = e;
+  const selectedItem = document.querySelectorAll('.selected');
+  selectedItem.forEach((el) => {
+    if (el !== target) {
+      el.classList.remove('selected');
+    }
+  });
+  target.classList.add('selected');
 }
 
 function completTask(e) {
@@ -55,11 +65,18 @@ function loadSavedTasks() {
   list.innerHTML = localStorage.getItem(1);
 }
 
+function removeSelected() {
+  const selectedItem = document.querySelector('.selected');
+  list.removeChild(selectedItem);
+}
+
 window.onload = loadSavedTasks;
 
 creatTaskButton.addEventListener('click', creatList);
 list.addEventListener('click', selectList);
 list.addEventListener('dblclick', completTask);
+list.addEventListener('click', addClassSelected);
 clearTasksButton.addEventListener('click', clearTasks);
 clearCompletedButton.addEventListener('click', clearComplet);
 saveTasksButton.addEventListener('click', saveTasks);
+removeSelectedButton.addEventListener('click', removeSelected);
