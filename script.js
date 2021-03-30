@@ -3,6 +3,7 @@ const inputTarefa = document.getElementById('texto-tarefa');
 const listaDeTarefas = document.getElementById('lista-tarefas');
 const eraseAll = document.getElementById('apaga-tudo');
 const eraseCompleted = document.getElementById('remover-finalizados');
+const eraseSelected = document.getElementById('remover-selecionado');
 
 taskbutton.addEventListener('click', function() {
   const newtask = document.createElement('li');
@@ -56,3 +57,12 @@ if(typeof Storage !== 'undefined' && localStorage.listaDeTarefas) {
 window.onload = function initial() {
   btnSalvarLista.addEventListener('click', saveTasks);
 }
+
+eraseSelected.addEventListener('click', function() {
+  const tarefaSelecionada = document.querySelectorAll('.task-selection')
+  for(let index = 0; index < tarefaSelecionada.length; index += 1) {
+    if(tarefaSelecionada[index].className === 'task-selection') {
+      listaDeTarefas.removeChild(tarefaSelecionada[index])
+    }
+  }
+})
