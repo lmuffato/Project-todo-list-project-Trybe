@@ -25,24 +25,8 @@ function selectList(e) {
   e.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function addClassSelected(e) {
-  const { target } = e;
-  const selectedItem = document.querySelectorAll('.selected');
-  selectedItem.forEach((el) => {
-    if (el !== target) {
-      el.classList.remove('selected');
-    }
-  });
-  target.classList.add('selected');
-}
-
 function completTask(e) {
-  const targetTask = e.target;
-  if (targetTask.className !== 'completed') {
-    targetTask.className = 'completed';
-  } else {
-    targetTask.className = 'no-completed';
-  }
+  e.target.classList.toggle('completed');
 }
 
 function clearTasks() {
@@ -68,6 +52,17 @@ function loadSavedTasks() {
 function removeSelected() {
   const selectedItem = document.querySelector('.selected');
   list.removeChild(selectedItem);
+}
+
+function addClassSelected(e) {
+  const { target } = e;
+  const selectedItem = document.querySelectorAll('.selected');
+  selectedItem.forEach((el) => {
+    if (el !== target) {
+      el.classList.remove('selected');
+    }
+  });
+  target.classList.add('selected');
 }
 
 window.onload = loadSavedTasks;
