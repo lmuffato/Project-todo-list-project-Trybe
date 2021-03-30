@@ -37,6 +37,8 @@ const tarefasCompletas = document.querySelectorAll('.completed');
   for(let index = 0; index < tarefasCompletas.length; index += 1 ) {
     if(tarefasCompletas[index].className === 'completed') {
       listaDeTarefas.removeChild(tarefasCompletas[index])
+    }else if(tarefasCompletas[index].className === 'task-selection completed') {
+      listaDeTarefas.removeChild(tarefasCompletas[index])
     }
   }
 })
