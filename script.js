@@ -44,13 +44,13 @@ function removeFinish() {
 buttonRemoveFinish.addEventListener('click', removeFinish);
 
 function removeSelected() {
-  const list = document.querySelectorAll('li');
-    for (let indexList = 0; indexList < list.length; indexList += 1) {
-      const styleList = list[indexList].style.backgroundColor;
-      if (styleList === 'rgb(128, 128, 128)') {
-        list[indexList].remove();
-      }
+  const listSelect = document.querySelectorAll('li');
+  for (let indexList = 0; indexList < listSelect.length; indexList += 1) {
+    const styleListSelect = listSelect[indexList].style.backgroundColor;
+    if (styleListSelect === 'rgb(128, 128, 128)') {
+      listSelect[indexList].remove();
     }
+  }
 }
 
 buttonRemoveSelected.addEventListener('click', removeSelected);
