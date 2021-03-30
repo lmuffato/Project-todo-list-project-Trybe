@@ -85,3 +85,14 @@ carregarListaSalva();
 
 const btnSave = document.getElementById('salvar-tarefas');
 btnSave.addEventListener('click', salvamento);
+
+// Requisito 14
+function deleteSelected() {
+  const btnDeleteSelected = document.getElementById('remover-selecionado');
+  btnDeleteSelected.addEventListener('click', () => {
+    const selected = document.querySelector('.fundo-cinza');
+    selected.classList.remove('fundo-cinza');
+  });
+}
+
+deleteSelected();
