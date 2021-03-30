@@ -1,6 +1,7 @@
 const inputTask = document.getElementById('texto-tarefa');
 const olTasks = document.getElementById('lista-tarefas');
 const buttonCreateTasks = document.getElementById('criar-tarefa');
+const buttonClearAll = document.getElementById('apaga-tudo');
 
 const createTasks = () => {
   const task = document.createElement('li');
@@ -24,3 +25,9 @@ const createTasks = () => {
 };
 
 buttonCreateTasks.addEventListener('click', createTasks);
+
+function clearAll() {
+  olTasks.innerHTML = '';
+};
+
+buttonClearAll.addEventListener('click', clearAll);
