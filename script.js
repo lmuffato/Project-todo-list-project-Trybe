@@ -73,3 +73,25 @@ function riscarItemDaLista(){
 }
 
 riscarItemDaLista();
+
+function removerItemCompletado() {
+  const botaoRemover = document.createElement('button');
+  botaoRemover.id = 'remover-finalizados'; 
+  botaoRemover.innerText = 'Remover Finalizados';
+  const localizacaoButton = document.querySelector('section');
+  localizacaoButton.appendChild(botaoRemover);
+
+  const itemRiscado = document.getElementsByClassName('completed');
+  const todasTarefas = document.getElementById('lista-tarefas');
+
+  botaoRemover.addEventListener('click', function(event){
+  for (let index = itemRiscado.length; index > 0 ; index -= 1) {
+    todasTarefas.removeChild(itemRiscado[index -1]);         
+  }   
+  });
+}
+
+removerItemCompletado();
+
+
+
