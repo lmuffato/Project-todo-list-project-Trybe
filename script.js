@@ -21,13 +21,16 @@ function addItemInList() {
 }
 
 function reselecting(event) {
-  if (event.target !== undefined) {
-    if (event.target.className === 'line completed') {
-      event.target.className = 'line selected completed';
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const target = event.target;
+  const className = target.className;
+  const background = target.style;
+  if (target !== undefined) {
+    if (className === 'line completed') {
+      className = 'line selected completed';
+      background.backgroundColor = 'rgb(128, 128, 128)';
     } else {
-      event.target.className = 'line selected';
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      className = 'line selected';
+      background.backgroundColor = 'rgb(128, 128, 128)';
     }
   }
 }
@@ -46,12 +49,13 @@ function selectText(event) {
 }
 
 function concludedOrNot(event) {
-  if (event.target.className === 'line selected completed' || event.target.className === 'line completed') {
-    event.target.style.textDecoration = '';
-    event.target.className = 'line selected';
+  const target = event.target;
+  if (target.className === 'line selected completed' || target.className === 'line completed') {
+    target.style.textDecoration = '';
+    target.className = 'line selected';
   } else {
-    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-    event.target.className = 'line selected completed';
+    target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    target.className = 'line selected completed';
   }
 }
 
@@ -72,14 +76,15 @@ function clearAll() {
 }
 
 function moveUpCondition(index) {
-  if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
+  const select = line[index];
+  if (select].className === 'line selected' || select.className === 'line selected completed') {
     const storeLine = line[index - 1].innerHTML;
     const storeClassUp = line[index - 1].className;
-    const storeClassDown = line[index].className;
-    line[index - 1].innerHTML = line[index].innerHTML;
-    line[index].innerHTML = storeLine;
-    line[index].className = storeClassUp;
-    line[index].style.backgroundColor = '';
+    const storeClassDown = select.className;
+    line[index - 1].innerHTML = select.innerHTML;
+    select.innerHTML = storeLine;
+    select.className = storeClassUp;
+    select.style.backgroundColor = '';
     line[index - 1].className = storeClassDown;
     line[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
   }
@@ -108,8 +113,9 @@ function moveDownCondition(index) {
 }
 
 function moveDown() {
+  const select = line[index];
   for (let index = 0; index < line.length; index += 1) {
-    if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
+    if (select.className === 'line selected' || select.className === 'line selected completed') {
       moveDownCondition(index);
       break;
     }
