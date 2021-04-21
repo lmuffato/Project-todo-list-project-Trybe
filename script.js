@@ -77,7 +77,7 @@ function clearAll() {
 
 function moveUpCondition(index) {
   const select = line[index];
-  if (select].className === 'line selected' || select.className === 'line selected completed') {
+  if (select.className === 'line selected' || select.className === 'line selected completed') {
     const storeLine = line[index - 1].innerHTML;
     const storeClassUp = line[index - 1].className;
     const storeClassDown = select.className;
