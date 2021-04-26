@@ -75,10 +75,42 @@ function clearCompleted() {
   });
 }
 
+function removeSelected() {
+  const btn = document.querySelector('#remover-selecionado');
+  btn.addEventListener('click', () => {
+    document.querySelector('.selected').remove();
+  });
+}
+
+function saveList() {
+  const btn = document.querySelector('#salvar-tarefas');
+  btn.addEventListener('click', () => {
+    const listItems = document.getElementsByClassName('task');
+    const length = listItems.length;
+    list = [];
+    for (let index = 0; index < length; index += 1) {
+      list.push(listItems[index].textContent)
+    }
+    localStorage.setItem('list', JSON.stringify(list));
+  });
+}
+
+function readLocalStorage() {
+  if (localStorage.getItem('list') !== null) {
+    const list = JSON.parse(localStorage.getItem('list'));
+    list.forEach(element => {
+      createLi(element);
+    });
+  }
+}
+
 window.onload = function run() {
+  readLocalStorage();
   addItem();
   setColor();
   doneTask();
   clearTasks();
   clearCompleted();
+  saveList();
+  removeSelected();
 };
