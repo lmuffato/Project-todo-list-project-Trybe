@@ -82,23 +82,34 @@ function removeSelected() {
   });
 }
 
+
 function saveList() {
   const btn = document.querySelector('#salvar-tarefas');
   btn.addEventListener('click', () => {
     const listItems = document.getElementsByClassName('task');
     const list = [];
     for (let index = 0; index < listItems.length; index += 1) {
-      list.push(listItems[index].textContent);
+      list.push({
+        content: listItems[index].textContent,
+        class: listItems[index].className,
+      });
     }
     localStorage.setItem('list', JSON.stringify(list));
   });
+}
+
+function createLiNew(object) {
+  const listItem = document.createElement('li');
+  listItem.innerText = object.content;
+  listItem.className = object.class;
+  document.getElementById('lista-tarefas').appendChild(listItem);
 }
 
 function readLocalStorage() {
   if (localStorage.getItem('list') !== null) {
     const list = JSON.parse(localStorage.getItem('list'));
     list.forEach((element) => {
-      createLi(element);
+      createLiNew(element);
     });
   }
 }
