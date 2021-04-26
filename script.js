@@ -86,10 +86,9 @@ function saveList() {
   const btn = document.querySelector('#salvar-tarefas');
   btn.addEventListener('click', () => {
     const listItems = document.getElementsByClassName('task');
-    const length = listItems.length;
-    list = [];
-    for (let index = 0; index < length; index += 1) {
-      list.push(listItems[index].textContent)
+    const list = [];
+    for (let index = 0; index < listItems.length; index += 1) {
+      list.push(listItems[index].textContent);
     }
     localStorage.setItem('list', JSON.stringify(list));
   });
@@ -98,7 +97,7 @@ function saveList() {
 function readLocalStorage() {
   if (localStorage.getItem('list') !== null) {
     const list = JSON.parse(localStorage.getItem('list'));
-    list.forEach(element => {
+    list.forEach((element) => {
       createLi(element);
     });
   }
