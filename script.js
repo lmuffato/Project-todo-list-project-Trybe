@@ -82,7 +82,6 @@ function removeSelected() {
   });
 }
 
-
 function saveList() {
   const btn = document.querySelector('#salvar-tarefas');
   btn.addEventListener('click', () => {
