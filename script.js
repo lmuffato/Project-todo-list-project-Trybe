@@ -19,10 +19,8 @@ function deleteAll(e) {
   }
   event.classList.add('disabled');
   removeButton.classList.add('disabled');
-  saveButton.classList.add('disabled');
   event.disabled = true;
   removeButton.disabled = true;
-  saveButton.disabled = true;
 }
 
 function removeCompleted(e) {
@@ -34,9 +32,8 @@ function removeCompleted(e) {
   }
   if (!list.childNodes.length) {
     deleteButton.classList.add('disabled');
-    saveButton.classList.add('disabled');
+
     deleteButton.disabled = true;
-    saveButton.disabled = true;
   }
   event.classList.add('disabled');
   event.disabled = true;
@@ -99,33 +96,36 @@ function setList() {
   }
 }
 
+function getTask(value) {
+  const task = document.createElement('li');
+
+  task.innerText = value;
+  task.addEventListener('click', backgroundSelected);
+  task.addEventListener('dblclick', completedTask);
+
+  return task;
+}
+
 // https://www.horadecodar.com.br/2020/07/21/como-salvar-um-objeto-na-localstorage/
-function getList() {
+function getStoredList() {
   for (let key = 1; key <= store.length; key += 1) {
-    const task = document.createElement('li');
     const storedTask = JSON.parse(store[key]);
+    const task = getTask(storedTask.textContent);
 
     task.className = storedTask.class;
-    task.innerText = storedTask.textContent;
     list.appendChild(task);
   }
 }
 
 function addTask() {
-  const task = document.createElement('li');
   const inputValue = document.querySelector('#texto-tarefa').value;
-
-  task.innerText = inputValue;
-  task.addEventListener('click', backgroundSelected);
-  task.addEventListener('dblclick', completedTask);
+  const task = getTask(inputValue);
 
   list.appendChild(task);
 
   deleteButton.classList.remove('disabled');
   deleteButton.disabled = false;
 
-  saveButton.classList.remove('disabled');
-  saveButton.disabled = false;
   clearInput();
 }
 
@@ -138,5 +138,5 @@ function getEvents() {
 
 window.onload = () => {
   getEvents();
-  getList();
+  getStoredList();
 };
