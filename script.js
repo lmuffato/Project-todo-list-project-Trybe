@@ -3,6 +3,7 @@ const input = document.querySelector('#texto-tarefa');
 const addButton = document.querySelector('#criar-tarefa');
 const deleteButton = document.querySelector('#apaga-tudo');
 const removeButton = document.querySelector('#remover-finalizados');
+const removeSelected = document.querySelector('#remover-selecionado');
 const saveButton = document.querySelector('#salvar-tarefas');
 const upButton = document.querySelector('#mover-cima');
 const downButton = document.querySelector('#mover-baixo');
@@ -102,6 +103,11 @@ function removeCompleted() {
   completed.forEach((task) => task.remove());
 }
 
+function remove() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+
 // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before
 function moveUp() {
   const selected = document.querySelector('.selected');
@@ -132,6 +138,7 @@ function getEvents() {
   addButton.addEventListener('click', addTask);
   deleteButton.addEventListener('click', deleteAll);
   removeButton.addEventListener('click', removeCompleted);
+  removeSelected.addEventListener('click', remove);
   saveButton.addEventListener('click', setStore);
   upButton.addEventListener('click', moveUp);
   downButton.addEventListener('click', moveDown);
