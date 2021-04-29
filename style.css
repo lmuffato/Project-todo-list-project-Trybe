@@ -31,7 +31,7 @@ body {
 
 #texto-tarefa {
   padding: 5px;
-  border: 1px solid gray;
+  border: 1px solid grey;
   border-radius: 10px;
 }
 
@@ -52,9 +52,9 @@ body {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: grey;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
 }
