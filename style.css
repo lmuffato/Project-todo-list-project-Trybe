@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  outline: none;
 }
 
 body {
@@ -36,6 +37,18 @@ body {
 
 #button-field {
   margin: 15px 0 0;
+}
+
+#list-section {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+
+#move-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .selected {

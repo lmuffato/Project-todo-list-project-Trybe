@@ -1,142 +1,143 @@
-const list = document.querySelector('#lista-tarefas');
+const input = document.querySelector('#texto-tarefa');
+
 const addButton = document.querySelector('#criar-tarefa');
 const deleteButton = document.querySelector('#apaga-tudo');
-const saveButton = document.querySelector('#salvar-tarefas');
 const removeButton = document.querySelector('#remover-finalizados');
+const saveButton = document.querySelector('#salvar-tarefas');
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
+
+const list = document.querySelector('#lista-tarefas');
+
 const store = localStorage;
 
 function clearInput() {
-  const input = document.querySelector('#texto-tarefa');
   input.value = '';
 }
 
-function deleteAll(e) {
-  const tasks = document.querySelectorAll('li');
+function selectTask(e) {
   const event = e.target;
+  const previous = document.querySelector('.selected');
 
-  for (let index = 0; index < tasks.length; index += 1) {
-    list.removeChild(tasks[index]);
+  // if (previous || event === previous) {
+  //   previous.classList.remove('selected');
+  // }
+
+  if (previous) {
+    previous.classList.remove('selected');
   }
-  event.classList.add('disabled');
-  removeButton.classList.add('disabled');
-  event.disabled = true;
-  removeButton.disabled = true;
+
+  // if (event !== previous) event.classList.add('selected');
+  event.classList.add('selected');
 }
 
-function removeCompleted(e) {
-  const completedList = document.querySelectorAll('.completed');
-  const event = e.target;
-
-  for (let index = 0; index < completedList.length; index += 1) {
-    list.removeChild(completedList[index]);
-  }
-  if (!list.childNodes.length) {
-    deleteButton.classList.add('disabled');
-
-    deleteButton.disabled = true;
-  }
-  event.classList.add('disabled');
-  event.disabled = true;
-}
-
-function completedTask(e) {
+function completeTask(e) {
   const event = e.target;
 
   // https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
   if (event.classList.contains('completed')) {
     event.classList.remove('completed');
-
-    if (!document.querySelectorAll('.completed').length) {
-      removeButton.classList.add('disabled');
-      removeButton.disabled = true;
-    }
-    return;
-  }
-
-  removeButton.classList.remove('disabled');
-  removeButton.disabled = false;
-  return event.classList.add('completed');
+  } else event.classList.add('completed');
 }
 
-function backgroundDeselected() {
-  const selectedElement = document.querySelector('.selected');
-  if (selectedElement !== null) {
-    selectedElement.classList.remove('selected');
-  }
-  return selectedElement;
-}
-
-function backgroundSelected(e) {
-  const event = e.target;
-  const selectedItem = backgroundDeselected();
-
-  if (event === selectedItem) {
-    return;
-  }
-  return event.classList.add('selected');
-}
-
-function setList() {
-  const tasks = list.childNodes;
-  const property = {};
-
-  if (!tasks.length) {
-    return alert('Sua lista de tarefas está vázia!');
-  }
-
-  for (let index = 0; index < tasks.length; index += 1) {
-    const task = tasks[index];
-
-    if (task.classList.contains('selected')) {
-      task.classList.remove('selected');
-    }
-    property.textContent = task.textContent;
-    property.class = task.className;
-    store.setItem(index + 1, JSON.stringify(property));
-  }
-}
-
-function getTask(value) {
+function createTask(value, className) {
   const task = document.createElement('li');
 
+  if (className) task.classList.add(className);
+
   task.innerText = value;
-  task.addEventListener('click', backgroundSelected);
-  task.addEventListener('dblclick', completedTask);
+  task.addEventListener('click', selectTask);
+  task.addEventListener('dblclick', completeTask);
 
   return task;
 }
 
-// https://www.horadecodar.com.br/2020/07/21/como-salvar-um-objeto-na-localstorage/
-function getStoredList() {
-  for (let key = 1; key <= store.length; key += 1) {
-    const storedTask = JSON.parse(store[key]);
-    const task = getTask(storedTask.textContent);
+function setStore() {
+  const tasks = list.childNodes;
+  const storedToDo = [];
+  if (!tasks.length) {
+    return alert('Sua lista de tarefas está vázia!');
+  }
 
-    task.className = storedTask.class;
-    list.appendChild(task);
+  tasks.forEach((task) => {
+    const taskObj = {};
+    if (task.classList.contains('selected')) {
+      task.classList.remove('selected');
+    }
+
+    taskObj.textContent = task.textContent;
+    taskObj.class = task.className;
+    storedToDo.push(`${JSON.stringify(taskObj)}`);
+  });
+  store.setItem('storedToDo', storedToDo.join('|'));
+  setTimeout(() => alert('Lista salva com sucesso'), 500);
+}
+
+function getStore() {
+  const isTrue = store.getItem('storedToDo');
+  const storedToDo = isTrue ? store.getItem('storedToDo').split('|') : [];
+
+  if (storedToDo.length) {
+    storedToDo.forEach((toDo) => {
+      const { textContent, class: className } = JSON.parse(toDo);
+      const task = createTask(textContent, className);
+
+      list.appendChild(task);
+    });
   }
 }
 
 function addTask() {
-  const inputValue = document.querySelector('#texto-tarefa').value;
-  const task = getTask(inputValue);
-
-  list.appendChild(task);
-
-  deleteButton.classList.remove('disabled');
-  deleteButton.disabled = false;
-
+  list.appendChild(createTask(input.value));
   clearInput();
+}
+
+function deleteAll() {
+  list.innerText = '';
+}
+
+function removeCompleted() {
+  const completed = document.querySelectorAll('.completed');
+
+  completed.forEach((task) => task.remove());
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/before
+function moveUp() {
+  const selected = document.querySelector('.selected');
+  const upSibling = selected ? selected.previousElementSibling : null;
+  const arrayList = list.childNodes;
+
+  arrayList.forEach((task) => {
+    if (task === upSibling) {
+      task.before(selected);
+    }
+  });
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
+function moveDown() {
+  const selected = document.querySelector('.selected');
+  const downSibling = selected ? selected.nextElementSibling : null;
+  const arrayList = list.childNodes;
+
+  arrayList.forEach((task) => {
+    if (task === downSibling) {
+      task.after(selected);
+    }
+  });
 }
 
 function getEvents() {
   addButton.addEventListener('click', addTask);
   deleteButton.addEventListener('click', deleteAll);
   removeButton.addEventListener('click', removeCompleted);
-  saveButton.addEventListener('click', setList);
+  saveButton.addEventListener('click', setStore);
+  upButton.addEventListener('click', moveUp);
+  downButton.addEventListener('click', moveDown);
 }
 
 window.onload = () => {
   getEvents();
-  getStoredList();
+  getStore();
 };
