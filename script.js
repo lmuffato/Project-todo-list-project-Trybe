@@ -81,7 +81,7 @@ function accessChangeBGColor () {
   })
 }
 accessChangeBGColor();
-
+// ajuda do aluno Tryber Tiago Santos - Turma 10
 function dbclickFunction() {
   const getLiSelected = document.querySelector('#lista-tarefas');
     getLiSelected.addEventListener('dblclick', (eventLiN) => {
@@ -130,3 +130,26 @@ function removeFinalized() {
     }
   });
 }
+
+function buttonSave() {
+  const buttonMainSec = document.querySelector('#btn');
+  const createButtonSave = document.createElement('button');
+  createButtonSave.innerHTML = 'Salvar Tarefa';
+  createButtonSave.id = 'salvar-tarefas';
+  buttonMainSec.appendChild(createButtonSave);
+}
+buttonSave();
+
+function saveTask() {
+  const buttonSaveMain = document.querySelectorAll('#salvar-tarefas');
+  buttonSaveMain.addEventListener('click', function () {
+    const selectedTask = document.querySelectorAll('li');
+    for (let i = 0; i < selectedTask.length; i += 1) {
+      if (selectedTask[i].id === 'selected-list') {
+        localStorage.setItem('storaged', selectedTask);
+        localStorage.getItem('storaged');
+      }
+    }
+  })
+}
+saveTask();
