@@ -15,7 +15,6 @@ const addTask = () => {
   });
 };
 
-updateLocalStorage();
 addTask();
 
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
@@ -76,3 +75,17 @@ const eraseCompleted = () => {
 };
 
 finalizados.addEventListener('click', eraseCompleted);
+
+/* 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava */
+const save = document.querySelector('#salvar-tarefas');
+save.addEventListener('click', updateLocalStorage);
+
+const list = () => {
+  orderedList.innerHTML = localStorage.getItem('lists');
+};
+
+console.log(localStorage.getItem('lists'));
+
+window.onload = function init() {
+  list();
+};
