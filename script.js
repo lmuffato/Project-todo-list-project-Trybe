@@ -20,10 +20,10 @@ addTask();
 
 /* 7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza rgb(128,128,128) */
 /* 8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo */
-const list = document.querySelector('#lista-tarefas');
 
 function selectTask() {
-  list.addEventListener('click', function (event) {
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('click', (event) => {
     event.target.classList.add('selected');
     const lines = document.querySelectorAll('li');
     for (let index = 0; index < lines.length; index += 1) {
@@ -54,3 +54,25 @@ function eraseList() {
 }
 
 Erase.addEventListener('click', eraseList);
+
+/* 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove somente os elementos finalizados da sua lista */
+const completedRemove = (completed) => {
+  for (let index = 0; index < completed.length; index += 1) {
+    if (completed[index].classList.contains('completed')) {
+      completed[index].remove();
+    }
+  }
+};
+
+const finalizados = document.querySelector('#remover-finalizados');
+const eraseCompleted = () => {
+  const list = document.getElementsByTagName('li');
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('completed')) {
+      completedRemove(completed);
+    }
+  }
+};
+
+finalizados.addEventListener('click', eraseCompleted);
